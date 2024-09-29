@@ -80,47 +80,81 @@
 
                 <div class="promotion row container col-sm-12">
                     <div class="col-sm-6 col-md-3 mb-3">
-                        <div class="card">
+                        <div class="card" style="background-color: #ffc09f">
                             <div class="card-body text-center">
                                 <i class="bi bi-building fs-1 text-primary"></i> <!-- Bootstrap icon for company -->
                                 <h5 class="card-title mt-2">Hiring Company</h5>
-                                <p class="card-text">Over 500 companies actively seeking talented professionals.</p>
+                                <p class="card-text">Over <strong>500 reputable companies</strong> actively seeking talented professionals.</p>
                             </div>
                         </div>
                     </div>
                 
                     <div class="col-sm-6 col-md-3 mb-3">
                         <div class="card">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center" style="background-color: #adf7b6">
                                 <i class="bi bi-person-lines-fill fs-1 text-info"></i> <!-- Bootstrap icon for applicant -->
                                 <h5 class="card-title mt-2">Applicants Each Year</h5>
-                                <p class="card-text">Join thousands of applicants securing career-defining opportunities annually.</p>
+                                <p class="card-text"><strong>Join thousands of applicants </strong>securing career-defining opportunities annually.</p>
                             </div>
                         </div>
                     </div>
                 
                     <div class="col-sm-6 col-md-3 mb-3">
                         <div class="card">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center" style="background-color: #a0ced9">
                                 <i class="bi bi-people-fill fs-1 text-success"></i> <!-- Bootstrap icon for total applicants -->
                                 <h5 class="card-title mt-2">Total Applicants</h5>
-                                <p class="card-text">Over 10,000 applicants successfully placed in jobs worldwide.</p>
+                                <p class="card-text"><strong>Over 10,000 applicants</strong> successfully placed in jobs worldwide.</p>
                             </div>
                         </div>
                     </div>
                 
                     <div class="col-sm-6 col-md-3 mb-3">
                         <div class="card">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center" style="background-color: #fcf5c7">
                                 <i class="bi bi-person-check-fill fs-1 text-warning"></i> <!-- Bootstrap icon for total users -->
                                 <h5 class="card-title mt-2">Total Users</h5>
-                                <p class="card-text">More than 50,000 users are benefiting from our career services.</p>
+                                <p class="card-text">More than <strong>50,000 users</strong> are benefiting from our career services.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
+        </section>
+
+        <section class="landingPage-2" id="landingPage-2">
+            <div class="container">
+                <div class="row">
+                    <div class="landing-company-container col-md-12 mt-5">
+                        <h3 class="display-5">Most Popular <span>Company</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">Choose from hundreds of reputable companies that seeking for talents.</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-expand-lg ">
+                <div class="company-container container bg-white shadow-sm mb-3">
+                    <ul class="navbar-company navbar-nav">
+                      <li class="navbar-company ">
+                        <a class="nav-link" href="#">Technology and Information</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Healthcare and Medicine</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Finance and Accounting</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Education and Training</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Manufacturing and Construction</a>
+                      </li>
+                    </ul>
+                  </div>
+
+
+              </nav>
         </section>
     </main>
 

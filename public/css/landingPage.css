@@ -73,6 +73,10 @@ body {
     text-align: justify;
 }
 
+.landingPage-btn a {
+    text-decoration: none;
+    font-weight: 500;
+}
 .offer ul {
     display: flex;
     justify-content: space-evenly;
@@ -111,3 +115,33 @@ body {
 }
 
 /* End of Landing Page 1 */
+
+/* Start of Landing Page 2 */
+
+.landingPage2 {
+    background-color: #184e84;
+}
+
+.landing-company-container {
+    /* align-items: center; */
+    padding-top: 50px;
+    text-align: center;
+}
+
+.landing-company-container h3 {
+    font-size: 3.2rem;
+    font-weight: bolder;
+    color: #682b90;
+}
+
+.landing-company-container h3 span {
+    color: #7869cd;
+}
+
+.landing-company-container p {
+    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+}
+
+/* End of Landing Page 2 */
