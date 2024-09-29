@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* START OF NAVBAR CSS */
+.logo-right {
+    color: darkblue;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
+    gap: 40px;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.btn {
+    color: black;
+    font-weight: 500;
+}
+
+.img {
+    width: 15%;
+    height: 15%;
+}
+
+/* END OF NAVBAR CSS */
+
+/* Landing Page Styles */
+.landingPage-1 {
+    background-image: url("../assets/HomePage.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.landing-about-container {
+    padding-top: 120px;
+}
+
+.landing-about-container h3 {
+    font-size: 3.2rem;
+    font-weight: bolder;
+    color: #682b90;
+}
+
+.landing-about-container h3 span {
+    color: #7869cd;
+}
+
+.landing-about-container p {
+    font-size: 1.2rem;
+    color: black;
+    text-align: justify;
+}
+
+.offer ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding-left: 20px; /* Indentation for the list */
+}
+
+.offer li {
+    font-size: 1.1rem;
+    color: black; /* Or any color that fits your theme */
+}
