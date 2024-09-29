@@ -67,7 +67,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-3">
+                        <div class="landingPage-btn mt-3">
                             <a href="#Companies" class="btn btn-outline-primary btn-lg mt-3">Popular Company</a>
                             <a href="#Jobs" class="btn btn-outline-dark btn-lg ms-2 mt-3">Popular Job Vacancy</a>    
                         </div>
