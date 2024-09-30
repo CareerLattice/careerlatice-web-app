@@ -153,6 +153,9 @@ body {
     text-align: center;
 }
 
+.navbar-company .nav-link.active {
+    color: blue;
+}
 .company-container {
     border-radius: 13px;
 }

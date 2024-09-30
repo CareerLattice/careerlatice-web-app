@@ -22,26 +22,27 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (e) {
             e.preventDefault();
 
+            filterLinks.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            link.classList.add("active");
+
             const category = link.textContent.trim();
             console.log(`Filtering for category: ${category}`);
 
-            if (category === "Show All Popular Company") {
-                // Show all cards if "Show All Popular Company" is clicked
-                cards.forEach((card) => {
-                    card.style.display = "block";
-                });
-            } else {
-                // Filter based on category
-                cards.forEach((card) => {
-                    const cardCategory = card.getAttribute("data-category");
+            cards.forEach((card) => {
+                const cardCategory = card.getAttribute("data-category");
 
-                    if (category === cardCategory) {
-                        card.style.display = "block"; // Show matching cards
-                    } else {
-                        card.style.display = "none"; // Hide non-matching cards
-                    }
-                });
-            }
+                if (
+                    category === cardCategory ||
+                    category === "Show All Popular Company"
+                ) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         });
     });
 });
