@@ -9,6 +9,15 @@ body {
     background-color: #f8f9fa;
 }
 
+.hidden {
+    opacity: 0;
+    transition: all 1.5s;
+}
+.show {
+    opacity: 1;
+    transition: all 1.5s;
+}
+
 /* START OF NAVBAR CSS */
 .logo-right {
     color: darkblue;
@@ -118,8 +127,8 @@ body {
 
 /* Start of Landing Page 2 */
 
-.landingPage2 {
-    background-color: #184e84;
+.landingPage-2 {
+    background-color: #c0dcf7;
 }
 
 .landing-company-container {
@@ -144,4 +153,37 @@ body {
     text-align: center;
 }
 
+.company-container {
+    border-radius: 13px;
+}
+
+.popular-company-card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.popular-company {
+    display: block;
+}
+
+.popular-company-card {
+    width: 18rem;
+    height: 26rem;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.popular-company {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 15px;
+}
+
+.card-body a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* End of Landing Page 2 */
