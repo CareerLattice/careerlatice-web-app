@@ -260,6 +260,8 @@
                         <a href="#" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
+                {{-- Start of Healthcare and Hospitality --}}
+
             </div>
         </section>
 
@@ -275,9 +277,8 @@
                 </div>
             </div>
 
-
-              <div class="popular-company container hidden">
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+              <div class="job-vacancy container hidden">
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Software Developer</h5>
@@ -288,7 +289,7 @@
                     </div>
                 </div>
                 
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Data Analyst</h5>
@@ -299,7 +300,7 @@
                     </div>
                 </div>
 
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Software Engineer</h5>
@@ -310,7 +311,7 @@
                     </div>
                 </div>
 
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Web Developer</h5>
