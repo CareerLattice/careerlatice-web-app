@@ -187,3 +187,34 @@ body {
     align-items: center;
 }
 /* End of Landing Page 2 */
+
+
+
+/* Start of Landing Page 3 */
+
+.landingPage-3 {
+    background-color: #f8f9fa;
+}
+
+.landing-vacancy-container {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.landing-vacancy-container h3 {
+    font-size: 3.2rem;
+    font-weight: bolder;
+    color: #682b90;
+}
+
+.landing-vacancy-container h3 span {
+    color: #7869cd;
+}
+
+.landing-vacancy-container p {
+    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+}
+
+/* End of Landing Page 3 */
