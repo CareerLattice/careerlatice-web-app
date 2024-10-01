@@ -262,6 +262,75 @@
                 </div>
             </div>
         </section>
+
+
+        {{-- Start of Section Popular Job Vacancy --}}
+        <section class="landingPage-3 hidden" id="landingPage-3">
+            <div class="container hidden">
+                <div class="row">
+                    <div class="landing-vacancy-container col-md-12 mt-2 hidden">
+                        <h3 class="display-5">Popular <span>Job Vacancy</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">Here are some of the most popular job vacancies applied for</p>
+                    </div>
+                </div>
+            </div>
+
+
+              <div class="popular-company container hidden">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Developer</h5>
+                        <p class="card-subtitle text-muted">Binus University</p>
+                        <p class="card-text mt-1 mb-0">Location</p>
+                        <p class="card-text mt-1">Total Applicant</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+                
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Analyst</h5>
+                        <p class="card-subtitle text-muted">Company Name</p>
+                        <p class="card-text mt-1 mb-0">Location</p>
+                        <p class="card-text mt-1">Total Applicant</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Engineer</h5>
+                        <p class="card-subtitle text-muted">Company Name</p>
+                        <p class="card-text mt-1 mb-0">Location</p>
+                        <p class="card-text mt-1">Total Applicant</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Web Developer</h5>
+                        <p class="card-subtitle text-muted">Company Name</p>
+                        <p class="card-text mt-1 mb-0">Location</p>
+                        <p class="card-text mt-1">Total Applicant</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+
+          
+                </div>
+                {{-- End of Popular Job Vacancy --}}
+
+               
+ 
+            </div>
+        </section>
+
+
     </main>
 
     {{-- Bootstrap 5 --}}
