@@ -13,7 +13,6 @@ hiddenElements.forEach((element) => {
     observer.observe(element);
 });
 
-//
 document.addEventListener("DOMContentLoaded", function () {
     const filterLinks = document.querySelectorAll(".navbar-company .nav-link");
     const cards = document.querySelectorAll(".popular-company .card");

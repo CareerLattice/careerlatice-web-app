@@ -22,8 +22,8 @@
             <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="Home">Home</a>
-                    </li>
+                        <a class="nav-link" aria-current="page" href="{{ route('home') }}" id="Home">Home</a>
+                    </li>                                     
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#" id="Job">Find a Job</a>
                     </li>
@@ -479,7 +479,7 @@
                 <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class=" mb-4 font-weight-bold">Services</h5>
                     <p>
-                        <a href="#Home" class="text-dark" style="text-decoration: none">Home</a>
+                        <a href="{{ route('home') }}" class="text-dark" style="text-decoration: none">Home</a>
                     </p>
                     <p>
                         <a href="#Job" class="text-dark" style="text-decoration: none">Find a Job</a>
@@ -528,7 +528,7 @@
 
             <div class="footer-bottom-container row align-items-center hidden">
                 <div class="rights col-md-7 col-lg-8">
-                    <p class="text-center"> ©2024 All Rights Reserved
+                    <p class="text-center"> <strong>©2024 All Rights Reserved</strong>
                     <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Latice</span>
                     </a>
                 </p>
@@ -574,20 +574,11 @@
 
 <!-- FontAwesome Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-<!-- Bootstrap JS (CDN) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-    
-    
-
-    {{-- Bootstrap 5 --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    {{-- End of Bootstrap 5 --}}
-    <script src="{{ asset('js/script.js') }}"></script>
-</body>
+{{-- Start of Bootstrap 5 --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+{{-- End of Bootstrap 5 --}}
+<script src="{{ asset('js/script.js') }}"></script>
+</body>                 
 </html>
