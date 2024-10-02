@@ -367,7 +367,7 @@
         </section>
             
         <section class="landingPage-4 hidden">
-            <div class="container">
+            <div class="container hidden">
                 <div class="row">
                     <div class="landing-about-container col-md-12 mt-2 text-center">
                         <h3 class="display-5">Hear From Our Users <span>About Their Experience</span></h3>
@@ -375,9 +375,9 @@
                     </div>
                 </div>
         
-                <div class="testimonial-container row">
+                <div class="testimonial-container row hidden">
                     <!-- Testimonial 1 -->
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -391,7 +391,7 @@
                         </div>
                     </div>
                     <!-- Testimonial 2 -->
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -405,7 +405,7 @@
                         </div>
                     </div>
                     <!-- Testimonial 3 -->
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -419,7 +419,7 @@
                         </div>
                     </div>
                     <!-- Additional Testimonials -->
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -432,7 +432,7 @@
                             <h5 class="testimonial-author">— Mark Thompson</h5>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -445,7 +445,7 @@
                             <h5 class="testimonial-author">— Sarah Brown</h5>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
