@@ -334,6 +334,74 @@
 
     </main>
 
+    {{-- Start of Footer --}}
+
+    <footer class="bg-white shadow-sm pt-5 pb-4">
+       <div class="container">
+            <div class="row">
+                <div class="col col-lg-4">
+                    <h1>CareerLattice</h1>
+                    <p>Social Media</p>
+                    <div>
+                        <a href="#"><i class="bi bi-instagram fs-2 me-3 text-secondary"></i></a>
+                        <a href="#"><i class="bi bi-facebook fs-2 me-3 text-primary"></i></a>
+                        <a href="#"><i class="bi bi-twitter fs-2 me-3 text-primary"></i></a>
+                        <a href="#"><i class="bi bi-whatsapp fs-2 me-3 text-success"></i></a>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                   <h5>Community</h5>
+                   <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                    </ul>
+                </div>
+                <div class="col col-lg-2">
+                    <h5>Event</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+       </div>
+    </footer>
+
+    
+    
+
+
+
+
+    {{-- End of Footer --}}
+
+<!-- FontAwesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    
+    
+
     {{-- Bootstrap 5 --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
