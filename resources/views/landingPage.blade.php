@@ -351,8 +351,17 @@
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
-                
                 {{-- End of Popular Job Vacancy --}}
+            </div>
+            <div class="promotion-job-container container hidden">
+                <div class="row">
+                    <div class="landing-job-bottom-container col-md-12 mt-2 hidden">
+                        <h3 class="display-5">Discover Exciting Job Vacancies!</h3>
+                        <p class="my-4 lead mt-3 ms-1">Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you're aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.
+
+                        </p>    
+                    </div>
+                </div>
             </div>
         </section>
             

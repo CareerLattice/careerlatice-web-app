@@ -359,6 +359,37 @@ body {
     text-align: left;
     color: grey;
 }
+
+.promotion-job-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+.landing-job-bottom-container h3 {
+    font-size: 2rem;
+    text-align: left;
+    color: #008080;
+    font-weight: bold;
+}
+
+.landing-job-bottom-container p {
+    font-size: 1rem;
+    text-align: justify;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.landing-job-bottom-container {
+    background-color: #e0f7fa;
+    padding-top: 50px;
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
 /* End of Landing Page 3 */
 
 /* Start of Landing Page 4 */
