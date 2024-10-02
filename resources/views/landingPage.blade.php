@@ -126,8 +126,8 @@
         <section class="landingPage-2 hidden" id="landingPage-2">
             <div class="container hidden">
                 <div class="row">
-                    <div class="landing-company-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Unleash Your Potential with <span>Leading Companies!</span></h3>
+                    <div class="landing-about-container col-md-12 mt-2 hidden">
+                        <h3 class="display-5">Unleash Your Potential with <span>Leading Companies🚀!</span></h3>
                         <p class="my-4 lead mt-3 ms-1">💼 Connect with renowned employers looking for talented individuals ready to make a difference🌍!</p>
                     </div>
                 </div>
@@ -279,8 +279,8 @@
         <section class="landingPage-3 hidden" id="landingPage-3">
             <div class="container hidden">
                 <div class="row">
-                    <div class="landing-vacancy-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Explore Exciting <span>Job Vacancies</span></h3>
+                    <div class="landing-about-container col-md-12 mt-2 hidden">
+                        <h3 class="display-5">Explore Exciting <span>Job Vacancies💼</span></h3>
                         <p class="my-4 lead mt-3 ms-1">🌈 Here are the leading roles attracting enthusiastic applications from job seekers🚀!</p>
                     </div>
                 </div>

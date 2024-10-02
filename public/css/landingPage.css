@@ -136,22 +136,6 @@ body {
     text-align: center;
 }
 
-.landing-company-container h3 {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: #682b90;
-}
-
-.landing-company-container h3 span {
-    color: #7869cd;
-}
-
-.landing-company-container p {
-    font-size: 1rem;
-    color: black;
-    text-align: center;
-}
-
 .navbar-company-container {
     background-color: #fff;
     border-radius: 10px;
@@ -276,22 +260,6 @@ body {
 
 .landing-vacancy-container {
     padding-top: 50px;
-    text-align: center;
-}
-
-.landing-vacancy-container h3 {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: #682b90;
-}
-
-.landing-vacancy-container h3 span {
-    color: #7869cd;
-}
-
-.landing-vacancy-container p {
-    font-size: 1rem;
-    color: black;
     text-align: center;
 }
 
