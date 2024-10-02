@@ -22,16 +22,16 @@
             <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="#" id="Home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Find a Job</a>
+                        <a class="nav-link" aria-current="page" href="#" id="Job">Find a Job</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Company</a>
+                        <a class="nav-link" aria-current="page" href="#" id="Company">Company</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Contact</a>
+                        <a class="nav-link" aria-current="page" href="#" id="Contact">Contact</a>
                     </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
@@ -68,8 +68,8 @@
                         </div>
 
                         <div class="landingPage-btn mt-3 hidden">
-                            <a href="#Companies" class="btn btn-outline-primary btn-lg mt-3">Popular Company</a>
-                            <a href="#Jobs" class="btn btn-outline-dark btn-lg ms-2 mt-3">Popular Job Vacancy</a>    
+                            <a href="#Companies" class="btn btn-outline-primary btn-lg mt-3">Popular Companies</a>
+                            <a href="#Jobs" class="btn btn-outline-dark btn-lg ms-2 mt-3">Popular Job Vacancies</a>    
                         </div>
                         
                     </div>
@@ -127,12 +127,12 @@
                 <div class="row">
                     <div class="landing-company-container col-md-12 mt-2 hidden">
                         <h3 class="display-5">Most Popular <span>Company</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">Choose from hundreds of reputable companies that seeking for talents.</p>
+                        <p class="my-4 lead mt-3 ms-1">🔥Choose from hundreds of reputable companies that seeking for talents🔥</p>
                     </div>
                 </div>
             </div>
 
-            <nav class="navbar navbar-expand-lg hidden">
+            <nav class="navbar-company-container navbar navbar-expand-lg hidden ">
                 <div class="company-container container bg-white shadow-sm mb-3 hidden">
                     <ul class="navbar-company navbar-nav hidden">
                       <li class="navbar-company ">
@@ -261,7 +261,15 @@
                     </div>
                 </div>
                 {{-- Start of Healthcare and Hospitality --}}
-                
+            </div>
+            
+            <div class="promotion-company-container container hidden">
+                <div class="row">
+                    <div class="landing-company-bottom-container col-md-12 mt-2 hidden">
+                        <h3 class="display-5">Seize Your Opportunity to Get Hired!</h3>
+                        <p class="my-4 lead mt-3 ms-1">Join the ranks of top talents by applying to leading companies today! Whether you're looking to advance your career or start a new journey, countless opportunities await. Don't let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals</p>    
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -280,114 +288,185 @@
               <div class="job-vacancy container hidden">
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Software Developer</h5>
-                        <p class="card-subtitle text-muted">Binus University</p>
-                        <p class="card-text mt-1 mb-0">Location</p>
-                        <p class="card-text mt-1">Total Applicant</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">DevOps Engineer</h5>
+                        <p class="card-subtitle text-muted">Innovate Tech</p>
+                        <p class="card-text mt-1 mb-0">Bali, Indonesia</p>
+                        <p class="card-text mt-1">100+ Applicants</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>                
                     </div>
                 </div>
                 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Data Analyst</h5>
-                        <p class="card-subtitle text-muted">Company Name</p>
-                        <p class="card-text mt-1 mb-0">Location</p>
-                        <p class="card-text mt-1">Total Applicant</p>
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">UI/UX Designer</h5>
+                        <p class="card-subtitle text-muted">Creative Studio</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
+                        <p class="card-text mt-1">200+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Software Engineer</h5>
-                        <p class="card-subtitle text-muted">Company Name</p>
-                        <p class="card-text mt-1 mb-0">Location</p>
-                        <p class="card-text mt-1">Total Applicant</p>
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">Project Manager</h5>
+                        <p class="card-subtitle text-muted">Tech Solutions Inc.</p>
+                        <p class="card-text mt-1 mb-0">Surabaya, Indonesia</p>
+                        <p class="card-text mt-1">300+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Web Developer</h5>
-                        <p class="card-subtitle text-muted">Company Name</p>
-                        <p class="card-text mt-1 mb-0">Location</p>
-                        <p class="card-text mt-1">Total Applicant</p>
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">Mobile App Developer</h5>
+                        <p class="card-subtitle text-muted">FinTech Co.</p>
+                        <p class="card-text mt-1 mb-0">Bandung, Indonesia</p>
+                        <p class="card-text mt-1">150+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
 
-          
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">System Administrator</h5>
+                        <p class="card-subtitle text-muted">Global Enterprises</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
+                        <p class="card-text mt-1">50+ Applicants</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
                 </div>
+
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">Tech Intern</h5>
+                        <p class="card-subtitle text-muted">Tokopedia</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
+                        <p class="card-text mt-1">500+ Applicants</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+                
                 {{-- End of Popular Job Vacancy --}}
-
-               
- 
             </div>
         </section>
 
+        <section>
+
+        </section>
 
     </main>
 
     {{-- Start of Footer --}}
+    <footer class="pt-5 pb-4 hidden">
+        <div class="container text-center text-md-left hidden">
 
-    <footer class="bg-white shadow-sm pt-5 pb-4">
-       <div class="container">
-            <div class="row">
-                <div class="col col-lg-4">
-                    <h1>CareerLattice</h1>
-                    <p>Social Media</p>
-                    <div>
-                        <a href="#"><i class="bi bi-instagram fs-2 me-3 text-secondary"></i></a>
-                        <a href="#"><i class="bi bi-facebook fs-2 me-3 text-primary"></i></a>
-                        <a href="#"><i class="bi bi-twitter fs-2 me-3 text-primary"></i></a>
-                        <a href="#"><i class="bi bi-whatsapp fs-2 me-3 text-success"></i></a>
-                    </div>
-                    <hr>
+            <div class="footer-container row text-center text-md-left hidden">
+
+                <div class="footer-left-container col md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Latice</span></h5>
+                    <p>Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
+
                 </div>
-                <div class="col">
-                    <h5>Company</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                    </ul>
+
+                <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class=" mb-4 font-weight-bold">Services</h5>
+                    <p>
+                        <a href="#Home" class="text-dark" style="text-decoration: none">Home</a>
+                    </p>
+                    <p>
+                        <a href="#Job" class="text-dark" style="text-decoration: none">Find a Job</a>
+                    </p>
+                    <p>
+                        <a href="#Company" class="text-dark" style="text-decoration: none">Company</a>
+                    </p>
+                    <p>
+                        <a href="#Contact" class="text-dark" style="text-decoration: none">Contact</a>
+                    </p>
                 </div>
-                <div class="col">
-                   <h5>Community</h5>
-                   <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                    </ul>
+
+                <div class="footer-right-container col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="mb-4 font-weight-bold">Useful Links</h5>
+                    <p>
+                        <a href="#!" class="text-dark" style="text-decoration: none">Privacy Policy</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-dark" style="text-decoration: none">Terms of Service</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-dark" style="text-decoration: none">Site Map</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-dark" style="text-decoration: none">Settings</a>
+                    </p>
                 </div>
-                <div class="col col-lg-2">
-                    <h5>Event</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">blog</a></li>
-                    </ul>
+
+                <div class="footer-right-container col-md-4 col-xl-3 mx-auto mt-3">
+                    <h5 class="mb-4 font-weight-bold">Contact</h5>
+                    <p>
+                        <i class="bi bi-house-door-fill me-3"></i>Jakarta, Indonesia</p>
+                    <p>
+                        <i class="bi bi-envelope-fill me-3"></i>careerlatice@gmail.com
+                    </p>
+                    <p>
+                        <i class="bi bi-telephone-fill me-3"></i>+62 08942012049
+                    </p>
+                    <p>
+                        <i class="bi bi-calendar-fill me-3"></i>Since 10/03/2024
+                    </p>
                 </div>
             </div>
 
+            <hr class="mb-4">
 
-       </div>
+            <div class="footer-bottom-container row align-items-center hidden">
+                <div class="rights col-md-7 col-lg-8">
+                    <p class="text-center"> ©2024 All Rights Reserved
+                    <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Latice</span>
+                    </a>
+                </p>
+                </div>
+
+                <div class="col-md-5 col-lg-2">
+                    <div class="text-center">
+                        <ul class="ul-container list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="" class="btn-floating btn-sm text-dark">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="" class="btn-floating btn-sm text-dark">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="" class="btn-floating btn-sm text-dark">
+                                    <i class="bi bi-google"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="" class="btn-floating btn-sm text-dark">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="" class="btn-floating btn-sm text-dark">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </li>
+                        </p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-
-    
-    
-
-
-
 
     {{-- End of Footer --}}
 
