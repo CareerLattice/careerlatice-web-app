@@ -355,10 +355,103 @@
                 {{-- End of Popular Job Vacancy --}}
             </div>
         </section>
-
-        <section>
-
+            
+        <section class="landingPage-4 hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="landing-about-container col-md-12 mt-2 text-center">
+                        <h3 class="display-5">Hear From Our Users <span>About Their Experience</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">💬 We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!</p>
+                    </div>
+                </div>
+        
+                <div class="testimonial-container row">
+                    <!-- Testimonial 1 -->
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"This platform has transformed my job search experience! I found my dream job within weeks!"</p>
+                            <h5 class="testimonial-author">— Jane Doe</h5>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <p class="testimonial-text">"Incredible service and great support! Highly recommend to anyone looking for opportunities."</p>
+                            <h5 class="testimonial-author">— John Smith</h5>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"A user-friendly interface and a wide range of job listings. I couldn’t be happier!"</p>
+                            <h5 class="testimonial-author">— Emily Johnson</h5>
+                        </div>
+                    </div>
+                    <!-- Additional Testimonials -->
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"The best job portal I've used. Very intuitive and efficient!"</p>
+                            <h5 class="testimonial-author">— Mark Thompson</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <p class="testimonial-text">"Great opportunities and a smooth application process!"</p>
+                            <h5 class="testimonial-author">— Sarah Brown</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <p class="testimonial-text">"I love the personalized job recommendations! They really understand my needs."</p>
+                            <h5 class="testimonial-author">— Alice Davis</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        
 
     </main>
 
