@@ -126,8 +126,8 @@
             <div class="container hidden">
                 <div class="row">
                     <div class="landing-company-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Most Popular <span>Company</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">🔥Choose from hundreds of reputable companies that seeking for talents🔥</p>
+                        <h3 class="display-5">Unleash Your Potential with <span>Leading Companies!</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">💼 Connect with renowned employers looking for talented individuals ready to make a difference🌍!</p>
                     </div>
                 </div>
             </div>
@@ -279,29 +279,29 @@
             <div class="container hidden">
                 <div class="row">
                     <div class="landing-vacancy-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Popular <span>Job Vacancy</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">Here are some of the most popular job vacancies applied for</p>
+                        <h3 class="display-5">Explore Exciting <span>Job Vacancies</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">🌈 Here are the leading roles attracting enthusiastic applications from job seekers🚀!</p>
                     </div>
                 </div>
             </div>
 
               <div class="job-vacancy container hidden">
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">DevOps Engineer</h5>
-                        <p class="card-subtitle text-muted">Innovate Tech</p>
-                        <p class="card-text mt-1 mb-0">Bali, Indonesia</p>
+                        <p class="card-subtitle text-muted">Bank Central Asia</p>
+                        <p class="card-text mt-1 mb-0">Bandung, Indonesia</p>
                         <p class="card-text mt-1">100+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>                
                     </div>
                 </div>
                 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">UI/UX Designer</h5>
-                        <p class="card-subtitle text-muted">Creative Studio</p>
+                        <p class="card-subtitle text-muted">Grab</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">200+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
@@ -309,32 +309,32 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Project Manager</h5>
-                        <p class="card-subtitle text-muted">Tech Solutions Inc.</p>
-                        <p class="card-text mt-1 mb-0">Surabaya, Indonesia</p>
+                        <p class="card-subtitle text-muted">Deloitte.</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">300+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Mobile App Developer</h5>
-                        <p class="card-subtitle text-muted">FinTech Co.</p>
-                        <p class="card-text mt-1 mb-0">Bandung, Indonesia</p>
+                        <p class="card-subtitle text-muted">Shopee</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">150+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">System Administrator</h5>
-                        <p class="card-subtitle text-muted">Global Enterprises</p>
+                        <p class="card-subtitle text-muted">PwC</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">50+ Applicants</p>
                         <a href="#" class="btn btn-outline-primary">More Information</a>
@@ -342,7 +342,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{asset('/assets/BlackPlaceHolder.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Tech Intern</h5>
                         <p class="card-subtitle text-muted">Tokopedia</p>
