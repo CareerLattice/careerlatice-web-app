@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Work Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 body {
@@ -63,12 +65,14 @@ body {
     padding-left: 60px;
 }
 .landing-about-container {
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 .landing-about-container h3 {
     font-size: 3.2rem;
-    font-weight: bolder;
+    text-transform: uppercase;
+    font-weight: 700;
+    /* font-weight: bolder; */
     color: #682b90;
 }
 
@@ -384,13 +388,14 @@ body {
 
 .testimonial-text {
     font-size: 1rem;
-    color: #333;
+    text-align: center;
+    color: #fff;
     margin-bottom: 15px;
 }
 
 .testimonial-author {
-    font-size: 0.9rem;
-    color: #555;
+    font-size: 1rem;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -408,6 +413,11 @@ body {
 .star.filled {
     color: #ffd700;
 }
+
+.testimonial-card {
+    background-image: linear-gradient(to right, #682b90, #7869cd);
+}
+
 /* End of Landing Page 4 */
 
 /* Start of Footer */

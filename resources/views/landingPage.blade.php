@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CareerLatice</title>
+    <title>CareerLattice</title>
 
     {{-- Bootstrap 5 --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="icon" href="{{asset('assets/logo.png')}}">
     {{-- End of Bootstrap 5 --}}
+    
+    {{-- Google Fonts --}}
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    {{-- End of Google Fonts --}}
 </head>
 <body>
     {{-- Start of Navbar --}}
@@ -149,7 +153,7 @@
                         <a class="nav-link" href="#">Healthcare and Hospitality</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Show All Popular Company</a>
+                        <a class="nav-link active" href="#">Show All Popular Company</a>
                       </li>
                     </ul>
                   </div>
@@ -197,6 +201,15 @@
                     <img src="{{asset('/assets/blibli.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Blibli</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                    </div>
+                </div>
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                    <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gojek</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-outline-primary">Visit Company</a>
                     </div>
@@ -352,6 +365,29 @@
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
+
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">Software Engineer Intern</h5>
+                        <p class="card-subtitle text-muted">Gojek</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
+                        <p class="card-text mt-1">300+ Applicants</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+                
+                <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
+                    <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
+                    <div class="popular-job-card-container card-body">
+                        <h5 class="card-title">Data Analyst Intern</h5>
+                        <p class="card-subtitle text-muted">Bukalapak</p>
+                        <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
+                        <p class="card-text mt-1">150+ Applicants</p>
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                    </div>
+                </div>
+                
                 {{-- End of Popular Job Vacancy --}}
             </div>
             <div class="promotion-job-container container hidden">
@@ -359,7 +395,6 @@
                     <div class="landing-job-bottom-container col-md-12 mt-2 hidden">
                         <h3 class="display-5">Discover Exciting Job Vacancies!</h3>
                         <p class="my-4 lead mt-3 ms-1">Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you're aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.
-
                         </p>    
                     </div>
                 </div>
@@ -371,13 +406,13 @@
                 <div class="row">
                     <div class="landing-about-container col-md-12 mt-2 text-center">
                         <h3 class="display-5">Hear From Our Users <span>About Their Experience</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">💬 We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!</p>
+                        <p class="my-4 lead mt-3 ms-1 text-center">💬 We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!</p>
                     </div>
                 </div>
         
                 <div class="testimonial-container row hidden">
                     <!-- Testimonial 1 -->
-                    <div class="col-md-4 hidden">
+                    <div class="col-md-3 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -391,7 +426,7 @@
                         </div>
                     </div>
                     <!-- Testimonial 2 -->
-                    <div class="col-md-4 hidden">
+                    <div class="col-md-3 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -405,7 +440,7 @@
                         </div>
                     </div>
                     <!-- Testimonial 3 -->
-                    <div class="col-md-4 hidden">
+                    <div class="col-md-3 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -418,8 +453,8 @@
                             <h5 class="testimonial-author">— Emily Johnson</h5>
                         </div>
                     </div>
-                    <!-- Additional Testimonials -->
-                    <div class="col-md-4 hidden">
+                    <!-- Testimonial 4 -->
+                    <div class="col-md-3 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -432,7 +467,8 @@
                             <h5 class="testimonial-author">— Mark Thompson</h5>
                         </div>
                     </div>
-                    <div class="col-md-4 hidden">
+                    <!-- Testimonial 5 -->
+                    <div class="col-md-3 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -445,7 +481,8 @@
                             <h5 class="testimonial-author">— Sarah Brown</h5>
                         </div>
                     </div>
-                    <div class="col-md-4 hidden">
+                    <!-- Testimonial 6 -->
+                    <div class="col-md-3 hidden">
                         <div class="testimonial-card">
                             <div class="rating">
                                 <span class="star filled">★</span>
@@ -458,7 +495,50 @@
                             <h5 class="testimonial-author">— Alice Davis</h5>
                         </div>
                     </div>
+                    <!-- Testimonial 7 -->
+                    <div class="col-md-3 hidden">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"The platform helped me land a great job with ease. Highly efficient!"</p>
+                            <h5 class="testimonial-author">— Daniel Garcia</h5>
+                        </div>
+                    </div>
+                    <!-- Testimonial 8 -->
+                    <div class="col-md-3 hidden">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <p class="testimonial-text">"Amazing experience, from job search to interviews. Everything was smooth!"</p>
+                            <h5 class="testimonial-author">— Michael Lee</h5>
+                        </div>
+                    </div>
+                    <!-- Testimonial 9 -->
+                    <div class="col-md-3 hidden">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"Found my ideal job quickly. Very happy with the service!"</p>
+                            <h5 class="testimonial-author">— Olivia Adams</h5>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </section>
         
@@ -472,7 +552,7 @@
             <div class="footer-container row text-center text-md-left hidden">
 
                 <div class="footer-left-container col md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Latice</span></h5>
+                    <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
                     <p>Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
 
                 </div>
@@ -514,7 +594,7 @@
                     <p>
                         <i class="bi bi-house-door-fill me-3"></i>Jakarta, Indonesia</p>
                     <p>
-                        <i class="bi bi-envelope-fill me-3"></i>careerlatice@gmail.com
+                        <i class="bi bi-envelope-fill me-3"></i>careerlattice@gmail.com
                     </p>
                     <p>
                         <i class="bi bi-telephone-fill me-3"></i>+62 08942012049
@@ -530,7 +610,7 @@
             <div class="footer-bottom-container row align-items-center hidden">
                 <div class="rights col-md-7 col-lg-8">
                     <p class="text-center"> <strong>©2024 All Rights Reserved</strong>
-                    <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Latice</span>
+                    <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Lattice</span>
                     </a>
                 </p>
                 </div>
