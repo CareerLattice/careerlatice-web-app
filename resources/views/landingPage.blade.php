@@ -35,7 +35,9 @@
                     </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-outline-primary">Join Us</button>
+                    <a href="signUp">
+                        <button type="button" class="btn btn-outline-primary">Join Us</button>
+                    </a>
                     <button type="button" class="btn btn-outline-dark">Sign In</button>
                 </div>
             </div>

@@ -1,0 +1,66 @@
+/* START OF NAVBAR CSS */
+.logo-right {
+    color: darkblue;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
+    gap: 40px;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    color: black;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.btn {
+    color: black;
+    font-weight: 500;
+}
+
+.img {
+    width: 15%;
+    height: 15%;
+}
+/* END OF NAVBAR CSS */
+
+
+/* START OF SIGNUP FORM CSS */
+
+.card {
+    border: 1px solid #ddd; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.btn-custom {
+    background-color: #28a745;
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    width: 40%;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #218838;
+}
+
+.btn-custom:focus {
+    outline: none;
+}
+
+/* END OF SIGNUP FORM CSS */
