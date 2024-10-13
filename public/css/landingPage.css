@@ -18,7 +18,7 @@ body {
     transition: all 1.5s;
 }
 
-/* START OF NAVBAR CSS */
+/* START OF NAVBAR CSS  */
 .logo-right {
     color: darkblue;
 }
@@ -63,12 +63,14 @@ body {
     padding-left: 60px;
 }
 .landing-about-container {
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 .landing-about-container h3 {
     font-size: 3.2rem;
-    font-weight: bolder;
+    text-transform: uppercase;
+    font-weight: 700;
+    /* font-weight: bolder; */
     color: #682b90;
 }
 
@@ -123,7 +125,6 @@ body {
     text-align: center;
     font-size: 1.1rem;
 }
-
 /* End of Landing Page 1 */
 
 /* Start of Landing Page 2 */
@@ -133,24 +134,7 @@ body {
 }
 
 .landing-company-container {
-    /* align-items: center; */
     padding-top: 50px;
-    text-align: center;
-}
-
-.landing-company-container h3 {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: #682b90;
-}
-
-.landing-company-container h3 span {
-    color: #7869cd;
-}
-
-.landing-company-container p {
-    font-size: 1rem;
-    color: black;
     text-align: center;
 }
 
@@ -268,7 +252,6 @@ body {
     color: black;
     font-weight: 400;
 }
-
 /* End of Landing Page 2 */
 
 /* Start of Landing Page 3 */
@@ -279,22 +262,6 @@ body {
 
 .landing-vacancy-container {
     padding-top: 50px;
-    text-align: center;
-}
-
-.landing-vacancy-container h3 {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: #682b90;
-}
-
-.landing-vacancy-container h3 span {
-    color: #7869cd;
-}
-
-.landing-vacancy-container p {
-    font-size: 1rem;
-    color: black;
     text-align: center;
 }
 
@@ -319,7 +286,7 @@ body {
 
 .job-vacancy-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Card shadow on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-img-top {
@@ -360,7 +327,96 @@ body {
     color: grey;
 }
 
+.promotion-job-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+.landing-job-bottom-container h3 {
+    font-size: 2rem;
+    text-align: left;
+    color: #008080;
+    font-weight: bold;
+}
+
+.landing-job-bottom-container p {
+    font-size: 1rem;
+    text-align: justify;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.landing-job-bottom-container {
+    background-color: #e0f7fa;
+    padding-top: 50px;
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
 /* End of Landing Page 3 */
+
+/* Start of Landing Page 4 */
+.landingPage-4 {
+    background-color: #c0dcf7;
+    padding: 50px 0;
+}
+
+.testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.testimonial-card {
+    background-image: linear-gradient(to right, #682b90, #7869cd);
+}
+
+/* End of Landing Page 4 */
 
 /* Start of Footer */
 .footer-container h5 {
@@ -376,14 +432,14 @@ body {
 }
 
 .footer-right-container a {
-    color: #000; /* Initial color for links */
-    text-decoration: none; /* No underline initially */
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .footer-right-container a:hover {
-    color: #007bff; /* Change text color on hover */
-    text-decoration: underline; /* Add underline on hover */
+    color: #007bff;
+    text-decoration: underline;
 }
 
 .ul-container i {
@@ -392,20 +448,44 @@ body {
 
 .first {
     color: #682b90;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .second {
     color: #7869cd;
-    font-weight: bold;
+    font-weight: bolder;
 }
 /* End of Footer */
 
 /* Media Queries */
+@media (max-width: 990px) {
+    .img {
+        width: 30%;
+        height: 30%;
+    }
+}
 
 @media (max-width: 768px) {
     .job-vacancy {
         flex-direction: column;
         align-items: center;
+    }
+    .img {
+        width: 30%;
+        height: 30%;
+    }
+}
+
+@media (max-width: 425px) {
+    .img {
+        width: 50%;
+        height: 50%;
+    }
+}
+
+@media (max-width: 320px) {
+    .img {
+        width: 50%;
+        height: 50%;
     }
 }
