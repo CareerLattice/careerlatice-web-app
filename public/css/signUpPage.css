@@ -5,26 +5,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.row{
+.row {
     padding: 0;
 }
 
-.bodyclass{
+.bodyclass {
     margin-left: 2rem;
 }
 
-h1{
+h1 {
     font-weight: 600;
     color: rgb(48, 48, 48);
 }
 
-.btn{
+.btn {
     padding: 1rem 3rem 1rem 1rem;
     /* width: 100%; */
     width: 80%;
 }
 
-.btn-purple {   
+.btn-purple {
     /* color: #6f42c1; */
     color: rgb(84, 84, 84);
     border: none;
@@ -34,11 +34,11 @@ h1{
     border-radius: 10px;
 }
 
-.btn-green{
+.btn-green {
     /* color: #169c47 ; */
     color: rgb(48, 48, 48);
     border: none;
-    transition: 0.2s;   
+    transition: 0.2s;
     /* border: 2px solid #169c47; */
     background-color: rgb(246, 246, 246);
     border-radius: 10px;
@@ -56,42 +56,42 @@ h1{
     transition: 0.2s;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.icons{
+.icons {
     max-width: 3rem;
     max-height: 3rem;
     margin-right: 1.75rem;
 }
 
-span{
+span {
     font-size: 0.9rem;
-    font-family: 'Helvetica';
+    font-family: "Helvetica";
 }
 
-.image img{
+.image img {
     margin-bottom: 7.5rem;
     margin-top: 2rem;
-    max-width: 100%;
-    height: auto;
+    width: 250px;
+    height: 100px;
 }
 
 /* Media Queries */
 
 @media (max-width: 768px) {
-    .rightside{
-        display:none !important;
+    .rightside {
+        display: none !important;
     }
 
-    .btn{
+    .btn {
         width: 80% !important;
         padding: 1rem 5rem 1rem 1rem !important;
         align-items: center !important;
     }
 
-    .btn-purple {   
+    .btn-purple {
         /* color: #6f42c1; */
         color: rgb(246, 246, 246);
         border: none;
@@ -100,18 +100,18 @@ span{
         background-color: #6f42c1;
         border-radius: 10px;
     }
-    
-    .btn-green{
+
+    .btn-green {
         /* color: #169c47 ; */
         color: rgb(246, 246, 246);
         border: none;
-        transition: 0.2s;   
+        transition: 0.2s;
         /* border: 2px solid #169c47; */
         background-color: #169c47;
         border-radius: 10px;
     }
 
-    .bodyclass{
+    .bodyclass {
         align-items: center;
         margin-left: 0;
         display: flex;
