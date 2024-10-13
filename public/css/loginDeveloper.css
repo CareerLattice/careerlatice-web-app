@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.form{
+    border: 2px solid transparent;
+    padding: 30px;
+    box-shadow: 5px;
+}
+
+.left{
+    /* background-color: aqua; */
+    height: 100vh;
+    background-color: black;
+    /* background: linear-gradient(to right, #4a4f54, #000000); */
+}
+
+.cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.google button{
+    width: 100%;
+    border-radius:4px;
+    height: 30px;
+}
+
+.google-color{
+    background: linear-gradient(to right, #DB4437, #F4B400, #0F9D58, #4285F4); /* Gradasi warna */
+    -webkit-background-clip: text; /* Membuat teks terpotong oleh latar belakang */
+    -webkit-text-fill-color: transparent; /* Membuat teks menjadi transparan */
+}
+
+.google button:hover{
+   transition: ease-in-out 0.2s;
+   background-color: #d1cdcd;
+}
+
+
+.other button{
+    border-radius: 4px;
+    height: 30px;
+    width: 33%;
+}
+
+
+.other button:hover{
+    transition: ease-in-out 0.2s;
+    background-color: #d1cdcd;
+ }
+
+
+
+.form{
+    width: 65%;
+}

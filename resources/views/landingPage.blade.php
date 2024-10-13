@@ -15,6 +15,8 @@
     {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     {{-- End of Google Fonts --}}
+
+
 </head>
 <body>
     {{-- Start of Navbar --}}
@@ -41,7 +43,7 @@
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                     <button type="button" class="btn btn-outline-primary">Join Us</button>
-                    <button type="button" class="btn btn-outline-dark">Sign In</button>
+                    <a href="{{ route('loginPage') }}"><button type="button" class="btn btn-outline-dark">Sign In</button></a>
                 </div>
             </div>
         </div>
