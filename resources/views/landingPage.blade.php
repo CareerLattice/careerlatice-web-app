@@ -35,10 +35,12 @@
                     </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-                    <a href="signUp">
+                    <a href="signUpDev">
                         <button type="button" class="btn btn-outline-primary">Join Us</button>
                     </a>
-                    <button type="button" class="btn btn-outline-dark">Sign In</button>
+                    <a href="signUpCompany">
+                        <button type="button" class="btn btn-outline-dark">Sign In</button>
+                    <a>
                 </div>
             </div>
         </div>

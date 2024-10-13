@@ -6,10 +6,14 @@ Route::get('/', function () {
     return view('landingPage');
 });
 
-Route::get('/signUp', function () {
-    return view('signUpPage');
+Route::get('/signUpDev', function () {
+    return view('signUpDevPage');
 });
 
 Route::get('/HomePage', function () {
     return view('homePage');
+});
+
+Route::get('/signUpCompany', function(){
+    return view('signUpCompanyPage');
 });
