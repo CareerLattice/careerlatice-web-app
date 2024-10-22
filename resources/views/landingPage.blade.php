@@ -15,6 +15,8 @@
     {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     {{-- End of Google Fonts --}}
+
+
 </head>
 <body>
     {{-- Start of Navbar --}}
@@ -40,8 +42,13 @@
                     </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+<<<<<<< HEAD
                     <a href="{{ route('signUpPage') }}"><button type="button" class="btn btn-outline-primary">Join Us</button></a>   
                     <button type="button" class="btn btn-outline-dark">Sign In</button>
+=======
+                    <button type="button" class="btn btn-outline-primary">Join Us</button>
+                    <a href="{{ route('loginPage') }}"><button type="button" class="btn btn-outline-dark">Sign In</button></a>
+>>>>>>> dior
                 </div>
             </div>
         </div>
