@@ -35,13 +35,8 @@
                                     <span>I'm here to apply</span>
                             </button>
                         </a>
-                        
-    
                     </div>
-                    
-                </div>
-
-                           
+                </div>      
         </div>
 
         <div class="col-md-5 bg-dark text-white vh-100 d-flex justify-content-center align-items-center rightside">
