@@ -16,27 +16,26 @@
     <div class="row">
         <div class="left col-md-6 d-flex flex-column justify-content-center align-items-center">
         <!-- Konten untuk layar bagian kiri -->
-            <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
+        <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img mb-3" alt="CareerLatice">
             <form class="form shadow-lg rounded">
                 <div class="form-group">
                     <p class="text-center fw-bold">Welcome to CareerLattice</p>
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label for="exampleInputEmail1" class="mb-2">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="emailHelp" class="form-text text-muted mb-2">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label for="exampleInputPassword1" class="mt-2 mb-2">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    <label class="form-check-label mb-3" for="exampleCheck1">Remember me</label>
                 </div>
                 <button type="submit" class="btn btn-primary loginButton">Login</button>
             </form>
         </div>
         <div class="right col-md-6 bg-black  d-flex flex-column justify-content-center align-items-center">
-            <!-- Konten untuk layar bagian kanan -->
             <p class="fw-bold text-light">E B O O K</p>
                 <p class="fs-1 text-light fw-bold">How to Build a Tech Talent Brand : The Definitive Guide</p>
                 <p class="text-light">

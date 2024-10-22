@@ -5,7 +5,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.right{
+    background-color: white;
+}
 
+.right img{
+    width: 30%;
+}
 
 .form{
     border: 2px solid transparent;
@@ -26,38 +32,34 @@
     object-fit: cover;
 }
 
-.google button{
-    width: 100%;
-    border-radius:4px;
-    height: 30px;
-}
-
-.google-color{
-    background: linear-gradient(to right, #DB4437, #F4B400, #0F9D58, #4285F4); /* Gradasi warna */
-    -webkit-background-clip: text; /* Membuat teks terpotong oleh latar belakang */
-    -webkit-text-fill-color: transparent; /* Membuat teks menjadi transparan */
-}
-
-.google button:hover{
-   transition: ease-in-out 0.2s;
-   background-color: #d1cdcd;
-}
-
-
-.other button{
-    border-radius: 4px;
-    height: 30px;
-    width: 33%;
-}
-
-
-.other button:hover{
-    transition: ease-in-out 0.2s;
-    background-color: #d1cdcd;
- }
-
-
 
 .form{
     width: 65%;
+}
+
+
+@media (max-width: 990px) {
+    .right img{
+        width: 45%;
+        height: 15%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .form{
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .right img{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 320px) {
+    .form-group p{
+        font-size: 15px;
+    }
 }

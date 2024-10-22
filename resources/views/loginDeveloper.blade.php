@@ -20,40 +20,24 @@
             <img src="{{asset('assets/loginDeveloper.jpg')}}" class="img cover">
         </div>
         <div class="right col-md-6 d-flex flex-column justify-content-center align-items-center">
-            <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
+            <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img mb-3" alt="CareerLatice">
                 <form class="form shadow-lg rounded">
                     <div class="form-group">
                         <p class="fw-bold">Welcome Back to CareerLattice</p>
                         <p class="fs-10">Ready to code? </p>
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail1" class="mb-2">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                    <div class="form-group mb-1">
+                        <label for="exampleInputPassword1" class="mb-2 mt-2">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <div class="form-group form-check">
+                    <div class="form-group form-check mb-4">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Login</button>
-                    
-                    <div class="d-flex align-items-center mt-3">
-                        <div class="flex-grow-1 border-top"></div>
-                        <span class="mx-3 text-secondary">or</span>
-                        <div class="flex-grow-1 border-top"></div>
-                    </div>
-
-                    <div class="another mt-3">
-                        <div class="google mb-2">
-                            <button><i class="bi bi-google google-color"></i> Google</button>
-                        </div>
-                        <div class="other d-flex justify-content-between align-items-center mt-2">
-                            <button><i class="bi bi-linkedin text-primary"></i> LinkedIN</button>
-                            <button><i class="bi bi-facebook text-primary"></i> Facebook</button>
-                            <button><i class="bi bi-github text-light"></i> GitHub</button>
-                        </div>
                     </div>
                 </form>
             </div>

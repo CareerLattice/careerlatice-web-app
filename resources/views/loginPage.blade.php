@@ -49,19 +49,23 @@
 
 <!-- Main Program -->
  <main>
- <div class="container-fluid pb-5 pt-5 gradient-bg d-flex justify-content-around align-items-center">
-    <div class="company text-center mt-5 mb-5 text-white col-6 "> 
-        <h3>For Company</h3>
-        <p>We are the market for technical interview platform <br> and hire developers with the right skill</p>
-        <a href="{{ route ('loginCompany') }}"><button class="loginButton mb-4">Login</button></a>
-        <p>Don't Have Account <br><span class="fw-bold text-dark">Sign Up</span></p>
+ <div class="container-fluid pb-5 d-flex justify-content-around align-items-center w-100">
+    <div class="left gradient-bg">
+        <div class="company text-center mt-5 mb-5 text-dark col-6 "> 
+            <h3>For <span class="text-primary">Company<span></h3>
+            <p>We are the market for technical interview platform <br> and hire developers with the right skill</p>
+            <a href="{{ route ('loginCompany') }}"><button class="loginButton mb-4">Login</button></a>
+            <p>Don't Have Account <br><span class="fw-bold text-dark">Sign Up</span></p>
+        </div>
     </div>
     <!-- <div class="divider"></div> -->
-    <div class="developer text-center mt-5 mb-5 text-white col-6 ">
-        <h3>For Developer</h3>
-        <p>Join over 15 million developers <br> prepare for interviews and get hired</p>
-        <a href="{{ route ('loginDeveloper') }}"><button class="loginButton mb-4">Login</button></a>
-        <p>Don't Have Account <br><span class="fw-bold text-dark">Sign Up</span></p>
+    <div class="right">
+        <div class="developer text-center mt-5 mb-5 text-dark col-6 ">
+            <h3>For Developer</h3>
+            <p>Join over 15 million developers <br> prepare for interviews and get hired</p>
+            <a href="{{ route ('loginDeveloper') }}"><button class="loginButton mb-4">Login</button></a>
+            <p>Don't Have Account <br><span class="fw-bold text-dark">Sign Up</span></p>
+        </div>
     </div>
 </div>
 </main>

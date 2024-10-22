@@ -5,18 +5,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .gradient-bg {
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    padding: 20px;
+    background :
+    radial-gradient(circle at top left, white, transparent 70%),  
+    radial-gradient(circle at top right, #007bff, transparent 70%), 
+    radial-gradient(circle at bottom right, white, transparent 70%), 
+    radial-gradient(circle at bottom left, #007bff, transparent 70%); 
+    min-height: 100vh;
 }
-
-.divider{
-    border: 2px solid;
-    height: 100%;
-    background-color: #000;
-
-}
-
 
 .loginButton{
     border-color: #007bff;
@@ -33,3 +30,26 @@
     transition: 0.3s ease;
 
 }
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 100vh;
+}
+
+.left{
+    width: 100%;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.right{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
