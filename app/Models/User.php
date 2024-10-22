@@ -20,6 +20,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_number',
+        'description',
+        'profile_picture',
+        'location',
+        'birth_date',
+        'start_date_premium',
+        'end_date_premium',
+        'is_active',
     ];
 
     /**
@@ -32,16 +40,35 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public $timestamps = true;
+    public $incrementing = false;
+    protected $primaryKey = 'id';
+
     /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
+    protected function casts(): array{
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function userHistories(){
+        return $this->hasMany(UserHistory::class, 'user_id', 'id');
+    }
+
+    public function jobApplications(){
+        return $this->hasMany(JobApplication::class, 'user_id', 'id');  
+    }
+
+    public function educations(){
+        return $this->hasMany(Education::class, 'user_id', 'id');
+    }
+
+    public function userSkills(){
+        return $this->hasMany(UserSkill::class, 'user_id', 'id');
     }
 }
