@@ -16,7 +16,7 @@ class JobApplication extends Model
         'updated_at',
     ];
 
-    public $incrementing = false;
+    public $incrementing = true;
     public $timestamps = true;
     protected $primaryKey = 'id';
 
@@ -24,7 +24,6 @@ class JobApplication extends Model
         'id' => 'string',
         'job_id' => 'string',
         'user_id' => 'string',
-        'is_active' => 'boolean',
     ];
 
     public function job()

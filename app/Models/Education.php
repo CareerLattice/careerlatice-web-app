@@ -17,7 +17,7 @@ class Education extends Model
         'updated_at',
     ];
 
-    public $incrementing = false;
+    public $incrementing = true;
     public $timestamps = true;
     protected $primaryKey = 'id';
 

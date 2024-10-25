@@ -8,14 +8,12 @@ use App\Models\Job;
 class JobController extends Controller
 {
     
-    public function index()
-    {
+    public function index(){
         $jobs = Job::all();
         return response()->json($jobs);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $request->validate([
             'company_id' => 'required|string',
             'job_type' => 'required|in:full_time,part_time,internship',
@@ -48,14 +46,12 @@ class JobController extends Controller
         return response()->json($job, 201);
     }
 
-    public function show($id)
-    {
+    public function show($id){
         $job = Job::findOrFail($id);
         return response()->json($job);
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $job = Job::findOrFail($id);
 
         $request->validate([
@@ -86,8 +82,7 @@ class JobController extends Controller
         return response()->json($job);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         $job = Job::findOrFail($id);
         $job->delete();
         return response()->json($job);
