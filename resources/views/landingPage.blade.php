@@ -42,10 +42,10 @@
                     </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-                    <a href="signUpDev">
+                    <a href="signUpPage">
                         <button type="button" class="btn btn-outline-primary">Join Us</button>
                     </a>
-                    <a href="signUpCompany">
+                    <a href="loginPage">
                         <button type="button" class="btn btn-outline-dark">Sign In</button>
                     <a>
                 </div>
