@@ -9,8 +9,7 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $users = User::all();
         return response()->json($users);
     }
@@ -46,15 +45,38 @@ class UserController extends Controller
         return response()->json($user, 201);
     }
 
-    public function show($id)
-    {
+    public function show($id){
         $user = User::findOrFail($id);
         return response()->json($user);
     }
 
     public function destroy($id){
-        $user = Job::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->delete();
         return response()->json($user);
+    }
+
+    public function userSkill($id){
+        $user = User::findOrFail($id);
+        $skills = $user->skills;
+        return response()->json($skills);
+    }
+
+    public function userJobApplication($id){
+        $user = User::findOrFail($id);
+        $jobs = $user->jobApplications;
+        return response()->json($jobs);
+    }
+
+    public function userEducation($id){
+        $user = User::findOrFail($id);
+        $educations = $user->educations;
+        return response()->json($educations);
+    }
+
+    public function userHistory($id){
+        $user = User::findOrFail($id);
+        $histories = $user->userHistories;
+        return response()->json($histories);
     }
 }

@@ -20,14 +20,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+
         'phone_number',
+        'address',
         'description',
-        'profile_picture',
-        'location',
         'birth_date',
         'start_date_premium',
         'end_date_premium',
-        'is_active',
+        'profile_picture',
     ];
 
     /**
@@ -41,7 +41,7 @@ class User extends Authenticatable
     ];
 
     public $timestamps = true;
-    public $incrementing = false;
+    public $incrementing = true;
     protected $primaryKey = 'id';
 
     /**

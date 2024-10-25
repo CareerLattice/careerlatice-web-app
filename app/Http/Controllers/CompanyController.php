@@ -9,8 +9,7 @@ use Illuminate\Support\Str;
 
 class CompanyController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         // Mengambil semua data companies dari database
         $companies = Company::all();
 
@@ -18,8 +17,7 @@ class CompanyController extends Controller
         return response()->json($companies);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         // Validasi data yang dikirimkan oleh client
         $request->validate([
             'name' => 'required|string|max:255',
@@ -52,8 +50,7 @@ class CompanyController extends Controller
         return response()->json($company, 201);
     }
 
-    public function show($id)
-    {   
+    public function show($id){   
         // Mengambil data company berdasarkan id
         $company = Company::findOrFail($id);
 
@@ -61,8 +58,7 @@ class CompanyController extends Controller
         return response()->json($company);
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         // Mencari data company berdasarkan id
         $company = Company::findOrFail($id);
 
@@ -94,8 +90,7 @@ class CompanyController extends Controller
         return response()->json($company);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         // Mencari data company berdasarkan id
         $company = Company::findOrFail($id);
 

@@ -16,14 +16,13 @@ class UserHistory extends Model
         'updated_at',
     ];
 
-    public $incrementing = false;
+    public $incrementing = true;
     public $timestamps = true;
     protected $primaryKey = 'id';
 
     protected $casts = [
         'id' => 'string',
         'user_id' => 'string',
-        'is_active' => 'boolean',
     ];
 
     public function user(){

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
-    protected $table = 'jobs';
+    protected $table = 'job_vacancies';
 
     protected $fillable = [
         'id',
@@ -26,12 +26,11 @@ class Job extends Model
 
     protected $casts = [
         'id' => 'string',
-        'is_active' => 'boolean',
     ];
 
     protected $primaryKey = 'id';
     public $timestamps = true;
-    public $incrementing = false;
+    public $incrementing = true;
 
     public function company(){
         return $this->belongsTo(Company::class);
