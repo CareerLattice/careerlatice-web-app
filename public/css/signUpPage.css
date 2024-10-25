@@ -18,28 +18,23 @@ h1 {
     color: rgb(48, 48, 48);
 }
 
-.btn {
+.buttons .btn {
     padding: 1rem 3rem 1rem 1rem;
-    /* width: 100%; */
     width: 80%;
 }
 
 .btn-purple {
-    /* color: #6f42c1; */
     color: rgb(84, 84, 84);
     border: none;
     transition: 0.2s;
-    /* border: 2px solid #6f42c1; */
     background-color: rgb(246, 246, 246);
     border-radius: 10px;
 }
 
 .btn-green {
-    /* color: #169c47 ; */
     color: rgb(48, 48, 48);
     border: none;
     transition: 0.2s;
-    /* border: 2px solid #169c47; */
     background-color: rgb(246, 246, 246);
     border-radius: 10px;
 }
@@ -72,13 +67,19 @@ span {
 }
 
 .image img {
-    margin-bottom: 7.5rem;
-    margin-top: 2rem;
-    width: 250px;
-    height: 100px;
+    margin-top: 1rem;
+    width: 220px;
+    height: 150px;
 }
 
-/* Media Queries */
+.text-left {
+    margin-top: 3rem;
+}
+
+.custom-bg {
+    background: linear-gradient(to bottom right, #343a40, #495057);
+    color: white;
+}
 
 @media (max-width: 768px) {
     .rightside {
@@ -92,21 +93,17 @@ span {
     }
 
     .btn-purple {
-        /* color: #6f42c1; */
         color: rgb(246, 246, 246);
         border: none;
         transition: 0.2s;
-        /* border: 2px solid #6f42c1; */
         background-color: #6f42c1;
         border-radius: 10px;
     }
 
     .btn-green {
-        /* color: #169c47 ; */
         color: rgb(246, 246, 246);
         border: none;
         transition: 0.2s;
-        /* border: 2px solid #169c47; */
         background-color: #169c47;
         border-radius: 10px;
     }
@@ -120,8 +117,8 @@ span {
     }
 
     .image img {
-        height: auto; /* Maintain aspect ratio */
-        width: auto; /* Make the image responsive */
+        height: auto;
+        width: auto;
     }
 
     .text-left {
@@ -129,17 +126,25 @@ span {
     }
 
     .btn {
-        width: 90%; /* Make buttons nearly full width */
-        margin: 0 auto; /* Center buttons */
+        width: 90%;
+        margin: 0 auto;
     }
 
     .icons {
-        width: 2.3rem; /* Adjust icon size */
-        height: 2.3rem; /* Adjust icon size */
-        margin-right: 10px; /* Add margin to the right */
+        width: 2.3rem;
+        height: 2.3rem;
+        margin-right: 10px;
     }
 
     .rightside {
-        display: none; /* Hide right column on mobile */
+        display: none;
+    }
+    .btn-secondary {
+        background-color: #ffffff;
+        color: rgb(47, 47, 47);
+        background-color: rgb(199, 199, 199);
+        border: rgb(67, 67, 67);
+        transition: background-color 0.3s, color 0.3s;
+        margin-left: 1.5rem;
     }
 }

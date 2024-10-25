@@ -16,25 +16,26 @@
     {{-- Start of SignUp form --}}
 
     <div class="row g-0">
+
         <div class="col-md-7 left-side d-flex flex-column justify-content-center">
-            <img src="{{ asset('assets/companyBuilding.png') }}" class="img " alt="companyBuilding">
-            <h3 class="custom-text-title">IN CAREERLATTICE<h3>    
-            <h2 class="custom-text p-1">Join various other companies</h2>
-            <p class="custom-text-under p-1">To create job opportunities and discovering quality talent<p>
-            
+            <img src="{{ asset('assets/companyBuilding.png') }}" class="img" alt="companyBuilding">
+            <div class="text-container">
+                <h1 class="custom-text-title">Welcome To CareerLattice Web-Services</h1>    
+                <p class="custom-text p-1">Explore Career Opportunities with us together. Let's create promising job prospects and discover top talent for the future.</p>
+            </div>
         </div>
 
-        
 
-        <div class="col-md-5 right-side">
+    <div class="col-md-5 right-side">
         
         <a href="signUpPage">
-            <button type="button" class="btn btn-secondary">
+            <button type="button" class="btn btn-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"></path>
                 </svg>
-            </button>
-        </a>
+                </button>
+            </a>
+            
 
         <h3 class="text-center mt-3 mb-2">REGISTER YOUR COMPANY HERE</h3>
             <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Simply register the information below</p>
