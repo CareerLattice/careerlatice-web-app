@@ -70,6 +70,17 @@
     font-size: 0.9rem;
 }
 
+.btn-secondary {
+    background-color: #FFFFFF; 
+    color: black; 
+    border: none;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.btn-secondary:hover {
+    background-color: #D3D3D3;
+    color: white;
+}
 
 
 .btn-custom {
