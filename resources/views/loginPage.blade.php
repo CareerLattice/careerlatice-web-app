@@ -10,7 +10,6 @@
     <link href="{{ asset('css/landingPage.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="icon" href="{{asset('assets/logo.png')}}">
-
     <link href="{{ asset('css/loginPage.css') }}" rel="stylesheet">
 
 </head>
