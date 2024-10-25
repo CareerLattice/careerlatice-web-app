@@ -39,7 +39,7 @@
                     </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-outline-primary">Join Us</button>
+                    <a href="{{ route('signUpPage') }}"><button type="button" class="btn btn-outline-primary">Join Us</button></a>
                     <a href="{{ route('loginPage') }}"><button type="button" class="btn btn-outline-dark">Sign In</button></a>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             <h3>For <span class="text-primary">Company<span></h3>
             <p>We are the market for technical interview platform <br> and hire developers with the right skill</p>
             <a href="{{ route ('loginCompany') }}"><button class="loginButton mb-4">Login</button></a>
-            <p>Don't Have Account <br><span class="fw-bold text-dark">Sign Up</span></p>
+            <p>Don't Have Account <br> <a href="signUpCompany" style="text-decoration: none"><span class="fw-bold text-dark">Sign Up</span></a></p>
         </div>
     </div>
     <!-- <div class="divider"></div> -->
@@ -64,7 +64,7 @@
             <h3>For Developer</h3>
             <p>Join over 15 million developers <br> prepare for interviews and get hired</p>
             <a href="{{ route ('loginDeveloper') }}"><button class="loginButton mb-4">Login</button></a>
-            <p>Don't Have Account <br><span class="fw-bold text-dark">Sign Up</span></p>
+            <p>Don't Have Account <br> <a href="signUpDev" style="text-decoration: none"><span class="fw-bold text-dark">Sign Up</span> </a></p>
         </div>
     </div>
 </div>

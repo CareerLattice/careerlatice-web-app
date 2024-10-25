@@ -23,16 +23,16 @@
                         <p class="mb-2">We'll personalize your setup experience accordingly</p>
                     </div>
                     <div class="align-items-start w-100">
-                        <a href="">
-                            <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
-                                    <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
-                                    <span>I'm hiring talent</span>
-                            </button>
-                        </a>
-                        <a href="">
+                        <a href="signUpDev">
                             <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
                                     <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
                                     <span>I'm here to apply</span>
+                            </button>
+                        </a>
+                        <a href="signUpCompany">
+                            <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
+                                    <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
+                                    <span>I'm hiring talent</span>
                             </button>
                         </a>
                     </div>
