@@ -8,11 +8,13 @@
 .right {
     background-color: white;
     padding-bottom: 9rem;
+    padding: 0%;
+    margin: 0%;
 }
 
 .right img {
     width: 350px;
-    height: 160px;
+    height: 130px;
 }
 
 .form {

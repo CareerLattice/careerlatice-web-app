@@ -49,8 +49,5 @@
     </div>
 </main>
 
-<!-- Main End -->
-
-
 </body>
 </html>

@@ -37,9 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#" id="Company">Company</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="Contact">Contact</a>
-                    </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                     <a href="signUpPage">
@@ -58,25 +55,26 @@
         <section class="landingPage-1 hidden">
             <div class="container mb-5 hidden">
                 <div class="row">
-                    <div class="landing-about-container col-md-8 mt-5 hidden">
+                    <div class="landing-about-container col-md-6 mt-3 hidden">
                         <h3 class="display-5">Empowering Your Careers <span>Through Connection</span></h3>
-                        <p class="my-4 lead mt-3 ms-1 col-md-9">Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
+                        <p class="my-4 lead mt-2 ms-1 col-md-11">Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
                         
                         <div class="col-md-8 hidden">
-                            <div class="offer">
-                                <ul class="list-unstyled ">
-                                    <li>💼 Personalized Career Guidance</li>
-                                    <li>🌐 Networking Opportunities</li>
+                            <div class="offer mb-3" style="background-color: #ffcccb; color: #333; padding: 15px; border-radius: 8px;">
+                                <ul class="list-unstyled">
+                                    <li class="offer-item">💼 Personalized Career Guidance</li>
+                                    <li class="offer-item">🌐 Networking Opportunities</li>
                                 </ul>
                             </div>
-
-                            <div class="offer">
-                                <ul class="list-unstyled ">
-                                    <li>📚 Access to Expert-Led Courses</li>
-                                    <li>🔍 Job Matching Services</li>
+                        
+                            <div class="offer" style="background-color: #d1e7dd; color: #333; padding: 15px; border-radius: 8px;">
+                                <ul class="list-unstyled">
+                                    <li class="offer-item">📚 Access to Expert-Led Courses</li>
+                                    <li class="offer-item">🔍 Job Matching Services</li>
                                 </ul>
                             </div>
                         </div>
+                        
 
                         <div class="landingPage-btn mt-3 hidden">
                             <a href="#Companies" class="btn btn-outline-primary btn-lg mt-3">Popular Companies</a>
@@ -84,52 +82,74 @@
                         </div>
                         
                     </div>
-                    <div class="image col-md-4 mt-5 hidden">
-                        <img src="{{ asset('assets/.jpg') }}" class="img-fluid" alt="CareerLatice">
+                    <div class="image col-md-6 mt-2">
+                        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="10000">
+                                    <img src="{{asset('assets/sliders1.jpg')}}" class="d-block w-100" alt="Slider Image 1">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2000">
+                                    <img src="{{asset('assets/sliders2.jpg')}}" class="d-block w-100" alt="Slider Image 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{asset('assets/sliders3.jpg')}}" class="d-block w-100" alt="Slider Image 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{asset('assets/sliders4.jpg')}}" class="d-block w-100" alt="Slider Image 3">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>                   
                     </div>
-                </div>
 
-                <div class="promotion row container col-sm-12 hidden">
-                    <div class="col-sm-6 col-md-3 mb-3">
-                        <div class="card" style="background-color: #ffc09f">
-                            <div class="card-body text-center hidden">
-                                <i class="bi bi-building fs-1 text-primary"></i> <!-- Bootstrap icon for company -->
-                                <h5 class="card-title mt-2">Hiring Company</h5>
-                                <p class="card-text">Over <strong>500 reputable companies</strong> actively seeking talented professionals.</p>
+                    <div class="promotion row container g-3 text-center">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card" style="background-color: #ffc09f;">
+                                <div class="card-body">
+                                    <i class="bi bi-building fs-1 text-primary"></i>
+                                    <h5 class="card-title mt-2">Hiring Company</h5>
+                                    <p class="card-text">Over <strong>500 reputable companies</strong> actively seeking talented professionals.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                
-                    <div class="col-sm-6 col-md-3 mb-3">
-                        <div class="card">
-                            <div class="card-body text-center hidden" style="background-color: #adf7b6">
-                                <i class="bi bi-person-lines-fill fs-1 text-info"></i> <!-- Bootstrap icon for applicant -->
-                                <h5 class="card-title mt-2">Applicants Each Year</h5>
-                                <p class="card-text"><strong>Join thousands of applicants </strong>securing career-defining opportunities annually.</p>
+                    
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card" style="background-color: #adf7b6;">
+                                <div class="card-body">
+                                    <i class="bi bi-person-lines-fill fs-1 text-info"></i>
+                                    <h5 class="card-title mt-2">Applicants Each Year</h5>
+                                    <p class="card-text"><strong>Join thousands of applicants</strong> securing career-defining opportunities annually.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                
-                    <div class="col-sm-6 col-md-3 mb-3 hidden">
-                        <div class="card">
-                            <div class="card-body text-center hidden" style="background-color: #a0ced9">
-                                <i class="bi bi-people-fill fs-1 text-success"></i> <!-- Bootstrap icon for total applicants -->
-                                <h5 class="card-title mt-2">Total Applicants</h5>
-                                <p class="card-text"><strong>Over 10,000 applicants</strong> successfully placed in jobs worldwide.</p>
+                    
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card" style="background-color: #a0ced9;">
+                                <div class="card-body">
+                                    <i class="bi bi-people-fill fs-1 text-success"></i>
+                                    <h5 class="card-title mt-2">Total Applicants</h5>
+                                    <p class="card-text"><strong>Over 10,000 applicants</strong> successfully placed in jobs worldwide.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                
-                    <div class="col-sm-6 col-md-3 mb-3 hidden">
-                        <div class="card hidden">
-                            <div class="card-body text-center" style="background-color: #fcf5c7">
-                                <i class="bi bi-person-check-fill fs-1 text-warning"></i> <!-- Bootstrap icon for total users -->
-                                <h5 class="card-title mt-2">Total Users</h5>
-                                <p class="card-text">More than <strong>50,000 users</strong> are benefiting from our career services.</p>
+                    
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card" style="background-color: #fcf5c7;">
+                                <div class="card-body">
+                                    <i class="bi bi-person-check-fill fs-1 text-warning"></i>
+                                    <h5 class="card-title mt-2">Total Users</h5>
+                                    <p class="card-text">More than <strong>50,000 users</strong> are benefiting from our career services.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>                    
             </div>
         </section>
 
