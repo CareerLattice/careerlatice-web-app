@@ -5,61 +5,61 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.right{
+.right {
     background-color: white;
+    padding-bottom: 9rem;
+    padding: 0%;
+    margin: 0%;
 }
 
-.right img{
-    width: 30%;
+.right img {
+    width: 350px;
+    height: 130px;
 }
 
-.form{
+.form {
+    margin-top: 2rem;
     border: 2px solid transparent;
     padding: 30px;
     box-shadow: 5px;
 }
 
-.left{
-    /* background-color: aqua; */
+.left {
     height: 100vh;
     background-color: black;
-    /* background: linear-gradient(to right, #4a4f54, #000000); */
 }
 
-.cover{
+.cover {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-
-.form{
+.form {
     width: 65%;
 }
 
-
 @media (max-width: 990px) {
-    .right img{
+    .right img {
         width: 45%;
         height: 15%;
     }
 }
 
-
 @media (max-width: 768px) {
-    .form{
+    .form {
         margin-bottom: 30px;
     }
 }
 
 @media (max-width: 425px) {
-    .right img{
+    .right img {
         margin-top: 30px;
     }
 }
 
 @media (max-width: 320px) {
-    .form-group p{
+    .form-group p {
         font-size: 15px;
     }
 }

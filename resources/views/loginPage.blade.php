@@ -16,10 +16,13 @@
 <body>
 
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+<!-- Tambahkan di dalam tag <nav> -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
         <div class="container mt-3 mb-3">
-            <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img" alt="CareerLatice">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+            <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img hoverable" alt="CareerLatice" onclick="goToLandingPage()">
+
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
@@ -33,9 +36,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#" id="Company">Company</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="Contact">Contact</a>
-                    </li>
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                     <a href="{{ route('signUpPage') }}"><button type="button" class="btn btn-outline-primary">Join Us</button></a>
@@ -43,13 +43,16 @@
                 </div>
             </div>
         </div>
-    </nav> 
+    </nav>
+    
 <!-- Navbar End -->
 
 <!-- Main Program -->
  <main>
  <div class="container-fluid pb-5 d-flex justify-content-around align-items-center w-100">
+    
     <div class="left gradient-bg">
+        
         <div class="company text-center mt-5 mb-5 text-dark col-6 "> 
             <h3>For <span class="text-primary">Company<span></h3>
             <p>We are the market for technical interview platform <br> and hire developers with the right skill</p>
@@ -183,7 +186,11 @@
         </div>
 </footer>
     {{-- End of Footer --}}
-
+    <script>
+        function goToLandingPage() {
+            window.location.href = '/'; 
+        }   
+    </script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     {{-- Start of Bootstrap 5 --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
