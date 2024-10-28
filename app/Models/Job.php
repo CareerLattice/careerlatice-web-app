@@ -9,28 +9,22 @@ class Job extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'job_vacancies';
-
-    protected $fillable = [
-        'id',
-        'company_id',
-        'job_type',
-        'title',
-        'location',
-        'skill_required',
-        'description',
-        'requirement',
-        'person_in_charge',
-        'contact_person',
-        'is_active',
-    ];
-
-    protected $casts = [
-        'is_active' => 'boolean',
-    ];
-
     protected $primaryKey = 'id';
     public $timestamps = true;
     public $incrementing = true;
+
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected function casts(): array{
+        return [
+            'is_active' => 'boolean',
+        ];
+    }
 
     public function company(){
         return $this->belongsTo(Company::class);
@@ -38,5 +32,9 @@ class Job extends Model
 
     public function applicants(){
         return $this->hasMany(JobApplication::class, 'job_id', 'id');
+    }
+
+    public function skills(){
+        return $this->hasMany(JobSkill::class, 'job_id', 'id');
     }
 }
