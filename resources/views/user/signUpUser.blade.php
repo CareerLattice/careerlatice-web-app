@@ -14,64 +14,65 @@
 <body>
 
     {{-- Start of SignUp form --}}
-        <div class="row g-0">
-            <div class="col-md-7 left-side">
-                <a href="{{route('signUpPage')}}">
-                    <button type="button" class="btn btn-dark mt-4 ms-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"></path>
-                        </svg>
-                    </button>
-                </a>            
 
-                <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="goToLandingPage()">
-                <hr>
+    <div class="row g-0">
+        <div class="col-md-7 left-side">
+            <a href="{{route('signUpPage')}}">
+                <button type="button" class="btn btn-dark mt-4 ms-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"></path>
+                    </svg>
+                </button>
+            </a>            
 
-                <h3 class="text-center mt-4 mb-2">JOIN US NOW</h3>
-                <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Join us today by registering your information below and unlock exciting opportunities!</p>
-                <form class="form-custom row g-3" action="{{route('user.submitSignUpUser')}}" method="POST" onsubmit="return formValidation();">
-                    @csrf
-                    <div class="col-md-6">  
-                        <label for="inputFirstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="inputFirstName">
+            <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="goToLandingPage()">
+            <hr>
+
+            <h3 class="text-center mt-4 mb-2">JOIN US NOW</h3>
+            <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Join us today by registering your information below and unlock exciting opportunities!</p>
+            <form class="form-custom row g-3" action="{{route('user.submitSignUpUser')}}" method="POST" onsubmit="return formValidation();">
+                @csrf
+                <div class="col-md-6">  
+                    <label for="inputFirstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
+                </div>
+                <div class="col-md-6">  
+                    <label for="inputLastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" name="lastname">
+                </div>
+                <div class="col-12">  
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="password" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" name="address" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputBirthDate" class="form-label">Birth Date</label>
+                    <input type="date" class="form-control" id="inputBirthDate" name="dob" required> 
+                </div>
+                <div class="col-12">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number">
+                </div>
+                <div class="col-12 text-center">
+                    <div class="form-check d-flex justify-content-center">
+                        <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
+                        <label class="form-check-label" for="gridCheck">
+                            Agree to terms and conditions
+                        </label>
                     </div>
-                    <div class="col-md-6">  
-                        <label for="inputLastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="inputLastName">
-                    </div>
-                    <div class="col-12">  
-                        <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputBirthDate" class="form-label">Birth Date</label>
-                        <input type="date" class="form-control" id="inputBirthDate" required>
-                    </div>
-                    <div class="col-12">
-                        <label for="phoneNumber" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX">
-                    </div>
-                    <div class="col-12 text-center">
-                        <div class="form-check d-flex justify-content-center">
-                            <input class="form-check-input me-2" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    Agree to terms and conditions
-                                </label>
-                        </div>
-                    </div>
-                    <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-custom">Sign Up</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-custom">Sign Up</button>
+                </div>
+            </form>
+        </div>
 
             <div class="col-md-5">
                 <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
@@ -147,9 +148,6 @@
                 alert("You must agree to terms and conditions")
                 return false;
             }
-
-            window.location.href = "/HomePage";
-            return false;
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -26,7 +26,6 @@ class Company extends Model
     public $incrementing = true;
     protected $primaryKey = 'id';
 
-    // Method untuk mendefinisikan relasi one-to-many dengan model Job
     public function jobs(){
         return $this->hasMany(Job::class, 'company_id', 'id');
     }
