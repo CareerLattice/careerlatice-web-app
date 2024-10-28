@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\AdminController as Admin;
-use App\Http\Controllers\JobController;
-
 
 // Route to get the landing page
 Route::get('/', function () {
@@ -77,11 +75,11 @@ Route::prefix("user")->group(function(){
     // Route for user view companies
     Route::get('/company/{id}', [UserController::class, 'userViewCompany'])->name('user.company');
     // Route::get('/companies', [UserController::class, 'userViewCompanies'])->name('user.companies');
-    Route::get('/companies', [YourController::class, 'userSearchCompanies'])->name('user.companies');
+    // Route::get('/companies', [YourController::class, 'userSearchCompanies'])->name('user.companies');
 
     // Route for user view and apply jobs
     // Route::get('/jobs', [UserController::class, 'userViewJobs'])->name('user.jobs');
-    Route::get('/jobs', [YourController::class, 'userSearchJobs'])->name('user.jobs');
+    // Route::get('/jobs', [YourController::class, 'userSearchJobs'])->name('user.jobs');
 
     // Route::get('/job/{id}', [UserController::class, 'userViewJob'])->name('user.job');
     // Route::post('/job/{id}', [UserController::class, 'applyJob'])->name('user.applyJob');
