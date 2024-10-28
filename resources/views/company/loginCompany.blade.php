@@ -17,7 +17,8 @@
         <div class="left col-md-6 d-flex flex-column justify-content-center align-items-center">
         <!-- Konten untuk layar bagian kiri -->
         <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img mb-3" alt="CareerLatice">
-            <form class="form shadow-lg rounded">
+            <form class="form shadow-lg rounded" action="{{route('company.submitLoginCompany')}}" method="POST">
+                @csrf
                 <div class="form-group">
                     <p class="text-center fw-bold">Welcome to CareerLattice</p>
                     <label for="exampleInputEmail1" class="mb-2">Email address</label>
@@ -37,18 +38,16 @@
         </div>
         <div class="right col-md-6 bg-black  d-flex flex-column justify-content-center align-items-center">
             <p class="fw-bold text-light">E B O O K</p>
-                <p class="fs-1 text-light fw-bold">How to Build a Tech Talent Brand : The Definitive Guide</p>
-                <p class="text-light">
-                    Looking to hire top tech talent? To attract the best candidates, it's essential to have a standout employer brand. We've put together the ultimate guide to help you build a strong tech talent brand and make your recruitment process smoother
-                </p>
-                <p class="text-light">"John Alex - 2021"</p>
+            <p class="fs-1 text-light fw-bold">How to Build a Tech Talent Brand : The Definitive Guide</p>
+            <p class="text-light">
+                Looking to hire top tech talent? To attract the best candidates, it's essential to have a standout employer brand. We've put together the ultimate guide to help you build a strong tech talent brand and make your recruitment process smoother
+            </p>
+            <p class="text-light">"John Alex - 2021"</p>
         </div>
     </div>
   </div>
 </main>
 
 <!-- Main End -->
-
-
 </body>
 </html>

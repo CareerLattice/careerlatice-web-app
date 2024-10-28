@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('user_histories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->useCurrent();
+            $table->timestamp('end_date')->nullable();
             
-            $table->timestamps();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }

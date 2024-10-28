@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->softDeletes();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('job_id')->references('id')->on('job')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('job_id')->references('id')->on('job_vacancies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

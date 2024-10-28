@@ -14,7 +14,7 @@
     <div class="row bodyclass g-0">
         <div class="col-md-7 justify-content-start">
                 <div class="image mb-2 text-center">
-                    <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img" style="max-width: auto; height: 4rem;" alt="CareerLatice">
+                    <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" style="max-width: auto; height: 4rem;" alt="CareerLatice">
                 </div>
                     
                 <div class="text-left">
@@ -23,16 +23,16 @@
                         <p class="mb-2">We'll personalize your setup experience accordingly</p>
                     </div>
                     <div class="align-items-start w-100">
-                        <a href="signUpDev">
+                        <a href="{{route('user.signUpUser')}}">
                             <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
                                     <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
                                     <span>I'm here to apply</span>
                             </button>
                         </a>
-                        <a href="signUpCompany">
+                        <a href="{{route('company.signUpCompany')}}">
                             <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
-                                    <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
-                                    <span>I'm hiring talent</span>
+                                <img src="{{asset('assets/office.png')}}" alt="office" class="icons">
+                                <span>I'm hiring talent</span>
                             </button>
                         </a>
                     </div>

@@ -16,20 +16,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    
+    public $timestamps = true;
+    public $incrementing = true;
+    protected $primaryKey = 'id';
 
-        'phone_number',
-        'address',
-        'description',
-        'birth_date',
-        'start_date_premium',
-        'end_date_premium',
-        'profile_picture',
+    protected $table = 'users';
+    protected $guarded = [
+        'id',
+        'role',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
-
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -39,10 +39,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    public $timestamps = true;
-    public $incrementing = true;
-    protected $primaryKey = 'id';
 
     /**
      * Get the attributes that should be cast.

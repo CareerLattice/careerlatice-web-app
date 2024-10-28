@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('home') }}" id="Home">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{route('landingPage')}}" id="Home">Home</a>
                     </li>                                     
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#" id="Job">Find a Job</a>
@@ -53,8 +53,8 @@
         <div class="company text-center mt-5 mb-5 text-dark col-6 "> 
             <h3>For <span class="text-primary">Company<span></h3>
             <p>We are the market for technical interview platform <br> and hire developers with the right skill</p>
-            <a href="{{ route ('loginCompany') }}"><button class="loginButton mb-4">Login</button></a>
-            <p>Don't Have Account <br> <a href="signUpCompany" style="text-decoration: none"><span class="fw-bold text-dark">Sign Up</span></a></p>
+            <a href="{{route('company.loginCompany')}}"><button class="loginButton mb-4">Login</button></a>
+            <p>Don't Have Account <br> <a href="{{route('company.signUpCompany')}}" style="text-decoration: none"><span class="fw-bold text-dark">Sign Up</span></a></p>
         </div>
     </div>
     <!-- <div class="divider"></div> -->
@@ -62,8 +62,11 @@
         <div class="developer text-center mt-5 mb-5 text-dark col-6 ">
             <h3>For Developer</h3>
             <p>Join over 15 million developers <br> prepare for interviews and get hired</p>
-            <a href="{{ route ('loginDeveloper') }}"><button class="loginButton mb-4">Login</button></a>
-            <p>Don't Have Account <br> <a href="signUpDev" style="text-decoration: none"><span class="fw-bold text-dark">Sign Up</span> </a></p>
+            <a href="{{route('user.loginUser')}}"><button class="loginButton mb-4">Login</button></a>
+            <p>Don't Have Account <br>
+                <a href="{{route('user.signUpUser')}}" style="text-decoration: none">
+                <span class="fw-bold text-dark">Sign Up</span></a>
+            </p>
         </div>
     </div>
 </div>
@@ -89,7 +92,7 @@
                 <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class=" mb-4 font-weight-bold">Services</h5>
                     <p>
-                        <a href="{{ route('home') }}" class="text-dark" style="text-decoration: none">Home</a>
+                        <a href="{{route('landingPage')}}" class="text-dark" style="text-decoration: none">Home</a>
                     </p>
                     <p>
                         <a href="#Job" class="text-dark" style="text-decoration: none">Find a Job</a>

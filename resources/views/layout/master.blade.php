@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     {{-- End of Bootstrap 5 --}}
 </head>
+
 <body>
     
-
 {{-- Start of Font --}}
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 {{-- End of Font --}}

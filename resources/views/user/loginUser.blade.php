@@ -20,8 +20,9 @@
             <img src="{{asset('assets/loginDeveloper.jpg')}}" class="img cover">
         </div>
         <div class="right col-md-6 d-flex flex-column justify-content-center align-items-center">
-            <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img mb-3" alt="CareerLatice">
-                <form class="form shadow-lg rounded">
+            <img src="{{asset('assets/CareerLatice.jpg')}}" class="img mb-3" alt="CareerLatice">
+                <form class="form shadow-lg rounded" method="POST" action="{{route('user.submitLoginUser')}}">
+                    @csrf
                     <div class="form-group">
                         <p class="fw-bold">Welcome Back to CareerLattice</p>
                         <p class="fs-10">Ready to code? </p>

@@ -19,7 +19,7 @@
         <div class="col-md-6 left-side d-flex flex-column justify-content-center">
             <h3 class="text-center mt-5 mb-2">JOIN US NOW</h3>
             <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Simply register your information below</p>
-            <form class="form-custom row g-3" action="" method="POST" onsubmit="return formValidation();">
+            <form class="form-custom row g-3" action="{{route('user.submitSignUpUser')}}" method="POST" onsubmit="return formValidation();">
                 @csrf
                 <div class="col-md-6">  
                     <label for="inputFirstName" class="form-label">First Name</label>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-md-6 right-side">
-            <img src="{{ asset('assets/CareerlaticeSignupUser.png') }}" class="img" alt="CareerLaticeUser" style="max-width: 100%; height: auto; padding: 2rem;">
+            <img src="{{asset('assets/CareerlaticeSignupUser.png')}}" class="img" alt="CareerLaticeUser" style="max-width: 100%; height: auto; padding: 2rem;">
         </div>
     </div>
 

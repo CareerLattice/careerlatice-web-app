@@ -19,14 +19,15 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => $faker->name,
                 'email' => $faker->email,
-                'password' => bcrypt('password'),
                 'phone_number' => $faker->phoneNumber,
+                'password' => Hash::make($faker->passwprd),
                 'address' => $faker->address,
                 'description' => $faker->paragraph,
                 'birth_date' => $faker->date(),
                 'start_date_premium' => $faker->date(),
                 'end_date_premium' => $faker->date(),
                 'profile_picture' => 'https://stockbit.com/images/stockbit.svg',
+                'role' => $faker->randomElement(['user', 'admin']),
             ]);
         }
     }

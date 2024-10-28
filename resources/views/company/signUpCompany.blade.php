@@ -27,7 +27,7 @@
         <div class="col-md-5 right-side">
         <h3 class="text-center mt-5 mb-2">REGISTER YOUR COMPANY HERE</h3>
             <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Simply register the information below</p>
-            <form class="form-custom row g-3" action="" method="POST" onsubmit="return formValidation();">
+            <form class="form-custom row g-3" action="{{route('company.submitSignUpCompany')}}" method="POST" onsubmit="return formValidation();">
                 @csrf
                 <div class="col-12">  
                     <label for="inputCompanyName" class="form-label">Company Name</label>
@@ -116,7 +116,7 @@
                 return false;
             }
 
-            window.location.href = "/HomePage";
+            window.location.href = "/landingPage";
             return false;
         }
     </script>

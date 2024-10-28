@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('degree');
             $table->string('field_of_study');
             $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('end_date')->nullable();
 
             $table->timestamps();
             $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
