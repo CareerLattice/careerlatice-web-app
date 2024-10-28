@@ -90,7 +90,7 @@ body {
 }
 
 .offer {
-    background-color: #f8f9fa; /* Light background for better readability */
+    background-color: #f8f9fa;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -100,7 +100,6 @@ body {
     display: flex;
     justify-content: space-evenly;
     list-style-type: none;
-    /* padding: 1rem; */
 }
 
 .offer li {
@@ -127,13 +126,13 @@ body {
 
 .offer-item::before {
     content: "• ";
-    color: #007bff; /* Primary color for icons */
+    color: #007bff;
     font-weight: bold;
     margin-right: 8px;
 }
 
 .promotion {
-    padding-top: 80px;
+    padding-top: 50px;
 }
 
 .card {
@@ -165,7 +164,7 @@ body {
 
 .carousel-inner img {
     width: 430px;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
 }
 

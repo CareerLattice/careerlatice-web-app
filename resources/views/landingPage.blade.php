@@ -82,7 +82,7 @@
                         </div>
                         
                     </div>
-                    <div class="image col-md-6 mt-2">
+                    <div class="image col-md-6">
                         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="10000">
