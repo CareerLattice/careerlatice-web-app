@@ -13,6 +13,12 @@
 <body>
 <!-- Main Start -->
 
+@if($success != '')
+    <div class="alert alert-success" role="alert">
+        {{$success}}
+    </div>
+@endif
+
 <main>
     <div class="container-fluid vh-100">
         <div class="row">
@@ -28,20 +34,26 @@
                     </button>
                 </a>
                 <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice">
-                <form class="form shadow-lg rounded">
+                
+                <form class="form shadow-lg rounded" method="POST" action="{{route('user.submitLoginUser')}}">
                     @csrf
                     <div class="form-group">
                         <p class="fw-bold" style="text-align: center; font-size:1.3rem;">Welcome Back to CareerLattice</p>
                         <p class="fs-10 fw-bold">Are u ready to code? </p>
                         <label for="exampleInputEmail1" class="mb-2">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group mb-1">
                         <label for="exampleInputPassword1" class="mb-2 mt-2">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
                     </div>
 
+                    @if($errors->any())
+                        <div class="alert alert-danger mt-2" role="alert">
+                            {{$errors->first()}}
+                        </div>
+                     @endif
                     <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
                     </div>
                 </form>
