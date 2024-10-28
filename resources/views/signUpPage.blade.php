@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="row bodyclass g-0">
         <div class="col-md-7 justify-content-start">
             <a href="/">
@@ -22,7 +21,7 @@
                 </button>
             </a>
                 <div class="image mb-2 text-center">
-                    <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img" style="width: auto; height: 6.8rem;" alt="CareerLatice">
+                    <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" style="width: auto; height: 6.8rem;" alt="CareerLatice">
                 </div>  
                     
                 <div class="text-left">
@@ -30,7 +29,7 @@
                         <h1 class="mb-1">Who are you?</h1>
                         <p class="mb-2">We'll personalize your setup experience accordingly</p>
                     </div>
-                    <div class="align-items-start w-100">
+                    <div class="align-items-start w-100 buttons">
                         <a href="{{route('user.signUpUser')}}">
                             <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
                                     <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
@@ -39,8 +38,8 @@
                         </a>
                         <a href="{{route('company.signUpCompany')}}">
                             <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
-                                <img src="{{asset('assets/office.png')}}" alt="office" class="icons">
-                                <span>I'm hiring talent</span>
+                                    <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
+                                    <span>I'm hiring talent</span>
                             </button>
                         </a>
                     </div>
@@ -48,7 +47,6 @@
         </div>
 
         <div class="col-md-5 custom-bg vh-100 d-flex justify-content-center align-items-center rightside">
-
             
         </div>
     </div>
