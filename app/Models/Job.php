@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $table = 'job_vacancies';
 
     protected $fillable = [
@@ -25,7 +25,7 @@ class Job extends Model
     ];
 
     protected $casts = [
-        'id' => 'string',
+        'is_active' => 'boolean',
     ];
 
     protected $primaryKey = 'id';
@@ -34,5 +34,9 @@ class Job extends Model
 
     public function company(){
         return $this->belongsTo(Company::class);
+    }
+
+    public function applicants(){
+        return $this->hasMany(JobApplication::class, 'job_id', 'id');
     }
 }

@@ -13,7 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // UserSkill::factory(10)->recycle([
+        //     User::factory(3)->create(),
+        //     Skill::factory(3)->create(),
+        // ])->create();
 
         User::factory()->create([
             'name' => 'Test User',
