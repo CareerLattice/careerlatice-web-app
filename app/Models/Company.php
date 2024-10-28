@@ -10,14 +10,17 @@ class Company extends Model
     use HasFactory;
     protected $table = 'companies';
     protected $guarded = [
+        'id',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    protected $casts = [
-        'id' => 'string',
-    ];
+    protected function casts(): array{
+        return [
+            'password' => 'hashed',
+        ];
+    }
 
     public $timestamps = true;
     public $incrementing = true;

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('requirement');
             $table->string('person_in_charge');
             $table->string('contact_person');
+            $table->boolean('is_active');
+            $table->string('job_picture');
             
             $table->timestamps();
             $table->softDeletes();
