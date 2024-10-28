@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('job_type');
             $table->string('title');
             $table->string('address');
-            $table->text('skill_required');
             $table->text('description');
             $table->text('requirement');
             $table->string('person_in_charge');

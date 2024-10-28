@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,57 +24,59 @@ class UserController extends Controller
         return view('user.signUpUser');
     }
 
-    public function signUp(Request $request){
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique',
+    public function signUp(Request $req){
+        $req->validate([
+            'firstname' => 'required|string',
+            'lastname' => 'string',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
+            'phone_number' => 'string|min:8|unique:users,phone_number',
         ]);
 
+        $fullName = $req->firstname;
+        if (!empty($req->lastname)) {
+            $fullName .= ' ' . $req->lastname;
+        }
+
         $user = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role'=> "user",
+            'name' => $fullName,
+            'email' => $req->email,
+            'password' => Hash::make($req->password),
+            'phone_number' => $req->phone_number,
+            'address' => $req->address,
+            'birth_date' => $req->dob,
         ]);
 
         $user->save();
-        return redirect()->route('user.loginUser');
+        return redirect()->route('user.loginUser')->with(['success' => 'Registration successful']);
     }
 
     public function loginPage(){
-        return view('user.loginUser');
+        return view('user.loginUser')->with(['success' => '']);
     }
 
     public function login(Request $req){
         $validatedData = $req->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ]);
 
-        $user = User::where('email', $validatedData['email'])->first();
-        
-        if(!$user){
-            return redirect()->back()->withErrors(['email' => 'Email unregistered'])->withInput();
+        if (Auth::attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.home');
+            }
+
+            return redirect()->route('user.home')->with('user', $user);
         }
 
-        if(!Hash::check($validatedData['password'], $user->password)){
-            return redirect()->back()->withErrors(['password' => 'Wrong password'])->withInput();
-        }
-        
-        $req->session()->put('user_id', $user->id);
-        $req->session()->put('user_role', $user->role);
-        if($user->role == 'admin'){
-            return redirect()->route('admin.home');
-        }
-
-        return redirect()->route('user.home');
+        return redirect()->back()->withErrors(['error' => 'Invalid email or password'])->withInput();
     }
 
     public function logout(Request $req){
-        $req->session()->forget('user_id');
-        $req->session()->forget('user_role');
-        return redirect()->route('user.loginPage');
+        Auth::logout();
+        return redirect()->route('user.loginUser')->with(['success' => 'Logout successful']);
     }
 
     public function viewHome(){
@@ -81,12 +84,12 @@ class UserController extends Controller
     }
 
     public function viewProfile(){
-        $user = User::findOrFail(session('user_id'));
+        $user = Auth::user();
         return view('user.userProfile')->with('user', $user);
     }
 
-    public function updateProfile(Request $request){
-        $request->validate([
+    public function updateProfile(Request $req){
+        $req->validate([
             'name' => 'string|min:3',
             'password' => 'string|min:8',
             'phone_number' => 'string|max:20',
@@ -96,12 +99,12 @@ class UserController extends Controller
         ]);
 
         $user = User::findOrFail(session('user_id'));
-        $user->name = $request->name;
-        $user->password = Hash::make($request->password);
-        $user->phone_number = $request->phone_number;
-        $user->address = $request->address;
-        $user->profile_picture = $request->profile_picture;
-        $user->birth_date = $request->birth_date;
+        $user->name = $req->name;
+        $user->password = Hash::make($req->password);
+        $user->phone_number = $req->phone_number;
+        $user->address = $req->address;
+        $user->profile_picture = $req->profile_picture;
+        $user->birth_date = $req->birth_date;
         $user->save();
         return redirect()->route('user.profile');
     }
@@ -116,9 +119,9 @@ class UserController extends Controller
     //     return view('user.companies')->with('companies', $companies);
     // }
 
-    public function userSearchCompanies(Request $request){
+    public function userSearchCompanies(Request $req){
         $companies = Company::where('is_active', true);
-        foreach ($request->all() as $key => $value) {
+        foreach ($req->all() as $key => $value) {
             if ($value !== null && $value !== '') {
                 // Filter based on key dan value
                 switch ($key) {
@@ -142,9 +145,9 @@ class UserController extends Controller
     //     return view('user.jobs')->with('jobs', $jobs);
     // }
 
-    public function userSearchJobs(Request $request){
+    public function userSearchJobs(Request $req){
         $jobs = Job::where('is_active', true);
-        foreach ($request->all() as $key => $value) {
+        foreach ($req->all() as $key => $value) {
             if ($value !== null && $value !== '') {
                 // Filter based on key dan value
                 switch ($key) {
@@ -181,13 +184,13 @@ class UserController extends Controller
         return view('user.premiumHistory')->with('history', $premiumHistories);
     }
 
-    public function uploadUserCV(Request $request) {
-        $request->validate([
+    public function uploadUserCV(Request $req) {
+        $req->validate([
             'cv' => 'required|file|mimes:pdf|max:2048',
         ]);
     
-        $path = $request->file('cv')->store('user_upload/CV');
-        $user = User::findOrFail(session('user_id'));
+        $path = $req->file('cv')->store('user_upload/CV');
+        $user = Auth::user();
         
         // Delete old CV from folder
         if (Storage::exists($user->cv)) {
@@ -199,13 +202,13 @@ class UserController extends Controller
         return redirect()->route('user.profile');
     }
     
-    public function uploadUserProfilePicture(Request $request) {
-        $request->validate([
+    public function uploadUserProfilePicture(Request $req) {
+        $req->validate([
             'profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
         
-        $path = $request->file('profile_picture')->store('user_upload/profile_picture');
-        $user = User::findOrFail(session('user_id'));
+        $path = $req->file('profile_picture')->store('user_upload/profile_picture');
+        $user = Auth::user();
         
         // Delete old profile picture from folder
         if (Storage::exists($user->profilePicture)) {

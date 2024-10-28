@@ -30,38 +30,38 @@
                 @csrf
                 <div class="col-md-6">  
                     <label for="inputFirstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName">
+                    <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
                 </div>
                 <div class="col-md-6">  
                     <label for="inputLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName">
+                    <input type="text" class="form-control" id="inputLastName" name="lastname">
                 </div>
                 <div class="col-12">  
                     <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail">
+                    <input type="email" class="form-control" id="inputEmail" name="email" required>
                 </div>
                 <div class="col-12">
                     <label for="inputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="password" class="form-control" id="inputPassword" name="password" required>
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                    <input type="text" class="form-control" id="inputAddress" name="address" required>
                 </div>
                 <div class="col-12">
                     <label for="inputBirthDate" class="form-label">Birth Date</label>
-                    <input type="date" class="form-control" id="inputBirthDate" required>
+                    <input type="date" class="form-control" id="inputBirthDate" name="dob" required> 
                 </div>
                 <div class="col-12">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX">
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number">
                 </div>
                 <div class="col-12 text-center">
                     <div class="form-check d-flex justify-content-center">
-                        <input class="form-check-input me-2" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Agree to terms and conditions
-                            </label>
+                        <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
+                        <label class="form-check-label" for="gridCheck">
+                            Agree to terms and conditions
+                        </label>
                     </div>
                 </div>
                 <div class="col-12 text-center">
@@ -128,9 +128,6 @@
                 alert("You must agree to terms and conditions")
                 return false;
             }
-
-            window.location.href = "/HomePage";
-            return false;
         }
     </script>
 
