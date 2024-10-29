@@ -106,3 +106,6 @@ Route::prefix("user")->group(function(){
 //     // Export data csv
 //     // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
 // });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
