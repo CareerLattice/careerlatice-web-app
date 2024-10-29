@@ -52,7 +52,7 @@
 
             <div class="col-md-5">
                 <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
-                    <div class="carousel-inner h-100 d-md-block d-sm-none">
+                    <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
                         <div class="carousel-item active h-100">
                             <img src="{{ asset('assets/businessImage1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
                         </div>

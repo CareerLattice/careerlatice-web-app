@@ -16,19 +16,6 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .row.g-0 {
-        flex-direction: column;
-    }
-    .left-side {
-        max-width: 100%;
-        height: auto;
-    }
-    .right-side {
-        display: none;
-    }
-}
-
 /* START OF SIGNUP FORM CSS */
 
 .form-custom {

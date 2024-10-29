@@ -39,18 +39,19 @@ html {
 }
 
 h3 {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     line-height: 1.4;
     letter-spacing: 0.1em;
     text-align: center;
     color: #333;
     margin: 2rem 0;
     font-weight: medium;
+    padding: 0 6.5rem 0 6.5rem;
 }
 
 .text-primary {
     color: #007bff;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
@@ -111,32 +112,4 @@ h3 {
 
 .privacy {
     font-size: 0.85rem;
-}
-
-@media (max-width: 990px) {
-    .logo-img {
-        width: 60%;
-        height: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .form {
-        margin-bottom: 30px;
-    }
-    h3 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 425px) {
-    .logo-img {
-        width: 80%;
-    }
-}
-
-@media (max-width: 320px) {
-    .form-group p {
-        font-size: 14px;
-    }
 }

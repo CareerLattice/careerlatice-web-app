@@ -37,6 +37,7 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#" id="Company">Company</a>
                     </li>
+                    
                 </ul>
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                     <a href="{{route('signUpPage')}}">
