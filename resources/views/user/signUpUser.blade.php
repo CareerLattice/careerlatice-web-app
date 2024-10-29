@@ -72,28 +72,27 @@
                     <button type="submit" class="btn btn-custom">Sign Up</button>
                 </div>
             </form>
-        </div>
-
-            <div class="col-md-5">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
-                    <div class="carousel-inner h-100 d-md-block d-sm-none">
-                        <div class="carousel-item active h-100">
-                            <img src="{{ asset('assets/loginDevPic1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
+        </div>    
+                <div class="col-md-5">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
+                        <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
+                            <div class="carousel-item active h-100">
+                                <img src="{{ asset('assets/loginDevPic1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
+                            </div>
+                            <div class="carousel-item h-100">
+                                <img src="{{ asset('assets/loginDevPic2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
+                            </div>
+                            <div class="carousel-item h-100">
+                                <img src="{{ asset('assets/loginDevPic3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
+                            </div>
                         </div>
-                        <div class="carousel-item h-100">
-                            <img src="{{ asset('assets/loginDevPic2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
+                        <div class="carousel-controls">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev"></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next"></button>
                         </div>
-                        <div class="carousel-item h-100">
-                            <img src="{{ asset('assets/loginDevPic3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="carousel-controls">
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev"></button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next"></button>
-                    </div>
-                </div>                    
-            </div>
-        </div>
+                    </div>                    
+                </div>
+    </div>
 
     <script>
         function formValidation() {

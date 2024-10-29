@@ -26,18 +26,18 @@
                     
                 <div class="text-left">
                     <div class="mb-4">
-                        <h3 class=" mb-3">
+                        <h3 class=" mb-3 text-center">
                             Welcome! <span class="span-text fw-bold ls-tight"> Please Choose</span> ur <span class="span-text fw-bold ls-tight">Role!</span> We'll personalize your setup experience accordingly
                         </h3>
                     </div>
                     <div class="align-items-start w-100 buttons">
-                        <a href="{{route('user.signUpUser')}}">
+                        <a href="{{route('user.signUpUser')}}" style="text-decoration: none">
                             <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
                                     <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
                                     <span>I'm here to apply</span>
                             </button>
                         </a>
-                        <a href="{{route('company.signUpCompany')}}">
+                        <a href="{{route('company.signUpCompany')}}" style="text-decoration: none">
                             <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
                                     <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
                                     <span>I'm hiring talent</span>
