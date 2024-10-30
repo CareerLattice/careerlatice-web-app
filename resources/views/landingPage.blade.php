@@ -35,7 +35,7 @@
                         <a class="nav-link" aria-current="page" href="#" id="Job">Find a Job</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="Company">Company</a>
+                        <a class="nav-link" aria-current="page" href="{{route('user.companies')}}" id="Company">Company</a>
                     </li>
                     
                 </ul>
