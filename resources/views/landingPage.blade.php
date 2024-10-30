@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="Home">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{route('user.home')}}" id="Home">Home</a>
                     </li>                                     
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#" id="Job">Find a Job</a>

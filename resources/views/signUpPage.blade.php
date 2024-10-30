@@ -26,7 +26,7 @@
                     
                 <div class="text-left">
                     <div class="mb-4">
-                        <h3 class=" mb-3 text-center">
+                        <h3 class=" mb-3 text-center ">
                             Welcome! <span class="span-text fw-bold ls-tight"> Please Choose</span> ur <span class="span-text fw-bold ls-tight">Role!</span> We'll personalize your setup experience accordingly
                         </h3>
                     </div>
@@ -49,7 +49,7 @@
 
         <div class="col-md-5">
             <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
-                <div class="carousel-inner h-100 d-md-block d-sm-none">
+                <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
                     <div class="carousel-item active h-100">
                         <img src="{{ asset('assets/joinUsImage1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
                     </div>

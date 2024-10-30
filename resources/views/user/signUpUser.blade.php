@@ -14,7 +14,6 @@
 <body>
 
     {{-- Start of SignUp form --}}
-
     <div class="row g-0">
         <div class="col-md-7 left-side">
             <a href="{{route('signUpPage')}}">
