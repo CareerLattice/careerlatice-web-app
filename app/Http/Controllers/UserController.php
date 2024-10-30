@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\User;
 use App\Models\Job;
+use App\Models\Company;
 
 class UserController extends Controller
 {
@@ -18,6 +19,10 @@ class UserController extends Controller
     public function __construct(CompanyController $companyController, JobController $jobController){
         $this->companyController = $companyController;
         $this->jobController = $jobController;
+    }
+
+    public function open_cv($filename){
+        return response()->file(storage_path('app\\public\\user_upload\\CV\\'. $filename));
     }
 
     public function signUpPage(){
@@ -114,24 +119,28 @@ class UserController extends Controller
         return view('user.company')->with('company', $company);
     }
 
-    // public function userViewCompanies(){
-    //     $companies = $this->companyController->index();
-    //     return view('user.companies')->with('companies', $companies);
-    // }
+    public function userViewCompanies(){
+        $companies = $this->companyController->index();
+        return view('user.companies', ['companies' => $companies]);
+    }
 
     public function userSearchCompanies(Request $req){
-        $companies = Company::where('is_active', true);
-        foreach ($req->all() as $key => $value) {
-            if ($value !== null && $value !== '') {
-                // Filter based on key dan value
-                switch ($key) {
-                    case 'search':
-                        $companies->where('title', 'like', '%' . $value . '%');
-                        break;
-                    case 'field':
-                        $companies->where('field', 'like', '%' . $value . '%');
-                        break;
-                }
+        $req->validate([
+            'search' => 'string|nullable',
+            'filter' => 'string|in:name,field',
+        ],[
+            'filter.in' => 'The selected filter is invalid. Please choose either ' . 'name or field'
+        ]);
+
+        $companies = Company::query();
+        if($req->search != ""){
+            switch ($req->filter) {
+                case 'name':
+                    $companies->where('name', 'like', '%' . $req->search . '%');
+                    break;
+                case 'field':
+                    $companies->where('field', 'like', '%' . $req->search . '%');
+                    break;
             }
         }
         

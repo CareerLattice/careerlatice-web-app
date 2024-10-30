@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-white shadow-sm">
     <div class="container mt-3 mb-3">
-        <img src="{{ asset('assets/CareerLatice.jpg') }}" class="img" alt="CareerLatice">
+        <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +23,7 @@
                 <a href="{{route('signUpPage')}}">
                     <button type="button" class="btn btn-outline-primary">Join Us</button>
                 </a>
-                <a href="{{loginPage}}">
+                <a href="{{route('loginPage')}}">
                     <button type="button" class="btn btn-outline-dark">Sign In</button>
                 <a>
             </div>
