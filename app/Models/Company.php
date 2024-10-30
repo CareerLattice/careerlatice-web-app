@@ -16,6 +16,10 @@ class Company extends Model
         'deleted_at',
     ];
 
+    protected $hidden = [
+        'password',
+    ];
+
     protected function casts(): array{
         return [
             'password' => 'hashed',
