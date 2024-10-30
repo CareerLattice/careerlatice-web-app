@@ -20,6 +20,10 @@ class UserController extends Controller
         $this->jobController = $jobController;
     }
 
+    public function open_cv($filename){
+        return response()->file(storage_path('app\\public\\user_upload\\CV\\'. $filename));
+    }
+
     public function signUpPage(){
         return view('user.signUpUser');
     }

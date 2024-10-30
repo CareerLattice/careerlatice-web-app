@@ -106,6 +106,15 @@ Route::prefix("user")->group(function(){
 //     // Export data csv
 //     // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
 // });
-Auth::routes();
 
+
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Testing Open CV
+Route::get('/testing_CV', function(){
+    return view('testing_CV');
+})->name('testing_CV');
+
+Route::get('/testing_CV2/{filename}', [UserController::class, 'open_cv'])->name('getCV');

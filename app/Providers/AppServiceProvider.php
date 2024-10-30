@@ -36,15 +36,15 @@ class AppServiceProvider extends ServiceProvider
 
         // Create user upload folders
         foreach ($userUploadPaths as $path) {
-            if (!Storage::exists($path)) {
-                Storage::makeDirectory($path);
+            if (!Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->makeDirectory($path);
             }
         }
 
         // Create company upload folders
         foreach ($companyUploadPaths as $path) {
-            if (!Storage::exists($path)) {
-                Storage::makeDirectory($path);
+            if (!Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->makeDirectory($path);
             }
         }
     }
