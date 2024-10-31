@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class JobApplication extends Model
 {
@@ -20,19 +21,11 @@ class JobApplication extends Model
     public $timestamps = true;
     protected $primaryKey = 'id';
 
-    protected $casts = [
-        'id' => 'string',
-        'job_id' => 'string',
-        'user_id' => 'string',
-    ];
-
-    public function job()
-    {
+    public function job(): BelongsTo{
         return $this->belongsTo(Job::class);
     }
 
-    public function user()
-    {
+    public function user(): BelongsTo{
         return $this->belongsTo(User::class);
     }
 }
