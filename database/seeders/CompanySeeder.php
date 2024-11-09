@@ -15,7 +15,7 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create("id_ID");
-        for($i = 0; $i < 25; $i++) {
+        for($i = 0; $i < 15; $i++) {
             Company::create([
                 'name' => $faker->company,
                 'email' => $faker->companyEmail,

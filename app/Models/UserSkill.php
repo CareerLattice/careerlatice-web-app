@@ -11,12 +11,7 @@ class UserSkill extends Model
     use HasFactory;
 
     protected $table = 'user_skills';
-    protected $guarded = [
-        'id',
-    ];
-    
-    public $incrementing = true;
-    public $timestamps = true;
+    protected $guarded = [];
 
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);

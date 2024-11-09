@@ -17,7 +17,6 @@ class Skill extends Model
     ];
 
     public $incrementing = true;
-    public $timestamps = true;
     protected $primaryKey = 'id';
 
     public function userSkill(): HasMany{

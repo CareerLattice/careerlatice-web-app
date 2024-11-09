@@ -143,9 +143,9 @@ class UserController extends Controller
                     break;
             }
         }
-        
+
         // Paginate query result
-        $companies = $companies->paginate(20);
+        $companies = $companies->paginate(4)->withQueryString();
         return view('user.companies')->with('companies', $companies);
     }
 
@@ -171,7 +171,7 @@ class UserController extends Controller
         }
 
         // Paginate query result
-        $jobs = $jobs->paginate(20);
+        $jobs = $jobs->paginate(20)->withQueryString();
         return view('user.jobs')->with('jobs', $jobs);
     }
 
@@ -197,10 +197,10 @@ class UserController extends Controller
         $req->validate([
             'cv' => 'required|file|mimes:pdf|max:2048',
         ]);
-    
+
         $path = $req->file('cv')->store('user_upload/CV');
         $user = Auth::user();
-        
+
         // Delete old CV from folder
         if (Storage::exists($user->cv)) {
             Storage::delete($user->cv);
@@ -210,20 +210,20 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('user.profile');
     }
-    
+
     public function uploadUserProfilePicture(Request $req) {
         $req->validate([
             'profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
-        
+
         $path = $req->file('profile_picture')->store('user_upload/profile_picture');
         $user = Auth::user();
-        
+
         // Delete old profile picture from folder
         if (Storage::exists($user->profilePicture)) {
             Storage::delete($user->profilePicture);
         }
-        
+
         $user->profilePicture = $path;
         $user->save();
         return redirect()->route('user.profile')->with('user', $user);

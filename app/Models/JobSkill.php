@@ -12,14 +12,8 @@ class JobSkill extends Model
 
     protected $table = 'job_skills';
     protected $primaryKey = 'id';
-    public $incrementing = true;
 
-    protected $guarded = [
-        'id',
-        'created_at',
-        'updated_at',
-    ];
-
+    protected $guarded = [];
     public function job(): BelongsTo{
         return $this->belongsTo(Job::class);
     }

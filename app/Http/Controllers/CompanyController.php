@@ -12,7 +12,7 @@ use App\Models\Job;
 use App\Models\User;
 
 class CompanyController extends Controller
-{   
+{
     public function signUpPage(){
         return view('company.signUpCompany');
     }
@@ -63,7 +63,7 @@ class CompanyController extends Controller
         if(!Hash::check($req->password, $company->password)){
             return redirect()->back()->withErrors(['password' => 'Wrong password'])->withInput();
         }
-        
+
         $req->session()->put('company_id', $company->id);
         return redirect()->route('company.home');
     }
@@ -72,7 +72,7 @@ class CompanyController extends Controller
         $request->session()->forget('company_id');
         return redirect()->route('company.loginPage');
     }
-    
+
     public function viewHome(){
         return view('company.companyHome');
     }
@@ -111,15 +111,15 @@ class CompanyController extends Controller
     public function getJobs(){
         $id = session('company_id');
         $company = Company::findOrFail($id);
-        $jobs = $company->jobs()->paginate(20);
+        $jobs = $company->jobs()->paginate(20)->withQueryString();
         return view('company.companyJobs')->with('jobs', $jobs);
     }
-    
+
     public function index(){
         return Company::paginate(20);
     }
 
-    public function show($id){   
+    public function show($id){
         $company = Company::findOrFail($id);
         return $company;
     }
@@ -150,7 +150,7 @@ class CompanyController extends Controller
             'contact_person' => $req->contact_person,
             'is_active' => $req->is_active,
         ]);
-        
+
         return redirect()->route('company.listJob');
     }
 
@@ -198,7 +198,7 @@ class CompanyController extends Controller
 
     public function viewJobApplicants($id){
         $job = Job::findOrFail($id);
-        $applicants = $job->applicants()->paginate(25);
+        $applicants = $job->applicants->paginate(25)->withQueryString();
         return view('company.jobApplicants')->with('applicants', $applicants);
     }
 
@@ -211,34 +211,34 @@ class CompanyController extends Controller
         $request->validate([
             'company_profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
-    
+
         $path = $request->file('company_profile_picture')->store('company_upload/profile_picture');
         $company = Company::findOrFail(session('company_id'));
-        
+
         // Delete old profile picture from folder
         if (Storage::exists($company->profilePicture)) {
             Storage::delete($company->profilePicture);
         }
-        
+
         $company->profilePicture = $path;
         $company->save();
         return redirect()->route('company.profile')->with('company', $company);
     }
-    
+
     public function uploadJobPicture(Request $request) {
         $request->validate([
             'job_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
-    
+
         $path = $request->file('job_picture')->store('company_upload/job_picture');
         $id = session($request->id);
         $job = Job::findOrFail($id);
-        
+
         // Delete old profile picture from folder
         if (Storage::exists($job->job_picture)) {
             Storage::delete($job->job_picture);
         }
-        
+
         $job->job_picture = $path;
         $job->save();
         return redirect()->route('company.job')->with('id', $id);

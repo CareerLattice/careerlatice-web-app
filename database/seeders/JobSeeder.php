@@ -21,11 +21,12 @@ class JobSeeder extends Seeder
                 'job_type' => $faker->randomElement(['Full Time', 'Part Time', 'Internship']),
                 'title' => $faker->jobTitle,
                 'address' => $faker->address,
-                'skill_required' => $faker->sentence,
                 'description' => $faker->paragraph,
                 'requirement' => $faker->paragraph,
                 'person_in_charge' => $faker->name,
                 'contact_person' => $faker->phoneNumber,
+                'is_active' => $faker->boolean,
+                'job_picture' => $faker->imageUrl(),
                 'company_id' => $companies->random()->id,
             ]);
         }
