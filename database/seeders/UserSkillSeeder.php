@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Factory;
 use App\Models\UserSkill;
 use App\Models\User;
 use App\Models\Skill;
@@ -16,7 +16,7 @@ class UserSkillSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create("id_ID");
+        $faker = Factory::create("id_ID");
         $users = User::all();
         $skills = Skill::all();
 

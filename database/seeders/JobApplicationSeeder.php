@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Factory;
 use App\Models\JobApplication;
 
 class JobApplicationSeeder extends Seeder
@@ -16,7 +16,7 @@ class JobApplicationSeeder extends Seeder
     {
         $users = User::all();
         $jobs = Job::all();
-        $faker = Faker::create("id_ID");
+        $faker = Factory::create("id_ID");
         for($i = 0; $i < 20; $i++) {
             JobApplication::create([
                 'user_id' => $users->random()->id,

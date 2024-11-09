@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('contact_person');
             $table->boolean('is_active');
             $table->string('job_picture');
-            
+
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
