@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="{{ asset('css/landingPage.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    {{-- <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"> --}}
     <link rel="icon" href="{{asset('assets/logo.png')}}">
     {{-- End of Bootstrap 5 --}}
     
@@ -32,7 +33,7 @@
                         <a class="nav-link" aria-current="page" href="{{route('user.home')}}" id="Home">Home</a>
                     </li>                                     
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#" id="Job">Find a Job</a>
+                        <a class="nav-link" aria-current="page" href="{{route('user.jobs')}}" id="Job">Find a Job</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('user.companies')}}" id="Company">Company</a>
@@ -149,9 +150,6 @@
                     </div>
                 </div>
             </div>
-            
-
-
             
         </section>
 
