@@ -43,7 +43,7 @@ class UserController extends Controller
             $fullName .= ' ' . $req->lastname;
         }
 
-        $user = new User([
+        User::create([
             'name' => $fullName,
             'email' => $req->email,
             'password' => Hash::make($req->password),
@@ -52,12 +52,11 @@ class UserController extends Controller
             'birth_date' => $req->dob,
         ]);
 
-        $user->save();
-        return redirect()->route('user.loginUser')->with(['success' => 'Registration successful']);
+        return redirect()->route('user.loginUser', ['success' => 'Registration successful']);
     }
 
     public function loginPage(){
-        return view('user.loginUser')->with(['success' => '']);
+        return view('user.loginUser', ['success' => '']);
     }
 
     public function login(Request $req){
@@ -73,7 +72,7 @@ class UserController extends Controller
                 return redirect()->route('admin.home');
             }
 
-            return redirect()->route('user.home')->with('user', $user);
+            return redirect()->route('user.home', ['user' =>$user]);
         }
 
         return redirect()->back()->withErrors(['error' => 'Invalid email or password'])->withInput();
@@ -81,7 +80,7 @@ class UserController extends Controller
 
     public function logout(Request $req){
         Auth::logout();
-        return redirect()->route('user.loginUser')->with(['success' => 'Logout successful']);
+        return redirect()->route('user.loginUser', ['success' => 'Logout successful']);
     }
 
     public function viewHome(){
@@ -90,7 +89,7 @@ class UserController extends Controller
 
     public function viewProfile(){
         $user = Auth::user();
-        return view('user.userProfile')->with('user', $user);
+        return view('user.userProfile', ['user' => $user]);
     }
 
     public function updateProfile(Request $req){
@@ -114,85 +113,7 @@ class UserController extends Controller
         return redirect()->route('user.profile');
     }
 
-    public function userViewCompany($id){
-        $company = $this->companyController->find($id);
-        return view('user.company')->with('company', $company);
-    }
-
-    public function userViewCompanies(){
-        $companies = $this->companyController->index();
-        return view('user.companies', ['companies' => $companies]);
-    }
-
-    public function userSearchCompanies(Request $req){
-        $req->validate([
-            'search' => 'string|nullable',
-            'filter' => 'string|in:name,field',
-        ],[
-            'filter.in' => 'The selected filter is invalid. Please choose either ' . 'name or field'
-        ]);
-
-        $companies = Company::query();
-        if($req->search != ""){
-            switch ($req->filter) {
-                case 'name':
-                    $companies->where('name', 'like', '%' . $req->search . '%');
-                    break;
-                case 'field':
-                    $companies->where('field', 'like', '%' . $req->search . '%');
-                    break;
-            }
-        }
-
-        // Paginate query result
-        $companies = $companies->paginate(4)->withQueryString();
-        return view('user.companies')->with('companies', $companies);
-    }
-
-    // public function userViewJobs(){
-    //     $jobs = Job::where('is_active', true)->paginate(20);
-    //     return view('user.jobs')->with('jobs', $jobs);
-    // }
-
-    public function userSearchJobs(Request $req){
-        $jobs = Job::where('is_active', true);
-        foreach ($req->all() as $key => $value) {
-            if ($value !== null && $value !== '') {
-                // Filter based on key dan value
-                switch ($key) {
-                    case 'search':
-                        $jobs->where('title', 'like', '%' . $value . '%');
-                        break;
-                    case 'job_type':
-                        $jobs->where('job_type', 'like', '%' . $value . '%');
-                        break;
-                }
-            }
-        }
-
-        // Paginate query result
-        $jobs = $jobs->paginate(20)->withQueryString();
-        return view('user.jobs')->with('jobs', $jobs);
-    }
-
-    public function show($id){
-        $user = User::findOrFail($id);
-        return $user;
-    }
-
-    // public function upgradeToPremium(){
-    //     $user = User::findOrFail(session('user_id'));
-    //     $user->role = 'premium';
-    //     $user->save();
-    //     return redirect()->route('user.home');
-    // }
-
-    public function viewPremiumHistory(){
-        $user = User::findOrFail(session('user_id'));
-        $premiumHistories = $user->userHistories;
-        return view('user.premiumHistory')->with('history', $premiumHistories);
-    }
-
+    // User can upload CV
     public function uploadUserCV(Request $req) {
         $req->validate([
             'cv' => 'required|file|mimes:pdf|max:2048',
@@ -211,6 +132,7 @@ class UserController extends Controller
         return redirect()->route('user.profile');
     }
 
+    // User can upload profile picture
     public function uploadUserProfilePicture(Request $req) {
         $req->validate([
             'profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
@@ -226,19 +148,13 @@ class UserController extends Controller
 
         $user->profilePicture = $path;
         $user->save();
-        return redirect()->route('user.profile')->with('user', $user);
+        return redirect()->route('user.profile', ['user' => $user]);
     }
 
     // public function userSkill($id){
     //     $user = User::findOrFail($id);
     //     $skills = $user->skills;
     //     return response()->json($skills);
-    // }
-
-    // public function userJobApplication($id){
-    //     $user = User::findOrFail($id);
-    //     $jobs = $user->jobApplications;
-    //     return response()->json($jobs);
     // }
 
     // public function userEducation($id){
@@ -252,4 +168,21 @@ class UserController extends Controller
     //     $histories = $user->userHistories;
     //     return response()->json($histories);
     // }
+
+        // public function viewApplicant(User $user){
+    //     return view('company.applicant', ['applicant' => $user]);
+    // }
+
+    // public function upgradeToPremium(){
+    //     $user = User::findOrFail(session('user_id'));
+    //     $user->role = 'premium';
+    //     $user->save();
+    //     return redirect()->route('user.home');
+    // }
+
+    public function viewPremiumHistory(){
+        $user = User::findOrFail(session('user_id'));
+        $premiumHistories = $user->userHistories;
+        return view('user.premiumHistory', ['history' => $premiumHistories]);
+    }
 }

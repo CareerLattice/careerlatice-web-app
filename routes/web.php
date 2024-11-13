@@ -31,7 +31,7 @@ Route::prefix("company")->group(function(){
 
     // Route for company logout
     Route::post('/logout', [CompanyController::class, 'logout'])->name('company.logout');
-    
+
     // Route to for company home
     Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
@@ -55,7 +55,7 @@ Route::prefix("company")->group(function(){
 
 Route::prefix("user")->group(function(){
     // Route for user sign up
-    Route::get('/sign-up', [UserController::class, 'signUpPage'])->name('user.signUpUser');    
+    Route::get('/sign-up', [UserController::class, 'signUpPage'])->name('user.signUpUser');
     Route::post('/sign-up', [UserController::class, 'signUp'])->name('user.submitSignUpUser');
 
     // Route for user login
@@ -64,26 +64,26 @@ Route::prefix("user")->group(function(){
 
     // Route for user logout
     Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
-    
+
     // Route for user home
     Route::get('/home', [UserController::class, 'viewHome'])->name('user.home');
-    
+
     // Route for user profile
     Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');
     Route::post('/profile', [UserController::class, 'updateProfile'])->name('user.updateProfile');
 
     // Route for user view companies
-    Route::get('/company/{id}', [UserController::class, 'userViewCompany'])->name('user.company');
-    Route::get('/companies', [UserController::class, 'userViewCompanies'])->name('user.companies');
-    Route::get('/search/companies', [UserController::class, 'userSearchCompanies'])->name('user.searchCompanies');
+    Route::get('/company/{company}', [CompanyController::class, 'viewCompany'])->name('user.company');
+    Route::get('/companies', [CompanyController::class, 'index'])->name('user.companies');
+    Route::get('/search/companies', [CompanyController::class, 'searchCompany'])->name('user.searchCompany');
 
     // Route for user view and apply jobs
-    // Route::get('/jobs', [UserController::class, 'userViewJobs'])->name('user.jobs');
-    // Route::get('/jobs', [UserController::class, 'userSearchJobs'])->name('user.jobs');
+    // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
+    // Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
 
     // Route::get('/job/{id}', [UserController::class, 'userViewJob'])->name('user.job');
     // Route::post('/job/{id}', [UserController::class, 'applyJob'])->name('user.applyJob');
-    
+
     // Route for user view applied jobs
     // Route::get('/applied-jobs', [UserController::class, 'userViewAppliedJobs'])->name('user.appliedJobs');
     // Route::delete('/applied-job/{id}', [UserController::class, 'cancelAppliedJob'])->name('user.cancelAppliedJob');
@@ -91,7 +91,7 @@ Route::prefix("user")->group(function(){
     // Route for user to be premium user
     // Route::post('/premium', [UserController::class, 'upgradeToPremium'])->name('user.upgradeToPremium');
     Route::get('/premium-history', [UserController::class, 'viewPremiumHistory'])->name('user.premiumHistory');
-    
+
     // Route for user to add skill
     // Route::post('/user-skill', [UserController::class, 'addSkill'])->name('user.addSkill');
     // Route::delete('/user-skill/{id}', [UserController::class, 'deleteSkill'])->name('user.deleteSkill');
@@ -102,12 +102,12 @@ Route::prefix("user")->group(function(){
 
 //     // Sekaligus menampilkan list user yang apply premium beserta start dan end date premium
 //     // Route::get('/revenue', [AdminController::class, 'revenue'])->name('adminRevenue');
-    
+
 //     // Export data csv
 //     // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
 // });
 
-
+// Testing
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
