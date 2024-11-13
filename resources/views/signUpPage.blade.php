@@ -26,7 +26,7 @@
                     
                 <div class="text-left">
                     <div class="mb-4">
-                        <h3 class=" mb-3 text-center ">
+                        <h3 class="mb-3 text-center fs-2 fs-lg-4 fs-md-5 fs-sm-6">
                             Welcome! <span class="span-text fw-bold ls-tight"> Please Choose</span> ur <span class="span-text fw-bold ls-tight">Role!</span> We'll personalize your setup experience accordingly
                         </h3>
                     </div>
