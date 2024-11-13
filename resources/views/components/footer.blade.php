@@ -2,6 +2,7 @@
     <div class="container text-center text-md-left hidden">
 
         <div class="footer-container row text-center text-md-left hidden">
+
             <div class="footer-left-container col md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
                 <p>Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>

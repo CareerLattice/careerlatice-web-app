@@ -22,6 +22,28 @@
             flex: 1;
             min-height: 150px;
         }
+        .footer-container h5 {
+        font-weight: bold;
+        text-align: justify;
+        font-size: 1.5rem;
+        }
+
+        .footer-container p {
+            font-size: 1rem;
+            text-align: justify;
+            color: grey;
+        }
+
+        .footer-right-container a {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .footer-right-container a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -82,9 +104,9 @@
                 {{ $companies->links() }}
             </div>
         </div>
-
-        @include('components.footer')
+    
     </div>
+    @include('components.footer')    
     <script src="{{asset('bootstrap/js/bootstramp.min.js')}}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

@@ -54,104 +54,105 @@
 
     <main>
         <section class="landingPage-1 hidden">
-            <div class="container mb-5 hidden">
-                <div class="row">
-                    <div class="landing-about-container col-md-6 mt-3 hidden">
-                        <h3 class="display-5">Empowering Your Careers <span>Through Connection</span></h3>
-                        <p class="my-4 lead mt-2 ms-1 col-md-11">Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
-                        
-                        <div class="col-md-8 hidden">
-                            <div class="offer mb-3" style="background-color: #ffcccb; color: #333; padding: 15px; border-radius: 8px;">
-                                <ul class="list-unstyled">
-                                    <li class="offer-item">💼 Personalized Career Guidance</li>
-                                    <li class="offer-item">🌐 Networking Opportunities</li>
-                                </ul>
-                            </div>
-                        
-                            <div class="offer" style="background-color: #d1e7dd; color: #333; padding: 15px; border-radius: 8px;">
-                                <ul class="list-unstyled">
-                                    <li class="offer-item">📚 Access to Expert-Led Courses</li>
-                                    <li class="offer-item">🔍 Job Matching Services</li>
-                                </ul>
-                            </div>
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('assets/sliders5.jpg') }}" class="carousel-image d-block w-100" alt="Slide 1">
+                        <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
+                            <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
+                                Welcome to <span style="color: #7869cd">CareerLattice</span>.
+                            </h5>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">Empowering Your Careers Through Connection. Join us to explore your strength</p>
                         </div>
-                        
-
-                        <div class="landingPage-btn mt-3 hidden">
-                            <a href="#Companies" class="btn btn-outline-primary btn-lg mt-3">Popular Companies</a>
-                            <a href="#Jobs" class="btn btn-outline-dark btn-lg ms-2 mt-3">Popular Job Vacancies</a>    
-                        </div>
-                        
                     </div>
-                    <div class="image col-md-6">
-                        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="10000">
-                                    <img src="{{asset('assets/sliders1.jpg')}}" class="d-block w-100" alt="Slider Image 1">
-                                </div>
-                                <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="{{asset('assets/sliders2.jpg')}}" class="d-block w-100" alt="Slider Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{asset('assets/sliders3.jpg')}}" class="d-block w-100" alt="Slider Image 3">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{asset('assets/sliders4.jpg')}}" class="d-block w-100" alt="Slider Image 3">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>                   
+                    <div class="carousel-item">
+                        <img src="{{ asset('assets/sliders7.jpg') }}" class="carousel-image d-block w-100" alt="Slide 2">
+                        <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
+                            <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
+                                Join Top Leading <span style="color: #7869cd">Companies</span>
+                            </h5>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">Connect with renowned employers looking for talented individuals ready to make a difference.</p>
+                        </div>
                     </div>
-
-                    <div class="promotion row container g-3 text-center">
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card" style="background-color: #ffc09f;">
-                                <div class="card-body">
-                                    <i class="bi bi-building fs-1 text-primary"></i>
-                                    <h5 class="card-title mt-2">Hiring Company</h5>
-                                    <p class="card-text">Over <strong>500 reputable companies</strong> actively seeking talented professionals.</p>
-                                </div>
-                            </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('assets/sliders1.jpg') }}" class="carousel-image d-block w-100" alt="Slide 3">
+                        <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
+                            <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
+                                Explore Exciting <span style="color: #7869cd">Job Vacancies</span>
+                            </h5>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">Discover exciting job opportunities tailored just for you – start exploring now!</p>
                         </div>
-                    
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card" style="background-color: #adf7b6;">
-                                <div class="card-body">
-                                    <i class="bi bi-person-lines-fill fs-1 text-info"></i>
-                                    <h5 class="card-title mt-2">Applicants Each Year</h5>
-                                    <p class="card-text"><strong>Join thousands of applicants</strong> securing career-defining opportunities annually.</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card" style="background-color: #a0ced9;">
-                                <div class="card-body">
-                                    <i class="bi bi-people-fill fs-1 text-success"></i>
-                                    <h5 class="card-title mt-2">Total Applicants</h5>
-                                    <p class="card-text"><strong>Over 10,000 applicants</strong> successfully placed in jobs worldwide.</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card" style="background-color: #fcf5c7;">
-                                <div class="card-body">
-                                    <i class="bi bi-person-check-fill fs-1 text-warning"></i>
-                                    <h5 class="card-title mt-2">Total Users</h5>
-                                    <p class="card-text">More than <strong>50,000 users</strong> are benefiting from our career services.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                    
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
+            
+        
+            <div class="container">
+                <!-- First Section: Heading and Description -->
+                <div class="col-12 col-md-7">
+                    <h2 class="fw-bold fs-1 mt-5">A Quick Look at <span style="color: #7869cd">Our Journey</span></h2>
+                    <p class="mt-3 fw-bold" style="text-align: justify; color: gray">
+                        CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.
+                    </p>
+                </div>
+            
+                <div class="row">
+                    <div class="col-12 col-md-4 mt-3 mb-3">
+                        <h3 class="fw-bold text-center" style="color: #682b90">Jan 2024</h3>
+                        <p style="color: gray" class="text-center">
+                            <i class="bi bi-person-lines-fill">Over <strong>500 active total users</strong> benefiting from our platform.</i>
+                        </p>
+                    </div>
+            
+                    <div class="col-12 col-md-4 mt-3 mb-3">
+                        <h3 class="fw-bold text-center" style="color: #682b90">Apr 2024</h3>
+                        <p style="color: gray" class="text-center">
+                            <i class="bi bi-people-fill"><strong>Achieved by over 500 active users</strong> who are securing career-defining opportunities annually.</i>
+                        </p>
+                    </div>
+            
+                    <div class="col-12 col-md-4 mt-3 mb-3">
+                        <h3 class="fw-bold text-center" style="color: #682b90">Oct 2024</h3>
+                        <p style="color: gray" class="text-center ms-2">
+                            <i class="bi bi-person-check-fill">Partnered with over <strong>500 reputable companies</strong> actively seeking talented professionals.</i>
+                        </p>
+                    </div>
+            
+                    <hr>
+                </div>
+            
+                <div class="row">
+                    <img src="{{asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-5" alt="Landing Page Image">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12 col-md-7 mt-3">
+                        <h2 class="fw-bold fs-1">How we provides <span style="color: #7869cd">Solutions</span></h2>
+                        <p class="mt-3 fw-bold" style="text-align: justify; color: gray; line-height: 1.6;">
+                            By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs). 
+                        </p>
+                        <p class="fw-bold" style="text-align: justify; color: gray; line-height: 1.6;">
+                            With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
+                        </p>                    
+                    </div>
+
+                    <div class="col-12 col-md-5 ps-5">
+                        <img src="{{asset('assets/sdgs.jpg')}}" class="img-thumbnail" alt="..." width="100%">
+                    </div>
+                </div>
+            </div>
+            
+
+
+            
         </section>
 
         <section class="landingPage-2 hidden" id="landingPage-2">
@@ -321,7 +322,7 @@
                 <div class="row">
                     <div class="landing-about-container col-md-12 mt-2 hidden">
                         <h3 class="display-5">Explore Exciting <span>Job Vacancies💼</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">🌈 Here are the leading roles attracting enthusiastic applications from job seekers🚀!</p>
+                        <p class="my-4 lead mt-3 ms-1">🌈 Discover exciting job opportunities tailored just for you – start exploring now!🚀!</p>
                     </div>
                 </div>
             </div>
@@ -568,8 +569,6 @@
                 
             </div>
         </section>
-        
-
     </main>
 
     {{-- Start of Footer --}}

@@ -22,7 +22,7 @@
                 </a>       
                 
                 <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="goToLandingPage()">
-                <h3 class="text-center mb-5">
+                <h3 class="text-center mb-5 fs-lg-2 fs-md-3 fs-sm-2">
                     Welcome back! <span class="span-text fw-bold ls-tight" >Log in</span> to find <span class="span-text fw-bold ls-tight" >skilled talent</span> and connect with <span class="span-text fw-bold ls-tight" >potential</span> candidates through our platform.
                 </h3>
                                     
