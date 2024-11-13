@@ -70,12 +70,6 @@ class JobController extends Controller
         return redirect()->route('company.job', ['id' => $id]);
     }
 
-    // Company can view job applicants
-    public function viewJobApplicants(Job $job){
-        $applicants = $job->applicants->paginate(25)->withQueryString();
-        return view('company.jobApplicants', ['applicants' => $applicants]);
-    }
-
     // Company can view the job vacancies they create
     public function viewJob(Job $job){
         return view('company.job', ['job' => $job]);
@@ -144,14 +138,4 @@ class JobController extends Controller
         $jobs = Job::where('is_active', true)->paginate(20);
         return view('user.jobs', ['jobs' => $jobs]);
     }
-
-    // User can view job application
-    // public function userJobApplication(){
-    //     $id = session('user_id');
-    //     $user = User::findOrFail($id);
-    //     $jobs = $user->jobApplications;
-    //     return view('user.homeUser', ['jobs' => $jobs]);
-    // }
-
-
 }

@@ -9,18 +9,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\User;
-use App\Models\Job;
-use App\Models\Company;
+use App\Models\UserHistory;
 
 class UserController extends Controller
 {
-    private $companyController;
-    private $jobController;
-    public function __construct(CompanyController $companyController, JobController $jobController){
-        $this->companyController = $companyController;
-        $this->jobController = $jobController;
-    }
-
     public function open_cv($filename){
         return response()->file(storage_path('app\\public\\user_upload\\CV\\'. $filename));
     }
@@ -151,25 +143,19 @@ class UserController extends Controller
         return redirect()->route('user.profile', ['user' => $user]);
     }
 
-    // public function userSkill($id){
-    //     $user = User::findOrFail($id);
-    //     $skills = $user->skills;
-    //     return response()->json($skills);
-    // }
-
     // public function userEducation($id){
     //     $user = User::findOrFail($id);
     //     $educations = $user->educations;
-    //     return response()->json($educations);
+    //     return $educations;
     // }
 
     // public function userHistory($id){
     //     $user = User::findOrFail($id);
     //     $histories = $user->userHistories;
-    //     return response()->json($histories);
+    //     return $histories;
     // }
 
-        // public function viewApplicant(User $user){
+    // public function viewApplicant(User $user){
     //     return view('company.applicant', ['applicant' => $user]);
     // }
 
@@ -181,8 +167,7 @@ class UserController extends Controller
     // }
 
     public function viewPremiumHistory(){
-        $user = User::findOrFail(session('user_id'));
-        $premiumHistories = $user->userHistories;
+        $user = UserHistory::where('user_id', session('user_id'))->orderBy('end_date', 'desc')->get();
         return view('user.premiumHistory', ['history' => $premiumHistories]);
     }
 }
