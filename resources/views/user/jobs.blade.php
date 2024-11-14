@@ -99,7 +99,7 @@
         </div>  
 
         <div class="container">
-            <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompanies')}}" method="GET">
+            <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
                 <!-- Search Input -->
                 <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Discover Job" aria-label="Search" name="search" required>
                 
