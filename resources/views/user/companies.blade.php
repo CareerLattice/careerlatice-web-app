@@ -47,13 +47,15 @@
     </style>
 </head>
 <body>
+
+    <h1>asdfasd</h1>
     <div class="container-fluid">
         @include('components.navbar')
 
         <div class="row">
             <div class="col-md-12 mt-5">
                 <h2 class="text-center">Search Company</h2>
-                <form class="form-inline" action="{{route('user.searchCompanies')}}" method="GET">
+                <form class="form-inline" action="{{route('user.searchCompany')}}" method="GET">
                     <div class="d-flex justify-content-center">
                         <div class="input-group custom-input-group">
                             <input type="search" name="search" class="form-control me-2" placeholder="Search Company" aria-label="Search">
@@ -82,13 +84,13 @@
         <div class="row justify-content-start mt-5 mx-4">
             <h2 class="text-center w-100 mt-5 mb-5">Companies</h2>
             @forelse ($companies as $company)
-                <div class="col-6 col-sm-4 col-md-3 mb-4"> 
+                <div class="col-6 col-sm-4 col-md-3 mb-4">
                     <div class="card h-100 d-flex flex-column">
-                        <img src="..." class="card-img-top img-fluid" alt="...">
+                        <img src="..." class="card-img-top img-fluid" alt="Photo">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title fs-5 fs-md-4">{{ $company->name }}</h5>
                             <p class="card-text fs-6 fs-md-5 text-left">{{ $company->field }}</p>
-                            <a href="#" class="btn btn-primary mt-auto">See Detail</a>
+                            <a href="{{route('user.company', ['company' => $company])}}" class="btn btn-primary mt-auto">See Detail</a>
                         </div>
                     </div>
                 </div>

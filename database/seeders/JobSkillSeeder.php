@@ -5,11 +5,12 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
-use App\Models\UserSkill;
-use App\Models\User;
-use App\Models\Skill;
 
-class UserSkillSeeder extends Seeder
+use App\Models\Job;
+use App\Models\Skill;
+use App\Models\JobSkill;
+
+class JobSkillSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,12 +18,12 @@ class UserSkillSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create("id_ID");
-        $users = User::all();
+        $jobs = Job::all();
         $skills = Skill::all();
 
-        for($i = 0; $i < 20; $i++) {
-            UserSkill::create([
-                "user_id" => $users->random()->id,
+        for($i = 0; $i < 10; $i++) {
+            JobSkill::create([
+                "job_id" => $jobs->random()->id,
                 "skill_id" => $skills->random()->id,
             ]);
         }

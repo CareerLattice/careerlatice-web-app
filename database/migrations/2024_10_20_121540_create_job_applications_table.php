@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('status')->default('pending');
 
             $table->softDeletes();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('job_id')->references('id')->on('job_vacancies')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('job_id')->constrained('job_vacancies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
