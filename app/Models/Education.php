@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Education extends Model
 {
@@ -27,8 +28,7 @@ class Education extends Model
         'is_active' => 'boolean',
     ];
 
-    public function user()
-    {
+    public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }
 }

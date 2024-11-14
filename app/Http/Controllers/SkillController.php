@@ -14,7 +14,7 @@ class SkillController extends Controller
         $skills = Skill::all();
         return response()->json($skills);
     }
-
+    
     public function store(Request $request){
         $request->validate([
             'name' => 'required|string|max:100',

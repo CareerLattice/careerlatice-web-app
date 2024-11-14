@@ -13,14 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // UserSkill::factory(10)->recycle([
-        //     User::factory(3)->create(),
-        //     Skill::factory(3)->create(),
-        // ])->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            UserSeeder::class,
+            SkillSeeder::class,
+            UserSkillSeeder::class,
+            CompanySeeder::class,
+            JobSeeder::class,
+            JobSkillSeeder::class,
+            JobApplicationSeeder::class,
+            UserHistorySeeder::class,
         ]);
     }
 }

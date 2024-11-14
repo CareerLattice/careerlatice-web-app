@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -24,7 +25,6 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $guarded = [
         'id',
-        'role',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -52,19 +52,19 @@ class User extends Authenticatable
         ];
     }
 
-    public function userHistories(){
+    public function userHistories(): HasMany{
         return $this->hasMany(UserHistory::class, 'user_id', 'id');
     }
 
-    public function jobApplications(){
+    public function jobApplications(): HasMany{
         return $this->hasMany(JobApplication::class, 'user_id', 'id');  
     }
 
-    public function educations(){
+    public function educations(): HasMany{
         return $this->hasMany(Education::class, 'user_id', 'id');
     }
 
-    public function userSkills(){
+    public function userSkills(): HasMany{
         return $this->hasMany(UserSkill::class, 'user_id', 'id');
     }
 }
