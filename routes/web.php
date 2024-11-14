@@ -20,6 +20,10 @@ Route::get('/sign-up', function () {
     return view('signUpPage');
 })->name('signUpPage');
 
+Route::get('/jobs', function(){
+    return view('user.jobs');
+})->name('jobs');
+
 Route::prefix("company")->group(function(){
     // Route for company sign up
     Route::get('/sign-up', [CompanyController::class, 'signUpPage'])->name('company.signUpCompany');

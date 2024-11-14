@@ -95,7 +95,6 @@
                                 <i class="bi bi-instagram"></i>
                             </a>
                         </li>
-                    </p>
                     </ul>
                 </div>
             </div>
