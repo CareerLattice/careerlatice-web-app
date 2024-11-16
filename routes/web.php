@@ -78,7 +78,7 @@ Route::prefix("user")->group(function(){
 
     Route::middleware('user_auth')->group(function(){
         // Route for user logout
-        Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+        Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 
         // Route for user home
         Route::get('/home', [UserController::class, 'viewHome'])->name('user.home');
