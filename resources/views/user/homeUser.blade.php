@@ -18,8 +18,8 @@
     <div class="container mt-4">
         <h1>tes</h1>
     </div>
-    
-    
+
+
 {{-- Start of Font --}}
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 {{-- End of Font --}}

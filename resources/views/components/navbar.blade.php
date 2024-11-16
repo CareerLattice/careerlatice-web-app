@@ -78,5 +78,3 @@
         </div>
     </div>
 </nav>
-
-<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
