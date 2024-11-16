@@ -17,7 +17,7 @@ class CompanyController extends Controller
         return view('company.signUpCompany');
     }
 
-    public function signUp(Resquest $request){
+    public function signUp(Request $request){
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:companies',

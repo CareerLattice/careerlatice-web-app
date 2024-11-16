@@ -44,11 +44,12 @@ class UserController extends Controller
             'birth_date' => $req->dob,
         ]);
 
-        return redirect()->route('user.loginUser', ['success' => 'Registration successful']);
+        session()->put('success', 'Registration successful');
+        return redirect()->route('user.loginUser');
     }
 
     public function loginPage(){
-        return view('user.loginUser', ['success' => '']);
+        return view('user.loginUser');
     }
 
     public function login(Request $req){
@@ -64,15 +65,16 @@ class UserController extends Controller
                 return redirect()->route('admin.home');
             }
 
-            return redirect()->route('user.home', ['user' =>$user]);
+            return redirect()->route('user.home');
         }
 
         return redirect()->back()->withErrors(['error' => 'Invalid email or password'])->withInput();
     }
 
-    public function logout(Request $req){
+    public function logout(){
         Auth::logout();
-        return redirect()->route('user.loginUser', ['success' => 'Logout successful']);
+        session()->put('success', 'Logout successful');
+        return redirect()->route('user.loginUser');
     }
 
     public function viewHome(){
@@ -94,7 +96,7 @@ class UserController extends Controller
             'birth_date' => 'date',
         ]);
 
-        $user = User::findOrFail(session('user_id'));
+        $user = Auth::user();
         $user->name = $req->name;
         $user->password = Hash::make($req->password);
         $user->phone_number = $req->phone_number;
@@ -102,6 +104,9 @@ class UserController extends Controller
         $user->profile_picture = $req->profile_picture;
         $user->birth_date = $req->birth_date;
         $user->save();
+
+        Auth::login($user);
+        session()->put('success','Profile updated');
         return redirect()->route('user.profile');
     }
 
@@ -167,7 +172,7 @@ class UserController extends Controller
     // }
 
     public function viewPremiumHistory(){
-        $user = UserHistory::where('user_id', session('user_id'))->orderBy('end_date', 'desc')->get();
+        $premiumHistories = UserHistory::where('user_id', session('user_id'))->orderBy('end_date', 'desc')->get();
         return view('user.premiumHistory', ['history' => $premiumHistories]);
     }
 }

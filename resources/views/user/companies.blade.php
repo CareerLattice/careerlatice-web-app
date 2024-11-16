@@ -47,9 +47,7 @@
     </style>
 </head>
 <body>
-
-    <h1>asdfasd</h1>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         @include('components.navbar')
 
         <div class="row">
@@ -106,9 +104,9 @@
                 {{ $companies->links() }}
             </div>
         </div>
-    
+
     </div>
-    @include('components.footer')    
+    @include('components.footer')
     <script src="{{asset('bootstrap/js/bootstramp.min.js')}}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

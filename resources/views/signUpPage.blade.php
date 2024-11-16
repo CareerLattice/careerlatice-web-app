@@ -19,32 +19,33 @@
                         <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"></path>
                     </svg>
                 </button>
-            </a>  
-                <div class="image text-center">
-                    <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="goToLandingPage()">
-                </div>  
-                    
-                <div class="text-left">
-                    <div class="mb-4">
-                        <h3 class="mb-3 text-center fs-2 fs-lg-4 fs-md-5 fs-sm-6">
-                            Welcome! <span class="span-text fw-bold ls-tight"> Please Choose</span> ur <span class="span-text fw-bold ls-tight">Role!</span> We'll personalize your setup experience accordingly
-                        </h3>
-                    </div>
-                    <div class="align-items-start w-100 buttons">
-                        <a href="{{route('user.signUpUser')}}" style="text-decoration: none">
-                            <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
-                                    <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
-                                    <span>I'm here to apply</span>
-                            </button>
-                        </a>
-                        <a href="{{route('company.signUpCompany')}}" style="text-decoration: none">
-                            <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
-                                    <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
-                                    <span>I'm hiring talent</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>      
+            </a>
+
+            <div class="image text-center">
+                <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="goToLandingPage()">
+            </div>
+
+            <div class="text-left">
+                <div class="mb-4">
+                    <h3 class="mb-3 text-center fs-2 fs-lg-4 fs-md-5 fs-sm-6">
+                        Welcome! <span class="span-text fw-bold ls-tight"> Please Choose</span> ur <span class="span-text fw-bold ls-tight">Role!</span> We'll personalize your setup experience accordingly
+                    </h3>
+                </div>
+                <div class="align-items-start w-100 buttons">
+                    <a href="{{route('user.signUpUser')}}" style="text-decoration: none">
+                        <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
+                                <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
+                                <span>I'm here to apply</span>
+                        </button>
+                    </a>
+                    <a href="{{route('company.signUpCompany')}}" style="text-decoration: none">
+                        <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
+                                <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
+                                <span>I'm hiring talent</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-5">
@@ -64,7 +65,7 @@
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev"></button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next"></button>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -72,8 +73,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script>
         function goToLandingPage() {
-                window.location.href = '/'; 
-            }   
+                window.location.href = '/';
+            }
     </script>
 </body>
 
