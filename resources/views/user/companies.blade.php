@@ -47,8 +47,6 @@
     </style>
 </head>
 <body>
-
-    <h1>asdfasd</h1>
     <div class="container-fluid">
         @include('components.navbar')
 

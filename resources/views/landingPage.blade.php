@@ -142,10 +142,10 @@
                 <div class="row mb-3">
                     <div class="col-12 col-md-7 mt-3">
                         <h2 class="fw-bold fs-1">How we provides <span style="color: #7869cd">Solutions</span></h2>
-                        <p class="mt-3 fw-bold" style="text-align: justify; color: gray; line-height: 1.6;">
+                        <p class="mt-3 fw-bold" style="text-align: justify; color: gray; line-height: 1.8;">
                             By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs). 
                         </p>
-                        <p class="fw-bold" style="text-align: justify; color: gray; line-height: 1.6;">
+                        <p class="fw-bold" style="text-align: justify; color: gray; line-height: 1.8;">
                             With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
                         </p>                    
                     </div>
