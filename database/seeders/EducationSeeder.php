@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Factory;
 use App\Models\Education;
 use App\Models\User;
 
@@ -15,7 +15,7 @@ class EducationSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create("id_ID");
+        $faker = Factory::create("id_ID");
         $user = User::all();
 
         for($i = 0; $i < 10; $i++) {

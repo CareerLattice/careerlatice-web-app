@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Faker\Factory;
+
 use App\Models\UserHistory;
 use App\Models\User;
 
@@ -15,10 +16,10 @@ class UserHistorySeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create();
+        $faker = Factory::create();
         $users = User::all();
 
-        for($i = 0; $i < 20; $i++) {
+        for($i = 0; $i < 10; $i++) {
             UserHistory::create([
                 'user_id' => $users->random()->id,
                 'name' => $faker->sentence,

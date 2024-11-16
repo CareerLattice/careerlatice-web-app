@@ -12,7 +12,7 @@ use App\Models\Job;
 use App\Models\User;
 
 class CompanyController extends Controller
-{   
+{
     public function signUpPage(){
         return view('company.signUpCompany');
     }
@@ -29,7 +29,7 @@ class CompanyController extends Controller
             'logo' => 'string|max 255',
         ]);
 
-        $company = new Company([
+        Company::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -40,7 +40,6 @@ class CompanyController extends Controller
             'logo' => $request->logo,
         ]);
 
-        $company->save();
         return redirect()->route('company.loginPage');
     }
 
@@ -63,7 +62,7 @@ class CompanyController extends Controller
         if(!Hash::check($req->password, $company->password)){
             return redirect()->back()->withErrors(['password' => 'Wrong password'])->withInput();
         }
-        
+
         $req->session()->put('company_id', $company->id);
         return redirect()->route('company.home');
     }
@@ -72,7 +71,7 @@ class CompanyController extends Controller
         $request->session()->forget('company_id');
         return redirect()->route('company.loginPage');
     }
-    
+
     public function viewHome(){
         return view('company.companyHome');
     }
@@ -108,139 +107,57 @@ class CompanyController extends Controller
         return redirect()->route('company.profile');
     }
 
-    public function getJobs(){
-        $id = session('company_id');
-        $company = Company::findOrFail($id);
-        $jobs = $company->jobs()->paginate(20);
-        return view('company.companyJobs')->with('jobs', $jobs);
-    }
-    
     public function index(){
-        return Company::paginate(20);
+        $companies = Company::paginate(20);
+        return view('user.companies', ['companies' => $companies]);
     }
 
-    public function show($id){   
-        $company = Company::findOrFail($id);
-        return $company;
+    public function viewCompany(Company $company){
+        return view('user.company', ['company' => $company]);
     }
-
-    public function createJob(Request $req){
-        $id = session('company_id');
-        $req->validate([
-            'title' => 'required|string|max:255',
-            'job_type' => 'required|in:full_time,part_time,internship',
-            'address' => 'required|string|max:255',
-            'skill_required' => 'required|string',
-            'description' => 'required|string',
-            'requirement' => 'required|string',
-            'person_in_charge' => 'required|string',
-            'contact_person' => 'required|string',
-            'is_active' => 'required|boolean',
-        ]);
-
-        $job = new Job([
-            'company_id' => $id,
-            'job_type' => $req->job_type,
-            'title' => $req->title,
-            'address' => $req->address,
-            'skill_required' => $req->skill_required,
-            'description' => $req->description,
-            'requirement' => $req->requirement,
-            'person_in_charge' => $req->person_in_charge,
-            'contact_person' => $req->contact_person,
-            'is_active' => $req->is_active,
-        ]);
-        
-        return redirect()->route('company.listJob');
-    }
-
-    public function viewJob($id){
-        $job = Job::findOrFail($id);
-        return view('company.job')->with('job', $job);
-    }
-
-    public function updateJob($id){
-        $req->validate([
-            'title' => 'string|max:255',
-            'job_type' => 'in:full_time,part_time,internship',
-            'address' => 'string|max:255',
-            'skill_required' => 'string',
-            'description' => 'string',
-            'requirement' => 'string',
-            'person_in_charge' => 'string',
-            'contact_person' => 'string',
-            'is_active' => 'boolean',
-        ]);
-
-        $job = Job::findOrFail($id);
-        $job->update([
-            'job_type' => $req->job_type ?? $job->job_type,
-            'title' => $req->title ?? $job->title,
-            'address' => $req->address ?? $job->address,
-            'skill_required' => $req->skill_required ?? $job->skill_required,
-            'description' => $req->description ?? $job->description,
-            'requirement' => $req->requirement ?? $job->requirement,
-            'person_in_charge' => $req->person_in_charge ?? $job->person_in_charge,
-            'contact_person' => $req->contact_person ?? $job->contact_person,
-            'is_active' => $req->is_active ?? $job->is_active,
-        ]);
-
-        return redirect()->route('company.job', ['id' => $id]);
-    }
-
-    public function deleteJob($id){
-        $job = Job::findOrFail($id);
-
-        // Soft Delete
-        $job->delete();
-        return redirect()->route('company.listJob');
-    }
-
-    public function viewJobApplicants($id){
-        $job = Job::findOrFail($id);
-        $applicants = $job->applicants()->paginate(25);
-        return view('company.jobApplicants')->with('applicants', $applicants);
-    }
-
-    // public function viewApplicant($id){
-    //     $user = User::findOrFail($id);
-    //     return view('company.applicant')->with('applicant', $user);
-    // }
 
     public function uploadCompanyProfilePicture(Request $request) {
+        // Input form with name company_profile_picture must be either jpg, png, or jpeg with maximum size of 2MB
         $request->validate([
             'company_profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
-    
+
+        // Save the photo to storage
         $path = $request->file('company_profile_picture')->store('company_upload/profile_picture');
         $company = Company::findOrFail(session('company_id'));
-        
+
         // Delete old profile picture from folder
         if (Storage::exists($company->profilePicture)) {
             Storage::delete($company->profilePicture);
         }
-        
+
         $company->profilePicture = $path;
         $company->save();
-        return redirect()->route('company.profile')->with('company', $company);
+        return redirect()->route('company.profile', ['company' => $company]);
     }
-    
-    public function uploadJobPicture(Request $request) {
-        $request->validate([
-            'job_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+
+    public function searchCompany(Request $req){
+        $req->validate([
+            'search' => 'string|nullable',
+            'filter' => 'string|in:name,field',
+        ],[
+            'filter.in' => 'The selected filter is invalid. Please choose either ' . 'name or field'
         ]);
-    
-        $path = $request->file('job_picture')->store('company_upload/job_picture');
-        $id = session($request->id);
-        $job = Job::findOrFail($id);
-        
-        // Delete old profile picture from folder
-        if (Storage::exists($job->job_picture)) {
-            Storage::delete($job->job_picture);
+
+        $companies = Company::query();
+        if($req->search != ""){
+            switch ($req->filter) {
+                case 'name':
+                    $companies->where('name', 'like', '%' . $req->search . '%');
+                    break;
+                case 'field':
+                    $companies->where('field', 'like', '%' . $req->search . '%');
+                    break;
+            }
         }
-        
-        $job->job_picture = $path;
-        $job->save();
-        return redirect()->route('company.job')->with('id', $id);
+
+        // Paginate query result
+        $companies = $companies->paginate(12)->withQueryString();
+        return view('user.companies', ['companies' => $companies]);
     }
 }

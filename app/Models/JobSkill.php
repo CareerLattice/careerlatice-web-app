@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class JobSkill extends Model
 {
@@ -11,17 +12,13 @@ class JobSkill extends Model
 
     protected $table = 'job_skills';
     protected $primaryKey = 'id';
-    public $incrementing = true;
 
-    protected $guarded = [
-        'id',
-    ];
-
-    public function job(){
+    protected $guarded = [];
+    public function job(): BelongsTo{
         return $this->belongsTo(Job::class);
     }
 
-    public function skill(){
+    public function skill(): BelongsTo{
         return $this->belongsTo(Skill::class);
     }
 }
