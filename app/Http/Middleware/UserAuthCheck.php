@@ -21,7 +21,7 @@ class UserAuthCheck
         }
 
         $user = Auth::user();
-        if ($user->role == 'company' || $user->role == 'admin') {
+        if ($user->role != 'user') {
             abort(401);
         }
         return $next($request);
