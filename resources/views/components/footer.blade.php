@@ -67,7 +67,7 @@
             </p>
             </div>
 
-            <div class="col-md-5 col-lg-2">
+            <div class="col-md-5 col-lg-3">
                 <div class="text-center">
                     <ul class="ul-container list-unstyled list-inline">
                         <li class="list-inline-item">
