@@ -20,13 +20,14 @@
             border: 1px solid #ddd;
             border-radius: 15px;
             padding: 20px;
-            margin-bottom: 20px;
+            /* margin-bottom: 15px; */
             display: flex;
             align-items: flex-start;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             flex-direction: column;
+            height: 100%;
         }
 
         .company-card:hover {
@@ -34,8 +35,8 @@
         }
 
         .company-card img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             margin-bottom: 15px;
             border-radius: 50%;
             align-self: center;
@@ -123,47 +124,39 @@
         <div class="container">
             <h1 class="text-center mt-5 mb-3">Search Company</h1>
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
-                <!-- Search Input -->
                 <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search Company" aria-label="Search" name="search" required>
-                
-                <!-- Select Filter with smaller width -->
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
                     <option value="x">Filter</option>
                     <option value="name">Company Name</option>
                     <option value="field">Field</option>
                 </select>
-                
-                <!-- Submit Button -->
                 <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
             </form>
             @if ($errors->any())
-                <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">
-                    {{$errors->first('filter')}}
-                </div>
+                <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">{{$errors->first('filter')}}</div>
             @endif
         </div>
 
         <h1 class="text-center w-100 mt-5 mb-5">Companies</h1>
 
         <div class="row">
-            @for ($i = 0; $i < 6; $i++)
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mx-auto">
+            @forelse ($companies as $company)
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mx-auto mt-3">
                     <div class="company-card">
                         <div class="row">
                             <div class="col-md-4 d-flex justify-content-center">
                                 <img src="{{ asset('assets/bbca.jpeg') }}" alt="Amazon Logo" style="width: 100px; height: 100px;">
                             </div>
-                            
                             <div class="col-md-8">
-                                <h5 class="mt-2 fw-bold">Bank Central Asia</h5>
-                                <p class="mb-0">Menara BCA Grand Indonesia, Jl. M.H. Thamrin No.1, Menteng, Jakarta 10310</p>
+                                <h5 class="mt-2 fw-bold">{{$company->name}}</h5>
+                                <p class="mb-0">{{$company->address}}</p>
                             </div>
                         </div>
 
                         <div class="company-info-section">
                             <p class="fw-bold mb-0">Description</p>
                             <p class="text-muted mt-0" style="font-size: 0.9rem;">
-                                Bank Central Asia is one of the leading banks in Indonesia. With the vision of "to be the bank of choice and a major pillar of the Indonesian economy", BCA has continued to improve the quality of its products and services.
+                                {{$company->description}}
                             </p>
                         </div>
 
@@ -174,9 +167,15 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+            @empty
+                <div class="col-12">
+                    <div class="alert alert-info text-center" role="alert">
+                        No companies found.
+                    </div>
+                </div>    
+            @endforelse
         </div>
-        
+
         <div class="row mb-5 mt-3 d-flex justify-content-center">
             <div class="col-12 d-flex justify-content-center">
                 {{ $companies->links() }}
@@ -186,7 +185,7 @@
 
     <hr class="mt-5">
 
-    @include('components.footer')    
+    @include('components.footer')       
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
