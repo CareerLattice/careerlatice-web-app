@@ -21,6 +21,7 @@ class UserAuthCheck
         }
 
         $user = Auth::user();
+        // dd($user->role);
         if ($user->role != 'user') {
             abort(401);
         }

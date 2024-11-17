@@ -5,7 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
-
+use Illuminate\Support\Facades\Auth;
 // Controller yang belum dipakai
 // use App\Http\Controllers\SkillController;
 // use App\Http\Controllers\UserSkillController;
@@ -22,13 +22,6 @@ Route::middleware('guest')->group(function(){
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
 });
 
-// Route to get the jobs page
-Route::view('/jobs', 'user.jobs')->name('jobs');
-
-// Route to get the companies page
-Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
-
-// Static route for job detail
 Route::get('/job/detail', function(){
     return view('user.jobDetail');
 })->name('jobDetail');
@@ -36,6 +29,18 @@ Route::get('/job/detail', function(){
 Route::get('/job/company', function(){
     return view('user.company');
 })->name('jobCompany');
+
+Route::get("/logout", function(){
+        Auth::logout();
+        session()->put('success', 'Logout successful');
+        return redirect()->route('user.loginUser');
+});
+
+// Route to get the jobs page
+Route::view('/jobs', 'user.jobs')->name('jobs');
+
+// Route to get the companies page
+Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 
 Route::prefix("company")->group(function(){
     Route::middleware('guest')->group(function(){

@@ -124,9 +124,9 @@
         <div class="container">
             <h1 class="text-center mt-5 mb-3">Search Company</h1>
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
-                <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search Company" aria-label="Search" name="search" required>
+                <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search Company" aria-label="Search" name="search" >
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
-                    <option value="x">Filter</option>
+
                     <option value="name">Company Name</option>
                     <option value="field">Field</option>
                 </select>

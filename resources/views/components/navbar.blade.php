@@ -5,6 +5,10 @@
         padding: 1rem 0;
     }
 
+    .logo-right {
+        color: darkblue;
+    }
+
     .navbar-brand {
         font-weight: bold;
         font-size: 1.5rem;
@@ -25,42 +29,35 @@
         color: #007bff;
     }
 
-    .btn {
-        font-weight: 500;
-    }
-
     .img {
         width: 13%;
-        height: auto;
+    }
+
+    .dropdown-menu a:focus, .dropdown-menu a:active {
+        outline: none;
+        box-shadow: none;
     }
 </style>
 
 <nav class="navbar navbar-expand-lg bg-white shadow-sm">
-    <div class="container" style="gap: 20px">
-        <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="goToLandingPage()">
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container mt-3 mb-3">
+        <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="window.location='/'">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{route('user.home')}}" id="Home">Home</a>
+                        <a class="nav-link @if(request()->routeIs('user.home')) active @endif" aria-current="page" href="{{route('user.home')}}" id="Home">Home</a>
                     </li>
                 @endauth
-        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-            <!-- Center the navigation links -->
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{route('user.home')}}" id="Home">Home</a>
+                    <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
+                    <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
-                </li>
-
             </ul>
 
             @auth
@@ -90,15 +87,9 @@
                     </a>
                     <a href="{{route('loginPage')}}">
                         <button type="button" class="btn btn-outline-dark">Sign In</button>
-                    <a>
+                    </a>
                 </div>
             @endguest
         </div>
     </div>
 </nav>
-
-<script>
-    function goToLandingPage() {
-        window.location.href = '/'; 
-    }   
-</script>
