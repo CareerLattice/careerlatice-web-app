@@ -24,6 +24,13 @@ Route::get('/jobs', function(){
     return view('user.jobs');
 })->name('jobs');
 
+
+Route::get('/company', function(){
+    return view('company.companyHome');
+})->name('companyhome');
+
+
+
 Route::prefix("company")->group(function(){
     // Route for company sign up
     Route::get('/sign-up', [CompanyController::class, 'signUpPage'])->name('company.signUpCompany');
@@ -122,3 +129,7 @@ Route::get('/testing_CV', function(){
 })->name('testing_CV');
 
 Route::get('/testing_CV2/{filename}', [UserController::class, 'open_cv'])->name('getCV');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
