@@ -84,7 +84,7 @@
             @forelse ($companies as $company)
                 <div class="col-6 col-sm-4 col-md-3 mb-4">
                     <div class="card h-100 d-flex flex-column">
-                        <img src="..." class="card-img-top img-fluid" alt="Photo">
+                        <img src="{{$company->logo}}" class="card-img-top img-fluid" alt="Photo">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title fs-5 fs-md-4">{{ $company->name }}</h5>
                             <p class="card-text fs-6 fs-md-5 text-left">{{ $company->field }}</p>

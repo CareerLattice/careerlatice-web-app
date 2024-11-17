@@ -126,6 +126,7 @@ class UserController extends Controller
 
         $user->cv = $path;
         $user->save();
+        Auth::login($user);
         return redirect()->route('user.profile');
     }
 
