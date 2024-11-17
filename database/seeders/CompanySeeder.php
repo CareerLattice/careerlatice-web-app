@@ -24,7 +24,7 @@ class CompanySeeder extends Seeder
                 'description' => $faker->paragraph,
                 'field' => $faker->randomElement(['Teknologi', 'Kesehatan', 'Pendidikan', 'Keuangan']),
                 'password' => bcrypt('password'),
-                'logo' => 'https://stockbit.com/images/stockbit.svg',
+                'logo' => 'assets/bbca.jpeg',
             ]);
         }
     }

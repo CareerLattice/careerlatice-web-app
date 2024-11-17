@@ -13,20 +13,20 @@
             width: 13%;
             height: auto;
         }
-        
+
         @media (max-width: 1206px) {
             .right-img{
                 width:100%;
             }
         }
-        .form-control, .form-select, .btn {
+        .form-control, .form-select {
             height: 40px;
         }
     </style>
 </head>
 <body>
     @include('components.navbar')
-    
+
     <section style="background-color: #fff;">
         <div class="container">
             <div class="row pt-5 pb-5 d-flex justify-content-center">
@@ -37,18 +37,24 @@
                     <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
                         Launch Your Career with <span style="color: #7869cd;">Top Industry Leaders</span>
                     </h2>
+                    <p class="fw-semibold" style="color: gray; font-size: 1rem; line-height: 1.8; text-align: justify">
+                        Gain exclusive insights and opportunities from top professionals in your field and Discover opportunities tailored to your skills and aspirations
+
+                    </p>
     
                     <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
-                        <button type="button" class="btn btn-primary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                        <a href="#" class="btn btn-primary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                             Update Profile
-                        </button>
-                        <button type="button" class="btn btn-secondary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                            Discover Premium
-                        </button>
+                        </a>
+                        
+                        <a href="#jobsSection" class="btn btn-secondary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                            Explore Jobs
+                        </a>
                     </div>
+                    
     
                     <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
-    
+
                     <ul class="list-unstyled list-inline mt-2 d-flex justify-content-center justify-content-md-start gap-2">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/" class="text-dark">
@@ -77,7 +83,7 @@
                         </li>
                     </ul>
                 </div>
-    
+
                 <div class="col-12 col-md-7 text-center">
                     <img src="{{ asset('assets/11464491.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 70%; height: auto;" />
                 </div>
@@ -85,9 +91,9 @@
             <hr>
         </div>
     </section>
-    
 
-    <section>
+
+    <section id="jobsSection">
         
         <div class="container mt-5 text-center">
             <h1 class="fw-bold ">
@@ -96,20 +102,20 @@
             <p class="fw-bold" style="color: #7869cd">
                 Browse over 200+ Top Jobs Vacancy from Top Industry Leaders
             </p>
-        </div>  
+        </div>
 
         <div class="container">
-            <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompanies')}}" method="GET">
+            <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
+            <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
                 <!-- Search Input -->
                 <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Discover Job" aria-label="Search" name="search" required>
-                
+
                 <!-- Select Filter with smaller width -->
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
-                    <option value="x">Filter</option>
                     <option value="name">Company Name</option>
                     <option value="field">Job Title</option>
                 </select>
-                
+
                 <!-- Submit Button -->
                 <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
             </form>
@@ -119,11 +125,11 @@
                 </div>
             @endif
         </div>
-    
+
         <div class="container d-flex justify-content-center">
-            <div class="row" style="width: 100%; max-width: 1000px;"> 
+            <div class="row" style="width: 100%; max-width: 1000px;">
                 @for($i = 0; $i < 5; $i++)
-                    <div class="card mb-3" style="width: 100%;"> 
+                    <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="{{asset('assets/bbca.jpeg')}}" class="img-fluid rounded-start" alt="..." style="height: 100%; object-fit: contain;">
@@ -132,23 +138,21 @@
                                 <div class="card-body p-3">
                                     <h5 class="card-title fs-4 fw-bold" style="text-align: left; margin-bottom: 0.5rem; color: #682b90">Senior Back-end Developer</h5>
                                     <p class="card-text text-dark mb-1" style="text-align: justify; font-size: 1rem;">Bank Central Asia</p>
-                                    <p class="card-text mb-1" style="text-align: justify; color: gray; font-size: 0.9rem;">Jakarta, Indonesia (On-Site)</p>
+                                    <p class="card-text mb-1" style="text-align: justify; color: gray; font-size: 0.9rem;">Jakarta, Indonesia (Full-time)</p>
                                     <p class="card-text mb-2" style="text-align: justify; font-size: 0.95rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga at dolorem eveniet dolorum, sequi quos nesciunt doloremque recusandae debitis minus voluptate quae, ut accusamus quis? Dicta neque pariatur ipsum reprehenderit corrupti, nihil repellat illum quod ea fuga facilis accusantium quae quasi odio, incidunt molestias ab porro quidem vero facere eligendi!</p>
                                     <p class="card-text mb-1 fw-bold" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <a href="" style="text-decoration: none"><strong>Michelle Joanne</strong></a></p>
                                     <p class="card-text mb-0"><small class="text-body-secondary">Last updated November 20, 2024</small></p>
-                                
+
                                     <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">
-                                        <a href="#" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                        <a href="{{route('jobDetail')}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                             Apply Now
                                         </a>
                                         
-                                        <a href="#" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                        <a href="{{route('jobCompany')}}" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                             View Company
                                         </a>
                                     </div>
-                                    
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -157,6 +161,39 @@
         </div>
 
         <hr>
+        
+        <div class="container mt-5 text-center">
+            <h1 class="fw-bold ">
+                Explore <span style="color: #682b90">Premium CareerLattice </span>Account!
+            </h1>
+            <p class="fw-bold" style="color: #7869cd">
+                With an average career of 42 years, invest in your long-term success with Premium.
+            </p>
+        </div> 
+
+        <div class="container mt-5">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <h2 class="fw-bold fs-1 mb-4">
+                        Elevate Your Career to the <span style="color: #7869cd">Next Level</span>
+                    </h2>
+                    <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                        With a Career Lattice Premium account, you’ll unlock exclusive opportunities to stand out to leading companies, gain enhanced visibility, and connect directly with industry professionals actively looking for talent.
+                    </p>
+                    <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                        Make your career progression faster and more rewarding with a profile that captures the attention of top employers and sets you on a path to success.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-lg mt-4" style="background-color: #682b90; border-color: #682b90;">
+                        Explore Premium
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <img src="{{asset('assets/premium.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-5">
     </section>
 
     @include('components.footer')

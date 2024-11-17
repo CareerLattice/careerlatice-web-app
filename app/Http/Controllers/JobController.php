@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Job;
+use App\Models\Company;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -67,7 +70,7 @@ class JobController extends Controller
             'is_active' => $req->is_active ?? $job->is_active,
         ]);
 
-        return redirect()->route('company.job', ['id' => $id]);
+        return redirect()->route('company.job', ['job' => $job]);
     }
 
     // Company can view the job vacancies they create
@@ -135,7 +138,11 @@ class JobController extends Controller
 
     // Return all job vacancies with pagination 20 per page
     public function index(){
-        $jobs = Job::where('is_active', true)->paginate(20);
+        $jobs = Job::with("skills")->where('is_active', true)->paginate(20);
         return view('user.jobs', ['jobs' => $jobs]);
     }
-}
+
+    public function userViewJob(Job $job){
+        return view('user.job', ['job' => $job]);
+    }
+ }

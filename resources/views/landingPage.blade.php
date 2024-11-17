@@ -68,7 +68,6 @@
             
         
             <div class="container">
-                <!-- First Section: Heading and Description -->
                 <div class="col-12 col-md-7">
                     <h2 class="fw-bold fs-1 mt-5">A Quick Look at <span style="color: #7869cd">Our Journey</span></h2>
                     <p class="mt-3 fw-bold" style="text-align: justify; color: gray">
@@ -76,30 +75,65 @@
                     </p>
                 </div>
             
-                <div class="row">
-                    <div class="col-12 col-md-4 mt-3 mb-3">
-                        <h3 class="fw-bold text-center" style="color: #682b90">Jan 2024</h3>
-                        <p style="color: gray" class="text-center">
-                            <i class="bi bi-person-lines-fill">Over <strong>500 active total users</strong> benefiting from our platform.</i>
-                        </p>
+                <div id="customCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                    <div class="carousel-inner">
+    
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <h3 class="fw-bold text-center" style="color: #682b90">Jan 2024</h3>
+                                    <p class="text-center" style="color: gray">
+                                        Launched our platform with <strong>over 100 active users</strong> joining in the first month.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h3 class="fw-bold text-center" style="color: #682b90">Apr 2024</h3>
+                                    <p class="text-center" style="color: gray">
+                                        Gained momentum, reaching <strong>300+ active users</strong> and improving user engagement.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h3 class="fw-bold text-center" style="color: #682b90">Jul 2024</h3>
+                                    <p class="text-center" style="color: gray">
+                                        Secured partnerships with <strong>50+ companies</strong> actively hiring talent from our platform.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <h3 class="fw-bold text-center" style="color: #682b90">Oct 2024</h3>
+                                    <p class="text-center" style="color: gray">
+                                        Expanded to <strong>over 500 active users</strong> benefiting from new features and partnerships.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h3 class="fw-bold text-center" style="color: #682b90">Jan 2025</h3>
+                                    <p class="text-center" style="color: gray">
+                                        Achieved a milestone of <strong>700+ active users</strong> with enhanced services and support.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h3 class="fw-bold text-center" style="color: #682b90">Apr 2025</h3>
+                                    <p class="text-center" style="color: gray">
+                                        Partnered with <strong>100+ companies</strong> and expanded our reach to new regions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            
-                    <div class="col-12 col-md-4 mt-3 mb-3">
-                        <h3 class="fw-bold text-center" style="color: #682b90">Apr 2024</h3>
-                        <p style="color: gray" class="text-center">
-                            <i class="bi bi-people-fill"><strong>Achieved by over 500 active users</strong> who are securing career-defining opportunities annually.</i>
-                        </p>
-                    </div>
-            
-                    <div class="col-12 col-md-4 mt-3 mb-3">
-                        <h3 class="fw-bold text-center" style="color: #682b90">Oct 2024</h3>
-                        <p style="color: gray" class="text-center ms-2">
-                            <i class="bi bi-person-check-fill">Partnered with over <strong>500 reputable companies</strong> actively seeking talented professionals.</i>
-                        </p>
-                    </div>
-            
-                    <hr>
+                
+                    <button class="carousel-control-prev custom-control-btn" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
+                        <span class="custom-control-text">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-control-btn" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
+                        <span class="custom-control-text">Next</span>
+                    </button>
                 </div>
+                
+                
             
                 <div class="row">
                     <img src="{{asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-5" alt="Landing Page Image">
@@ -108,10 +142,10 @@
                 <div class="row mb-3">
                     <div class="col-12 col-md-7 mt-3">
                         <h2 class="fw-bold fs-1">How we provides <span style="color: #7869cd">Solutions</span></h2>
-                        <p class="mt-3 fw-bold" style="text-align: justify; color: gray; line-height: 1.6;">
+                        <p class="mt-3 fw-bold" style="text-align: justify; color: gray; line-height: 1.8;">
                             By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs). 
                         </p>
-                        <p class="fw-bold" style="text-align: justify; color: gray; line-height: 1.6;">
+                        <p class="fw-bold" style="text-align: justify; color: gray; line-height: 1.8;">
                             With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
                         </p>                    
                     </div>
