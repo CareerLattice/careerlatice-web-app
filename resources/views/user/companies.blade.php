@@ -158,6 +158,10 @@
                             <p class="text-muted mt-0" style="font-size: 0.9rem;">
                                 {{$company->description}}
                             </p>
+                            <p class="fw-bold mb-0">Field</p>
+                            <p class="text-muted mt-0" style="font-size: 0.9rem;">
+                                {{$company->field}}
+                            </p>
                         </div>
 
                         <div class="row">
