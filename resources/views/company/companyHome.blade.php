@@ -19,18 +19,15 @@
 
 
 </head>
-
-
 <body>
-
     {{-- Start of Navbar --}}
     @include('components.navbar')
-    {{-- End of Navbar--}}
+    {{-- End of Navbar --}}
 
     <main>
 
-        <section style="background-color:#c0dcf7;">
-            <div class="row px-4 py-3 m-3 mt-0">
+        <section class="" style="background-color:#c0dcf7;">
+            <div class="row px-4 py-3 mx-3">
                 <div class="col-12 m-3">
                     <h2 class="fw-bold text-center text-md-start" style="color: #682b90">Welcome back, [Company Name]!</h2>
                     <h5 class="text-center text-md-start fw-bold">Here's your recruitment performance overview. Let's check out how your listings are doing.</h5>
@@ -50,43 +47,35 @@
         </section>
     
 
-        <section>
-            <div class="row px-4 py-3 m-3">
+        <section class="hidden">
+            <div class="row px-4 py-3 m-3 hidden">
                 <div class="col-12">
                     <h3 class="fw-bold">Manage Your Workflow</h3>
                 </div>
                 <div class="d-flex overflow-x-auto">
 
-                    <div class="col-12 col-md-4 text-center d-flex flex-column">
+                    <div class="col-12 col-md-6 text-center d-flex flex-column">
                         <div class="card m-3 p-4 flex-fill">
                             <img class="card-img-top mx-auto mb-3" src="{{asset('assets/newJob.png')}}" style="max-width: 200px">
-                            <h3 class="card-title fw-bold" style="color: #682b90">Job Listing</h5>
+                            <h2 class="card-title fw-bold" style="color: #682b90">Job Listing</h5>
                             <p class="card-text text-muted">Ready to create a new job posting head over to new job application.</p>
-                            <button class="btn btn-outline-primary m-4 rounded-pill mt-auto">Create New Job</button>
+                            <a href="{{route('company.listJob')}}" class="btn btn-outline-primary m-4 rounded-pill mt-auto">Create New Job</a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 text-center d-flex flex-column">
-                        <div class="card m-3 p-4 flex-fill">
-                            <img class="card-img-top mx-auto mb-3" src="{{asset('assets/applicantJob.png')}}" style="max-width: 200px">
-                            <h3 class="card-title fw-bold" style="color:#6857c8">Check Applicant List</h5>
-                            <p class="card-text text-muted">Let's head over to view and manage applicants who have applied for the job.</p>
-                            <button class="btn btn-outline-primary m-4 rounded-pill mt-auto">Check Applicant List</button>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center d-flex flex-column">
+                    <div class="col-12 col-md-6 text-center d-flex flex-column">
                         <div class="card m-3 p-4 flex-fill">
                             <img class="card-img-top mx-auto mb-3" src="{{asset('assets/companyProfileJob.jpg')}}" style="max-width: 200px">
-                            <h3 class="card-title fw-bold" style="color: #682b90">Company Profile</h5>
+                            <h2 class="card-title fw-bold" style="color: #682b90">Company Profile</h5>
                             <p class="card-text text-muted">Update any company details such as address, description, and others.</p>
-                            <button class="btn btn-outline-primary m-4 rounded-pill mt-auto">Edit Company Profile</button>
+                            <a href="{{route('company.profile')}}" class="btn btn-outline-primary m-4 rounded-pill mt-auto">Edit Company Profile</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
-            <div class="row px-4 py-3 m-3">
+        <section class="hidden">
+            <div class="row px-4 py-3 m-3 hidden">
                 <div class="col-12">
                     <h3 class="fw-bold">Recent Job Listing</h3>
                     <div class="row">
@@ -94,7 +83,7 @@
                         @for ($i=0;$i<3;$i++)
                             <div class="col-12">
                                 <div class="card m-3 p-4 d-flex flex-column flex-md-row align-items-center">
-                                    <img class="card-img-top mx-auto p-3 mb-3" alt="image" src="{{asset('assets/landingPage.jpg')}}" style="width:300px;">
+                                    <img class="card-img-top mx-auto p-3 mb-3" alt="image" src="{{asset('assets/joblistImagePlaceHolder.jpeg')}}" style="width:300px;">
                                     
                                     <div class="card-body text-start">
                                         <button class="btn btn-sm btn-outline-danger rounded-pill mb-2" style="width: 80px; pointer-events:none" alt="status job">Closed</button>
@@ -113,13 +102,19 @@
             </div>
         </section>
 
+            <a></a>
     </main>
 
+    {{-- Start of Footer --}}
+    @include('components.footer')
+    {{-- End of Footer --}}
 
-    <!-- FontAwesome Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    {{-- Start of Bootstrap 5 --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    {{-- End of Bootstrap 5 --}}
-</body>
+<!-- FontAwesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{{-- Start of Bootstrap 5 --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+{{-- End of Bootstrap 5 --}}
+<script src="{{ asset('js/script.js') }}"></script>
+</body>                 
+</html>
