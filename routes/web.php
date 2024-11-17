@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\AdminController as Admin;
 
 // Route to get the landing page
@@ -23,6 +24,15 @@ Route::get('/sign-up', function () {
 Route::get('/jobs', function(){
     return view('user.jobs');
 })->name('jobs');
+
+// Static route for job detail
+Route::get('/job/detail', function(){
+    return view('user.jobDetail');
+})->name('jobDetail');
+
+Route::get('/job/company', function(){
+    return view('user.company');
+})->name('jobCompany');
 
 Route::prefix("company")->group(function(){
     // Route for company sign up
@@ -112,7 +122,7 @@ Route::prefix("user")->group(function(){
 // });
 
 // Testing
-// Auth::routes();
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

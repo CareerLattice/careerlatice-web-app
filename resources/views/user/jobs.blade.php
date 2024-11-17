@@ -19,7 +19,7 @@
                 width:100%;
             }
         }
-        .form-control, .form-select, .btn {
+        .form-control, .form-select {
             height: 40px;
         }
     </style>
@@ -37,15 +37,21 @@
                     <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
                         Launch Your Career with <span style="color: #7869cd;">Top Industry Leaders</span>
                     </h2>
+                    <p class="fw-semibold" style="color: gray; font-size: 1rem; line-height: 1.8; text-align: justify">
+                        Gain exclusive insights and opportunities from top professionals in your field and Discover opportunities tailored to your skills and aspirations
+
+                    </p>
     
                     <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
-                        <button type="button" class="btn btn-primary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                        <a href="#" class="btn btn-primary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                             Update Profile
-                        </button>
-                        <button type="button" class="btn btn-secondary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                            Discover Premium
-                        </button>
+                        </a>
+                        
+                        <a href="#jobsSection" class="btn btn-secondary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                            Explore Jobs
+                        </a>
                     </div>
+                    
     
                     <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
     
@@ -87,7 +93,7 @@
     </section>
     
 
-    <section>
+    <section id="jobsSection">
         
         <div class="container mt-5 text-center">
             <h1 class="fw-bold ">
@@ -138,11 +144,11 @@
                                     <p class="card-text mb-0"><small class="text-body-secondary">Last updated November 20, 2024</small></p>
                                 
                                     <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">
-                                        <a href="#" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                        <a href="{{route('jobDetail')}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                             Apply Now
                                         </a>
                                         
-                                        <a href="#" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                        <a href="{{route('jobCompany')}}" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                             View Company
                                         </a>
                                     </div>
@@ -157,6 +163,39 @@
         </div>
 
         <hr>
+        
+        <div class="container mt-5 text-center">
+            <h1 class="fw-bold ">
+                Explore <span style="color: #682b90">Premium CareerLattice </span>Account!
+            </h1>
+            <p class="fw-bold" style="color: #7869cd">
+                With an average career of 42 years, invest in your long-term success with Premium.
+            </p>
+        </div> 
+
+        <div class="container mt-5">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <h2 class="fw-bold fs-1 mb-4">
+                        Elevate Your Career to the <span style="color: #7869cd">Next Level</span>
+                    </h2>
+                    <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                        With a Career Lattice Premium account, you’ll unlock exclusive opportunities to stand out to leading companies, gain enhanced visibility, and connect directly with industry professionals actively looking for talent.
+                    </p>
+                    <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                        Make your career progression faster and more rewarding with a profile that captures the attention of top employers and sets you on a path to success.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-lg mt-4" style="background-color: #682b90; border-color: #682b90;">
+                        Explore Premium
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <img src="{{asset('assets/premium.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-5">
     </section>
 
     @include('components.footer')
