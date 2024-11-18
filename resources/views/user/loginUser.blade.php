@@ -40,10 +40,10 @@
 
 <body>
 <!-- Main Start -->
-@if(session('success') != '')
+@if(session('message') != '')
     <div class="alert alert-success fade-out" role="alert" id="alert">
-        {{session('success')}}
-        {{session()->forget('success')}}
+        {{session('message')}}
+        {{session()->forget('message')}}
     </div>
 @endif
 
@@ -87,6 +87,7 @@
 
                 <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa" method="POST" action="{{route('login')}}">
                     @csrf
+                    <input type="hidden" value="not_company" name="role">
                     <h2 class="text-primary mb-4 text-center">Login Now!</h2>
 
                     <div class="form-group mb-3">

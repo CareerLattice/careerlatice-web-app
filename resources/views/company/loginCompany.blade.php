@@ -7,8 +7,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link href="{{ asset('css/loginCompany.css') }}" rel="stylesheet">
+    <style>
+        #alert {
+            position: absolute;
+            top: 10vh;
+            left: 20px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fade-out {
+            animation: fadeOut 5s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    @if(session('message') != '')
+        <div class="alert alert-success fade-out" role="alert" id="alert">
+            {{session('message')}}
+            {{session()->forget('message')}}
+        </div>
+    @endif
 
     <main>
         <div class="row h-100">
@@ -28,6 +62,7 @@
 
                 <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa;" action="{{route('login')}}" method="POST">
                     @csrf
+                    <input type="hidden" value="company" name="role">
                     <h2 class="text-primary mb-4 text-center">Login Now!</h2>
 
                     <div class="form-group mb-3">
@@ -41,6 +76,11 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" name="password" required>
                     </div>
 
+                    @if($errors->any())
+                        <div class="alert alert-danger mt-2" role="alert">
+                            {{$errors->first()}}
+                        </div>
+                    @endif
                     <button type="submit" class="btn btn-primary w-100">Login</button>
 
                     <p class="mt-3 text-center" style="color: #393f81;">Don't have an account? <a href="{{route("company.signUpCompany")}}" style="color: #393f81;">Register here</a></p>

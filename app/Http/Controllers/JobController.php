@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Company;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -145,4 +143,4 @@ class JobController extends Controller
     public function userViewJob(Job $job){
         return view('user.job', ['job' => $job]);
     }
- }
+}

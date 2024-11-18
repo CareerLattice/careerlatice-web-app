@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'email' => $faker->email,
                 'password' => Hash::make('password'),
                 'phone_number' => $faker->phoneNumber,
-                'profile_picture' => 'assets/bbcs.jpeg',
+                'profile_picture' => 'assets/bbca.jpeg',
                 'role' => $faker->randomElement(['applier', 'admin', 'company']),
             ]);
         }

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
 use Illuminate\Support\Facades\Auth;
+
 // Controller yang belum dipakai
 // use App\Http\Controllers\SkillController;
 // use App\Http\Controllers\UserSkillController;
@@ -30,12 +31,6 @@ Route::get('/job/detail', function(){
 Route::get('/job/company', function(){
     return view('user.company');
 })->name('jobCompany');
-
-Route::get("/logout", function(){
-        Auth::logout();
-        session()->put('success', 'Logout successful');
-        return redirect()->route('user.loginUser');
-});
 
 // Route to get the jobs page
 Route::view('/jobs', 'user.jobs')->name('jobs');
@@ -63,11 +58,6 @@ Route::prefix("company")->group(function(){
     Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
     Route::middleware('company_auth')->group(function(){
-        // Route for company logout
-        Route::post('/logout', [CompanyController::class, 'logout'])->name('company.logout');
-
-        // Route to for company home
-
         // Route for company profile
         Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
         Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
@@ -99,7 +89,7 @@ Route::prefix("user")->group(function(){
 
     Route::middleware('user_auth')->group(function(){
         // Route for user home
-        Route::get('/home', [UserController::class, 'viewHome'])->name('user.home');
+        Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
 
         // Route for user profile
         Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');

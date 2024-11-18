@@ -19,8 +19,8 @@ class CompanyController extends Controller
         return view('company.signUpCompany');
     }
 
-    public function signUp(Request $request){
-        $request->validate([
+    public function signUp(Request $req){
+        $req->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
@@ -29,31 +29,31 @@ class CompanyController extends Controller
             'field' => 'string|max:255',
         ]);
 
-        DB::beginTransaction(); // Mulai transaksi
+        DB::beginTransaction();
 
         try {
-            // Membuat user Company baru
             $company = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'phone_number' => $request->phone_number,
+                'name' => $req->name,
+                'email' => $req->email,
+                'password' => Hash::make($req->password),
+                'phone_number' => $req->phone_number,
                 'role' => 'company',
             ]);
 
             // Membuat company baru
             Company::create([
-                'address' => $request->address,
-                'field' => $request->field,
+                'address' => $req->address,
+                'field' => $req->field,
                 'user_id' => $company->id,
             ]);
 
             DB::commit();
+            $req->session()->put('message','Successfully registered');
             return redirect()->route('company.loginCompany');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withErrors(['error' => 'Terjadi kesalahan, silakan coba lagi.']);
+            return back()->withErrors(['error' => 'Please try again later.']);
         }
     }
 
@@ -105,23 +105,25 @@ class CompanyController extends Controller
         return view('user.company', ['company' => $company]);
     }
 
-    public function uploadCompanyProfilePicture(Request $request) {
+    public function uploadCompanyProfilePicture(Request $req) {
         // Input form with name company_profile_picture must be either jpg, png, or jpeg with maximum size of 2MB
-        $request->validate([
+        $req->validate([
             'company_profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         // Save the photo to storage
-        $path = $request->file('company_profile_picture')->store('company_upload/profile_picture');
-        $company = Company::findOrFail(session('company_id'));
+        $path = $req->file('company_profile_picture')->store('company_upload/profile_picture');
 
+        $company = Auth::user();
         // Delete old profile picture from folder
         if (Storage::exists($company->profilePicture)) {
             Storage::delete($company->profilePicture);
         }
 
-        $company->profilePicture = $path;
-        $company->save();
+        User::where('id', $company->id)->update(['profile_picture' => $path]);
+
+        $updatedCompany = User::find($company->id);
+        Auth::login($updatedCompany);
         return redirect()->route('company.profile', ['company' => $company]);
     }
 

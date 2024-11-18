@@ -23,20 +23,14 @@ class ApplierController extends Controller
 
     public function signUp(Request $req){
         $req->validate([
-            'firstname' => 'required|string',
-            'lastname' => 'string',
+            'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
             'phone_number' => 'string|min:8|unique:users,phone_number',
         ]);
 
-        $fullName = $req->firstname;
-        if (!empty($req->lastname)) {
-            $fullName .= ' ' . $req->lastname;
-        }
-
         $user = User::create([
-            'name' => $fullName,
+            'name' => $req->name,
             'email' => $req->email,
             'password' => Hash::make($req->password),
             'phone_number' => $req->phone_number,
@@ -50,7 +44,7 @@ class ApplierController extends Controller
         ]);
 
         dd($applier);
-        session()->put('success', 'Registration successful');
+        session()->put('message', 'Registration successful');
         return redirect()->route('user.loginUser');
     }
 
@@ -126,7 +120,9 @@ class ApplierController extends Controller
 
         $user->profilePicture = $path;
         User::where('id', $user->id)->update(['profile_picture' => $path]);
-        Auth::login($user);
+
+        $updatedUser = User::find($user->id);
+        Auth::login($updatedUser);
         return redirect()->route('user.profile', ['user' => $user]);
     }
 
