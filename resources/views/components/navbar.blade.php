@@ -67,7 +67,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li>
                         <li><a class="dropdown-item" href="#">Change Language</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
