@@ -21,8 +21,7 @@ return new class extends Migration
             $table->timestamp('end_date')->nullable();
 
             $table->timestamps();
-            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('appliers')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

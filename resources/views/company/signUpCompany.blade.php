@@ -50,42 +50,38 @@
 
             <h3 class="text-center mt-4 mb-2">JOIN US NOW</h3>
             <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Join us today by registering your information below and unlock exciting opportunities!</p>
-            <form class="form-custom row g-3" action="{{route('company.submitSignUpCompany')}}" method="POST" onsubmit="return formValidation();">
+            <form class="form-custom row g-3" action="{{route('company.submitSignUpCompany')}}" method="POST">
                 @csrf
-                <div class="col-md-6">
-                    <label for="inputFirstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName">
+                <div class="col-12">
+                    <label for="inputFirstName" class="form-label">Company Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" name="name">
                 </div>
                 <div class="col-12">
                     <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail">
+                    <input type="email" class="form-control" id="inputEmail" name="email">
                 </div>
                 <div class="col-12">
                     <label for="inputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="password" class="form-control" id="inputPassword" name="password">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddress">
-                </div>
-                <div class="col-12">
-                    <label for="inputBirthDate" class="form-label">Birth Date</label>
-                    <input type="date" class="form-control" id="inputBirthDate" required>
+                    <input type="text" class="form-control" id="inputAddress" name="address">
                 </div>
                 <div class="col-12">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX">
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number">
+                </div>
+                <div class="col-12">
+                    <label for="companyField" class="form-label">Company Field</label>
+                    <input type="text" class="form-control" id="companyField" placeholder="Field" name="field">
                 </div>
                 <div class="col-12 text-center">
                     <div class="form-check d-flex justify-content-center">
-                        <input class="form-check-input me-2" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Agree to terms and conditions
-                            </label>
+                        <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
+                        <label class="form-check-label" for="gridCheck">
+                            Agree to terms and conditions
+                        </label>
                     </div>
                 </div>
                 <div class="col-12 text-center">
@@ -142,8 +138,6 @@
                 alert("You must agree to terms and conditions")
                 return false;
             }
-
-            window.location.href = "/landingPage";
             return false;
         }
     </script>

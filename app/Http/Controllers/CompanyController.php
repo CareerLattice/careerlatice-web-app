@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -21,56 +22,43 @@ class CompanyController extends Controller
     public function signUp(Request $request){
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:companies',
+            'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
             'phone_number' => 'string|max:20',
-            'description' => 'string',
-            'field' => 'string|max:100',
             'address' => 'string|max:100',
-            'logo' => 'string|max 255',
+            'field' => 'string|max:255',
         ]);
 
-        Company::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-            'description' => $request->description,
-            'field' => $request->field,
-            'logo' => $request->logo,
-        ]);
+        DB::beginTransaction(); // Mulai transaksi
 
-        return redirect()->route('company.loginPage');
+        try {
+            // Membuat user Company baru
+            $company = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone_number' => $request->phone_number,
+                'role' => 'company',
+            ]);
+
+            // Membuat company baru
+            Company::create([
+                'address' => $request->address,
+                'field' => $request->field,
+                'user_id' => $company->id,
+            ]);
+
+            DB::commit();
+            return redirect()->route('company.loginCompany');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Terjadi kesalahan, silakan coba lagi.']);
+        }
     }
 
     public function loginPage(){
         return view('company.loginCompany');
-    }
-
-    public function login(Request $req){
-        $req->validate([
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-
-        $company = Company::where('email', $req->email)->first();
-        if(!$company){
-            return redirect()->back()->withErrors(['email' => 'Email unregistered'])->withInput();
-        }
-
-        if(!Hash::check($req->input('password'), $company->password)){
-            return redirect()->back()->withErrors(['password' => 'Wrong password'])->withInput();
-        }
-
-        $req->session()->put('company_id', $company->id);
-        Auth::login($company);
-        return redirect()->route('company.home');
-    }
-
-    public function logout(Request $request){
-        $request->session()->forget('company_id');
-        return redirect()->route('company.loginPage');
     }
 
     public function viewHome(){

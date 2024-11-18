@@ -43,6 +43,14 @@ Route::view('/jobs', 'user.jobs')->name('jobs');
 // Route to get the companies page
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 
+Route::middleware('auth')->group(function(){
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('guest')->group(function(){
+    Route::post('/login', [UserController::class, 'login'])->name('login');
+});
+
 Route::prefix("company")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for company sign up
@@ -51,7 +59,6 @@ Route::prefix("company")->group(function(){
 
         // Route for company login
         Route::get('/login', [CompanyController::class, 'loginPage'])->name('company.loginCompany');
-        Route::post('/login', [CompanyController::class, 'login'])->name(name: 'company.submitLoginCompany');
     });
     Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
@@ -88,13 +95,9 @@ Route::prefix("user")->group(function(){
 
         // Route for user login
         Route::get('/login', [ApplierController::class, 'loginPage'])->name('user.loginUser');
-        Route::post('/login', [UserController::class, 'login'])->name('user.submitLoginUser');
     });
 
     Route::middleware('user_auth')->group(function(){
-        // Route for user logout
-        Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
-
         // Route for user home
         Route::get('/home', [UserController::class, 'viewHome'])->name('user.home');
 

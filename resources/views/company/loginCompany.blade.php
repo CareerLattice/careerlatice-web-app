@@ -26,7 +26,7 @@
                     Welcome back! <span class="span-text fw-bold ls-tight" >Log in</span> to find <span class="span-text fw-bold ls-tight" >skilled talent</span> and connect with <span class="span-text fw-bold ls-tight" >potential</span> candidates through our platform.
                 </h3>
 
-                <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa;" action="{{route('company.submitLoginCompany')}}" method="POST">
+                <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa;" action="{{route('login')}}" method="POST">
                     @csrf
                     <h2 class="text-primary mb-4 text-center">Login Now!</h2>
 

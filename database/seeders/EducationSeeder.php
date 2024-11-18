@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\Models\Education;
-use App\Models\User;
+use App\Models\Applier;
 
 class EducationSeeder extends Seeder
 {
@@ -16,11 +16,11 @@ class EducationSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create("id_ID");
-        $user = User::all();
+        $users = Applier::all();
 
         for($i = 0; $i < 10; $i++) {
             Education::create([
-                'user_id' => $faker->$user->random()->id,
+                'user_id' => $users->random()->id,
                 'institution' => $faker->company,
                 'degree' => $faker->sentence,
                 'field_of_study' => $faker->randomElement(['Teknik Informatika', 'Teknik Elektro', 'Teknik Mesin', 'Teknik Sipil']),

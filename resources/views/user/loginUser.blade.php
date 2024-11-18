@@ -85,7 +85,7 @@
                 </h3>
 
 
-                <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa" method="POST" action="{{route('user.submitLoginUser')}}">
+                <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa" method="POST" action="{{route('login')}}">
                     @csrf
                     <h2 class="text-primary mb-4 text-center">Login Now!</h2>
 

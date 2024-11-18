@@ -71,7 +71,7 @@
                         <li><a class="dropdown-item" href="#">Change Language</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
-                            <form action="{{ route('user.logout') }}" method="POST">
+                            <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="dropdown-item text-danger">Log Out</button>
                             </form>
