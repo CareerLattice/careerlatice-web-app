@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplierController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
@@ -82,11 +83,11 @@ Route::prefix("company")->group(function(){
 Route::prefix("user")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
-        Route::get('/sign-up', action: [UserController::class, 'signUpPage'])->name('user.signUpUser');
-        Route::post('/sign-up', [UserController::class, 'signUp'])->name('user.submitSignUpUser');
+        Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
+        Route::post('/sign-up', [ApplierController::class, 'signUp'])->name('user.submitSignUpUser');
 
         // Route for user login
-        Route::get('/login', [UserController::class, 'loginPage'])->name('user.loginUser');
+        Route::get('/login', [ApplierController::class, 'loginPage'])->name('user.loginUser');
         Route::post('/login', [UserController::class, 'login'])->name('user.submitLoginUser');
     });
 
@@ -147,4 +148,4 @@ Route::get('/testing_CV', function(){
     return view('testing_CV');
 })->name('testing_CV');
 
-Route::get('/testing_CV2/{filename}', [UserController::class, 'open_cv'])->name('getCV');
+Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->name('getCV');

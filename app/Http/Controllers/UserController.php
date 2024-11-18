@@ -13,45 +13,6 @@ use App\Models\UserHistory;
 
 class UserController extends Controller
 {
-    public function open_cv($filename){
-        return response()->file(storage_path('app\\public\\user_upload\\CV\\'. $filename));
-    }
-
-    public function signUpPage(){
-        return view('user.signUpUser');
-    }
-
-    public function signUp(Request $req){
-        $req->validate([
-            'firstname' => 'required|string',
-            'lastname' => 'string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
-            'phone_number' => 'string|min:8|unique:users,phone_number',
-        ]);
-
-        $fullName = $req->firstname;
-        if (!empty($req->lastname)) {
-            $fullName .= ' ' . $req->lastname;
-        }
-
-        User::create([
-            'name' => $fullName,
-            'email' => $req->email,
-            'password' => Hash::make($req->password),
-            'phone_number' => $req->phone_number,
-            'address' => $req->address,
-            'birth_date' => $req->dob,
-        ]);
-
-        session()->put('success', 'Registration successful');
-        return redirect()->route('user.loginUser');
-    }
-
-    public function loginPage(){
-        return view('user.loginUser');
-    }
-
     public function login(Request $req){
         $validatedData = $req->validate([
             'email' => 'required|email',
@@ -63,6 +24,8 @@ class UserController extends Controller
 
             if ($user->role === 'admin') {
                 return redirect()->route('admin.home');
+            } else if($user->role == 'company'){
+                return redirect()->route('company.home');
             }
 
             return redirect()->route('user.home');

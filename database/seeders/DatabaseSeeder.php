@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             JobSkillSeeder::class,
             JobApplicationSeeder::class,
             UserHistorySeeder::class,
+            ApplierSeeder::class,
         ]);
     }
 }

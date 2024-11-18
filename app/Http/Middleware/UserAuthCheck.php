@@ -21,8 +21,7 @@ class UserAuthCheck
         }
 
         $user = Auth::user();
-        // dd($user->role);
-        if ($user->role != 'user') {
+        if ($user->role != 'applier') {
             abort(401);
         }
         return $next($request);
