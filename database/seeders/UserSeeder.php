@@ -17,18 +17,13 @@ class UserSeeder extends Seeder
     {
         $faker = Factory::create("id_ID");
         for($i = 0; $i < 5; $i++) {
-            User::create([
+            User::create(attributes: [
                 'name' => $faker->name,
                 'email' => $faker->email,
-                'phone_number' => $faker->phoneNumber,
                 'password' => Hash::make('password'),
-                'address' => $faker->address,
-                'description' => $faker->paragraph,
-                'birth_date' => $faker->date(),
-                'start_date_premium' => $faker->date(),
-                'end_date_premium' => $faker->date(),
-                'profile_picture' => 'https://stockbit.com/images/stockbit.svg',
-                'role' => $faker->randomElement(['user', 'admin']),
+                'phone_number' => $faker->phoneNumber,
+                'profile_picture' => 'assets/bbcs.jpeg',
+                'role' => $faker->randomElement(['user', 'admin', 'company']),
             ]);
         }
     }

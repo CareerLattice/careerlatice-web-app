@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Company;
 use App\Models\Job;
@@ -54,16 +55,16 @@ class CompanyController extends Controller
         ]);
 
         $company = Company::where('email', $req->email)->first();
-
         if(!$company){
             return redirect()->back()->withErrors(['email' => 'Email unregistered'])->withInput();
         }
 
-        if(!Hash::check($req->password, $company->password)){
+        if(!Hash::check($req->input('password'), $company->password)){
             return redirect()->back()->withErrors(['password' => 'Wrong password'])->withInput();
         }
 
         $req->session()->put('company_id', $company->id);
+        Auth::login($company);
         return redirect()->route('company.home');
     }
 

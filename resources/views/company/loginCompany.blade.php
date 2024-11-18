@@ -26,19 +26,19 @@
                     Welcome back! <span class="span-text fw-bold ls-tight" >Log in</span> to find <span class="span-text fw-bold ls-tight" >skilled talent</span> and connect with <span class="span-text fw-bold ls-tight" >potential</span> candidates through our platform.
                 </h3>
 
-                <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa;">
+                <form class="form rounded col-md-7 mx-auto shadow-lg p-4" style="background-color: #f8f9fa;" action="{{route('company.submitLoginCompany')}}" method="POST">
                     @csrf
                     <h2 class="text-primary mb-4 text-center">Login Now!</h2>
 
                     <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="mb-1">Email Address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" required>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" name="email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
 
                     <div class="form-group mb-4 position-relative">
                         <label for="exampleInputPassword1" class="mb-1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" required>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" name="password" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">Login</button>
