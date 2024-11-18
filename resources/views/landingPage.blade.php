@@ -136,22 +136,45 @@
                 
             
                 <div class="row">
-                    <img src="{{asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-5" alt="Landing Page Image">
+                    <img src="{{asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-3" alt="Landing Page Image">
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-12 col-md-7 mt-3">
-                        <h2 class="fw-bold fs-1">How we provides <span style="color: #7869cd">Solutions</span></h2>
-                        <p class="mt-3 fw-bold" style="text-align: justify; color: gray; line-height: 1.8;">
-                            By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs). 
-                        </p>
-                        <p class="fw-bold" style="text-align: justify; color: gray; line-height: 1.8;">
-                            With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
-                        </p>                    
+                <div class="container mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6 text-center">
+                            <img src="{{asset('assets/sdgs.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h2 class="fw-bold fs-1 mb-4">How we provides <span style="color: #7869cd">Solutions</span></h2>
+                            <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                                By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs). 
+                            </p>
+                            <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                                With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
+                            </p>    
+                        </div>
                     </div>
+                </div>
 
-                    <div class="col-12 col-md-5 ps-5">
-                        <img src="{{asset('assets/sdgs.jpg')}}" class="img-thumbnail" alt="..." width="100%">
+                <div class="container mt-5 mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6">
+                            <h2 class="fw-bold fs-1 mb-4">
+                                Elevate Your Career to the <span style="color: #7869cd">Next Level</span>
+                            </h2>
+                            <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                                With a Career Lattice Premium account, you’ll unlock exclusive opportunities to stand out to leading companies, gain enhanced visibility, and connect directly with industry professionals actively looking for talent.
+                            </p>
+                            <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
+                                Make your career progression faster and more rewarding with a profile that captures the attention of top employers and sets you on a path to success.
+                            </p>
+                            <a href="#" class="btn btn-primary btn-lg mt-4" style="background-color: #682b90; border-color: #682b90;">
+                                Explore Premium
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 text-center">
+                            <img src="{{asset('assets/premium.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
+                        </div>
                     </div>
                 </div>
             </div>

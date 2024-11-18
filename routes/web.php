@@ -30,11 +30,19 @@ Route::get('/job/company', function(){
     return view('user.company');
 })->name('jobCompany');
 
+Route::get('/company/job-vacancies', function(){
+    return view('user.companyJobVacancies');
+})->name('companyJobVacancies');
+
 Route::get("/logout", function(){
         Auth::logout();
         session()->put('success', 'Logout successful');
         return redirect()->route('user.loginUser');
 });
+
+Route::get('/user/edit-profile', function(){
+    return view('user.updateProfileUser');
+})->name('updateUser');
 
 // Route to get the jobs page
 Route::view('/jobs', 'user.jobs')->name('jobs');

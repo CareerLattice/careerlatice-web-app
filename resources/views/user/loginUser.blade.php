@@ -1,45 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerLattice</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="{{ asset('css/loginDeveloper.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <style>
-        #alert {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            padding: 10px 20px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
+@section('content')
+
+<link href="{{ asset('css/loginDeveloper.css') }}" rel="stylesheet">
+    
+<style>
+    #alert {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        padding: 10px 20px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .fade-out {
+        animation: fadeOut 5s forwards;
+    }
+
+    @keyframes fadeOut {
+        0% {
             opacity: 1;
-            transition: opacity 0.5s ease-in-out;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 1040px) {
+        h3 {
+            font-size: 1.3rem; 
+            line-height: 1.4;
+            margin-bottom: 1.5rem; 
         }
 
-        .fade-out {
-            animation: fadeOut 5s forwards;
+        .span-text {
+            font-size: 1.7rem;
         }
 
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+        .col-md-7 h3 {
+            padding: 0 1rem; 
         }
-    </style>
-</head>
+    }
 
-<body>
-<!-- Main Start -->
+    @media (max-width: 768px) {
+        h3 {
+            font-size: 1.2rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .span-text {
+            font-size: 1.7rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h3 {
+            font-size: 0.9rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .span-text {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
 @if(session('success') != '')
     <div class="alert alert-success fade-out" role="alert" id="alert">
         {{session('success')}}
@@ -48,7 +81,7 @@
 @endif
 
 <main>
-    <div class="container-fluid h-100">
+    <div class="container-fluid h-100" style="overflow-x: hidden">
         <div class="row h-100">
             <!-- Carousel Column -->
             <div class="col-md-5 p-0">
@@ -118,19 +151,14 @@
     </div>
 </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        const alert = document.getElementById('alert');
-        if (alert) {
-            setTimeout(() => {
-                alert.style.display = 'none';
-            }, 5000);
-        }
-    });
-    </script>
-</body>
-
-</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const alert = document.getElementById('alert');
+    if (alert) {
+        setTimeout(() => {
+            alert.style.display = 'none';
+        }, 5000);
+    }
+});
+</script>
+@endsection

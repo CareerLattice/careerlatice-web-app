@@ -1,132 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Search Company</title>
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link href="{{asset('css/landingPage.css')}}" rel="stylesheet">
+@extends('layout.master')
 
-    <style>
-        .custom-input-group {
-            width: 100%;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+@section('content')
 
-        .company-card {
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            padding: 20px;
-            /* margin-bottom: 15px; */
-            display: flex;
-            align-items: flex-start;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            flex-direction: column;
-            height: 100%;
-        }
+<style>
+    .custom-input-group {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .company-card {
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+    .company-card:hover {
+        transform: translateY(-10px);
+    }
+    .company-card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+    .company-details h5 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+    }
+    .company-details p {
+        color: grey;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    .btn-visit {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-visit:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .company-info-section {
+        margin-top: 15px;
+        text-align: justify;
+    }
+    .company-info-section .description {
+        height: 50px;
+        overflow: hidden;
+        text-overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+</style>
+    @include('components.navbar')
 
-        .company-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .company-card img {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 15px;
-            border-radius: 50%;
-            align-self: center;
-        }
-
-        .company-details {
-            flex: 1;
-            text-align: center;
-        }
-
-        .company-details h5 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .company-details p {
-            margin: 5px 0;
-            color: grey;
-            font-size: 0.95rem;
-        }
-
-        .ratings span {
-            font-size: 1.1rem;
-            margin-right: 5px;
-        }
-
-        .ratings i {
-            color: #ffc107;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .stat-item span {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .stat-item small {
-            color: grey;
-        }
-
-        .btn-visit {
-            width: 100%;
-            margin-top: 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .btn-visit:hover {
-            background-color: #0056b3;
-            text-decoration: none;
-        }
-
-        .company-info-section {
-            margin-top: 15px;
-            text-align: justify;
-        }
-    </style>
-</head>
-<body>
-    <div class="container-fluid">
-        @include('components.navbar')
-
+    <div class="container">
         <div class="container">
-            <h1 class="text-center mt-5 mb-3">Search Company</h1>
+            <h2 class="fw-bold text-center mt-5 mb-3" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
+                Search your <span style="color: #7869cd;">Dream Companies</span> here
+            </h2>
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
-                <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search Company" aria-label="Search" name="search" >
+                <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2"  >
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
-
                     <option value="name">Company Name</option>
                     <option value="field">Field</option>
                 </select>
@@ -137,46 +89,32 @@
             @endif
         </div>
 
-        <h1 class="text-center w-100 mt-5 mb-5">Companies</h1>
+        <hr>
 
         <div class="row">
             @forelse ($companies as $company)
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mx-auto mt-3">
+                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                     <div class="company-card">
-                        <div class="row">
-                            <div class="col-md-4 d-flex justify-content-center">
-                                <img src="{{ asset('assets/bbca.jpeg') }}" alt="Amazon Logo" style="width: 100px; height: 100px;">
-                            </div>
-                            <div class="col-md-8">
-                                <h5 class="mt-2 fw-bold">{{$company->name}}</h5>
-                                <p class="mb-0">{{$company->address}}</p>
-                            </div>
+                        <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
+                        <div class="company-details">
+                            <h5 class="mt-2">{{$company->name}}</h5>
+                            <p>{{$company->address}}</p>
                         </div>
-
                         <div class="company-info-section">
                             <p class="fw-bold mb-0">Description</p>
-                            <p class="text-muted mt-0" style="font-size: 0.9rem;">
-                                {{$company->description}}
-                            </p>
+                            <p class="text-muted mt-0 description">{{$company->description}}...</p>
                             <p class="fw-bold mb-0">Field</p>
-                            <p class="text-muted mt-0" style="font-size: 0.9rem;">
-                                {{$company->field}}
-                            </p>
+                            <p class="text-muted mt-0">{{$company->field}}</p>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="{{route('jobCompany')}}" class="btn btn-visit">Visit Company</a>
-                            </div>
-                        </div>
+                        <a href="{{route('jobCompany')}}" class="btn btn-visit">Visit Company</a>
                     </div>
                 </div>
             @empty
-                <div class="col-12">
+                <div class="col-10">
                     <div class="alert alert-info text-center" role="alert">
                         No companies found.
                     </div>
-                </div>    
+                </div>
             @endforelse
         </div>
 
@@ -186,11 +124,8 @@
             </div>
         </div>
     </div>
+<hr class="mt-5">
 
-    <hr class="mt-5">
+@include('components.footer')
 
-    @include('components.footer')       
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-</body>
-</html>
+@endsection()
