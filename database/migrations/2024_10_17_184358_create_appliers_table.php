@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('cv_url')->nullable();
             $table->string('address')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamp('birth_date')->nullable();
             $table->timestamp('start_date_premium')->nullable();
             $table->timestamp('end_date_premium')->nullable();
 
             $table->timestamps();
-            $table->foreignId('user_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

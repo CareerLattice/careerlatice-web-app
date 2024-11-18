@@ -73,6 +73,13 @@
                     </label>
                     <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number">
                 </div>
+                @if ($errors->any())
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            {{$errors->first()}}
+                        </div>
+                    </div>
+                @endif
                 <div class="col-12 text-center">
                     <div class="form-check d-flex justify-content-center">
                         <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>

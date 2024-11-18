@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('profile_picture')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

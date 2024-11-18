@@ -8,6 +8,7 @@ use App\Models\UserHistory;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
@@ -22,6 +23,7 @@ class ApplierController extends Controller
     }
 
     public function signUp(Request $req){
+
         $req->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
@@ -29,23 +31,30 @@ class ApplierController extends Controller
             'phone_number' => 'string|min:8|unique:users,phone_number',
         ]);
 
-        $user = User::create([
-            'name' => $req->name,
-            'email' => $req->email,
-            'password' => Hash::make($req->password),
-            'phone_number' => $req->phone_number,
-            'role' => 'applier',
-        ]);
+        DB::beginTransaction();
 
-        $applier = Applier::create([
-            'user_id' => $user->id,
-            'address' => $req->address,
-            'birth_date' => $req->dob,
-        ]);
+        try {
+            $user = User::create([
+                'name' => $req->name,
+                'email' => $req->email,
+                'password' => Hash::make($req->password),
+                'phone_number' => $req->phone_number,
+                'role' => 'applier',
+            ]);
 
-        dd($applier);
-        session()->put('message', 'Registration successful');
-        return redirect()->route('user.loginUser');
+            Applier::create([
+                'user_id' => $user->id,
+                'address' => $req->address,
+                'birth_date' => $req->dob,
+            ]);
+
+            DB::commit();
+            $req->session()->put('message','Successfully registered');
+            return redirect()->route('user.loginUser');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Please try again later.']);
+        }
     }
 
     public function loginPage(){

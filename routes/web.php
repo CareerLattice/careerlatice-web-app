@@ -38,14 +38,6 @@ Route::view('/jobs', 'user.jobs')->name('jobs');
 // Route to get the companies page
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 
-Route::middleware('auth')->group(function(){
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-});
-
-Route::middleware('guest')->group(function(){
-    Route::post('/login', [UserController::class, 'login'])->name('login');
-});
-
 Route::prefix("company")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for company sign up
@@ -133,8 +125,17 @@ Route::prefix("user")->group(function(){
 // });
 
 // Testing Laravel UI
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Bisa menggunakan bawaan Laravel UI
+// Route::middleware('auth')->group(function(){
+//     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+// });
+
+// Route::middleware('guest')->group(function(){
+//     Route::post('/login', [UserController::class, 'login'])->name('login');
+// });
 
 // Testing Open CV
 Route::get('/testing_CV', function(){
