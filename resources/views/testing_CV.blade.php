@@ -81,6 +81,13 @@
         </div>
     </div>
 
+    <form action="{{route('addRequirement')}}" method="post" class="ms-5">
+        @csrf
+        <textarea id="w3review" name="requirement" rows="4" cols="10"></textarea>
+        <textarea id="w3review" name="benefit" rows="4" cols="10"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
     @include('components.footer')
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>

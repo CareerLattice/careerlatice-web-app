@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Job;
 use App\Models\Company;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
@@ -141,6 +142,31 @@ class JobController extends Controller
     }
 
     public function userViewJob(Job $job){
-        return view('user.job', ['job' => $job]);
+        $requirement = explode("\r\n", $job->requirement);
+        $benefit = explode("\r\n", $job->benefit);
+        // $result = DB::table('job_vacancies as jobs')
+        //     ->join('companies', 'jobs.company_id', '=', 'companies.id')
+        //     ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
+        //     ->join('skills','job_skills.skill_id','=','skills.id')
+        //     ->join('users', 'companies.user_id', '=', 'users.id')
+        //     ->select('users.name as company_name', 'jobs.title', 'jobs.address', 'jobs.updated_at', 'jobs.description', 'skills.name as skill_name')
+        //     ->where('jobs.id', $job->id)
+        //     ->get();
+
+        $result = DB::table('job_vacancies as jobs')
+            ->join('companies', 'jobs.company_id', '=', 'companies.id')
+            ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
+            ->join('skills','job_skills.skill_id','=','skills.id')
+            ->join('users', 'companies.user_id', '=', 'users.id')
+            ->select('skills.name as skill_name')
+            ->where('jobs.id', $job->id)
+            ->get();
+        // dd($benefit);
+        return view('user.jobDetail', compact('job', 'requirement', 'result', 'benefit'));
+    }
+
+    public function addRequirement(Request $req){
+        Job::where('id', 1)->update(['requirement' => $req->requirement, 'benefit' => $req->benefit]);
+        return redirect()->route('user.job', ['job' => 1]);
     }
 }

@@ -17,7 +17,7 @@ class UserAuthCheck
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()){
-            return redirect()->route('user.loginUser');
+            return redirect()->route('login');
         }
 
         $user = Auth::user();

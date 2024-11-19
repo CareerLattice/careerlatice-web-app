@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Http\Request;
 
 /* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
@@ -27,14 +30,6 @@ Route::middleware('guest')->group(function(){
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
 });
 
-Route::get('/job/detail', function(){
-    return view('user.jobDetail');
-})->name('jobDetail');
-
-Route::get('/job/company', function(){
-    return view('user.company');
-})->name('jobCompany');
-
 Route::get('/company/job-vacancies', function(){
     return view('user.companyJobVacancies');
 })->name('companyJobVacancies');
@@ -42,7 +37,7 @@ Route::get('/company/job-vacancies', function(){
 Route::get("/logout", function(){
         Auth::logout();
         session()->put('success', 'Logout successful');
-        return redirect()->route('user.loginUser');
+        return redirect()->route('login');
 });
 
 Route::get('/user/edit-profile', function(){
@@ -84,6 +79,16 @@ Route::prefix("company")->group(function(){
     });
 });
 
+Route::get('/user/company', function(){
+    return view('user.company');
+})->name('jobCompany');
+
+Route::get('/job/detail', function(){
+    return view('user.jobDetail');
+})->name('jobDetail');
+
+Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
+
 Route::prefix("user")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
@@ -108,7 +113,7 @@ Route::prefix("user")->group(function(){
         // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
         // Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
 
-        // Route::get('/job/{job}', [JobController::class, 'userViewJob'])->name('user.job');
+        Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.job');
         // Route::post('/job/{job}', [UserController::class, 'applyJob'])->name('user.applyJob');
 
         // Route for user view applied jobs

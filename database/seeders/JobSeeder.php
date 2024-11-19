@@ -23,6 +23,7 @@ class JobSeeder extends Seeder
                 'address' => $faker->address,
                 'description' => $faker->paragraph,
                 'requirement' => $faker->paragraph,
+                'benefit' => $faker->paragraph,
                 'person_in_charge' => $faker->name,
                 'contact_person' => $faker->phoneNumber,
                 'is_active' => $faker->boolean,

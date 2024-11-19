@@ -49,7 +49,7 @@ class CompanyController extends Controller
 
             DB::commit();
             $req->session()->put('message','Successfully registered');
-            return redirect()->route('company.loginCompany');
+            return redirect()->route('login');
 
         } catch (\Exception $e) {
             DB::rollBack();

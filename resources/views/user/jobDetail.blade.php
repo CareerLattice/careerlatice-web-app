@@ -63,7 +63,7 @@
 
 @include('components.navbar')
 
-<div class="container mt-5">
+{{-- <div class="container mt-5">
     <a href="{{route('jobs')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
         <i class="bi bi-arrow-left-circle"></i> Back to Jobs
     </a>
@@ -104,6 +104,74 @@
             </ul>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam esse ipsa tempora! Obcaecati animi laudantium nobis quas harum aspernatur delectus. Facere quas at praesentium. Eius, cupiditate harum nisi alias facere libero architecto dolor sunt accusamus recusandae amet nihil unde enim incidunt repellat modi qui reprehenderit expedita repudiandae at ducimus? Temporibus?</p>
+
+            <div class="text-center mt-4">
+                <button class="btn btn-primary">Apply Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="mt-5"> --}}
+<div class="container mt-5">
+    <a href="{{route('jobs')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
+        <i class="bi bi-arrow-left-circle"></i> Back to Jobs
+    </a>
+
+    <div class="job-card">
+        <div class="job-header">
+            <div class="row w-100">
+                <div class="col-12 col-md-2 d-flex justify-content-center mb-2">
+                    <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo">
+                </div>
+
+                <div class="jobsTitle col-12 col-md-10">
+                    <h1 class="job-title">{{$job->title}} - {{$job->company->user->name}}</h1>
+                    <h5 class="text-muted">{{$job->address}} · Last Update: {{$job->updated_at->format('d F Y')}}</h5>
+                    <p class="{{ $job->job_type == 'Full Time' ? 'bg-success' : ($job->job_type == 'Part Time' ? 'bg-warning' : 'bg-danger') }} rounded-pill">
+                        {{ $job->job_type }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="job-details">
+            <h2 class="section-title">Job Description</h2>
+            <p> {{$job->description}} </p>
+            <h2 class="section-title">Requirements</h2>
+            <ul>
+                @forelse ($requirement as $line)
+                    <li>{{ e(trim($line, '- ')) }}</li>
+                    @empty
+                    <div class="alert alert-danger">
+                        No requirement available yet
+                    </div>
+                @endforelse
+            </ul>
+
+            <h2 class="section-title">Benefits</h2>
+            <div class="d-flex flex-column">
+                @forelse ($benefit as $line)
+                    <div class="m-0">{{$line}}</div>
+                @empty
+                    <div class="alert alert-danger">
+                        No benefit available yet
+                    </div>
+                @endforelse
+            </div>
+
+            <h2 class="section-title">Skill Requirement</h2>
+            <ul>
+                @forelse ($result as $item)
+                    <li>{{$item->skill_name}}</li>
+                @empty
+                    <div class="alert alert-danger">
+                        No skill required yet
+                    </div>
+                @endforelse
+            </ul>
 
             <div class="text-center mt-4">
                 <button class="btn btn-primary">Apply Now</button>

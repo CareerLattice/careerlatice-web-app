@@ -50,7 +50,7 @@ class ApplierController extends Controller
 
             DB::commit();
             $req->session()->put('message','Successfully registered');
-            return redirect()->route('user.loginUser');
+            return redirect()->route('login');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->withErrors(['error' => 'Please try again later.']);
