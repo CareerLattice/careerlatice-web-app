@@ -11,7 +11,8 @@
     @include('components.navbar')
     Testing {{session('company_id')}}
     Testing {{Auth::user()->name}}
+
+    <a href="/testing_export/8" class="btn btn-success rounded-pill"> Download CSV</a>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 </body>
 </html>
-

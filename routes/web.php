@@ -143,3 +143,6 @@ Route::get('/testing_CV', function(){
 })->name('testing_CV');
 
 Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->name('getCV');
+
+// Testing Export CSV
+Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('downloadJobApplicants');

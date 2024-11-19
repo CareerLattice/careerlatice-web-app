@@ -26,5 +26,33 @@ class UserSeeder extends Seeder
                 'role' => $faker->randomElement(['applier', 'admin', 'company']),
             ]);
         }
+
+        // Buat minimal masing-masing 1 user dengan role Applier, Company, dan Admin
+        User::create(attributes: [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => Hash::make('password'),
+            'phone_number' => $faker->phoneNumber,
+            'profile_picture' => 'assets/bbca.jpeg',
+            'role' => 'applier',
+        ]);
+
+        User::create(attributes: [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => Hash::make('password'),
+            'phone_number' => $faker->phoneNumber,
+            'profile_picture' => 'assets/bbca.jpeg',
+            'role' => 'company',
+        ]);
+
+        User::create(attributes: [
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => Hash::make('password'),
+            'phone_number' => $faker->phoneNumber,
+            'profile_picture' => 'assets/bbca.jpeg',
+            'role' => 'admin',
+        ]);
     }
 }
