@@ -4,6 +4,7 @@ use App\Http\Controllers\ApplierController;
 use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
@@ -60,23 +61,31 @@ Route::prefix("company")->group(function(){
     Route::middleware('company_auth')->group(function(){
         Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
-        // Route for company profile
-        Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
-        Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
+    // Route for company profile
+    Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
+    Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
 
         // Route for list of jobs by company
         Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
 
+    // Route for company selected job
+    Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
+    Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
+    Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
+    Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
+    
+    Route::get('/editjob', function () {
+        return view('company.editJob');
+    })->name('editJob');
         // Route for company selected job
         Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
         Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
         Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
         Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
 
-        // Route for company view applicants
-        Route::get('/job-applicants/{job}', [JobApplicationController::class, 'viewJobApplicants'])->name('company.jobApplicants');
-        // Route::get('/applicants/{job}', [JobApplicationController::class, 'changeApplicationStatus'])->name('company.applicants'); // Jika CV dibuka Company maka change status job application pending to read
-    });
+    // Route for company view applicants
+    Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
+    // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
 });
 
 Route::get('/user/company', function(){
