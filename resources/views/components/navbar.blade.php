@@ -39,7 +39,7 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white shadow-lg">
     <div class="container mt-3 mb-3">
         <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="window.location='/'">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,22 +49,39 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('user.home')) active @endif" aria-current="page" href="{{route('user.home')}}" id="Home">Home</a>
+                        <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{route('home')}}" id="Home">Home</a>
                     </li>
+
+                    @if (Auth::user()->role == 'applier')
+                        <li class="nav-item">
+                            <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
+                        </li>
+
+                    @elseif (Auth::user()->role == 'company')
+                        <li class="nav-item">
+                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">Created Job</a>
+                        </li>
+                    @endif
                 @endauth
-                <li class="nav-item">
-                    <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
-                </li>
+
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
+                    </li>
+                @endguest
             </ul>
 
             @auth
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{Auth::user()->name}}
+                            <img src="{{asset('assets/bbca.jpeg')}}" class="rounded-circle" alt="Photo Profile" style="max-width: 40px;">
                         </a>
                         <ul class="dropdown-menu">
                             @if (Auth::user()->role == 'applier')

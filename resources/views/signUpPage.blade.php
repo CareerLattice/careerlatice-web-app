@@ -65,7 +65,7 @@
                 </h3>
             </div>
             <div class="align-items-start w-100 buttons">
-                <a href="{{route('user.signUpUser')}}" style="text-decoration: none">
+                <a href="{{route('user.signUpUser')}}" class="ms-5" style="text-decoration: none">
                     <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
                             <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
                             <span>I'm here to apply</span>

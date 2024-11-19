@@ -128,7 +128,7 @@
                 <div class="jobsTitle col-12 col-md-10">
                     <h1 class="job-title">{{$job->title}} - {{$job->company->user->name}}</h1>
                     <h5 class="text-muted">{{$job->address}} · Last Update: {{$job->updated_at->format('d F Y')}}</h5>
-                    <p class="{{ $job->job_type == 'Full Time' ? 'bg-success' : ($job->job_type == 'Part Time' ? 'bg-warning' : 'bg-danger') }} rounded-pill">
+                    <p class="p-2 {{ $job->job_type == 'Full Time' ? 'bg-success' : ($job->job_type == 'Part Time' ? 'bg-warning' : 'bg-danger') }} rounded-pill text-center" style="width:10%;">
                         {{ $job->job_type }}
                     </p>
                 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Job;
 use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -80,9 +81,9 @@ class JobController extends Controller
     // Company can view all job vacancies they create
     public function getJobs(){
         $id = session('company_id');
-        $company = Company::findOrFail($id);
+        $company = Auth::user()->company;
         $jobs = $company->jobs()->paginate(20)->withQueryString();
-        return view('company.companyJobs', ['jobs' => $jobs]);
+        return view('company.companyJobs', compact('jobs'));
     }
 
     // Company can delete job vacancies they create
