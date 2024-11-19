@@ -57,10 +57,6 @@ class ApplierController extends Controller
         }
     }
 
-    public function loginPage(){
-        return view('user.loginUser');
-    }
-
     public function viewHome(){
         return view('user.homeUser');
     }

@@ -72,11 +72,10 @@
                 </div>
             </div>
         </nav> --}}
-        @include('components.navbar')
-        <main class="py-4">
+        <main class="py-0">
             @yield('content')
         </main>
     </div>
-    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

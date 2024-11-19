@@ -5,9 +5,9 @@
 <style>
     @media (max-width: 1040px) {
         h3 {
-            font-size: 1.3rem; 
+            font-size: 1.3rem;
             line-height: 1.4;
-            margin-bottom: 1.5rem; 
+            margin-bottom: 1.5rem;
         }
 
         .span-text {
@@ -15,7 +15,7 @@
         }
 
         .col-md-7 h3 {
-            padding: 0 1rem; 
+            padding: 0 1rem;
         }
     }
 
@@ -42,7 +42,7 @@
             font-size: 1.5rem;
         }
     }
-    
+
 </style>
 <div class="row bodyclass g-0" style="overflow-x: hidden">
     <div class="col-md-7 justify-content-start">
@@ -73,8 +73,8 @@
                 </a>
                 <a href="{{route('company.signUpCompany')}}" style="text-decoration: none">
                     <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
-                            <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
-                            <span>I'm hiring talent</span>
+                        <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
+                        <span>I'm hiring talent</span>
                     </button>
                 </a>
             </div>

@@ -61,23 +61,30 @@
             </ul>
 
             @auth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{Auth::user()->name}}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('updateUser')}}">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li>
-                        <li><a class="dropdown-item" href="#">Change Language</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="dropdown-item text-danger">Log Out</button>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{Auth::user()->name}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            @if (Auth::user()->role == 'applier')
+                                <li><a class="dropdown-item" href="{{route('updateUser')}}">Edit Profile</a></li>
+                            @elseif (Auth::user()->role == 'company')
+                                <li><a class="dropdown-item" href="">Edit Profile</a></li>
+                            @endif
+
+                            <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li>
+                            <li><a class="dropdown-item" href="#">Change Language</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-danger">Log Out</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             @endauth
 
             @guest
@@ -85,7 +92,7 @@
                     <a href="{{route('signUpPage')}}">
                         <button type="button" class="btn btn-outline-primary">Join Us</button>
                     </a>
-                    <a href="{{route('loginPage')}}">
+                    <a href="{{route('login')}}">
                         <button type="button" class="btn btn-outline-dark">Sign In</button>
                     </a>
                 </div>

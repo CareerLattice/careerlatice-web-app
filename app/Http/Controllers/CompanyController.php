@@ -57,10 +57,6 @@ class CompanyController extends Controller
         }
     }
 
-    public function loginPage(){
-        return view('company.loginCompany');
-    }
-
     public function viewHome(){
         return view('company.companyHome');
     }

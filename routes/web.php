@@ -8,18 +8,21 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
 use Illuminate\Support\Facades\Auth;
 
-// Controller yang belum dipakai
+/* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
 // use App\Http\Controllers\UserSkillController;
 // use App\Http\Controllers\AdminController;
+
+/* View yang tidak akan dipakai */
+// LoginPage
+// testing_CV
+// home
+// user.loginUser
 
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');
 
 Route::middleware('guest')->group(function(){
-    // Route to get the login page
-    Route::view('/loginPage', 'loginPage')->name('loginPage');
-
     // Route to get the sign up page
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
 });
@@ -57,13 +60,11 @@ Route::prefix("company")->group(function(){
         // Route for company sign up
         Route::get('/sign-up', [CompanyController::class, 'signUpPage'])->name('company.signUpCompany');
         Route::post('/sign-up', [CompanyController::class, 'signUp'])->name('company.submitSignUpCompany');
-
-        // Route for company login
-        Route::get('/login', [CompanyController::class, 'loginPage'])->name('company.loginCompany');
     });
-    Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
     Route::middleware('company_auth')->group(function(){
+        Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
+
         // Route for company profile
         Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
         Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
@@ -89,8 +90,6 @@ Route::prefix("user")->group(function(){
         Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
         Route::post('/sign-up', [ApplierController::class, 'signUp'])->name('user.submitSignUpUser');
 
-        // Route for user login
-        Route::get('/login', [ApplierController::class, 'loginPage'])->name('user.loginUser');
     });
 
     Route::middleware('user_auth')->group(function(){
@@ -141,15 +140,6 @@ Route::prefix("user")->group(function(){
 // Testing Laravel UI
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Bisa menggunakan bawaan Laravel UI
-// Route::middleware('auth')->group(function(){
-//     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-// });
-
-// Route::middleware('guest')->group(function(){
-//     Route::post('/login', [UserController::class, 'login'])->name('login');
-// });
 
 // Testing Open CV
 Route::get('/testing_CV', function(){
