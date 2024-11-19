@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
@@ -8,29 +9,26 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
 use Illuminate\Support\Facades\Auth;
 
-// Controller yang belum dipakai
+use Illuminate\Http\Request;
+
+/* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
 // use App\Http\Controllers\UserSkillController;
 // use App\Http\Controllers\AdminController;
+
+/* View yang tidak akan dipakai */
+// LoginPage
+// testing_CV
+// home
+// user.loginUser
 
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');
 
 Route::middleware('guest')->group(function(){
-    // Route to get the login page
-    Route::view('/loginPage', 'loginPage')->name('loginPage');
-
     // Route to get the sign up page
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
 });
-
-Route::get('/job/detail', function(){
-    return view('user.jobDetail');
-})->name('jobDetail');
-
-Route::get('/job/company', function(){
-    return view('user.company');
-})->name('jobCompany');
 
 Route::get('/company/job-vacancies', function(){
     return view('user.companyJobVacancies');
@@ -39,7 +37,7 @@ Route::get('/company/job-vacancies', function(){
 Route::get("/logout", function(){
         Auth::logout();
         session()->put('success', 'Logout successful');
-        return redirect()->route('user.loginUser');
+        return redirect()->route('login');
 });
 
 Route::get('/user/edit-profile', function(){
@@ -57,13 +55,11 @@ Route::prefix("company")->group(function(){
         // Route for company sign up
         Route::get('/sign-up', [CompanyController::class, 'signUpPage'])->name('company.signUpCompany');
         Route::post('/sign-up', [CompanyController::class, 'signUp'])->name('company.submitSignUpCompany');
-
-        // Route for company login
-        Route::get('/login', [CompanyController::class, 'loginPage'])->name('company.loginCompany');
     });
-    Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
     Route::middleware('company_auth')->group(function(){
+        Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
+
         // Route for company profile
         Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
         Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
@@ -83,14 +79,22 @@ Route::prefix("company")->group(function(){
     });
 });
 
+Route::get('/user/company', function(){
+    return view('user.company');
+})->name('jobCompany');
+
+Route::get('/job/detail', function(){
+    return view('user.jobDetail');
+})->name('jobDetail');
+
+Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
+
 Route::prefix("user")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
         Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
         Route::post('/sign-up', [ApplierController::class, 'signUp'])->name('user.submitSignUpUser');
 
-        // Route for user login
-        Route::get('/login', [ApplierController::class, 'loginPage'])->name('user.loginUser');
     });
 
     Route::middleware('user_auth')->group(function(){
@@ -109,7 +113,7 @@ Route::prefix("user")->group(function(){
         // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
         // Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
 
-        // Route::get('/job/{job}', [JobController::class, 'userViewJob'])->name('user.job');
+        Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.job');
         // Route::post('/job/{job}', [UserController::class, 'applyJob'])->name('user.applyJob');
 
         // Route for user view applied jobs
@@ -141,15 +145,6 @@ Route::prefix("user")->group(function(){
 // Testing Laravel UI
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Bisa menggunakan bawaan Laravel UI
-// Route::middleware('auth')->group(function(){
-//     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-// });
-
-// Route::middleware('guest')->group(function(){
-//     Route::post('/login', [UserController::class, 'login'])->name('login');
-// });
 
 // Testing Open CV
 Route::get('/testing_CV', function(){

@@ -1,3 +1,4 @@
+
 @extends('layout.master')
 @section('content')
 <style>
@@ -121,6 +122,7 @@
             </div>
         </div>
     </div>
+
 
 <hr class="mt-5">
 @include('components.footer')

@@ -36,11 +36,6 @@ class UserController extends Controller
         $role = Auth::user()->role;
         Auth::logout();
         session()->put('message', 'Logout successful');
-
-        if($role ==  'company'){
-            return redirect()->route('company.loginCompany');
-        }
-
-        return redirect()->route('user.loginUser');
+        return redirect()->route('login');
     }
 }
