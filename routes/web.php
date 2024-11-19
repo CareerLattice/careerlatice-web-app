@@ -64,9 +64,9 @@ Route::prefix("company")->group(function(){
     Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
     Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
 
-        // Route for list of jobs by company
-        Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
-
+    // Route for list of jobs by company
+    Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
+    
     // Route for company selected job
     Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
     Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
@@ -81,7 +81,17 @@ Route::prefix("company")->group(function(){
     Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
     // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
     });
+
+    Route::get('/edit-profile', function(){
+        return view('company.companyProfile');
+    })->name('updateCompany');
 });
+
+Route::view('company/create-job', 'company.createJob')->name('createJob');
+
+Route::get('/company/jobsss', function(){
+    return view('company.listJob');
+})->name('listJob');
 
 Route::get('/user/company', function(){
     return view('user.company');

@@ -74,7 +74,7 @@
 
                     @elseif (Auth::user()->role == 'company')
                         <li class="nav-item">
-                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">Created Job</a>
+                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('listJob')}}" id="Job">Created Job</a>
                         </li>
                     @endif
                 @endauth
@@ -99,7 +99,7 @@
                             @if (Auth::user()->role == 'applier')
                                 <li><a class="dropdown-item" href="{{route('updateUser')}}">Edit Profile</a></li>
                             @elseif (Auth::user()->role == 'company')
-                                <li><a class="dropdown-item" href="">Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="{{route('updateCompany')}}">Edit Profile</a></li>
                             @endif
 
                             <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li>
