@@ -30,12 +30,24 @@
     }
 
     .img {
-        width: 13%;
+        width: 15%;
     }
 
     .dropdown-menu a:focus, .dropdown-menu a:active {
         outline: none;
         box-shadow: none;
+    }
+
+    @media (max-width: 989px) {
+        .img{
+            width: 30%;
+        }
+    }
+
+    @media(max-width: 485px){
+        .img{
+            width: 40%;
+        }
     }
 </style>
 
