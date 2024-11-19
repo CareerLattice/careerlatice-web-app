@@ -45,9 +45,9 @@
         }
 
         .section-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: bold;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.55rem;
         }
 
         .user-profile{
@@ -71,25 +71,28 @@
         <div class="job-card">
             <div class="job-header row align-items-md-center d-flex justify-content-between">
                 <div class="col-md-8 d-flex align-items-center">
-                    <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo">
-                    <div class="col ms-4">
+                    <div class="row">
+                        <div class="col-10 col-md-3 d-flex justify-content-center">
+                            <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                        </div>   
+
+                        <div class="col-md-9">
+                            <div class="d-flex gap-2">
+                                <h1 id="jobTitle" class="job-title">Senior Back-end Developer - PT Bank Central Asia Tbk</h1>
+                            </div>
+                            <div class="d-flex gap-1">
+                                <h5 id="jobLocation" class="text-muted">Jakarta, Indonesia · Last Update: 20 November 2024</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col ms-4">
                         <div class="d-flex gap-2">
                             <h1 id="jobTitle" class="job-title">Senior Back-end Developer - PT Bank Central Asia Tbk</h1>
-                            {{-- <form action="" method="post" class="d-inline">
-                                @csrf
-                                <input id="titleInput" type="text" class="form-control d-none">
-                            </form> --}}
-                            {{-- <a href="#" class="text-black" id="editTitleButton"><i class="bi bi-pencil-fill" id=titlePencil></i></a> --}}
                         </div>
                         <div class="d-flex gap-1">
                             <h5 id="jobLocation" class="text-muted">Jakarta, Indonesia · Last Update: 20 November 2024</h5>
-                            {{-- <a href="#" class="text-black" id="editLocationButton"><i class="bi bi-pencil-fill" id=locationPencil></i></a> --}}
-                            {{-- <form action="" method="post" class="d-inline">
-                                @csrf
-                                <input id="addressInput" type="text" class="form-control d-none">
-                            </form> --}}
                         </div>
-                    </div>    
+                    </div>     --}}
                 </div>
                 <div class="col-md-2 d-flex">
                     <button id="statusButton" class="btn btn-secondary ms-auto">Inactive</button>
@@ -141,7 +144,7 @@
 
                 <div class="mt-4 d-flex align-items-center justify-content-end gap-3">
                     <a href="{{ route('company.deleteJob', ['job' => $job->id]) }}" class="btn btn-outline-danger color-danger">Delete Job</a>
-                    <a href="" class="btn btn-outline-primary">Edit Details</a>
+                    <a href="{{route('editJob')}}" class="btn btn-outline-primary">Edit Details</a>
                 </div>
             </div>
         </div>

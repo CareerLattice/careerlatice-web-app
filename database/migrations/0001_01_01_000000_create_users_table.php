@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('role')->default('applier');
             $table->string('profile_picture')->nullable();
 
-            $table->timestxamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
 
-
 <body>
     @yield('content')
 
