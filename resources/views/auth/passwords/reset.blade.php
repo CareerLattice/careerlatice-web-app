@@ -5,7 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                @auth
+                    <div class="card-header">{{ __('Change Password') }}</div>
+                @endauth
+
+                @guest
+                    <div class="card-header">{{ __('Reset Password') }}</div>
+                @endguest
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
