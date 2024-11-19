@@ -94,7 +94,12 @@
         <div class="row">
             @forelse ($companies as $company)
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
+                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                     <div class="company-card">
+                        <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
+                        <div class="company-details">
+                            <h5 class="mt-2">{{$company->name}}</h5>
+                            <p>{{$company->address}}</p>
                         <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
                         <div class="company-details">
                             <h5 class="mt-2">{{$company->name}}</h5>
@@ -103,21 +108,25 @@
                         <div class="company-info-section">
                             <p class="fw-bold mb-0">Description</p>
                             <p class="text-muted mt-0 description">{{$company->description}}...</p>
+                            <p class="text-muted mt-0 description">{{$company->description}}...</p>
                             <p class="fw-bold mb-0">Field</p>
                             <p class="text-muted mt-0">{{$company->field}}</p>
+                            <p class="text-muted mt-0">{{$company->field}}</p>
                         </div>
+                        <a href="{{route('jobCompany')}}" class="btn btn-visit">Visit Company</a>
                         <a href="{{route('jobCompany')}}" class="btn btn-visit">Visit Company</a>
                     </div>
                 </div>
             @empty
                 <div class="col-10">
+                <div class="col-10">
                     <div class="alert alert-info text-center" role="alert">
                         No companies found.
                     </div>
                 </div>
+                </div>
             @endforelse
         </div>
-
         <div class="row mb-5 mt-3 d-flex justify-content-center">
             <div class="col-12 d-flex justify-content-center">
                 {{ $companies->links() }}

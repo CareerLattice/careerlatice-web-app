@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    
+
     public $timestamps = true;
     public $incrementing = true;
     protected $primaryKey = 'id';
@@ -29,7 +29,7 @@ class User extends Authenticatable
         'updated_at',
         'deleted_at',
     ];
-    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -50,21 +50,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function userHistories(): HasMany{
-        return $this->hasMany(UserHistory::class, 'user_id', 'id');
-    }
-
-    public function jobApplications(): HasMany{
-        return $this->hasMany(JobApplication::class, 'user_id', 'id');  
-    }
-
-    public function educations(): HasMany{
-        return $this->hasMany(Education::class, 'user_id', 'id');
-    }
-
-    public function userSkills(): HasMany{
-        return $this->hasMany(UserSkill::class, 'user_id', 'id');
     }
 }

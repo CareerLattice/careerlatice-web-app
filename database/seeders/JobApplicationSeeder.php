@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\Models\JobApplication;
-use App\Models\User;
+use App\Models\Applier;
 use App\Models\Job;
 
 class JobApplicationSeeder extends Seeder
@@ -16,12 +16,12 @@ class JobApplicationSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::all();
+        $users = Applier::all();
         $jobs = Job::all();
         $faker = Factory::create("id_ID");
         for($i = 0; $i < 20; $i++) {
             JobApplication::create([
-                'user_id' => $users->random()->id,
+                'applier_id' => $users->random()->id,
                 'job_id' => $jobs->random()->id,
                 'applied_at' => $faker->dateTimeBetween('-1 year', 'now'),
                 'status' => $faker->randomElement(['pending', 'accepted', 'rejected']),

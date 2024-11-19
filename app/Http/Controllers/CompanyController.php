@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Company;
 use App\Models\Job;
@@ -17,59 +19,46 @@ class CompanyController extends Controller
         return view('company.signUpCompany');
     }
 
-    public function signUp(Request $request){
-        $request->validate([
+    public function signUp(Request $req){
+        $req->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:companies',
+            'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
             'phone_number' => 'string|max:20',
-            'description' => 'string',
-            'field' => 'string|max:100',
             'address' => 'string|max:100',
-            'logo' => 'string|max 255',
+            'field' => 'string|max:255',
         ]);
 
-        Company::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-            'description' => $request->description,
-            'field' => $request->field,
-            'logo' => $request->logo,
-        ]);
+        DB::beginTransaction();
 
-        return redirect()->route('company.loginPage');
+        try {
+            $company = User::create([
+                'name' => $req->name,
+                'email' => $req->email,
+                'password' => Hash::make($req->password),
+                'phone_number' => $req->phone_number,
+                'role' => 'company',
+            ]);
+
+            // Membuat company baru
+            Company::create([
+                'address' => $req->address,
+                'field' => $req->field,
+                'user_id' => $company->id,
+            ]);
+
+            DB::commit();
+            $req->session()->put('message','Successfully registered');
+            return redirect()->route('company.loginCompany');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Please try again later.']);
+        }
     }
 
     public function loginPage(){
         return view('company.loginCompany');
-    }
-
-    public function login(Request $req){
-        $req->validate([
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-
-        $company = Company::where('email', $req->email)->first();
-
-        if(!$company){
-            return redirect()->back()->withErrors(['email' => 'Email unregistered'])->withInput();
-        }
-
-        if(!Hash::check($req->password, $company->password)){
-            return redirect()->back()->withErrors(['password' => 'Wrong password'])->withInput();
-        }
-
-        $req->session()->put('company_id', $company->id);
-        return redirect()->route('company.home');
-    }
-
-    public function logout(Request $request){
-        $request->session()->forget('company_id');
-        return redirect()->route('company.loginPage');
     }
 
     public function viewHome(){
@@ -116,23 +105,25 @@ class CompanyController extends Controller
         return view('user.company', ['company' => $company]);
     }
 
-    public function uploadCompanyProfilePicture(Request $request) {
+    public function uploadCompanyProfilePicture(Request $req) {
         // Input form with name company_profile_picture must be either jpg, png, or jpeg with maximum size of 2MB
-        $request->validate([
+        $req->validate([
             'company_profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         // Save the photo to storage
-        $path = $request->file('company_profile_picture')->store('company_upload/profile_picture');
-        $company = Company::findOrFail(session('company_id'));
+        $path = $req->file('company_profile_picture')->store('company_upload/profile_picture');
 
+        $company = Auth::user();
         // Delete old profile picture from folder
         if (Storage::exists($company->profilePicture)) {
             Storage::delete($company->profilePicture);
         }
 
-        $company->profilePicture = $path;
-        $company->save();
+        User::where('id', $company->id)->update(['profile_picture' => $path]);
+
+        $updatedCompany = User::find($company->id);
+        Auth::login($updatedCompany);
         return redirect()->route('company.profile', ['company' => $company]);
     }
 

@@ -67,11 +67,11 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('updateUser')}}">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li>
                         <li><a class="dropdown-item" href="#">Change Language</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
-                            <form action="{{ route('user.logout') }}" method="POST">
+                            <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="dropdown-item text-danger">Log Out</button>
                             </form>

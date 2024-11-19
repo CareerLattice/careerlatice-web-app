@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\ApplierController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobApplicationController;
 use Illuminate\Support\Facades\Auth;
+
 // Controller yang belum dipakai
 // use App\Http\Controllers\SkillController;
 // use App\Http\Controllers\UserSkillController;
@@ -58,16 +60,10 @@ Route::prefix("company")->group(function(){
 
         // Route for company login
         Route::get('/login', [CompanyController::class, 'loginPage'])->name('company.loginCompany');
-        Route::post('/login', [CompanyController::class, 'login'])->name('company.submitLoginCompany');
     });
+    Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
     Route::middleware('company_auth')->group(function(){
-        // Route for company logout
-        Route::post('/logout', [CompanyController::class, 'logout'])->name('company.logout');
-
-        // Route to for company home
-        Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
-
         // Route for company profile
         Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
         Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
@@ -90,20 +86,16 @@ Route::prefix("company")->group(function(){
 Route::prefix("user")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
-        Route::get('/sign-up', action: [UserController::class, 'signUpPage'])->name('user.signUpUser');
-        Route::post('/sign-up', [UserController::class, 'signUp'])->name('user.submitSignUpUser');
+        Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
+        Route::post('/sign-up', [ApplierController::class, 'signUp'])->name('user.submitSignUpUser');
 
         // Route for user login
-        Route::get('/login', [UserController::class, 'loginPage'])->name('user.loginUser');
-        Route::post('/login', [UserController::class, 'login'])->name('user.submitLoginUser');
+        Route::get('/login', [ApplierController::class, 'loginPage'])->name('user.loginUser');
     });
 
     Route::middleware('user_auth')->group(function(){
-        // Route for user logout
-        Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
-
         // Route for user home
-        Route::get('/home', [UserController::class, 'viewHome'])->name('user.home');
+        Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
 
         // Route for user profile
         Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');
@@ -147,12 +139,24 @@ Route::prefix("user")->group(function(){
 // });
 
 // Testing Laravel UI
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Bisa menggunakan bawaan Laravel UI
+// Route::middleware('auth')->group(function(){
+//     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+// });
+
+// Route::middleware('guest')->group(function(){
+//     Route::post('/login', [UserController::class, 'login'])->name('login');
+// });
 
 // Testing Open CV
 Route::get('/testing_CV', function(){
     return view('testing_CV');
 })->name('testing_CV');
 
-Route::get('/testing_CV2/{filename}', [UserController::class, 'open_cv'])->name('getCV');
+Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->name('getCV');
+
+// Testing Export CSV
+Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('downloadJobApplicants');

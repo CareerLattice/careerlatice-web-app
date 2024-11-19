@@ -21,11 +21,11 @@ return Application::configure(basePath: dirname(__DIR__))
         // $middleware->append(SetLocale::class);
 
         $middleware->alias([
-            // 'locale', SetLocale::class
-            'user_auth' => UserAuthCheck::class,
             'auth' => Authenticate::class,
             'guest' => RedirectIfAuthenticated::class,
             'company_auth' => CompanyAuthCheck::class,
+            'user_auth' => UserAuthCheck::class,
+            // 'locale', SetLocale::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -31,16 +31,12 @@
             <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Join us today by registering your information below and unlock exciting opportunities!</p>
             <form class="form-custom row g-3" action="{{route('user.submitSignUpUser')}}" method="POST" onsubmit="return formValidation();">
                 @csrf
-                <div class="col-md-6">
-                    <label for="inputFirstName" class="form-label">
-                        First Name
+                <div class="col-12">
+                    <label for="name" class="form-label">
+                        Name
                         <span class="text-danger">*</span>
                     </label>
-                    <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" name="lastname">
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="col-12">
                     <label for="inputEmail" class="form-label">
@@ -77,6 +73,13 @@
                     </label>
                     <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number">
                 </div>
+                @if ($errors->any())
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            {{$errors->first()}}
+                        </div>
+                    </div>
+                @endif
                 <div class="col-12 text-center">
                     <div class="form-check d-flex justify-content-center">
                         <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
@@ -111,56 +114,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function formValidation() {
-            const firstNameInput = document.getElementById("inputFirstName").value;
-            const emailInput = document.getElementById("inputEmail").value;
-            const passwordInput = document.getElementById("inputPassword").value;
-            const addressInput = document.getElementById("inputAddress").value;
-            const birthDateInput = document.getElementById("inputBirthDate").value;
-            const phoneNumber = document.getElementById("phoneNumber").value;
-            const checkBoxInput = document.getElementById("gridCheck").checked;
-
-            const emailPattern = /^[^@]+@[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}$/
-            const phonePattern = /^\+62\s?\d+(-\d+)*(\s\d+(-\d+)*)*$/;
-
-            if(firstNameInput.trim() === ""){
-                alert("First name field must be filled.");
-                return false;
-            }
-
-            if (!emailPattern.test(emailInput)) {
-                alert("Email must end with @something.com");
-                return false;
-            }
-
-            if (passwordInput.trim() === "") {
-                alert("Password field must be filled.");
-                return false;
-            }
-
-            if (addressInput.trim() === "") {
-                alert("Address field must be filled.");
-                return false;
-            }
-
-            if (birthDateInput === "") {
-                alert("Birth date field must be filled.");
-                return false;
-            }
-
-            if (!phonePattern.test(phoneNumber)) {
-                alert("Phone number must start with +62 followed by digits.");
-                return false;
-            }
-
-            if(!checkBoxInput){
-                alert("You must agree to terms and conditions")
-                return false;
-            }
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB30NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
