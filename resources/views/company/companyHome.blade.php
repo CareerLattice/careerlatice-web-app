@@ -1,30 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CareerLattice</title>
-
-    {{-- Bootstrap 5 --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="{{ asset('css/homeCompany.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    {{-- <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"> --}}
-    <link rel="icon" href="{{asset('assets/logo.png')}}">
-    {{-- End of Bootstrap 5 --}}
-    
-    {{-- Google Fonts --}}
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    {{-- End of Google Fonts --}}
-
 
 </head>
 <body>
-    {{-- Start of Navbar --}}
-    @include('components.navbar')
-    {{-- End of Navbar --}}
+    @extends('layouts.app')
 
-    <main>
+    @section('content')
 
         <section class="" style="background-color:#c0dcf7;">
             <div class="row px-4 py-3 mx-3">
@@ -105,9 +88,15 @@
             <a></a>
     </main>
 
+
+    
+
     {{-- Start of Footer --}}
     @include('components.footer')
     {{-- End of Footer --}}
+
+
+
 
 <!-- FontAwesome Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -116,5 +105,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 {{-- End of Bootstrap 5 --}}
 <script src="{{ asset('js/script.js') }}"></script>
+
+@endsection
 </body>                 
 </html>
