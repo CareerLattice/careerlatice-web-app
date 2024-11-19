@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\AdminController as Admin;
 
@@ -43,18 +44,23 @@ Route::prefix("company")->group(function(){
     Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
     Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
 
+
     // Route for list of jobs by company
     Route::get('/jobs', [CompanyController::class, 'getJobs'])->name('company.listJob');
 
     // Route for company selected job
-    Route::post('/job', [CompanyController::class, 'createJob'])->name('company.addJob');
-    Route::get('/job/{id}', [CompanyController::class, 'viewJob'])->name('company.job');
-    Route::post('/job/{id}', [CompanyController::class, 'updateJob'])->name('company.updateJob');
-    Route::delete('/job/{id}', [CompanyController::class, 'deleteJob'])->name('company.deleteJob');
+    Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
+    Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
+    Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
+    Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
+    
+    Route::get('/editjob', function () {
+        return view('company.editJob');
+    })->name('editJob');
 
     // Route for company view applicants
-    Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
-    // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
+    Route::get('/job-applicants/{job}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
+    // Route::get('/applicants/{job}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
 });
 
 Route::prefix("user")->group(function(){
@@ -112,7 +118,7 @@ Route::prefix("user")->group(function(){
 // });
 
 // Testing
-Auth::routes();
+// Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{{route('getCV', ['filename' => 'Localization.pdf'])}}" target="_blank">CV Applicant 1</a>
+    <a href="{{route('getCV', ['filename' => '1.pdf'])}}" target="_blank">CV Applicant 1</a>
     <a href="{{route('getCV', ['filename' => 'Kalender.pdf'])}}" target="_blank">CV Applicant 2</a>
 </body>
 </html>
