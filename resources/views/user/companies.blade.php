@@ -1,103 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Search Company</title>
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link href="{{asset('css/landingPage.css')}}" rel="stylesheet">
 
-    <style>
-        .custom-input-group {
-            width: 70%;
-            max-width: 600px;
-        }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-            min-height: 150px;
-        }
-        .footer-container h5 {
-        font-weight: bold;
-        text-align: justify;
+@extends('layout.master')
+@section('content')
+<style>
+    .custom-input-group {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .company-card {
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+    .company-card:hover {
+        transform: translateY(-10px);
+    }
+    .company-card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+    .company-details h5 {
         font-size: 1.5rem;
-        }
-
-        .footer-container p {
-            font-size: 1rem;
-            text-align: justify;
-            color: grey;
-        }
-
-        .footer-right-container a {
-            color: #000;
-            text-decoration: none;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-
-        .footer-right-container a:hover {
-            color: #007bff;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>asdfasd</h1>
-    <div class="container-fluid">
-        @include('components.navbar')
-
-        <div class="row">
-            <div class="col-md-12 mt-5">
-                <h2 class="text-center">Search Company</h2>
-                <form class="form-inline" action="{{route('user.searchCompany')}}" method="GET">
-                    <div class="d-flex justify-content-center">
-                        <div class="input-group custom-input-group">
-                            <input type="search" name="search" class="form-control me-2" placeholder="Search Company" aria-label="Search">
-                            <div class="input-group-append me-2">
-                                <select name="filter" class="h-100" id="filter-group" style="border-color: var(--bs-primary)">
-                                    <option value="x">Filter</option>
-                                    <option value="name">Name</option>
-                                    <option value="field">Field</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group-append me-2">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+    }
+    .company-details p {
+        color: grey;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    .btn-visit {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-visit:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .company-info-section {
+        margin-top: 15px;
+        text-align: justify;
+    }
+    .company-info-section .description {
+        height: 50px;
+        overflow: hidden;
+        text-overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+</style>
+    @include('components.navbar')
+    <div class="container">
+        <div class="container">
+            <h2 class="fw-bold text-center mt-5 mb-3" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
+                Search your <span style="color: #7869cd;">Dream Companies</span> here
+            </h2>
+            <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
+                <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2"  >
+                <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
+                    <option value="name">Company Name</option>
+                    <option value="field">Field</option>
+                </select>
+                <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
+            </form>
             @if ($errors->any())
-                <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">
-                    {{$errors->first('filter')}}
-                </div>
+                <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">{{$errors->first('filter')}}</div>
             @endif
         </div>
 
-        <div class="row justify-content-start mt-5 mx-4">
-            <h2 class="text-center w-100 mt-5 mb-5">Companies</h2>
+        <hr>
+
+        <div class="row">
             @forelse ($companies as $company)
-                <div class="col-6 col-sm-4 col-md-3 mb-4">
-                    <div class="card h-100 d-flex flex-column">
-                        <img src="..." class="card-img-top img-fluid" alt="Photo">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <h5 class="card-title fs-5 fs-md-4">{{ $company->name }}</h5>
-                            <p class="card-text fs-6 fs-md-5 text-left">{{ $company->field }}</p>
-                            <a href="{{route('user.company', ['company' => $company])}}" class="btn btn-primary mt-auto">See Detail</a>
+                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
+                    <div class="company-card">
+                        <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
+                        <div class="company-details">
+                            <h5 class="mt-2">{{$company->name}}</h5>
+                            <p>{{$company->address}}</p>
                         </div>
+                        <div class="company-info-section">
+                            <p class="fw-bold mb-0">Description</p>
+                            <p class="text-muted mt-0 description">{{$company->description}}...</p>
+                            <p class="fw-bold mb-0">Field</p>
+                            <p class="text-muted mt-0">{{$company->field}}</p>
+                        </div>
+                        <a href="{{route('jobCompany')}}" class="btn btn-visit">Visit Company</a>
                     </div>
                 </div>
             @empty
-                <div class="alert alert-danger w-50 mx-auto text-center">
-                    No company found.
+            <div class="col-10">
+                <div class="alert alert-info text-center" role="alert">
+                    No companies found.
                 </div>
+            </div>
             @endforelse
         </div>
 
@@ -106,10 +121,9 @@
                 {{ $companies->links() }}
             </div>
         </div>
-    
     </div>
-    @include('components.footer')    
-    <script src="{{asset('bootstrap/js/bootstramp.min.js')}}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-</body>
-</html>
+
+
+<hr class="mt-5">
+@include('components.footer')
+@endsection()

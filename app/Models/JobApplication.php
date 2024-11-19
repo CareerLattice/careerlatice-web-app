@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class JobApplication extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'job_applications';
     protected $guarded = [
         'id',
@@ -25,7 +25,7 @@ class JobApplication extends Model
         return $this->belongsTo(Job::class);
     }
 
-    public function user(): BelongsTo{
-        return $this->belongsTo(User::class);
+    public function applier(): BelongsTo{
+        return $this->belongsTo(Applier::class);
     }
 }

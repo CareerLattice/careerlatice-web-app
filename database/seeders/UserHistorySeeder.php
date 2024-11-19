@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory;
 
 use App\Models\UserHistory;
-use App\Models\User;
+use App\Models\Applier;
 
 class UserHistorySeeder extends Seeder
 {
@@ -17,7 +17,7 @@ class UserHistorySeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
-        $users = User::all();
+        $users = Applier::all();
 
         for($i = 0; $i < 10; $i++) {
             UserHistory::create([

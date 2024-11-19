@@ -17,11 +17,14 @@ return new class extends Migration
             $table->string('title');
             $table->string('address');
             $table->text('description');
-            $table->text('requirement');
+
             $table->string('person_in_charge');
             $table->string('contact_person');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
             $table->string('job_picture');
+
+            $table->text(column: 'requirement');
+            $table->text('benefit');
 
             $table->timestamps();
             $table->softDeletes();

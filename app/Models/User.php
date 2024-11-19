@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,7 +18,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    
+
     public $timestamps = true;
     public $incrementing = true;
     protected $primaryKey = 'id';
@@ -29,7 +30,7 @@ class User extends Authenticatable
         'updated_at',
         'deleted_at',
     ];
-    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -52,19 +53,11 @@ class User extends Authenticatable
         ];
     }
 
-    public function userHistories(): HasMany{
-        return $this->hasMany(UserHistory::class, 'user_id', 'id');
+    public function company(): HasOne{
+        return $this->hasOne(Company::class,'user_id','id');
     }
 
-    public function jobApplications(): HasMany{
-        return $this->hasMany(JobApplication::class, 'user_id', 'id');  
-    }
-
-    public function educations(): HasMany{
-        return $this->hasMany(Education::class, 'user_id', 'id');
-    }
-
-    public function userSkills(): HasMany{
-        return $this->hasMany(UserSkill::class, 'user_id', 'id');
+    public function applier(): HasOne{
+        return $this->hasOne(Applier::class,'user_id','id');
     }
 }

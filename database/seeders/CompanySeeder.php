@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
@@ -15,16 +16,20 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create("id_ID");
-        for($i = 0; $i < 15; $i++) {
+        $companies = User::where('role', 'company')->get();
+        foreach ($companies as $company) {
+            $companyName = $faker->company;
+            $companyEmail = $faker->companyEmail;
             Company::create([
-                'name' => $faker->company,
-                'email' => $faker->companyEmail,
-                'phone_number' => $faker->phoneNumber,
                 'address' => $faker->address,
                 'description' => $faker->paragraph,
                 'field' => $faker->randomElement(['Teknologi', 'Kesehatan', 'Pendidikan', 'Keuangan']),
-                'password' => bcrypt('password'),
-                'logo' => 'https://stockbit.com/images/stockbit.svg',
+                'user_id' => $company->id,
+            ]);
+
+            User::where('id', $company->id)->update([
+                'name' => $companyName,
+                'email' => $companyEmail,
             ]);
         }
     }

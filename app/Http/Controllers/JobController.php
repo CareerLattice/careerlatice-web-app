@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Job;
-use Illuminate\Support\Str;
+use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
@@ -67,7 +70,7 @@ class JobController extends Controller
             'is_active' => $req->is_active ?? $job->is_active,
         ]);
 
-        return redirect()->route('company.job', ['id' => $id]);
+        return redirect()->route('company.job', ['job' => $job]);
     }
 
     // Company can view the job vacancies they create
@@ -78,9 +81,9 @@ class JobController extends Controller
     // Company can view all job vacancies they create
     public function getJobs(){
         $id = session('company_id');
-        $company = Company::findOrFail($id);
+        $company = Auth::user()->company;
         $jobs = $company->jobs()->paginate(20)->withQueryString();
-        return view('company.companyJobs', ['jobs' => $jobs]);
+        return view('company.companyJobs', compact('jobs'));
     }
 
     // Company can delete job vacancies they create
@@ -135,7 +138,36 @@ class JobController extends Controller
 
     // Return all job vacancies with pagination 20 per page
     public function index(){
-        $jobs = Job::where('is_active', true)->paginate(20);
+        $jobs = Job::with("skills")->where('is_active', true)->paginate(20);
         return view('user.jobs', ['jobs' => $jobs]);
+    }
+
+    public function userViewJob(Job $job){
+        $requirement = explode("\r\n", $job->requirement);
+        $benefit = explode("\r\n", $job->benefit);
+        // $result = DB::table('job_vacancies as jobs')
+        //     ->join('companies', 'jobs.company_id', '=', 'companies.id')
+        //     ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
+        //     ->join('skills','job_skills.skill_id','=','skills.id')
+        //     ->join('users', 'companies.user_id', '=', 'users.id')
+        //     ->select('users.name as company_name', 'jobs.title', 'jobs.address', 'jobs.updated_at', 'jobs.description', 'skills.name as skill_name')
+        //     ->where('jobs.id', $job->id)
+        //     ->get();
+
+        $result = DB::table('job_vacancies as jobs')
+            ->join('companies', 'jobs.company_id', '=', 'companies.id')
+            ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
+            ->join('skills','job_skills.skill_id','=','skills.id')
+            ->join('users', 'companies.user_id', '=', 'users.id')
+            ->select('skills.name as skill_name')
+            ->where('jobs.id', $job->id)
+            ->get();
+        // dd($benefit);
+        return view('user.jobDetail', compact('job', 'requirement', 'result', 'benefit'));
+    }
+
+    public function addRequirement(Request $req){
+        Job::where('id', 1)->update(['requirement' => $req->requirement, 'benefit' => $req->benefit]);
+        return redirect()->route('user.job', ['job' => 1]);
     }
 }

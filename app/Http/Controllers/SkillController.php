@@ -14,7 +14,7 @@ class SkillController extends Controller
         $skills = Skill::all();
         return response()->json($skills);
     }
-    
+
     public function store(Request $request){
         $request->validate([
             'name' => 'required|string|max:100',
@@ -31,15 +31,6 @@ class SkillController extends Controller
 
     public function show($name){
         $skill = Skill::where('name', $name)->first();
-
-        // Apabila skill tidak ditemukan, maka buat skill baru
-        if($skill === null){
-            $request = new Request([
-                'name' => $name,
-            ]);
-            $this->store($request);
-            return $this->show($name);
-        }
         return response()->json($skill);
     }
 

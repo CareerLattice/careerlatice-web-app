@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+@include('components.navbar')
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                @auth
+                    <div class="card-header">{{ __('Change Password') }}</div>
+                @endauth
 
+                @guest
+                    <div class="card-header">{{ __('Reset Password') }}</div>
+                @endguest
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
