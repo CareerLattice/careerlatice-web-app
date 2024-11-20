@@ -115,24 +115,23 @@ class JobController extends Controller
     // User Section for Job
     // User can search job vacancies
     public function searchJobs(Request $req){
-        $jobs = Job::where('is_active', true);
-        foreach ($req->all() as $key => $value) {
-            if ($value !== null && $value !== '') {
-                // Filter based on key dan value
-                switch ($key) {
-                    case 'search':
-                        $jobs->where('title', 'like', '%' . $value . '%');
-                        break;
-                    case 'job_type':
-                        $jobs->where('job_type', 'like', '%' . $value . '%');
-                        break;
-                }
-            }
+        $req->validate([
+            'search' => 'string|nullable',
+            'filter' => 'string|in:name,job_type,title',
+        ]);
+
+        $jobs = DB::table('job_vacancies')
+            ->join('companies', 'companies.id', '=', 'job_vacancies.company_id')
+            ->join('users','users.id','=','companies.user_id')
+            ->where('is_active', true)
+            ->select('job_vacancies.*', 'users.name as company_name');
+
+        if ($req->filled('search')) {
+            $jobs->where($req->filter, 'like', '%' . $req->search . '%');
         }
 
-        // Paginate query result
-        $jobs = $jobs->paginate(20)->withQueryString();
-        return view('user.jobs', ['jobs' => $jobs]);
+        $jobs = $jobs->paginate(3)->withQueryString();
+        return view('user.jobs', compact('jobs'));
     }
 
     // Return all job vacancies with pagination 20 per page

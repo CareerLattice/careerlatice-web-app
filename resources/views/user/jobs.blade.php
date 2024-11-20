@@ -1,6 +1,8 @@
-@extends('layout.master')
+@extends('layouts.app')
 
-@section('content')
+@section('title', 'Jobs')
+
+@section('custom_css')
 <style>
     .img {
         width: 13%;
@@ -16,7 +18,9 @@
         height: 40px;
     }
 </style>
+@endsection
 
+@section('content')
 @include('components.navbar')
 
 <section style="background-color: #fff;">
@@ -96,12 +100,12 @@
     </div>
 
     <div class="container">
-        <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
-            <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Discover Job" aria-label="Search" name="search" required>
+        <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchJobs')}}" method="GET">
+            <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search by Company Name" aria-label="Search" name="search">
 
-            <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
+            <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;" onchange="updatePlaceholder()">
                 <option value="name">Company Name</option>
-                <option value="field">Job Title</option>
+                <option value="title">Job Title</option>
                 <option value="job_type">Job Type</option>
             </select>
 
@@ -114,9 +118,8 @@
         @endif
     </div>
 
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex flex-column align-items-center">
         <div class="row" style="width: 100%; max-width: 1000px;">
-
             @forelse ($jobs as $job)
                 <div class="card mb-3" style="width: 100%;">
                     <div class="row g-0 d-flex justify-content-center">
@@ -145,12 +148,36 @@
                     </div>
                 </div>
             @empty
-
+                <div class="alert alert-danger">
+                    No job found
+                </div>
             @endforelse
         </div>
+        {{$jobs->links()}}
     </div>
     <hr class="mt-5">
 </section>
 
 @include('components.footer')
 @endsection()
+
+@section('custom_script')
+<script>
+    function updatePlaceholder() {
+        var selectedValue = document.getElementById('filter-group').value;
+        var searchInput = document.querySelector('input[name="search"]');
+
+        switch (selectedValue) {
+            case 'name':
+                searchInput.placeholder = 'Search by Company Name';
+                break;
+            case 'title':
+                searchInput.placeholder = 'Search by Job Title';
+                break;
+            case 'job_type':
+                searchInput.placeholder = 'ex: Full Time, Part Time, Internship';
+                break;
+        }
+    }
+</script>
+@endsection
