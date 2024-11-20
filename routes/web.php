@@ -148,6 +148,10 @@ Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV
 Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
 
 // For User
+Route::get('/user/premium', function(){
+    return view('user.premiumUser');
+})->name('user.premiumUser');
+
 // Done and Tested
 Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.jobDetail');
 

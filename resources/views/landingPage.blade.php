@@ -156,27 +156,6 @@
                     </div>
                 </div>
 
-                <div class="container mt-5 mb-5">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-6">
-                            <h2 class="fw-bold fs-1 mb-4">
-                                Elevate Your Career to the <span style="color: #7869cd">Next Level</span>
-                            </h2>
-                            <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                                With a Career Lattice Premium account, you’ll unlock exclusive opportunities to stand out to leading companies, gain enhanced visibility, and connect directly with industry professionals actively looking for talent.
-                            </p>
-                            <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                                Make your career progression faster and more rewarding with a profile that captures the attention of top employers and sets you on a path to success.
-                            </p>
-                            <a href="#" class="btn btn-primary btn-lg mt-4" style="background-color: #682b90; border-color: #682b90;">
-                                Explore Premium
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 text-center">
-                            <img src="{{asset('assets/premium.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
-                        </div>
-                    </div>
-                </div>
             </div>
             
         </section>

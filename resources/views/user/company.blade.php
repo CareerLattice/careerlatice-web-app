@@ -75,15 +75,13 @@
             <div class="card-body">
                 <div class="d-flex align-items-center mb-4">
                     <div class="row">
-                        <div class="col-12 col-md-3 ms-3 mb-2 d-flex justify-content-center">
+                        <div class="col-12 col-md-3 ms-4 mb-2 d-flex justify-content-center">
                             <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="rounded-circle" width="150" height="150">
                         </div>
 
-                        <div class="col-12 col-md-8">
-                            <div>
-                                <h3 class="card-title mb-0 mt-2">{{$company->user->name}}</h3>
-                                <p class="text-muted mt-2">{{$company->address}}</p>
-                            </div>
+                        <div class="col-12 col-md-8 ps-4 ms-2">
+                            <h3 class="card-title mb-0 mt-2">{{$company->user->name}}</h3>
+                            <p class="text-muted mt-2">{{$company->address}}</p>
                         </div>
                     </div>
                 </div>

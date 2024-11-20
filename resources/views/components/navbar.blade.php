@@ -55,8 +55,9 @@
     <div class="container mt-3 mb-3">
         <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="window.location='/'">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i> <!-- Ikon Font Awesome -->
         </button>
+        
         <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 @auth
@@ -91,18 +92,21 @@
 
             @auth
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown d-flex justify-content-between align-items-center">
+                        @if (Auth::user()->role == 'applier')
+                            <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">Premium</a>
+                        @endif
+
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('assets/bbca.jpeg')}}" class="rounded-circle" alt="Photo Profile" style="max-width: 40px;">
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->role == 'applier')
                                 <li><a class="dropdown-item" href="{{route('updateUser')}}">Edit Profile</a></li>
                             @elseif (Auth::user()->role == 'company')
                                 <li><a class="dropdown-item" href="{{route('updateCompany')}}">Edit Profile</a></li>
                             @endif
-
-                            {{-- <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li> --}}
                             <li><a class="dropdown-item" href="#">Setting</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
