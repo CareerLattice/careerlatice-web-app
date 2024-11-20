@@ -1,6 +1,8 @@
-@extends('layout.master')
+@extends('layouts.app')
 
-@section('content')
+@section('title', 'Job Detail')
+
+@section('custom_css')
 <style>
     body {
         background-color: #f8f9fa;
@@ -60,6 +62,15 @@
         }
     }
 </style>
+@endsection
+
+@section('content')
+@if(session('message') != '')
+    <div class="alert alert-success fade-out" role="alert" id="alert">
+        {{session('message')}}
+        {{session()->forget('message')}}
+    </div>
+@endif
 
 @include('components.navbar')
 
@@ -158,8 +169,12 @@
                 </div>
             @endforelse
 
+
             <div class="text-center mt-4">
-                <button class="btn btn-primary">Apply Now</button>
+                <form action="{{route('user.applyJob', ['job' => $job->id])}}" method="POST">
+                    @csrf
+                    <button class="btn btn-primary" type="submit">Apply Now</button>
+                </form>
             </div>
         </div>
     </div>

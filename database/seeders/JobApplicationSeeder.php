@@ -23,7 +23,7 @@ class JobApplicationSeeder extends Seeder
             JobApplication::create([
                 'applier_id' => $users->random()->id,
                 'job_id' => $jobs->random()->id,
-                'applied_at' => $faker->dateTimeBetween('-1 year', 'now'),
+                'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
                 'status' => $faker->randomElement(['pending', 'on process','accepted', 'rejected']),
             ]);
         }

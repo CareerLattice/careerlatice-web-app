@@ -55,11 +55,22 @@
     .applicant-details .btn{
         padding: 1.2rem;
     }
+
+
 </style>
 @endsection
 
 @section('content')
+
 @include('components.navbar')
+@if(session('message') != '')
+    {{dd('message')}}
+    <div class="alert alert-success fade-out" role="alert" id="alert">
+        {{session('message')}}
+        {{session()->forget('message')}}
+    </div>
+@endif
+
 <div class="container mt-5">
     <a href="{{route('company.listJob')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
         <i class="bi bi-arrow-left-circle"></i> Back to Jobs
@@ -75,10 +86,12 @@
 
                     <div class="col-md-9">
                         <div class="d-flex gap-2">
-                            <h1 id="jobTitle" class="job-title">{{$job->title}} - {{$job->company->user->name}}</h1>
+                            <h1 class="job-title">{{$job->title}} - {{$job->company->user->name}}</h1>
                         </div>
-                        <div class="d-flex gap-1">
-                            <h5 id="jobLocation" class="text-muted">{{$job->address}} · Last Update: {{$job->updated_at->format('d F Y')}}</h5>
+                        <div class="d-flex gap-1 flex-column">
+                            <h5 class="text-muted">{{$job->address}}</h5>
+                            <h5 class="text-muted">Last Update: {{$job->updated_at->format('d F Y')}}</h5>
+                            <h5 class="text-muted">{{$job->job_type}}</h5>
                         </div>
                     </div>
                 </div>
@@ -196,3 +209,8 @@
 
 @include('components.footer')
 @endsection
+
+
+@section('custom_script')
+@endsection
+

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\JobApplication;
 use App\Models\Job;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class JobApplicationController extends Controller
@@ -21,7 +22,7 @@ class JobApplicationController extends Controller
         $result = DB::table('job_applications')
             ->join('appliers', 'job_applications.applier_id', '=', 'appliers.id')
             ->join('users', 'appliers.user_id', '=', 'users.id')
-            ->select('users.name', 'users.email', 'users.phone_number', 'appliers.address', 'appliers.birth_date', 'job_applications.applied_at')
+            ->select('users.name', 'users.email', 'users.phone_number', 'appliers.address', 'appliers.birth_date', 'job_applications.created_at')
             ->where('job_applications.job_id', $job->id)
             ->get();
 
@@ -65,4 +66,21 @@ class JobApplicationController extends Controller
 
     //     return view('user.homeUser', ['jobs' => $jobs]);
     // }
+
+    public function create(Job $job){
+        $jobApplication = JobApplication::where('job_id', $job->id)->where('applier_id', Auth::user()->applier->id)->first();
+        if($jobApplication){
+            session()->put('error', 'You already applied for this job');
+            return redirect()->back();
+        }
+
+        JobApplication::create([
+            'job_id' => $job->id,
+            'applier_id' => Auth::user()->applier->id,
+            'status' => 'pending',
+        ]);
+
+        session()->put('message', 'Job application submitted successfully');
+        return redirect()->back();
+    }
 }
