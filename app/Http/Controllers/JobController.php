@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\JobApplication;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
@@ -89,7 +90,10 @@ class JobController extends Controller
 
     // Company can delete job vacancies they create
     public function deleteJob(Job $job){
-        // Soft Delete
+        // Update status job application to rejected
+        JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
+
+        // Soft Delete the Job
         $job->delete();
         return redirect()->route('company.listJob');
     }

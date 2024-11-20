@@ -24,7 +24,7 @@ class JobApplicationSeeder extends Seeder
                 'applier_id' => $users->random()->id,
                 'job_id' => $jobs->random()->id,
                 'applied_at' => $faker->dateTimeBetween('-1 year', 'now'),
-                'status' => $faker->randomElement(['pending', 'accepted', 'rejected']),
+                'status' => $faker->randomElement(['pending', 'on process','accepted', 'rejected']),
             ]);
         }
     }

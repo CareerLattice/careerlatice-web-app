@@ -114,7 +114,11 @@
                 <p lass="d-block">{{$job->benefit}}</p>
 
                 <div class="mt-4 d-flex align-items-center justify-content-end gap-3">
-                    <a href="{{route('company.deleteJob', ['job' => $job->id])}}" class="btn btn-outline-danger color-danger">Delete Job</a>
+                    <form action="" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button href="{{route('company.deleteJob', ['job' => $job->id])}}" class="btn btn-outline-danger color-danger">Delete Job</button>
+                    </form>
                     <a href="{{route('company.editJob', ['job' => $job->id])}}" class="btn btn-outline-primary">Edit Details</a>
                 </div>
             </div>
