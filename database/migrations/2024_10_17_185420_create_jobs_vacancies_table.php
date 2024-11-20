@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('person_in_charge');
             $table->string('contact_person');
             $table->boolean('is_active')->default(true);
-            $table->string('job_picture');
+            $table->string('job_picture')->nullable();
 
-            $table->text(column: 'requirement');
-            $table->text('benefit');
+            $table->text(column: 'requirement')->nullable();
+            $table->text('benefit')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

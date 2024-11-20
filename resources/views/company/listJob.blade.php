@@ -14,7 +14,7 @@
         </a>
         <h2 class="mb-4">Job Listings</h2>
         <div class="mt-4 mb-3">
-            <a href="{{route('company.createJob')}}" class="btn btn-success mb-3">Add New Job Listing</a>
+            <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">Add New Job Listing</a>
         </div>
         <div class="row">
             {{-- {{dd($jobs)}} --}}
@@ -23,22 +23,24 @@
                     <div class="card shadow h-100">
                         <img src="{{asset('assets/bbca.jpeg')}}" alt="Job Image" class="card-img-top">
                         <div class="card-body d-flex flex-column align-items">
-                            <h5 class="card-title">Frontend Developer</h5>
+                            <h5 class="card-title">{{$job->title}}</h5>
                             <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
-                                <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">
-                                    @if ($job->is_active == true)
+                                @if ($job->is_active == true)
+                                    <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">
                                         Open
-                                    @else
+                                    </span>
+                                @else
+                                    <span class="border bg-danger text-light rounded px-1 d-inline-block shadow-sm">
                                         Closed
-                                    @endif
-                                </span>
+                                    </span>
+                                @endif
                             </p>
-                            <p><strong>Company:</strong> {{Auth::user()->name}}</p>
 
-                            <p><strong>Location:</strong>{{$job->address}}</p>
-                            <p class="text-truncate"><strong>Description:</strong> {{$job->description}}</p>
-                            <p><strong>Person in Charge:</strong>{{$job->person_in_charge}}</p>
-                            <p><strong>Last Updated:</strong>{{$job->updated_at->format('d F Y')}}</p>
+                            <p class="mb-1"><strong>Company:</strong> {{Auth::user()->name}}</p>
+                            <p class="mb-1"><strong>Location: </strong>{{$job->address}}</p>
+                            <p class="text-truncate mb-1"><strong>Description: </strong>{{$job->description}}</p>
+                            <p class="mb-1"><strong>Person in Charge: </strong>{{$job->person_in_charge}}</p>
+                            <p class="mb-1"><strong>Last Updated: </strong>{{$job->updated_at->format('d F Y')}}</p>
 
                             <a href="{{route('company.job', ['job' => $job])}}" class="btn btn-primary mt-auto">Details</a>
                         </div>

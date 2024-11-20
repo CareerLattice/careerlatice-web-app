@@ -36,7 +36,6 @@
                 <p class="left-side-container-p mt-2">Finding personalized job opportunities tailored to your skills and interests.</p>
                 <button type="button" class="btns btn-outline-primary" onclick="window.location.href='{{ route('login') }}'">Login as User</button>
                 <p class="forget mt-3 text-center" style="color: #393f81;">Don't have an account? <a href="{{route("user.signUpUser")}}" style="color: #393f81;">Register here</a></p>
-
             </div>
         </div>
     </div>

@@ -29,19 +29,25 @@ Route::middleware('guest')->group(function(){
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
 });
 
-Route::get('/company/job-vacancies', function(){
+Route::get('user/company/job-vacancies', function(){
     return view('user.companyJobVacancies');
 })->name('companyJobVacancies');
+
+
+Route::get('/user/edit-profile', function(){
+    return view('user.updateProfileUser');
+})->name('updateUser');
+
+// Laravel UI
+// Turn off register and logout route from Laravel UI
+Auth::routes(['register' => false, 'logout' => false]);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get("/logout", function(){
         Auth::logout();
         session()->put('success', 'Logout successful');
         return redirect()->route('login');
 });
-
-Route::get('/user/edit-profile', function(){
-    return view('user.updateProfileUser');
-})->name('updateUser');
 
 // Route to get the jobs page
 Route::view('/jobs', 'user.jobs')->name('jobs');
@@ -67,14 +73,19 @@ Route::prefix("company")->group(function(){
         Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
 
         // Route for company selected job
-        Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
         Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
         Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
         Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
 
+        // Route for company create job
+        Route::get('/create-job', [JobController::class, 'createJob'])->name('company.createJobPage');
+        Route::post('/create-job', [JobController::class, 'create'])->name('company.createJob');
+
+        // Route for company edit job
         Route::get('/editjob', function () {
             return view('company.editJob');
         })->name('editJob');
+        // Route::post('/editjob', [JobController::class, 'update'])->name('company.updateJob');
 
         // Route for company view applicants
         Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
@@ -139,11 +150,6 @@ Route::prefix("user")->group(function(){
 //     // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
 // });
 
-// Testing Laravel UI
-// Turn off register route from Laravel UI
-Auth::routes(['register' => false]);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 // Testing Open CV
 Route::get('/testing_CV', function(){
     return view('testing_CV');
@@ -153,11 +159,6 @@ Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->na
 
 // Testing Export CSV
 Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('downloadJobApplicants');
-
-Route::view('company/create-job', 'company.createJob')->name('company.createJob');
-
-
-
 
 // For User
 Route::get('/user/company', function(){

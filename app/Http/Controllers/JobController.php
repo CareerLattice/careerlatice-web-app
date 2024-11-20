@@ -13,31 +13,32 @@ class JobController extends Controller
 {
     // Company Section for Job
     // Company can create Job
-    public function createJob(Request $req){
-        $id = session('company_id');
+    public function createJob(){
+        return view('company.createJob');
+    }
+
+    public function create(Request $req){
         $req->validate([
             'title' => 'required|string|max:255',
-            'job_type' => 'required|in:full_time,part_time,internship',
+            'job_type' => 'required|in:Full Time,Part Time,Internship',
             'address' => 'required|string|max:255',
-            'skill_required' => 'required|string',
             'description' => 'required|string',
             'requirement' => 'required|string',
             'person_in_charge' => 'required|string',
             'contact_person' => 'required|string',
-            'is_active' => 'required|boolean',
         ]);
 
         Job::create([
-            'company_id' => $id,
-            'job_type' => $req->job_type,
             'title' => $req->title,
+            'job_type' => $req->job_type,
             'address' => $req->address,
-            'skill_required' => $req->skill_required,
             'description' => $req->description,
             'requirement' => $req->requirement,
             'person_in_charge' => $req->person_in_charge,
             'contact_person' => $req->contact_person,
-            'is_active' => $req->is_active,
+
+            'company_id' => Auth::user()->company->id,
+            'is_active' => true,
         ]);
 
         return redirect()->route('company.listJob');
