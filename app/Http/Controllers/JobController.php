@@ -79,10 +79,9 @@ class JobController extends Controller
 
     // Company can view all job vacancies they create
     public function getJobs(){
-        $id = session('company_id');
         $company = Auth::user()->company;
         $jobs = $company->jobs()->paginate(20)->withQueryString();
-        return view('company.companyJobs', compact('jobs'));
+        return view('company.listJob', compact('jobs'));
     }
 
     // Company can delete job vacancies they create

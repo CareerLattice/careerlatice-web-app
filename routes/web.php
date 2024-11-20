@@ -59,48 +59,32 @@ Route::prefix("company")->group(function(){
     Route::middleware('company_auth')->group(function(){
         Route::get('/home', [CompanyController::class, 'viewHome'])->name('company.home');
 
-    // Route for company profile
-    Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
-    Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
+        // Route for company profile
+        Route::get('/profile', [CompanyController::class, 'viewProfile'])->name('company.profile');
+        Route::post('/profile', [CompanyController::class, 'updateProfile'])->name('company.updateProfile');
 
-    // Route for list of jobs by company
-    Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
+        // Route for list of jobs by company
+        Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
 
-    // Route for company selected job
-    Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
-    Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
-    Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
-    Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
+        // Route for company selected job
+        Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
+        Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
+        Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
+        Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
 
-    Route::get('/editjob', function () {
-        return view('company.editJob');
-    })->name('editJob');
+        Route::get('/editjob', function () {
+            return view('company.editJob');
+        })->name('editJob');
 
-    // Route for company view applicants
-    Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
-    // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
+        // Route for company view applicants
+        Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
+        // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
     });
 
     Route::get('/edit-profile', function(){
         return view('company.companyProfile');
     })->name('updateCompany');
 });
-
-Route::view('company/create-job', 'company.createJob')->name('createJob');
-
-Route::get('/company/jobsss', function(){
-    return view('company.listJob');
-})->name('listJob');
-
-Route::get('/user/company', function(){
-    return view('user.company');
-})->name('jobCompany');
-
-Route::get('/job/detail', function(){
-    return view('user.jobDetail');
-})->name('jobDetail');
-
-Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
 
 Route::prefix("user")->group(function(){
     Route::middleware('guest')->group(function(){
@@ -169,3 +153,19 @@ Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->na
 
 // Testing Export CSV
 Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('downloadJobApplicants');
+
+Route::view('company/create-job', 'company.createJob')->name('company.createJob');
+
+
+
+
+// For User
+Route::get('/user/company', function(){
+    return view('user.company');
+})->name('jobCompany');
+
+// Route::get('/job/detail', function(){
+//     return view('user.jobDetail');
+// })->name('jobDetail');
+
+Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');

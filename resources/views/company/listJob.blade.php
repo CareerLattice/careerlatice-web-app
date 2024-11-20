@@ -14,115 +14,41 @@
         </a>
         <h2 class="mb-4">Job Listings</h2>
         <div class="mt-4 mb-3">
-            <a href="{{route('createJob')}}" class="btn btn-success mb-3">Add New Job Listing</a>
+            <a href="{{route('company.createJob')}}" class="btn btn-success mb-3">Add New Job Listing</a>
         </div>
         <div class="row">
-            <!-- Kartu Pekerjaan 1 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow h-100">
-                    <img src="{{asset('assets/BCA.jpg')}}" alt="Job Image" class="card-img-top">
-                    <div class="card-body d-flex flex-column align-items">
-                        <h5 class="card-title">Frontend Developer</h5>
-                        <p class="card-subtitle text-muted mb-3">Internship / <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">Active</span></p>
-                        <p><strong>Company:</strong> BCA</p>
-                       
-                        <p><strong>Location:</strong> Jakarta, Indonesia</p>
-                        <p><strong>Opening Date:</strong> January 15, 2024</p>
-                        <p><strong>Description:</strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, enim!</p>
-                        <p><strong>Person in Charge:</strong> Michelle Joanne</p>
-                        <!-- Tombol Details di bagian bawah -->
-                        <a href="#" class="btn btn-primary mt-auto">Details</a>
-                    </div>
-                </div>
-            </div>
+            {{-- {{dd($jobs)}} --}}
+            @forelse ($jobs as $job)
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow h-100">
+                        <img src="{{asset('assets/bbca.jpeg')}}" alt="Job Image" class="card-img-top">
+                        <div class="card-body d-flex flex-column align-items">
+                            <h5 class="card-title">Frontend Developer</h5>
+                            <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
+                                <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">
+                                    @if ($job->is_active == true)
+                                        Open
+                                    @else
+                                        Closed
+                                    @endif
+                                </span>
+                            </p>
+                            <p><strong>Company:</strong> {{Auth::user()->name}}</p>
 
-            <!-- Kartu Pekerjaan 2 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow h-100">
-                    <img src="{{asset('assets/BCA.jpg')}}" alt="Job Image" class="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Backend Developer</h5>
-                        <p class="card-subtitle text-muted mb-3">On-site / <span class="border bg-danger text-light rounded px-1 d-inline-block shadow-sm">Closed</span></p>
-                        <p><strong>Company:</strong> BCA</p>
-                      
-                        <p><strong>Location:</strong> Surabaya, Indonesia</p>
-                        <p><strong>Opening Date:</strong> February 1, 2024</p>
-                        <p><strong>Description:</strong> Develop and maintain the backend infrastructure for web applications.</p>
-                        <p><strong>Person in Charge:</strong> Michelle Joanne</p>
-                        <!-- Tombol Details di bagian bawah -->
-                        <a href="#" class="btn btn-primary mt-auto">Details</a>
-                    </div>
-                </div>
-            </div>
+                            <p><strong>Location:</strong>{{$job->address}}</p>
+                            <p class="text-truncate"><strong>Description:</strong> {{$job->description}}</p>
+                            <p><strong>Person in Charge:</strong>{{$job->person_in_charge}}</p>
+                            <p><strong>Last Updated:</strong>{{$job->updated_at->format('d F Y')}}</p>
 
-            <!-- Kartu Pekerjaan 3 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow h-100">
-                    <img src="{{asset('assets/BCA.jpg')}}" alt="Job Image" class="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Fullstack Developer</h5>
-                        <p class="card-subtitle text-muted mb-3">Part-time /  <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">Active</span></p>
-                        <p><strong>Company:</strong> BCA</p>
-                      
-                        <p><strong>Location:</strong> Bali, Indonesia</p>
-                        <p><strong>Opening Date:</strong> March 10, 2024</p>
-                        <p><strong>Description:</strong> Work on both frontend and backend development of web applications.</p>
-                        <p><strong>Person in Charge:</strong> Michelle Joanne</p>
-                        <a href="details.html" class="btn btn-primary mt-auto">Details</a>
+                            <a href="{{route('company.job', ['job' => $job])}}" class="btn btn-primary mt-auto">Details</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Kartu Pekerjaan 4 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow h-100">
-                    <img src="{{asset('assets/bbca.jpeg')}}" alt="Job Image" class="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">UX/UI Designer</h5>
-                        <p class="card-subtitle text-muted mb-3">Internship /  <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">Active</span></p>
-                        <p><strong>Company:</strong> BCA</p>
-                        
-                        <p><strong>Location:</strong> Yogyakarta, Indonesia</p>
-                        <p><strong>Opening Date:</strong> January 30, 2024</p>
-                        <p><strong>Description:</strong> Design user-friendly interfaces and improve user experience.</p>
-                        <p><strong>Person in Charge:</strong> Michelle Joanne</p>
-                        <a href="#" class="btn btn-primary mt-auto">Details</a>
-                    </div>
+            @empty
+                <div class="alert alert-danger">
+                    No job listings found.
                 </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow h-100">
-                    <img src="{{asset('assets/BCA.jpg')}}" alt="Job Image" class="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">UX/UI Designer</h5>
-                        <p class="card-subtitle text-muted mb-3">Internship /  <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">Active</span></p>
-                        <p><strong>Company:</strong> BCA</p>
-                        
-                        <p><strong>Location:</strong> Yogyakarta, Indonesia</p>
-                        <p><strong>Opening Date:</strong> January 30, 2024</p>
-                        <p><strong>Description:</strong> Design user-friendly interfaces and improve user experience.</p>
-                        <p><strong>Person in Charge:</strong> Michelle Joanne</p>
-                        <a href="#" class="btn btn-primary mt-auto">Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow h-100">
-                    <img src="{{asset('assets/BCA.jpg')}}" alt="Job Image" class="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">UX/UI Designer</h5>
-                        <p class="card-subtitle text-muted mb-3">Internship /  <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">Active</span></p>
-                        <p><strong>Company:</strong> BCA</p>
-                        
-                        <p><strong>Location:</strong> Yogyakarta, Indonesia</p>
-                        <p><strong>Opening Date:</strong> January 30, 2024</p>
-                        <p><strong>Description:</strong> Design user-friendly interfaces and improve user experience.</p>
-                        <p><strong>Person in Charge:</strong> Michelle Joanne</p>
-                        <a href="#" class="btn btn-primary mt-auto">Details</a>
-                    </div>
-                </div>
-            </div>  
+            @endforelse
         </div>
     </div>
 
