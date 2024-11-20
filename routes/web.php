@@ -104,7 +104,7 @@ Route::prefix("user")->group(function(){
 
         // Route for user view and apply jobs
         // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
-        Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
+        Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.searchJobs');
 
         // Route::post('/job/{job}', [UserController::class, 'applyJob'])->name('user.applyJob');
 
@@ -158,6 +158,8 @@ Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('us
 // Done and Have not been tested
 Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany'])->name('user.company');
 Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
+Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
+
 
 // Not Done
 Route::get('/user/edit-profile', function(){

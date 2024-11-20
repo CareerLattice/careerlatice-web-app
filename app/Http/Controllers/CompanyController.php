@@ -121,7 +121,10 @@ class CompanyController extends Controller
     }
 
     public function index(){
-        $companies = Company::paginate(20);
+        $companies = DB::table('companies')
+            ->join('users', 'companies.user_id', '=', 'users.id')
+            ->select('companies.*', 'users.name as user_name')
+            ->paginate(20);
         return view('user.companies', compact('companies'));
     }
 
@@ -132,16 +135,13 @@ class CompanyController extends Controller
     }
 
     public function uploadCompanyProfilePicture(Request $req) {
-        // Input form with name company_profile_picture must be either jpg, png, or jpeg with maximum size of 2MB
         $req->validate([
             'company_profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        // Save the photo to storage
         $path = $req->file('company_profile_picture')->store('company_upload/profile_picture');
 
         $company = Auth::user();
-        // Delete old profile picture from folder
         if (Storage::exists($company->profilePicture)) {
             Storage::delete($company->profilePicture);
         }
@@ -157,26 +157,14 @@ class CompanyController extends Controller
         $req->validate([
             'search' => 'string|nullable',
             'filter' => 'string|in:name,field',
-        ],[
-            'filter.in' => 'The selected filter is invalid. Please choose either ' . 'name or field'
         ]);
 
-    // Initialize the query for companies
-    $companiesQuery = DB::table('companies')
-        ->join('users', 'companies.user_id', '=', 'users.id')
-        ->select('companies.*', 'users.name as user_name');
+        $companiesQuery = DB::table('companies')
+            ->join('users', 'companies.user_id', '=', 'users.id')
+            ->select('companies.*', 'users.name as user_name');
 
         if ($req->filled('search')) {
-            switch ($req->filter) {
-                case 'name':
-                    $companiesQuery->where('users.name', 'like', '%' . $req->search . '%');
-                    break;
-                case 'field':
-                    $companiesQuery->where('companies.field', 'like', '%' . $req->search . '%');
-                    break;
-                default:
-                    break;
-            }
+            $companiesQuery->where($req->filter, 'like', '%' . $req->search . '%');
         }
 
         $companies = $companiesQuery->paginate(12)->withQueryString();

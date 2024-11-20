@@ -115,24 +115,53 @@ class JobController extends Controller
     // User Section for Job
     // User can search job vacancies
     public function searchJobs(Request $req){
-        $jobs = Job::where('is_active', true);
-        foreach ($req->all() as $key => $value) {
-            if ($value !== null && $value !== '') {
-                // Filter based on key dan value
-                switch ($key) {
-                    case 'search':
-                        $jobs->where('title', 'like', '%' . $value . '%');
-                        break;
-                    case 'job_type':
-                        $jobs->where('job_type', 'like', '%' . $value . '%');
-                        break;
-                }
-            }
+        $req->validate([
+            'search' => 'string|nullable',
+            'filter' => 'string|in:name,job_type,title',
+        ]);
+
+        $jobs = DB::table('job_vacancies')
+            ->join('companies', 'companies.id', '=', 'job_vacancies.company_id')
+            ->join('users','users.id','=','companies.user_id')
+            ->where('is_active', true)
+            ->select('job_vacancies.*', 'users.name as company_name');
+
+        if ($req->filled('search')) {
+            $jobs->where($req->filter, 'like', '%' . $req->search . '%');
         }
 
-        // Paginate query result
-        $jobs = $jobs->paginate(20)->withQueryString();
-        return view('user.jobs', ['jobs' => $jobs]);
+        $jobs = $jobs->paginate(3)->withQueryString();
+        return view('user.jobs', compact('jobs'));
+    }
+
+    public function searchJobsByCompany(Request $req, Company $company){
+        $req->validate([
+            'search'=> 'string|nullable',
+            'filter' => 'string|in:job_type,title',
+        ]);
+
+        $jobs = DB::table('job_vacancies')
+            ->join('companies', 'companies.id', '=', 'job_vacancies.company_id')
+            ->join('users','users.id','=','companies.user_id')
+            ->where('is_active', true)
+            ->where('company_id', $company->id)
+            ->select(
+                'job_vacancies.id',
+                'job_vacancies.title',
+                'job_vacancies.address',
+                'job_vacancies.job_type',
+                'job_vacancies.description',
+                'job_vacancies.is_active',
+                DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
+                'users.name as company_name');
+
+        if ($req->filled('search')) {
+            $jobs->where($req->filter, 'like', '%' . $req->search . '%');
+        }
+
+        // dd($jobs);
+        $jobs = $jobs->paginate(3)->withQueryString();
+        return view('user.companyJobVacancies', compact('jobs', 'company'));
     }
 
     // Return all job vacancies with pagination 20 per page
@@ -144,7 +173,7 @@ class JobController extends Controller
                 'job_vacancies.address',
                 'job_vacancies.job_type',
                 'job_vacancies.description',
-                DB::raw("DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
+                DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
                 'companies.id as company_id'
             )
@@ -152,6 +181,7 @@ class JobController extends Controller
             ->join('users', 'companies.user_id', '=', 'users.id')
             ->where('job_vacancies.is_active', true)
             ->paginate(10);
+
         return view('user.jobs', compact('jobs'));
     }
 

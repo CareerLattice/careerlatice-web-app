@@ -106,26 +106,28 @@
 <div class="container mt-4">
     <div class="card bg-primary">
         <div class="card-body">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-12 col-md-4">
                     <h5 class="words fw-bold text-center text-white mt-1" style="font-size: 1.2rem; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
                         We're Opening these Jobs in {{$company->user->name}}
                     </h5>
                 </div>
-                <div class="col-12 col-md-4">
-                    <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
-                        <option value="name">Job Name</option>
-                        <option value="field">Job Type</option>
-                    </select>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="position-relative">
-                        <input type="search" placeholder="Search Jobs" aria-label="Search" name="search" class="form-control form-select-sm mb-2 mb-md-0 me-md-2" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem; padding-right: 40px;">
-                        <button type="submit" class="position-absolute top-50 end-20 translate-middle-y" style="right: 10px; background: none; border: none; cursor: pointer;">
-                            <i class="fa fa-search text-primary" style="font-size: 1.3rem;"></i>
-                        </button>
+                <form action="{{route('user.searchJobsByCompany', ['company' => $company])}}" method="GET" class="d-flex justify-content-center">
+                    <div class="col-12 col-md-4">
+                        <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
+                            <option value="title">Job Name</option>
+                            <option value="job_type">Job Type</option>
+                        </select>
                     </div>
-                </div>
+                    <div class="col-12 col-md-4">
+                        <div class="position-relative">
+                            <input type="search" placeholder="Search Jobs" aria-label="Search" name="search" class="form-control form-select-sm mb-2 mb-md-0 me-md-2" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem; padding-right: 40px;">
+                            <button type="submit" class="position-absolute top-50 end-20 translate-middle-y" style="right: 10px; background: none; border: none; cursor: pointer;">
+                                <i class="fa fa-search text-primary" style="font-size: 1.3rem;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -150,11 +152,18 @@
                         </div>
                         <div>
                             <p class="text-muted mb-2 text-start" style="font-size: 1rem">{{$job->address}} ({{$job->job_type}})</p>
-                            <p class="text-muted mb-2 text-start" style="font-size: 1rem">Last Updated: {{$job->updated_at->format('d F Y')}}</p>
+                            <p class="text-muted mb-2 text-start" style="font-size: 1rem">Last Updated:
+
+                                @if (gettype($job->updated_at) == 'string')
+                                    {{$job->updated_at}}
+                                @else
+                                    {{$job->updated_at->format('d F Y')}}
+                                @endif
+                            </p>
                         </div>
 
-                        <div class="gap-2 mb-3" style="width: 100%; ">
-                            <a href="{{route('user.jobDetail', ['job' => $job])}}" class="btn btn-dark ">
+                        <div class="gap-2 mb-3" style="width: 100%;">
+                            <a href="{{route('user.jobDetail', ['job' => $job->id])}}" class="btn btn-dark ">
                                 Apply Now
                             </a>
                         </div>
