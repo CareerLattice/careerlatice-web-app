@@ -102,8 +102,8 @@
                                 <li><a class="dropdown-item" href="{{route('updateCompany')}}">Edit Profile</a></li>
                             @endif
 
-                            <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li>
-                            <li><a class="dropdown-item" href="#">Change Language</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{route('password.request')}}">Change Password</a></li> --}}
+                            <li><a class="dropdown-item" href="#">Setting</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
