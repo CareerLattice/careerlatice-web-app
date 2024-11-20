@@ -137,8 +137,22 @@ class JobController extends Controller
 
     // Return all job vacancies with pagination 20 per page
     public function index(){
-        $jobs = Job::with("skills")->where('is_active', true)->paginate(20);
-        return view('user.jobs', ['jobs' => $jobs]);
+        $jobs = DB::table('job_vacancies')
+            ->select(
+                'job_vacancies.id',
+                'job_vacancies.title',
+                'job_vacancies.address',
+                'job_vacancies.job_type',
+                'job_vacancies.description',
+                DB::raw("DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
+                'users.name as company_name'
+            )
+            ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
+            ->join('users', 'companies.user_id', '=', 'users.id')
+            ->where('job_vacancies.is_active', true)
+            ->paginate(10);
+
+        return view('user.jobs', compact('jobs'));
     }
 
     public function userViewJob(Job $job){
@@ -161,7 +175,7 @@ class JobController extends Controller
             ->select('skills.name as skill_name')
             ->where('jobs.id', $job->id)
             ->get();
-        // dd($benefit);
+
         return view('user.jobDetail', compact('job', 'requirement', 'result', 'benefit'));
     }
 

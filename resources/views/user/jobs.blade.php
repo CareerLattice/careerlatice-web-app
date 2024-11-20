@@ -37,12 +37,12 @@
                     <a href="#" class="btn btn-primary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                         Update Profile
                     </a>
-                    
+
                     <a href="#jobsSection" class="btn btn-secondary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                         Explore Jobs
                     </a>
                 </div>
-                
+
 
                 <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
 
@@ -85,7 +85,7 @@
 
 
 <section id="jobsSection" style="overflow-x: hidden">
-    
+
     <div class="container mt-5 text-center">
         <h1 class="fw-bold ">
             Discover Exciting <span style="color: #682b90">Job Vacancies</span>
@@ -115,7 +115,8 @@
 
     <div class="container d-flex justify-content-center">
         <div class="row" style="width: 100%; max-width: 1000px;">
-            @for($i = 0; $i < 5; $i++)
+
+            @forelse ($jobs as $job)
                 <div class="card mb-3" style="width: 100%;">
                     <div class="row g-0 d-flex justify-content-center">
                         <div class="col-12 col-sm-10 col-md-4 mt-3">
@@ -123,18 +124,18 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="card-body p-3">
-                                <h5 class="card-title fs-4 fw-bold" style="text-align: left; margin-bottom: 0.5rem; color: #682b90">Senior Back-end Developer</h5>
-                                <p class="card-text text-dark mb-1" style="text-align: justify; font-size: 1rem;">Bank Central Asia</p>
-                                <p class="card-text mb-1" style="text-align: justify; color: gray; font-size: 0.9rem;">Jakarta, Indonesia (Full-time)</p>
-                                <p class="card-text mb-2" style="text-align: justify; font-size: 0.95rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga at dolorem eveniet dolorum, sequi quos nesciunt doloremque recusandae debitis minus voluptate quae, ut accusamus quis? Dicta neque pariatur ipsum reprehenderit corrupti, nihil repellat illum quod ea fuga facilis accusantium quae quasi odio, incidunt molestias ab porro quidem vero facere eligendi!</p>
-                                <p class="card-text mb-1 fw-bold" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <a href="" style="text-decoration: none"><strong>Michelle Joanne</strong></a></p>
-                                <p class="card-text mb-0"><small class="text-body-secondary">Last updated November 20, 2024</small></p>
+                                <h5 class="card-title fs-4 fw-bold" style="text-align: left; margin-bottom: 0.5rem; color: #682b90">{{$job->title}}</h5>
+                                <p class="card-text text-dark mb-1" style="text-align: justify; font-size: 1rem;">{{$job->company_name}}</p>
+                                <p class="card-text mb-1" style="text-align: justify; color: gray; font-size: 0.9rem;">{{$job->address}} ({{$job->job_type}})</p>
+                                <p class="card-text mb-2" style="text-align: justify; font-size: 0.95rem;">{{$job->description}}</p>
+                                <p class="card-text mb-1 fw-bold" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <span class="text-primary"><strong>Michelle Joanne</strong></span></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Last updated {{$job->updated_at}}</small></p>
 
                                 <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">
-                                    <a href="{{route('jobDetail')}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                    <a href="{{route('user.jobDetail', ['job' => $job])}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                         Apply Now
                                     </a>
-                                    
+
                                     <a href="{{route('jobCompany')}}" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                         View Company
                                     </a>
@@ -143,7 +144,9 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+            @empty
+
+            @endforelse
         </div>
     </div>
     <hr class="mt-5">

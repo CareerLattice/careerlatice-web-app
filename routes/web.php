@@ -50,7 +50,8 @@ Route::post("/logout", function(){
 })->name('logout');
 
 // Route to get the jobs page
-Route::view('/jobs', 'user.jobs')->name('jobs');
+// Route::view('/jobs', 'user.jobs')->name('jobs');
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
 
 // Route to get the companies page
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
@@ -121,7 +122,6 @@ Route::prefix("user")->group(function(){
         // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
         // Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
 
-        Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.job');
         // Route::post('/job/{job}', [UserController::class, 'applyJob'])->name('user.applyJob');
 
         // Route for user view applied jobs
@@ -160,13 +160,12 @@ Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->na
 // Testing Export CSV
 Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('downloadJobApplicants');
 
+// Testing Add Requirement
+Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
+
 // For User
+Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.jobDetail');
+
 Route::get('/user/company', function(){
     return view('user.company');
 })->name('jobCompany');
-
-// Route::get('/job/detail', function(){
-//     return view('user.jobDetail');
-// })->name('jobDetail');
-
-Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');

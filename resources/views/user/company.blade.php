@@ -47,23 +47,23 @@
         background-color: #333;
         color: #fff;
     }
-    
+
 </style>
 
 @include('components.navbar')
 
     <div class="position-relative">
-        <img src="{{asset('assets/bannerCompany.jpg')}}" 
-             alt="Company Cover" 
-             class="img-fluid w-100" 
+        <img src="{{asset('assets/bannerCompany.jpg')}}"
+             alt="Company Cover"
+             class="img-fluid w-100"
              style="object-fit: cover; height: 50vh; max-height: 500px;">
-    
+
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
             <h1 class="display-4 fw-bold text-wrap">Welcome to PT Bank Central Asia TBK</h1>
             <p class="lead text-wrap fw-bold" style="color: gold; font-size: 1.8rem">Your trusted financial partner.</p>
         </div>
     </div>
-    
+
     <div class="container mt-4">
         <a href="{{route('jobs')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
             <i class="bi bi-arrow-left-circle"></i> Back to Jobs
@@ -83,7 +83,7 @@
                             <div>
                                 <h3 class="card-title mb-0 mt-2">PT Bank Central Asia TBK</h3>
                                 <p class="text-muted mt-2">Menara BCA Grand Indonesia, Jl. M.H. Thamrin No.1, Menteng, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310</p>
-                            </div>        
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,15 +97,15 @@
                 <div class="tab-content" id="companyTabContent">
                     <h4 class="section-title" style="text-align:justify">Description</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odio cupiditate, consectetur sit officiis eligendi autem doloribus recusandae mollitia nobis voluptates nemo similique animi quaerat ad. Sit autem dolore voluptatum impedit nostrum, natus tempore asperiores unde vitae amet, exercitationem neque, necessitatibus blanditiis doloribus repellat hic officiis. Labore hic quidem reprehenderit voluptates sit? Similique quo, magnam error et, recusandae voluptate excepturi explicabo quisquam molestias non quasi inventore veritatis amet praesentium, neque dolor. Mollitia velit qui ab quos illo veniam esse. Inventore asperiores odit deserunt eaque qui tempore error nemo hic ut doloribus consectetur, blanditiis culpa aliquid ex recusandae, esse, veniam iusto.</p>
-                    
+
                     <h4 class="section-title">Field</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, excepturi!</p>                    
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, excepturi!</p>
                 </div>
 
             </div>
         </div>
 
-        
+
         <div class="card mt-3">
             <div class="card-body">
                 <ul class="nav nav-tabs mb-4" id="companyTab" role="tablist">
@@ -113,11 +113,11 @@
                         <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab">Job Vacanies</button>
                     </li>
                 </ul>
-        
+
                 <div class="tab-content" id="companyTabContent">
                     <h4 class="section-title">Discover Exciting Job Vacancies</h4>
-                    <p class="mb-4">Join us and be part of a dynamic team where your ideas and skills will make a significant impact. 
-                        We are dedicated to fostering a collaborative and innovative environment that drives personal growth 
+                    <p class="mb-4">Join us and be part of a dynamic team where your ideas and skills will make a significant impact.
+                        We are dedicated to fostering a collaborative and innovative environment that drives personal growth
                         and professional success.</p>
                         <div class="row">
                             @for($i = 0; $i < 3; $i++)
@@ -126,11 +126,11 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Senior Back-end Developer</h5>
                                             <p class="card-text text-truncate" style="max-height: 48px; overflow: hidden;">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                                Suspendisse ultricies, arcu at laoreet consectetur, tortor est volutpat turpis, 
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Suspendisse ultricies, arcu at laoreet consectetur, tortor est volutpat turpis,
                                                 ac lacinia ex risus ac risus. Integer nec felis risus. Morbi eu justo at erat tincidunt vehicula.
                                             </p>
-                                            <a href="{{route('jobDetail')}}" class="btn btn-primary">Apply Now</a>
+                                            <a href="" class="btn btn-primary">Apply Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 <hr class="my-4">
             </div>
         </div>
@@ -156,13 +156,13 @@
                         <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab">Contact Us</button>
                     </li>
                 </ul>
-        
+
                 <div class="tab-content" id="companyTabContent">
                     <h5 class="section-title">Get Closer to PT Bank Central Asia TBK</h5>
                     <p class="mb-4">
                         We’d love to hear from you! Reach out to us through any of the following channels, and let’s build a stronger connection.
                     </p>
-        
+
                     <div class="row mb-4">
                         <div class="col-md-4 d-flex align-items-start">
                             <i class="bi bi-envelope-fill text-primary me-3" style="font-size: 2rem;"></i>
@@ -171,7 +171,7 @@
                                 <a href="mailto:bbca-career@bca.co.id" class="text-decoration-none text-dark">bbca-career@bca.co.id</a>
                             </div>
                         </div>
-        
+
                         <div class="col-md-4 d-flex align-items-start">
                             <i class="bi bi-telephone-fill text-success me-3" style="font-size: 2rem;"></i>
                             <div>
@@ -179,7 +179,7 @@
                                 <p class="mb-0">+62 8952421412</p>
                             </div>
                         </div>
-        
+
                         <div class="col-md-4 d-flex align-items-start">
                             <i class="bi bi-geo-alt-fill text-danger me-3" style="font-size: 2rem;"></i>
                             <div>
@@ -188,7 +188,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <hr class="my-4">
                     <h5 class="fw-bold text-center">Follow <span style="color: #0056b3">PT Bank Central Asia Tbk</span> on Social Media</h5>
 
@@ -207,11 +207,11 @@
                         </a>
                     </div>
                 </div>
-        
+
             </div>
         </div>
-        
-        
+
+
     </div>
 
     <hr class="mt-5">

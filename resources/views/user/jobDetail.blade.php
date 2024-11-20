@@ -162,17 +162,6 @@
                 @endforelse
             </div>
 
-            <h2 class="section-title">Skill Requirement</h2>
-            <ul>
-                @forelse ($result as $item)
-                    <li>{{$item->skill_name}}</li>
-                @empty
-                    <div class="alert alert-danger">
-                        No skill required yet
-                    </div>
-                @endforelse
-            </ul>
-
             <div class="text-center mt-4">
                 <button class="btn btn-primary">Apply Now</button>
             </div>

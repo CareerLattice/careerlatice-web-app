@@ -48,7 +48,7 @@
 
     .bannerText p {
         font-size: 1.2rem;
-        color: #f5f5f5; 
+        color: #f5f5f5;
         word-wrap: break-word;
     }
 
@@ -75,13 +75,13 @@
     }
 
     .card.bg-primary {
-        background-color: #ff5722; 
+        background-color: #ff5722;
     }
 
     .words {
         font-size: 1.8rem;
         font-weight: bold;
-        color: #ffffff; 
+        color: #ffffff;
         letter-spacing: 1px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
@@ -100,7 +100,7 @@
     <div class="container position-absolute top-50 start-50 translate-middle banner-overlay">
         <h1 class="bannerText display-5 fw-bold text-dark">Discover Job Vacancies from <span class="text-primary">PT Bank Central Asia TBK</span></h1>
         <p class="lead text-dark">Come and join us to explore ever-evolving things.</p>
-    </div> 
+    </div>
 </div>
 
 <div class="container mt-4">
@@ -137,7 +137,7 @@
                     <div class="col-10 col-md-5 col-lg-3">
                         <img src="{{asset('assets/bbca.jpeg')}}" class="img-thumbnail" width="100%">
                     </div>
-    
+
                     <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">
                         <div>
                             <h4 class="fw-bold text-primary text-start">Senior Back-end Developer</h4>
@@ -149,7 +149,7 @@
                         </div>
 
                         <div class="gap-2 mb-3" style="width: 100%; ">
-                            <a href="{{route('jobDetail')}}" class="btn btn-dark ">
+                            <a href="{{route('user.jobDetail')}}" class="btn btn-dark ">
                                 Apply Now
                             </a>
                         </div>
@@ -162,7 +162,7 @@
             @endfor
         </div>
     </div>
-    
+
 </div>
 
 <hr class="mt-5">
