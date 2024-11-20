@@ -138,7 +138,7 @@
     <div class="job-card mt-5">
         <div class="job-header justify-content-between">
             <h4 class="fw-bold">List Applicant</h4>
-            <a href="" class="btn btn-primary">Export List Applicant</a>
+            <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
         </div>
 
         <hr class="my-4">
@@ -163,7 +163,7 @@
                         @elseif ($application->status == 'rejected')
                             <div class="bg-danger text-light p-2 rounded-3">Rejected</div>
                         @else
-                        <form action="{{ route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
+                        <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
                             @csrf
                             <input type="hidden" name="status" value="rejected">
                             <button type="submit" class="btn btn-danger">
@@ -171,7 +171,7 @@
                             </button>
                         </form>
 
-                        <form action="{{ route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
+                        <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
                             @csrf
                             <input type="hidden" name="status" value="accepted">
                             <button type="submit" class="btn btn-success">
