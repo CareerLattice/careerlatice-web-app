@@ -104,7 +104,7 @@ Route::prefix("user")->group(function(){
 
         // Route for user view and apply jobs
         // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
-        // Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
+        Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.jobs');
 
         // Route::post('/job/{job}', [UserController::class, 'applyJob'])->name('user.applyJob');
 

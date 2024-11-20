@@ -75,16 +75,17 @@
                 Search your <span style="color: #7869cd;">Dream Companies</span> here
             </h2>
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchCompany')}}" method="GET">
-                <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2"  >
+                <input style="max-width: 500px" class="form-control mb-2 mb-md-0 me-md-2" name="search">
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
                     <option value="name">Company Name</option>
                     <option value="field">Field</option>
                 </select>
                 <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">{{$errors->first('filter')}}</div>
+                @endif
             </form>
-            @if ($errors->any())
-                <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">{{$errors->first('filter')}}</div>
-            @endif
         </div>
 
         <hr>
@@ -95,7 +96,7 @@
                     <div class="company-card">
                         <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
                         <div class="company-details">
-                            <h5 class="mt-2">{{$company->name}}</h5>
+                            <h5 class="mt-2">{{$company->user_name}}</h5>
                             <p>{{$company->address}}</p>
                         </div>
                         <div class="company-info-section">
@@ -104,7 +105,7 @@
                             <p class="fw-bold mb-0">Field</p>
                             <p class="text-muted mt-0">{{$company->field}}</p>
                         </div>
-                        <a href="{{route('jobCompany')}}" class="btn btn-visit">Visit Company</a>
+                        <a href="{{route('user.company', ['company_id' => $company->id])}}" class="btn btn-visit">Visit Company</a>
                     </div>
                 </div>
             @empty

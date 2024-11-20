@@ -161,20 +161,25 @@ class CompanyController extends Controller
             'filter.in' => 'The selected filter is invalid. Please choose either ' . 'name or field'
         ]);
 
-        $companies = Company::query();
-        if($req->search != ""){
+    // Initialize the query for companies
+    $companiesQuery = DB::table('companies')
+        ->join('users', 'companies.user_id', '=', 'users.id')
+        ->select('companies.*', 'users.name as user_name');
+
+        if ($req->filled('search')) {
             switch ($req->filter) {
                 case 'name':
-                    $companies->where('name', 'like', '%' . $req->search . '%');
+                    $companiesQuery->where('users.name', 'like', '%' . $req->search . '%');
                     break;
                 case 'field':
-                    $companies->where('field', 'like', '%' . $req->search . '%');
+                    $companiesQuery->where('companies.field', 'like', '%' . $req->search . '%');
+                    break;
+                default:
                     break;
             }
         }
 
-        // Paginate query result
-        $companies = $companies->paginate(12)->withQueryString();
-        return view('user.companies', ['companies' => $companies]);
+        $companies = $companiesQuery->paginate(12)->withQueryString();
+        return view('user.companies', compact('companies'));
     }
 }
