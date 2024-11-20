@@ -1,15 +1,14 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
-use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobApplicationController;
-use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 
 /* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
@@ -66,13 +65,13 @@ Route::prefix("company")->group(function(){
 
     // Route for list of jobs by company
     Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
-    
+
     // Route for company selected job
     Route::post('/job', [JobController::class, 'createJob'])->name('company.addJob');
     Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
     Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
     Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
-    
+
     Route::get('/editjob', function () {
         return view('company.editJob');
     })->name('editJob');
@@ -157,8 +156,9 @@ Route::prefix("user")->group(function(){
 // });
 
 // Testing Laravel UI
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Turn off register route from Laravel UI
+Auth::routes(['register' => false]);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Testing Open CV
 Route::get('/testing_CV', function(){
