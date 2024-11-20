@@ -105,7 +105,7 @@
 
     <hr>
 
-    <div class="container mt-5 mb-5">
+    <div class="container mt-2 mb-5">
         <div class="row align-items-center">
             <div class="col-md-12 col-lg-6 text-center">
                 <img src="{{asset('assets/premium.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="width: 100%; height: auto;">
@@ -183,6 +183,7 @@
             </div>
         </div>
     </div>
+    <hr>
 </div>
 
 @include('components.footer')

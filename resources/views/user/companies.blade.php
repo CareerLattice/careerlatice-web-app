@@ -69,7 +69,71 @@
     }
 </style>
     @include('components.navbar')
-    <div class="container">
+
+    <section style="background-color: #fff;">
+        <div class="container">
+            <div class="row pt-5 pb-5 d-flex justify-content-center">
+                <div class="col-12 col-md-12 col-lg-7 text-center text-md-start mt-4">
+                    <img src="{{ asset('assets/test222.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 85%; height: auto;" />
+                </div>
+    
+                <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
+                    <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
+                        Explore and connect with <strong>500+</strong> reputable companies
+                    </p>
+                    <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
+                        Discover Your <span style="color: #7869cd;">Ideal Companies</span> Here
+                    </h2>
+                    <p class="fw-semibold" style="color: gray; font-size: 1rem; line-height: 1.8; text-align: justify">
+                        Search, explore, and connect with top companies that match your career aspirations and field of interest.
+                    </p>
+    
+                    <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
+                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                            Update Profile
+                        </a>
+    
+                        <a href="#companies" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                            Explore Companies
+                        </a>
+                    </div>
+    
+                    <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
+    
+                    <ul class="list-unstyled list-inline mt-2 d-flex justify-content-center justify-content-md-start gap-2">
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/" class="text-dark">
+                                <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://x.com/" class="text-dark">
+                                <i class="bi bi-twitter" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.google.co.id/" class="text-dark">
+                                <i class="bi bi-google" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://id.linkedin.com/" class="text-dark">
+                                <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com/" class="text-dark">
+                                <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+    
+    <div class="container" id="companies">
         <div class="container">
             <h2 class="fw-bold text-center mt-5 mb-3" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
                 Search your <span style="color: #7869cd;">Dream Companies</span> here
@@ -88,7 +152,6 @@
             </form>
         </div>
 
-        <hr>
 
         <div class="row">
             @forelse ($companies as $company)

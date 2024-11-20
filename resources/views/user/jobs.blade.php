@@ -1,34 +1,18 @@
-@extends('layouts.app')
+@extends('layout.master')
 
 @section('title', 'Jobs')
 
-@section('custom_css')
-<style>
-    .img {
-        width: 13%;
-        height: auto;
-    }
-
-    @media (max-width: 1206px) {
-        .right-img{
-            width:100%;
-        }
-    }
-    .form-control, .form-select {
-        height: 40px;
-    }
-</style>
-@endsection
-
 @section('content')
+
 @include('components.navbar')
 
 <section style="background-color: #fff;">
     <div class="container">
         <div class="row pt-5 pb-5 d-flex justify-content-center">
-            <div class="col-12 col-md-5 mt-5 text-center text-md-start">
+
+            <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
                 <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
-                    Explore and connect with <strong>500+</strong> reputable companies
+                    Explore  with more than <strong>500+</strong> Exciting Job Vacancies
                 </p>
                 <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
                     Launch Your Career with <span style="color: #7869cd;">Top Industry Leaders</span>
@@ -38,15 +22,14 @@
                 </p>
 
                 <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
-                    <a href="#" class="btn btn-primary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                    <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                         Update Profile
                     </a>
 
-                    <a href="#jobsSection" class="btn btn-secondary w-100 w-md-auto" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                    <a href="#jobsSection" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                         Explore Jobs
                     </a>
                 </div>
-
 
                 <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
 
@@ -78,14 +61,14 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="col-12 col-md-7 text-center">
-                <img src="{{ asset('assets/11464491.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 70%; height: auto;" />
+            <div class="col-12 col-md-12 col-lg-7 text-center text-md-start mt-4">
+                <img src="{{ asset('assets/11464491.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 85%; height: auto;" />
             </div>
         </div>
         <hr>
     </div>
 </section>
+
 
 
 <section id="jobsSection" style="overflow-x: hidden">
@@ -132,7 +115,7 @@
                                 <p class="card-text text-dark mb-1" style="text-align: justify; font-size: 1rem;">{{$job->company_name}}</p>
                                 <p class="card-text mb-1" style="text-align: justify; color: gray; font-size: 0.9rem;">{{$job->address}} ({{$job->job_type}})</p>
                                 <p class="card-text mb-2" style="text-align: justify; font-size: 0.95rem;">{{$job->description}}</p>
-                                <p class="card-text mb-1 fw-bold" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <span class="text-primary"><strong>Michelle Joanne</strong></span></p>
+                                <p class="card-text mb-1 fw-bold mt-5" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <span class="text-primary"><strong>Michelle Joanne</strong></span></p>
                                 <p class="card-text mb-0"><small class="text-body-secondary">Last updated {{$job->updated_at}}</small></p>
 
                                 <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">

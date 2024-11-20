@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('content')
+
 <style>
     .nav-link{
         font-size: 1.2rem;
@@ -47,7 +48,6 @@
         background-color: #333;
         color: #fff;
     }
-
 </style>
 
 @include('components.navbar')

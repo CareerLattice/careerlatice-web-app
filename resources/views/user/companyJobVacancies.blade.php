@@ -106,25 +106,30 @@
 <div class="container mt-4">
     <div class="card bg-primary">
         <div class="card-body">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 col-md-4">
-                    <h5 class="words fw-bold text-center text-white mt-1" style="font-size: 1.2rem; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+            <div class="row align-items-center d-flex justify-content-center">
+                <div class="col-12 col-md-6">
+                    <h5 class="words fw-bold text-center text-white mt-1" 
+                        style="font-size: 1.2rem; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"
+                        class="fs-5 fs-md-4 fs-lg-3">
                         We're Opening these Jobs in {{$company->user->name}}
                     </h5>
                 </div>
-                <form action="{{route('user.searchJobsByCompany', ['company' => $company])}}" method="GET" class="d-flex justify-content-center">
-                    <div class="col-12 col-md-4">
-                        <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
-                            <option value="title">Job Name</option>
-                            <option value="job_type">Job Type</option>
-                        </select>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="position-relative">
-                            <input type="search" placeholder="Search Jobs" aria-label="Search" name="search" class="form-control form-select-sm mb-2 mb-md-0 me-md-2" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem; padding-right: 40px;">
-                            <button type="submit" class="position-absolute top-50 end-20 translate-middle-y" style="right: 10px; background: none; border: none; cursor: pointer;">
-                                <i class="fa fa-search text-primary" style="font-size: 1.3rem;"></i>
-                            </button>
+            
+                <form action="{{route('user.searchJobsByCompany', ['company' => $company])}}" method="GET">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                            <select name="filter" class="form-select form-select-sm" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
+                                <option value="name">Job Name</option>
+                                <option value="field">Field</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            <div class="position-relative">
+                                <input type="search" placeholder="Search Jobs" aria-label="Search" name="search" class="form-control form-select-sm" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem; padding-right: 40px;">
+                                <button type="submit" class="position-absolute top-50 end-20 translate-middle-y" style="right: 10px; background: none; border: none; cursor: pointer;">
+                                    <i class="fa fa-search text-primary" style="font-size: 1.3rem;"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -143,7 +148,7 @@
                     <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">
                         <div>
                             <h4 class="fw-bold text-primary text-start">{{$job->title}}</h4>
-                            <p class="mb-2 bg-success text-light text-center rounded-1" style="max-width: 10%">
+                            <p class="mb-2 bg-success text-light text-center rounded-1" style="max-width: 15%">
                                 @if ($job->is_active == true)
                                     Open
                                 @endif
@@ -176,7 +181,6 @@
             @endforelse
         </div>
     </div>
-
 </div>
 
 <hr class="mt-5">

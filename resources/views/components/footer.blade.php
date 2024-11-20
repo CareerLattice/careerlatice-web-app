@@ -1,3 +1,43 @@
+<style>
+    .footer-container h5 {
+    font-weight: bold;
+    text-align: justify;
+    font-size: 1.5rem;
+    }
+
+    .footer-container p {
+        font-size: 1rem;
+        text-align: justify;
+        color: grey;
+    }
+
+    .footer-right-container a {
+        color: #000;
+        text-decoration: none;
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    .footer-right-container a:hover {
+        color: #007bff;
+        text-decoration: underline;
+    }
+
+    .ul-container i {
+        font-size: 1.3rem;
+    }
+
+    .first {
+        color: #682b90;
+        font-weight: bolder;
+    }
+
+    .second {
+        color: #7869cd;
+        font-weight: bolder;
+    }
+
+</style>
+
 <footer class="pt-5 pb-4 hidden">
     <div class="container text-center text-md-left hidden">
 
