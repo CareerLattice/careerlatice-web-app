@@ -63,8 +63,9 @@
 </head>
 
 <body>
+    @include('components.navbar')
     <div class="container mt-5">
-        <a href="{{route('jobs')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
+        <a href="{{route('company.listJob')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
             <i class="bi bi-arrow-left-circle"></i> Back to Jobs
         </a>
 
@@ -74,77 +75,47 @@
                     <div class="row">
                         <div class="col-10 col-md-3 d-flex justify-content-center">
                             <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
-                        </div>   
+                        </div>
 
                         <div class="col-md-9">
                             <div class="d-flex gap-2">
-                                <h1 id="jobTitle" class="job-title">Senior Back-end Developer - PT Bank Central Asia Tbk</h1>
+                                <h1 id="jobTitle" class="job-title">{{$job->title}} - {{$job->company->user->name}}</h1>
                             </div>
                             <div class="d-flex gap-1">
-                                <h5 id="jobLocation" class="text-muted">Jakarta, Indonesia · Last Update: 20 November 2024</h5>
+                                <h5 id="jobLocation" class="text-muted">{{$job->address}} · Last Update: {{$job->updated_at->format('d F Y')}}</h5>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col ms-4">
-                        <div class="d-flex gap-2">
-                            <h1 id="jobTitle" class="job-title">Senior Back-end Developer - PT Bank Central Asia Tbk</h1>
-                        </div>
-                        <div class="d-flex gap-1">
-                            <h5 id="jobLocation" class="text-muted">Jakarta, Indonesia · Last Update: 20 November 2024</h5>
-                        </div>
-                    </div>     --}}
                 </div>
                 <div class="col-md-2 d-flex">
-                    <button id="statusButton" class="btn btn-secondary ms-auto">Inactive</button>
+                    @if ($job->is_active == true)
+                        <div class="bg-success text-light p-2 rounded-3 ms-auto">Open</div>
+                    @else
+                        <div class="bg-danger text-light p-2 rounded-3 ms-auto">Closed</div>
+                    @endif
                 </div>
             </div>
-                 
+
 
             <hr class="my-4">
 
             <div class="job-details">
                 <div class="d-flex gap-2">
                     <h2 class="section-title">Job Description</h2>
-                    {{-- <a href="" class="text-black" id="editDescriptionButton"><i class="bi bi-pencil-fill" id="descriptionPencil"></i></a> --}}
                 </div>
-                <p id="jobDescription" class="d-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odio cupiditate, consectetur sit officiis eligendi autem doloribus recusandae mollitia nobis voluptates nemo similique animi quaerat ad. Sit autem dolore voluptatum impedit nostrum, natus tempore asperiores unde vitae amet, exercitationem neque, necessitatibus blanditiis doloribus repellat hic officiis. Labore hic quidem reprehenderit voluptates sit? Similique quo, magnam error et, recusandae voluptate excepturi explicabo quisquam molestias non quasi inventore veritatis amet praesentium, neque dolor. Mollitia velit qui ab quos illo veniam esse. Inventore asperiores odit deserunt eaque qui tempore error nemo hic ut doloribus consectetur, blanditiis culpa aliquid ex recusandae, esse, veniam iusto.</p>
-                {{-- <form action="" method="post" class="d-inline">
-                    @csrf
-                    <input id="descriptionInput" type="text" class="form-control d-none">
-                </form> --}}
+                <p class="d-block">{{$job->description}}</p>
 
                 <div class="d-flex gap-2">
                     <h2 class="section-title">Requirements</h2>
-                    {{-- <a href="" class="text-black" id="addRequirementBtn"><i class="bi bi-plus-square-fill" id=requirementsPencil></i></a> --}}
                 </div>
-                
-                <ul id="jobRequirements">
-                    <li>Proven experience as a Back-end Developer.</li>
-                    <li>Strong knowledge of PHP, Golang, or Node.js.</li>
-                    <li>Experience with database management (MySQL, PostgreSQL).</li>
-                    <li>Familiarity with cloud services like AWS or GCP.</li>
-                </ul>
-                {{-- <form action="" method="post" class="d-inline">
-                    @csrf
-                    <input id="requirementsInput" type="text" class="form-control d-none">
-                </form> --}}
-                
-                <div class="d-flex gap-2">
-                    <h2 class="section-title">Benefits</h2>
-                    {{-- <a href="" class="text-black" id="editBenefitButton"><i class="bi bi-plus-square-fill"></i></a> --}}
-                </div>
-                <ul>
-                    <li>Competitive salary package.</li>
-                    <li>Health insurance.</li>
-                    <li>Flexible working hours.</li>
-                    <li>Professional development opportunities.</li>
-                </ul>
-                
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam esse ipsa tempora! Obcaecati animi laudantium nobis quas harum aspernatur delectus. Facere quas at praesentium. Eius, cupiditate harum nisi alias facere libero architecto dolor sunt accusamus recusandae amet nihil unde enim incidunt repellat modi qui reprehenderit expedita repudiandae at ducimus? Temporibus?</p>
+                <p lass="d-block">{{$job->requirement}}</p>
+
+                <h2 class="section-title">Benefits</h2>
+                <p lass="d-block">{{$job->benefit}}</p>
 
                 <div class="mt-4 d-flex align-items-center justify-content-end gap-3">
-                    <a href="{{ route('company.deleteJob', ['job' => $job->id]) }}" class="btn btn-outline-danger color-danger">Delete Job</a>
-                    <a href="{{route('editJob')}}" class="btn btn-outline-primary">Edit Details</a>
+                    <a href="{{route('company.deleteJob', ['job' => $job->id])}}" class="btn btn-outline-danger color-danger">Delete Job</a>
+                    <a href="{{route('company.editJob', ['job' => $job->id])}}" class="btn btn-outline-primary">Edit Details</a>
                 </div>
             </div>
         </div>
@@ -166,11 +137,11 @@
                             <p class="m-0">Junior Back-End Developer</p>
                         </div>
                     </div>
-        
+
                     <div class="col-md-3 my-2">
                         <a href="{{ route('getCV',  ['filename' => '1.pdf']) }}" target="_blank" class="btn btn-primary">Check CV</a>
                     </div>
-        
+
                     <div class="col-md-5 d-flex gap-2 justify-content-center justify-content-md-end my-2">
                         <a href="" class="btn btn-danger"><i class="bi bi-x-circle"></i></a>
                         <a href="" class="btn btn-success"><i class="bi bi-check-circle"></i></a>
@@ -215,7 +186,7 @@
 //                 titleInput.focus();
 //             });
 
-            
+
 //             titleInput.addEventListener("keydown", (event) => {
 //                 if (event.key === "Enter") {
 //                     event.preventDefault();
@@ -228,7 +199,7 @@
 //                 }
 //             });
 
-            
+
 //             titleInput.addEventListener("blur", () => {
 //                 titleInput.classList.add("d-none");
 //                 jobTitle.classList.remove("d-none");

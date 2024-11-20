@@ -44,38 +44,40 @@ class JobController extends Controller
         return redirect()->route('company.listJob');
     }
 
+    public function editJob(Job $job){
+        return view('company.editJob', compact('job'));
+    }
+
     // Company can update Job
-    public function updateJob(Request $req, Job $job){
+    public function update(Request $req, Job $job){
         $req->validate([
-            'title' => 'string|max:255',
-            'job_type' => 'in:full_time,part_time,internship',
-            'address' => 'string|max:255',
-            'skill_required' => 'string',
-            'description' => 'string',
-            'requirement' => 'string',
-            'person_in_charge' => 'string',
-            'contact_person' => 'string',
-            'is_active' => 'boolean',
+            'title' => 'required|string|max:255',
+            'job_type' => 'required|in:Full Time,Part Time,Internship',
+            'address' => 'required|string|max:255',
+            'description' => 'required|string',
+            'requirement' => 'required|string',
+            'person_in_charge' => 'required|string',
+            'contact_person' => 'required|string',
+            'is_active' => 'required|boolean',
         ]);
 
         $job->update([
-            'job_type' => $req->job_type ?? $job->job_type,
-            'title' => $req->title ?? $job->title,
-            'address' => $req->address ?? $job->address,
-            'skill_required' => $req->skill_required ?? $job->skill_required,
-            'description' => $req->description ?? $job->description,
-            'requirement' => $req->requirement ?? $job->requirement,
-            'person_in_charge' => $req->person_in_charge ?? $job->person_in_charge,
-            'contact_person' => $req->contact_person ?? $job->contact_person,
-            'is_active' => $req->is_active ?? $job->is_active,
+            'title' => $req->title,
+            'job_type' => $req->job_type,
+            'address' => $req->address,
+            'description' => $req->description,
+            'requirement' => $req->requirement,
+            'person_in_charge' => $req->person_in_charge,
+            'contact_person' => $req->contact_person,
+            'is_active' => $req->is_active,
         ]);
 
-        return redirect()->route('company.job', ['job' => $job]);
+        return redirect()->route('company.job', compact('job'));
     }
 
     // Company can view the job vacancies they create
     public function viewJob(Job $job){
-        return view('company.job', ['job' => $job]);
+        return view('company.job', compact('job'));
     }
 
     // Company can view all job vacancies they create

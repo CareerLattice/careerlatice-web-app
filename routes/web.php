@@ -60,7 +60,6 @@ Route::prefix("company")->group(function(){
 
         // Route for company selected job
         Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
-        Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
         Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
 
         // Route for company create job
@@ -68,10 +67,8 @@ Route::prefix("company")->group(function(){
         Route::post('/create-job', [JobController::class, 'create'])->name('company.createJob');
 
         // Route for company edit job
-        Route::get('/editjob', function () {
-            return view('company.editJob');
-        })->name('editJob');
-        // Route::post('/editjob', [JobController::class, 'update'])->name('company.updateJob');
+        Route::get('/edit-job/{job}', [JobController::class, 'editJob'])->name('company.editJob');
+        Route::post('/edit-job/{job}', [JobController::class, 'update'])->name('company.updateJob');
 
         // Route for company view applicants
         Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
@@ -155,7 +152,6 @@ Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('us
 Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany'])->name('user.company');
 Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
 Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
-
 
 // Not Done
 Route::get('/user/edit-profile', function(){
