@@ -154,6 +154,8 @@ Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('us
 // Done and Have not been tested
 Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany'])->name('user.company');
 Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
+Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
+
 
 // Not Done
 Route::get('/user/edit-profile', function(){
