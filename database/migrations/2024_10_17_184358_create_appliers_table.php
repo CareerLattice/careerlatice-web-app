@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('end_date_premium')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
