@@ -43,11 +43,11 @@ Route::get('/user/edit-profile', function(){
 Auth::routes(['register' => false, 'logout' => false]);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get("/logout", function(){
-        Auth::logout();
-        session()->put('success', 'Logout successful');
-        return redirect()->route('login');
-});
+Route::post("/logout", function(){
+    Auth::logout();
+    session()->put('success', 'Logout successful');
+    return redirect()->route('login');
+})->name('logout');
 
 // Route to get the jobs page
 Route::view('/jobs', 'user.jobs')->name('jobs');

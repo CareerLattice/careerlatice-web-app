@@ -58,7 +58,35 @@ class CompanyController extends Controller
     }
 
     public function viewHome(){
-        return view('company.companyHome');
+        $activeJobs = DB::table('job_vacancies')
+        ->where('company_id', Auth::user()->company->id)
+        ->where('is_active', true)
+        ->count();
+
+        $totalApplicant = DB::table('job_applications')
+            ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
+            ->where('company_id', Auth::user()->company->id)
+            ->count();
+
+        $monthApplication = DB::table('job_applications')
+            ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
+            ->where('company_id', Auth::user()->company->id)
+            ->whereMonth('job_applications.created_at', now()->month)
+            ->count();
+
+        $recentCreatedJob = Job::with('applicants')->where('company_id', Auth::user()->company->id)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
+
+        $data = [
+            'active_jobs' => $activeJobs,
+            'total_applicant' => $totalApplicant,
+            'month_application' => $monthApplication,
+            'recent_job' => $recentCreatedJob,
+        ];
+
+        return view('company.companyHome', compact('data'));
     }
 
     public function viewProfile(){

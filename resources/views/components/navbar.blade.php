@@ -74,7 +74,7 @@
 
                     @elseif (Auth::user()->role == 'company')
                         <li class="nav-item">
-                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('listJob')}}" id="Job">Created Job</a>
+                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">Created Job</a>
                         </li>
                     @endif
                 @endauth

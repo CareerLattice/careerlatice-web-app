@@ -17,7 +17,6 @@
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">Add New Job Listing</a>
         </div>
         <div class="row">
-            {{-- {{dd($jobs)}} --}}
             @forelse ($jobs as $job)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card shadow h-100">
