@@ -102,6 +102,7 @@
             <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;">
                 <option value="name">Company Name</option>
                 <option value="field">Job Title</option>
+                <option value="job_type">Job Type</option>
             </select>
 
             <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
@@ -120,7 +121,7 @@
                 <div class="card mb-3" style="width: 100%;">
                     <div class="row g-0 d-flex justify-content-center">
                         <div class="col-12 col-sm-10 col-md-4 mt-3">
-                            <img src="{{asset('assets/bbca.jpeg')}}" class="img-fluid rounded-start" alt="..." style="height: 100%; object-fit: contain;">
+                            <img src="{{asset('assets/bbca.jpeg')}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="card-body p-3">
@@ -132,11 +133,10 @@
                                 <p class="card-text mb-0"><small class="text-body-secondary">Last updated {{$job->updated_at}}</small></p>
 
                                 <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">
-                                    <a href="{{route('user.jobDetail', ['job' => $job])}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                    <a href="{{route('user.jobDetail', ['job' => $job->id])}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                         Apply Now
                                     </a>
-
-                                    <a href="{{route('jobCompany')}}" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                                    <a href="{{route('user.company', ['company_id' => $job->company_id])}}" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                                         View Company
                                     </a>
                                 </div>

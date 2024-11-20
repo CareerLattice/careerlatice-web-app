@@ -122,11 +122,13 @@ class CompanyController extends Controller
 
     public function index(){
         $companies = Company::paginate(20);
-        return view('user.companies', ['companies' => $companies]);
+        return view('user.companies', compact('companies'));
     }
 
-    public function viewCompany(Company $company){
-        return view('user.company', ['company' => $company]);
+    public function viewCompany($company_id){
+        $company = Company::with('user')->findOrFail($company_id);
+        $jobs = Job::where('company_id', $company_id)->limit(3)->get();
+        return view('user.company', compact('company', 'jobs'));
     }
 
     public function uploadCompanyProfilePicture(Request $req) {

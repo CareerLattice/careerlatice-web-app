@@ -98,7 +98,7 @@
     <img src="{{asset('assets/BannerTest.jpg')}}" alt="Company Cover" class="img-fluid banner-img">
 
     <div class="container position-absolute top-50 start-50 translate-middle banner-overlay">
-        <h1 class="bannerText display-5 fw-bold text-dark">Discover Job Vacancies from <span class="text-primary">PT Bank Central Asia TBK</span></h1>
+        <h1 class="bannerText display-5 fw-bold text-dark">Discover Job Vacancies from <span class="text-primary">{{$company->user->name}}</span></h1>
         <p class="lead text-dark">Come and join us to explore ever-evolving things.</p>
     </div>
 </div>
@@ -109,13 +109,13 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-4">
                     <h5 class="words fw-bold text-center text-white mt-1" style="font-size: 1.2rem; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
-                        We're Opening these Jobs in PT Bank Central Asia Tbk
+                        We're Opening these Jobs in {{$company->user->name}}
                     </h5>
                 </div>
                 <div class="col-12 col-md-4">
                     <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
                         <option value="name">Job Name</option>
-                        <option value="field">Field</option>
+                        <option value="field">Job Type</option>
                     </select>
                 </div>
                 <div class="col-12 col-md-4">
@@ -132,7 +132,7 @@
 
     <div class="card bg-white">
         <div class="card-body">
-            @for($i = 0; $i < 4; $i++)
+            @forelse ($jobs as $job)
                 <div class="row mb-4 ">
                     <div class="col-10 col-md-5 col-lg-3">
                         <img src="{{asset('assets/bbca.jpeg')}}" class="img-thumbnail" width="100%">
@@ -140,26 +140,31 @@
 
                     <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">
                         <div>
-                            <h4 class="fw-bold text-primary text-start">Senior Back-end Developer</h4>
-                            <p class="text-muted mb-2 text-start">Alamat Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quaerat accusantium est quasi optio assumenda porro omnis laboriosam nulla perspiciatis.</p>
+                            <h4 class="fw-bold text-primary text-start">{{$job->title}}</h4>
+                            <p class="mb-2 bg-success text-light text-center rounded-1" style="max-width: 10%">
+                                @if ($job->is_active == true)
+                                    Open
+                                @endif
+                            </p>
+                            <p class="text-muted mb-2 text-start">{{$job->description}}</p>
                         </div>
                         <div>
-                            <p class="text-muted mb-2 text-start" style="font-size: 1rem">Jakarta, Indonesia (Full-time)</p>
-                            <p class="text-muted mb-2 text-start" style="font-size: 1rem">Updated 3 days ago</p>
+                            <p class="text-muted mb-2 text-start" style="font-size: 1rem">{{$job->address}} ({{$job->job_type}})</p>
+                            <p class="text-muted mb-2 text-start" style="font-size: 1rem">Last Updated: {{$job->updated_at->format('d F Y')}}</p>
                         </div>
 
                         <div class="gap-2 mb-3" style="width: 100%; ">
-                            <a href="{{route('user.jobDetail')}}" class="btn btn-dark ">
+                            <a href="{{route('user.jobDetail', ['job' => $job])}}" class="btn btn-dark ">
                                 Apply Now
                             </a>
                         </div>
                     </div>
-
                 </div>
-                @if($i < 3)
-                    <hr>
-                @endif
-            @endfor
+            @empty
+                <div class="alert alert-danger">
+                    No job vacancies available.
+                </div>
+            @endforelse
         </div>
     </div>
 

@@ -29,28 +29,13 @@ Route::middleware('guest')->group(function(){
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
 });
 
-Route::get('user/company/job-vacancies', function(){
-    return view('user.companyJobVacancies');
-})->name('companyJobVacancies');
-
-
-Route::get('/user/edit-profile', function(){
-    return view('user.updateProfileUser');
-})->name('updateUser');
-
 // Laravel UI
 // Turn off register and logout route from Laravel UI
 Auth::routes(['register' => false, 'logout' => false]);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::post("/logout", function(){
-    Auth::logout();
-    session()->put('success', 'Logout successful');
-    return redirect()->route('login');
-})->name('logout');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Route to get the jobs page
-// Route::view('/jobs', 'user.jobs')->name('jobs');
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
 
 // Route to get the companies page
@@ -115,7 +100,6 @@ Route::prefix("user")->group(function(){
         Route::post('/profile', [UserController::class, 'updateProfile'])->name('user.updateProfile');
 
         // Route for user view companies
-        Route::get('/company/{company}', [CompanyController::class, 'viewCompany'])->name('user.company');
         Route::get('/search/companies', [CompanyController::class, 'searchCompany'])->name('user.searchCompany');
 
         // Route for user view and apply jobs
@@ -164,8 +148,14 @@ Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV
 Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
 
 // For User
+// Done and Tested
 Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.jobDetail');
 
-Route::get('/user/company', function(){
-    return view('user.company');
-})->name('jobCompany');
+// Done and Have not been tested
+Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany'])->name('user.company');
+Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
+
+// Not Done
+Route::get('/user/edit-profile', function(){
+    return view('user.updateProfileUser');
+})->name('updateUser');

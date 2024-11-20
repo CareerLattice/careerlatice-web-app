@@ -59,7 +59,7 @@
              style="object-fit: cover; height: 50vh; max-height: 500px;">
 
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
-            <h1 class="display-4 fw-bold text-wrap">Welcome to PT Bank Central Asia TBK</h1>
+            <h1 class="display-4 fw-bold text-wrap">Welcome to {{$company->user->name}}</h1>
             <p class="lead text-wrap fw-bold" style="color: gold; font-size: 1.8rem">Your trusted financial partner.</p>
         </div>
     </div>
@@ -81,8 +81,8 @@
 
                         <div class="col-12 col-md-8">
                             <div>
-                                <h3 class="card-title mb-0 mt-2">PT Bank Central Asia TBK</h3>
-                                <p class="text-muted mt-2">Menara BCA Grand Indonesia, Jl. M.H. Thamrin No.1, Menteng, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310</p>
+                                <h3 class="card-title mb-0 mt-2">{{$company->user->name}}</h3>
+                                <p class="text-muted mt-2">{{$company->address}}</p>
                             </div>
                         </div>
                     </div>
@@ -96,10 +96,7 @@
 
                 <div class="tab-content" id="companyTabContent">
                     <h4 class="section-title" style="text-align:justify">Description</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odio cupiditate, consectetur sit officiis eligendi autem doloribus recusandae mollitia nobis voluptates nemo similique animi quaerat ad. Sit autem dolore voluptatum impedit nostrum, natus tempore asperiores unde vitae amet, exercitationem neque, necessitatibus blanditiis doloribus repellat hic officiis. Labore hic quidem reprehenderit voluptates sit? Similique quo, magnam error et, recusandae voluptate excepturi explicabo quisquam molestias non quasi inventore veritatis amet praesentium, neque dolor. Mollitia velit qui ab quos illo veniam esse. Inventore asperiores odit deserunt eaque qui tempore error nemo hic ut doloribus consectetur, blanditiis culpa aliquid ex recusandae, esse, veniam iusto.</p>
-
-                    <h4 class="section-title">Field</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, excepturi!</p>
+                    <p>{{$company->description}}</p>
                 </div>
 
             </div>
@@ -120,23 +117,25 @@
                         We are dedicated to fostering a collaborative and innovative environment that drives personal growth
                         and professional success.</p>
                         <div class="row">
-                            @for($i = 0; $i < 3; $i++)
+                            @forelse ($jobs as $job)
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Senior Back-end Developer</h5>
+                                            <h5 class="card-title">{{$job->title}}</h5>
                                             <p class="card-text text-truncate" style="max-height: 48px; overflow: hidden;">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                Suspendisse ultricies, arcu at laoreet consectetur, tortor est volutpat turpis,
-                                                ac lacinia ex risus ac risus. Integer nec felis risus. Morbi eu justo at erat tincidunt vehicula.
+                                                {{$job->description}}
                                             </p>
-                                            <a href="" class="btn btn-primary">Apply Now</a>
+                                            <a href="{{route('user.jobDetail', ['job' => $job])}}" class="btn btn-primary">Apply Now</a>
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            @empty
+                                <div class="alert alert-danger">
+                                    No job vacancy available yet
+                                </div>
+                            @endforelse
                             <div class="d-flex flex-md-row justify-content-center gap-2 mt-4 mb-3" style="width: 100%;">
-                                <a href="{{route('companyJobVacancies')}}" class="btn btn-dark" style="font-size: 1.2rem; padding: 8px 18px;">
+                                <a href="{{route('user.companyJobVacancies', ['company' => $company])}}" class="btn btn-dark" style="font-size: 1.2rem; padding: 8px 18px;">
                                     View all Job Vacancies
                                 </a>
                             </div>
@@ -158,7 +157,7 @@
                 </ul>
 
                 <div class="tab-content" id="companyTabContent">
-                    <h5 class="section-title">Get Closer to PT Bank Central Asia TBK</h5>
+                    <h5 class="section-title">Get Closer to {{$company->user->name}}</h5>
                     <p class="mb-4">
                         We’d love to hear from you! Reach out to us through any of the following channels, and let’s build a stronger connection.
                     </p>
@@ -168,7 +167,7 @@
                             <i class="bi bi-envelope-fill text-primary me-3" style="font-size: 2rem;"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">Email</h6>
-                                <a href="mailto:bbca-career@bca.co.id" class="text-decoration-none text-dark">bbca-career@bca.co.id</a>
+                                <a href="mailto:bbca-career@bca.co.id" class="text-decoration-none text-dark">{{$company->user->email}}</a>
                             </div>
                         </div>
 
@@ -176,7 +175,7 @@
                             <i class="bi bi-telephone-fill text-success me-3" style="font-size: 2rem;"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">Phone Number</h6>
-                                <p class="mb-0">+62 8952421412</p>
+                                <p class="mb-0">{{$company->user->phone_number}}</p>
                             </div>
                         </div>
 
@@ -184,13 +183,13 @@
                             <i class="bi bi-geo-alt-fill text-danger me-3" style="font-size: 2rem;"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">Address</h6>
-                                <p class="mb-0">Menara BCA Grand Indonesia, Jl. M.H. Thamrin No.1, Menteng, Jakarta 10310</p>
+                                <p class="mb-0">{{$company->address}}</p>
                             </div>
                         </div>
                     </div>
 
                     <hr class="my-4">
-                    <h5 class="fw-bold text-center">Follow <span style="color: #0056b3">PT Bank Central Asia Tbk</span> on Social Media</h5>
+                    <h5 class="fw-bold text-center">Follow <span style="color: #0056b3">{{$company->user->name}}</span> on Social Media</h5>
 
                     <div class="d-flex justify-content-center" style="gap: 20px">
                         <a href="https://www.facebook.com/" class="text-dark">
@@ -210,8 +209,6 @@
 
             </div>
         </div>
-
-
     </div>
 
     <hr class="mt-5">

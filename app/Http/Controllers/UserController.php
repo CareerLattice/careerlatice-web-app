@@ -33,7 +33,6 @@ class UserController extends Controller
     }
 
     public function logout(){
-        $role = Auth::user()->role;
         Auth::logout();
         session()->put('message', 'Logout successful');
         return redirect()->route('login');

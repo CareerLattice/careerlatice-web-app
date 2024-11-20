@@ -145,13 +145,13 @@ class JobController extends Controller
                 'job_vacancies.job_type',
                 'job_vacancies.description',
                 DB::raw("DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
-                'users.name as company_name'
+                'users.name as company_name',
+                'companies.id as company_id'
             )
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'companies.user_id', '=', 'users.id')
             ->where('job_vacancies.is_active', true)
             ->paginate(10);
-
         return view('user.jobs', compact('jobs'));
     }
 
@@ -177,6 +177,11 @@ class JobController extends Controller
             ->get();
 
         return view('user.jobDetail', compact('job', 'requirement', 'result', 'benefit'));
+    }
+
+    public function jobByCompany(Company $company){
+        $jobs = Job::where('company_id', $company->id)->where('is_active', true)->paginate(10);
+        return view('user.companyJobVacancies', compact('jobs', 'company'));
     }
 
     public function addRequirement(Request $req){
