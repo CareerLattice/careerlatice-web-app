@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             User::create(attributes: [
                 'name' => $faker->name,
                 'email' => $faker->email,
-                'password' => Hash::make('password'),
+                'password' => Hash::make('12345678'),
                 'phone_number' => $faker->phoneNumber,
                 'profile_picture' => 'assets/bbca.jpeg',
                 'role' => $faker->randomElement(['applier', 'admin', 'company']),
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         User::create(attributes: [
             'name' => $faker->name,
             'email' => $faker->email,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
             'profile_picture' => 'assets/bbca.jpeg',
             'role' => 'applier',
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
         User::create(attributes: [
             'name' => $faker->name,
             'email' => $faker->email,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
             'profile_picture' => 'assets/bbca.jpeg',
             'role' => 'company',
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
         User::create(attributes: [
             'name' => $faker->name,
             'email' => $faker->email,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
             'profile_picture' => 'assets/bbca.jpeg',
             'role' => 'admin',

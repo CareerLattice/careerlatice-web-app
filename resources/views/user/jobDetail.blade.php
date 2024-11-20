@@ -141,26 +141,22 @@
             <h2 class="section-title">Job Description</h2>
             <p> {{$job->description}} </p>
             <h2 class="section-title">Requirements</h2>
-            <ul>
-                @forelse ($requirement as $line)
-                    <li>{{ e(trim($line, '- ')) }}</li>
-                    @empty
-                    <div class="alert alert-danger">
-                        No requirement available yet
-                    </div>
-                @endforelse
-            </ul>
+            @forelse ($requirement as $line)
+                <p class="m-0">{{$line}}</p>
+                @empty
+                <div class="alert alert-danger">
+                    No requirement available yet
+                </div>
+            @endforelse
 
             <h2 class="section-title">Benefits</h2>
-            <div class="d-flex flex-column">
-                @forelse ($benefit as $line)
-                    <div class="m-0">{{$line}}</div>
+            @forelse ($benefit as $line)
+                <p class="m-0">{{$line}}</p>
                 @empty
-                    <div class="alert alert-danger">
-                        No benefit available yet
-                    </div>
-                @endforelse
-            </div>
+                <div class="alert alert-danger">
+                    No benefit available yet
+                </div>
+            @endforelse
 
             <div class="text-center mt-4">
                 <button class="btn btn-primary">Apply Now</button>

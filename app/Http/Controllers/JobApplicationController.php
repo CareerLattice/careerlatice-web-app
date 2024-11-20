@@ -45,6 +45,13 @@ class JobApplicationController extends Controller
         return response()->download($filePath)->deleteFileAfterSend(true);
     }
 
+    public function updateJobApplicationStatus(Request $req, JobApplication $application){
+        $application->update([
+            'status' => $req->status,
+        ]);
+        return redirect()->back();
+    }
+
     // User can view job application
     // public function userJobApplication(){
 

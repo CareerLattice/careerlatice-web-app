@@ -63,6 +63,11 @@ class JobController extends Controller
             'is_active' => 'required|boolean',
         ]);
 
+        // Update status job application to rejected
+        if($req->is_active == 0 && $job->is_active == 1){
+            JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
+        }
+
         $job->update([
             'title' => $req->title,
             'job_type' => $req->job_type,
@@ -80,7 +85,13 @@ class JobController extends Controller
 
     // Company can view the job vacancies they create
     public function viewJob(Job $job){
-        return view('company.job', compact('job'));
+        $applicants = DB::table('users')
+            ->join('appliers', 'users.id', '=', 'appliers.user_id')
+            ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
+            ->where('job_applications.job_id', $job->id)
+            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id')
+            ->paginate(25);
+        return view('company.job', compact('job', 'applicants'));
     }
 
     // Company can view all job vacancies they create

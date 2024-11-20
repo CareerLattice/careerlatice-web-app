@@ -153,6 +153,8 @@ Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany
 Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
 Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
 
+Route::post('/company/update/application/{application}', [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
+
 // Not Done
 Route::get('/user/edit-profile', function(){
     return view('user.updateProfileUser');

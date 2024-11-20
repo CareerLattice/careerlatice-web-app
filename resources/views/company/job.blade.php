@@ -144,25 +144,50 @@
         <hr class="my-4">
 
         <div class="list-applicant">
-            <div class="row align-items-center text-center text-md-start mb-3">
-                <div class="col-md-4 d-flex align-items-center gap-3 mb-2">
-                    <img src="{{asset('assets/formal-person.jpg') }}" alt="User Profile" class="user-profile border-circle">
-                    <div>
-                        <h5 class="fw-bold m-0">John Doe Jane Doe</h5>
-                        <p class="m-0">Junior Back-End Developer</p>
+            @forelse ($applicants as $application)
+                <div class="row align-items-center text-center text-md-start mb-3">
+                    <div class="col-md-4 d-flex align-items-center gap-3 mb-2">
+                        <img src="{{asset('assets/formal-person.jpg') }}" alt="User Profile" class="user-profile border-circle">
+                        <div>
+                            <h5 class="fw-bold m-0">{{$application->name}}</h5>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3 my-2">
-                    <a href="{{ route('getCV',  ['filename' => 'Kalender.pdf']) }}" target="_blank" class="btn btn-primary">Check CV</a>
-                </div>
+                    <div class="col-md-3 my-2">
+                        <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">Open CV</a>
+                    </div>
 
-                <div class="col-md-5 d-flex gap-2 justify-content-center justify-content-md-end my-2">
-                    <a href="" class="btn btn-danger"><i class="bi bi-x-circle"></i></a>
-                    <a href="" class="btn btn-success"><i class="bi bi-check-circle"></i></a>
+                    <div class="col-md-5 d-flex gap-2 justify-content-center justify-content-md-end my-2" id="statusContainer">
+                        @if ($application->status == 'accepted')
+                            <div class="bg-success text-light p-2 rounded-3">Accepted</div>
+                        @elseif ($application->status == 'rejected')
+                            <div class="bg-danger text-light p-2 rounded-3">Rejected</div>
+                        @else
+                        <form action="{{ route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="status" value="rejected">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </form>
+
+                        <form action="{{ route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="status" value="accepted">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i>
+                            </button>
+                        </form>
+
+                        @endif
+                    </div>
+                    <hr class="my-4">
                 </div>
-                <hr class="my-4">
-            </div>
+            @empty
+                <div class="alert alert-danger">
+                    No applicant available yet
+                </div>
+            @endforelse
         </div>
     </div>
 </div>
@@ -171,19 +196,3 @@
 
 @include('components.footer')
 @endsection
-
-{{-- @section('custom_script')
-<script>
-    document.getElementById('statusButton').addEventListener('click', function() {
-        var button = this;
-        if (button.classList.contains('btn-secondary')) {
-            button.classList.remove('btn-secondary');
-            button.classList.add('btn-success');
-            button.textContent = 'Active';
-        } else {
-            button.classList.remove('btn-success');
-            button.classList.add('btn-secondary');
-            button.textContent = 'Inactive';
-        }
-    });
-@endsection --}}
