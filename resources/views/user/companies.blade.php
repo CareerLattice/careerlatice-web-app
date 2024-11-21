@@ -1,5 +1,6 @@
 
 @extends('layout.master')
+
 @section('content')
 <style>
     .custom-input-group {
@@ -109,11 +110,11 @@
                     </div>
                 </div>
             @empty
-            <div class="col-10">
-                <div class="alert alert-info text-center" role="alert">
-                    No companies found.
+                <div class="col-10">
+                    <div class="alert alert-info text-center" role="alert">
+                        No companies found.
+                    </div>
                 </div>
-            </div>
             @endforelse
         </div>
 

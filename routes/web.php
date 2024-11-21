@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
+use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
@@ -159,3 +160,13 @@ Route::post('/company/update/application/{application}', [JobApplicationControll
 Route::get('/user/edit-profile', function(){
     return view('user.updateProfileUser');
 })->name('updateUser');
+
+// Testing Membuat Data untuk Client Side Rendering
+Route::get('/test/data', function(){
+    $data = Company::orderBy('id')->take(10)->get();
+    return response()->json([
+        'status' => '200',
+        'message' => 'Success',
+        'data' => $data,
+    ]);
+});
