@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
+use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
@@ -60,7 +61,6 @@ Route::prefix("company")->group(function(){
 
         // Route for company selected job
         Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
-        Route::post('/job/{job}', [JobController::class, 'updateJob'])->name('company.updateJob');
         Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
 
         // Route for company create job
@@ -68,10 +68,8 @@ Route::prefix("company")->group(function(){
         Route::post('/create-job', [JobController::class, 'create'])->name('company.createJob');
 
         // Route for company edit job
-        Route::get('/editjob', function () {
-            return view('company.editJob');
-        })->name('editJob');
-        // Route::post('/editjob', [JobController::class, 'update'])->name('company.updateJob');
+        Route::get('/edit-job/{job}', [JobController::class, 'editJob'])->name('company.editJob');
+        Route::post('/edit-job/{job}', [JobController::class, 'update'])->name('company.updateJob');
 
         // Route for company view applicants
         Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
@@ -106,7 +104,7 @@ Route::prefix("user")->group(function(){
         // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
         Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.searchJobs');
 
-        // Route::post('/job/{job}', [UserController::class, 'applyJob'])->name('user.applyJob');
+        Route::post('/apply-job/{job}', [JobApplicationController::class, 'create'])->name('user.applyJob');
 
         // Route for user view applied jobs
         // Route::get('/applied-jobs', [UserController::class, 'userViewAppliedJobs'])->name('user.appliedJobs');
@@ -142,7 +140,7 @@ Route::get('/testing_CV', function(){
 Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->name('getCV');
 
 // Testing Export CSV
-Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('downloadJobApplicants');
+Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('company.downloadJobApplicants');
 
 // Testing Add Requirement
 Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
@@ -160,8 +158,19 @@ Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany
 Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
 Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
 
+Route::post('/company/update/application/{application}', [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
 
 // Not Done
 Route::get('/user/edit-profile', function(){
     return view('user.updateProfileUser');
 })->name('updateUser');
+
+// Testing Membuat Data untuk Client Side Rendering
+Route::get('/test/data', function(){
+    $data = Company::orderBy('id')->take(10)->get();
+    return response()->json([
+        'status' => '200',
+        'message' => 'Success',
+        'data' => $data,
+    ]);
+});

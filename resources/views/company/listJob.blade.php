@@ -8,10 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    @include('components.navbar')
     <div class="container my-5">
-        <a href="{{route('company.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> Back
-        </a>
         <h2 class="mb-4">Job Listings</h2>
         <div class="mt-4 mb-3">
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">Add New Job Listing</a>
