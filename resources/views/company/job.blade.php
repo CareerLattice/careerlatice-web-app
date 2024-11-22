@@ -63,14 +63,6 @@
 @section('content')
 
 @include('components.navbar')
-@if(session('message') != '')
-    {{dd('message')}}
-    <div class="alert alert-success fade-out" role="alert" id="alert">
-        {{session('message')}}
-        {{session()->forget('message')}}
-    </div>
-@endif
-
 <div class="container mt-5">
     <a href="{{route('company.listJob')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
         <i class="bi bi-arrow-left-circle"></i> Back to Jobs
@@ -170,28 +162,41 @@
                         <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">Open CV</a>
                     </div>
 
-                    <div class="col-md-5 d-flex gap-2 justify-content-center justify-content-md-end my-2" id="statusContainer">
+                    <div class="col-md-5 d-flex gap-2 justify-content-center justify-content-md-end my-2" id="statusContainer_{{$application->job_application_id}}">
                         @if ($application->status == 'accepted')
                             <div class="bg-success text-light p-2 rounded-3">Accepted</div>
                         @elseif ($application->status == 'rejected')
                             <div class="bg-danger text-light p-2 rounded-3">Rejected</div>
                         @else
-                        <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="status" value="rejected">
-                            <button type="submit" class="btn btn-danger">
-                                <i class="bi bi-x-circle"></i>
-                            </button>
-                        </form>
+                            {{-- <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="status" value="rejected">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="bi bi-x-circle"></i>
+                                </button>
+                            </form>
 
-                        <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="status" value="accepted">
-                            <button type="submit" class="btn btn-success">
-                                <i class="bi bi-check-circle"></i>
-                            </button>
-                        </form>
+                            <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="status" value="accepted">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </button>
+                            </form> --}}
 
+                            <form id="formRejected">
+                                <input type="hidden" name="status" value="rejected">
+                                <button type="button" onclick="changeStatus('formRejected', {{$application->job_application_id}})" class="btn btn-danger">
+                                    <i class="bi bi-x-circle"></i>
+                                </button>
+                            </form>
+
+                            <form id="formAccepted">
+                                <input type="hidden" name="status" value="accepted">
+                                <button type="button" onclick="changeStatus('formAccepted', {{$application->job_application_id}})" class="btn btn-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </button>
+                            </form>
                         @endif
                     </div>
                     <hr class="my-4">
@@ -212,5 +217,46 @@
 
 
 @section('custom_script')
+<script>
+    async function changeStatus(formId, applicationId) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        const form = document.getElementById(formId);
+        const formData = new FormData(form);
+
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        try {
+            const response = await fetch('/company/update/application/'+ applicationId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error`);
+            }
+
+            const result = await response.json();
+            let color = 'danger';
+            if (result.status == 'Accepted') {
+                color = 'success';
+            }
+
+            alert('Job Application Status Updated to ' + result.status);
+            document.getElementById('statusContainer_' + applicationId).innerHTML = `
+                <div class="bg-${color} text-light p-2 rounded-3">${result.status}</div>
+            `;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+</script>
 @endsection
 

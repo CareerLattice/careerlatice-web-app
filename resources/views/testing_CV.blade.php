@@ -118,37 +118,39 @@
                     "Content-Type": "application/json",
                 },
             })
+
             let responses = await response.json()
-            if(response.ok){
-                console.log(responses)
-                let dataCompany = responses.data
-                let container = document.getElementById('data-container')
-                container.innerHTML = ''
-                console.log(dataCompany)
-                console.log(dataCompany[0]['address'])
-                dataCompany.forEach(data => {
-                    container.innerHTML += `
-                        <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
-                            <div class="company-card">
-                                <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
-                                <div class="company-details">
-                                    <h5 class="mt-2">Company ID: ${data['id']}</h5>
-                                 <p>${data['address']}</p>
-                                </div>
-                                <div class="company-info-section">
-                                    <p class="fw-bold mb-0">Description</p>
-                                    <p class="text-muted mt-0 description">${data['description']}</p>
-                                    <p class="fw-bold mb-0">Field</p>
-                                    <p class="text-muted mt-0">${data['field']}</p>
-                                </div>
-                                <a href="http://127.0.0.1:8000//user/company/${data['id']}" class="btn btn-visit">Visit Company</a>
-                            </div>
-                        </div>
-                    `
-                });
-                return
+            if(!response.ok){
+                throw new Error(responses.message)
             }
-            throw new Error(responses.message)
+
+            console.log(responses)
+            let dataCompany = responses.data
+            let container = document.getElementById('data-container')
+            container.innerHTML = ''
+            console.log(dataCompany)
+            console.log(dataCompany[0]['address'])
+            dataCompany.forEach(data => {
+                container.innerHTML += `
+                    <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
+                        <div class="company-card">
+                            <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
+                            <div class="company-details">
+                                <h5 class="mt-2">Company ID: ${data['id']}</h5>
+                                <p>${data['address']}</p>
+                            </div>
+                            <div class="company-info-section">
+                                <p class="fw-bold mb-0">Description</p>
+                                <p class="text-muted mt-0 description">${data['description']}</p>
+                                <p class="fw-bold mb-0">Field</p>
+                                <p class="text-muted mt-0">${data['field']}</p>
+                            </div>
+                            <a href="http://127.0.0.1:8000//user/company/${data['id']}" class="btn btn-visit">Visit Company</a>
+                        </div>
+                    </div>
+                `
+            });
+            return
         } catch (error) {
             alert(error)
             return null

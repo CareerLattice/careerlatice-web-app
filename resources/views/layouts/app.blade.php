@@ -94,13 +94,13 @@
     @yield('custom_script')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        const alert = document.getElementById('alert');
-        if (alert) {
-            setTimeout(() => {
-                alert.style.display = 'none';
-            }, 5000);
-        }
-    });
+            const alert = document.getElementById('alert');
+            if (alert) {
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 5000);
+            }
+        });
     </script>
 </body>
 </html>

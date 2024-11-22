@@ -50,7 +50,11 @@ class JobApplicationController extends Controller
         $application->update([
             'status' => $req->status,
         ]);
-        return redirect()->back();
+
+        $status = '';
+        if($req->status == 'accepted') $status = 'Accepted';
+        else $status = 'Rejected';
+        return response()->json(['status'=> $status]);
     }
 
     // User can view job application
