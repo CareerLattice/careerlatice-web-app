@@ -112,23 +112,22 @@ class JobController extends Controller
     }
 
     // Company can upload job picture
-    public function uploadJobPicture(Request $request) {
-        $request->validate([
+    public function uploadJobPicture(Request $req, Job $job) {
+        $req->validate([
             'job_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $path = $request->file('job_picture')->store('company_upload/job_picture');
-        $id = session($request->id);
-        $job = Job::findOrFail($id);
+        $path = $req->file('job_picture')->store('company_upload/job_picture');
 
         // Delete old profile picture from folder
         if (Storage::exists($job->job_picture)) {
             Storage::delete($job->job_picture);
         }
 
-        $job->job_picture = $path;
-        $job->save();
-        return redirect()->route('company.job', ['id' => $id]);
+        $job->update([
+            'job_picture' => $path,
+        ]);
+        return redirect()->route('company.job', ['id' => $job->id]);
     }
 
     // User Section for Job
@@ -163,7 +162,7 @@ class JobController extends Controller
             ->join('companies', 'companies.id', '=', 'job_vacancies.company_id')
             ->join('users','users.id','=','companies.user_id')
             ->where('is_active', true)
-            ->where('company_id', $company->id)
+            ->where('company_id', $company->user->id)
             ->select(
                 'job_vacancies.id',
                 'job_vacancies.title',
@@ -178,7 +177,6 @@ class JobController extends Controller
             $jobs->where($req->filter, 'like', '%' . $req->search . '%');
         }
 
-        // dd($jobs);
         $jobs = $jobs->paginate(3)->withQueryString();
         return view('user.companyJobVacancies', compact('jobs', 'company'));
     }

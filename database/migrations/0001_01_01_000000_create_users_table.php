@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique()->safeEmail();
             $table->string('password');
-            $table->string(column: 'name');
+            $table->string('name');
             $table->string('phone_number')->nullable();
             $table->string('role')->default('applier');
             $table->string('profile_picture')->nullable();
