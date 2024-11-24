@@ -123,6 +123,14 @@ Route::prefix("user")->group(function(){
 });
 
 
+
+route::get('/user/editEducation', function(){
+    return view('user.editEducation'); 
+})->name ('editEducation');
+
+route::get('/user/editExperience', function(){
+    return view('user.editExperience'); 
+})->name ('editExperience');
 // Dibuat setelah user dan company selesai dibuat
 // Route::prefix("admin")->group(function(){
 //     // Route::get('/home',[AdminController::class, 'home'])->name('adminHome');

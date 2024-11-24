@@ -59,7 +59,7 @@
                     <p class="section-description" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                         Undergraduate Computer Science Student at BINUS University | Stock Market Enthusiast | @ShARE Do Well Do Good BINUS | Scholarship Mentor
                     </p>
-                    <a href="#" class="btn btn-outline-success">Edit Profile</a>
+                    <a href="{{route ('updateUser')}}" class="btn btn-outline-success">Edit Profile</a>
                 </div>
             </div>
             <ul class="nav nav-tabs mb-4" id="companyTab" role="tablist">
