@@ -17,9 +17,21 @@
     <link rel="icon" href="{{asset('assets/logo.png')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     @yield('custom_css')
 </head>
 <body>
+    @if(session('message') != '')
+        <div class="alert alert-success fade-out" role="alert" id="alert">
+            {{session('message')}}
+            {{session()->forget('message')}}
+        </div>
+    @elseif(session('error') != '')
+        <div class="alert alert-danger fade-out" role="alert" id="alert">
+            {{session('error')}}
+            {{session()->forget('error')}}
+        </div>
+    @endif
     <div id="app">
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -80,5 +92,15 @@
     </div>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     @yield('custom_script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const alert = document.getElementById('alert');
+            if (alert) {
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
 </body>
 </html>

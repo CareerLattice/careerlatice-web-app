@@ -29,6 +29,8 @@ class ApplierController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
             'phone_number' => 'string|min:8|unique:users,phone_number',
+            'birth_date' => 'required|date|before:today',
+            'address' => 'required|string|max:100',
         ]);
 
         DB::beginTransaction();
@@ -69,21 +71,23 @@ class ApplierController extends Controller
     public function updateProfile(Request $req){
         $req->validate([
             'name' => 'string|min:3',
-            'password' => 'string|min:8',
             'phone_number' => 'string|max:20',
             'address' => 'string|max:100',
             'profile_picture' => 'string',
-            'birth_date' => 'date',
+            'birth_date' => 'before:today',
         ]);
 
         $user = Auth::user();
-        $user->name = $req->name;
-        $user->password = Hash::make($req->password);
-        $user->phone_number = $req->phone_number;
-        $user->address = $req->address;
-        $user->profile_picture = $req->profile_picture;
-        $user->birth_date = $req->birth_date;
-        $user->save();
+        $user->update([
+            'name'=> $req->name,
+            'phone_number'=> $req->phone_number,
+            'profile_picture' => $req->profile_picture,
+        ]);
+
+        Applier::where('user_id', $user->id)->update([
+            'address' => $req->address,
+            'birth_date' => $req->birth_date,
+        ]);
 
         Auth::login($user);
         session()->put('success','Profile updated');
@@ -147,15 +151,40 @@ class ApplierController extends Controller
     //     return view('company.applicant', ['applicant' => $user]);
     // }
 
-    // public function upgradeToPremium(){
-    //     $user = User::findOrFail(session('user_id'));
-    //     $user->role = 'premium';
-    //     $user->save();
-    //     return redirect()->route('user.home');
+    // public function upgradeToPremium(Request $req){
+    //     $req->validate([
+    //         'duration' => 'required|numeric',
+    //     ]);
+
+    //     $applier = Applier::where('user_id', Auth::user()->id)->first();
+    //     if($applier->end_date_premium > now()){
+    //         return redirect()->back();
+    //     }
+
+    //     DB::beginTransaction();
+    //     try {
+    //         $applier->update([
+    //             'start_date_premium' => now(),
+    //             'end_date_premium' => now()->addMonths($req->duration),
+    //         ]);
+
+    //         UserHistory::create([
+    //             'applier_id'=> $applier->id,
+    //             'start_date' => $applier->start_date_premium,
+    //             'end_date' => $applier->end_date_premium,
+    //         ]);
+
+    //         DB::commit();
+    //         return redirect()->route('user.home');
+    //     } catch (\Exception $e) {
+    //         DB::rollBack();
+    //         return back()->withErrors(['error' => 'Please try again later.']);
+    //     }
     // }
 
     public function viewPremiumHistory(){
-        $premiumHistories = UserHistory::where('user_id', session('user_id'))->orderBy('end_date', 'desc')->get();
-        return view('user.premiumHistory', ['history' => $premiumHistories]);
+        $applier = Auth::user()->applier;
+        $history = UserHistory::where('applier_id', $applier->id)->orderBy('end_date', 'desc')->paginate(10);
+        return view('user.premiumHistory', compact('history'));
     }
 }

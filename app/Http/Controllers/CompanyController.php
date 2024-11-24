@@ -48,7 +48,7 @@ class CompanyController extends Controller
             ]);
 
             DB::commit();
-            $req->session()->put('message','Successfully registered');
+            session()->put('message','Successfully registered');
             return redirect()->route('login');
 
         } catch (\Exception $e) {
@@ -59,9 +59,9 @@ class CompanyController extends Controller
 
     public function viewHome(){
         $activeJobs = DB::table('job_vacancies')
-        ->where('company_id', Auth::user()->company->id)
-        ->where('is_active', true)
-        ->count();
+            ->where('company_id', Auth::user()->company->id)
+            ->where('is_active', true)
+            ->count();
 
         $totalApplicant = DB::table('job_applications')
             ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')

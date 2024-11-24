@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('applied_at')->useCurrent();
             $table->string('status')->default('pending');
 
             $table->softDeletes();

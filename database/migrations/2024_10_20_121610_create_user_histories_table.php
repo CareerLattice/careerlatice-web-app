@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamp('start_date')->useCurrent();
             $table->timestamp('end_date')->nullable();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('applier_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

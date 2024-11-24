@@ -21,7 +21,7 @@ class UserHistorySeeder extends Seeder
 
         for($i = 0; $i < 10; $i++) {
             UserHistory::create([
-                'user_id' => $users->random()->id,
+                'applier_id' => $users->random()->id,
                 'name' => $faker->sentence,
                 'start_date' => $faker->dateTimeBetween('-1 year', 'now'),
                 'end_date' => $faker->dateTimeBetween('now', '+1 year'),

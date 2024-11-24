@@ -39,17 +39,6 @@
             color: #212529;
         }
 
-        .btn-primary {
-            padding: 0.5rem 1.5rem;
-            font-size: 1rem;
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-        }
-
         .user-profile{
             min-width: 70px;
             height: 70px;
@@ -63,8 +52,9 @@
 </head>
 
 <body>
+    @include('components.navbar')
     <div class="container mt-5">
-        <a href="{{route('jobs')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
+        <a href="{{route('company.job', ['job' => $job->id])}}" class="text-primary text-decoration-none mb-4 d-inline-block">
             <i class="bi bi-arrow-left-circle"></i> Cancel Edit
         </a>
 
@@ -72,54 +62,55 @@
             <div class="job-header">
                 <h2>Edit Job Details</h2>
             </div>
-    
-            <hr class="my-4">
 
-            <div class="job-details">
-                <div class="d-flex gap-2 flex-column">
-                    <h2 class="section-title">Job Title</h2>
-                    <form action="" method="post" class="d-inline mb-4">
-                        @csrf
-                        <input id="titleInput" type="text" class="form-control" value="Senior Back-end Developer - PT Bank Central Asia Tbk">
-                    </form>
-                </div>
-                <div class="d-flex gap-1 flex-column">
-                    <h2 class="section-title">Job Location</h2>
-                    <form action="" method="post" class="d-inline mb-4">
-                        @csrf
-                        <input id="locationInput" type="text" class="form-control" value="Jakarta, Indonesia · Last Update: 20 November 2024">
-                    </form>
-                </div>    
-                <div class="d-flex gap-2 flex-column">
-                    <h2 class="section-title">Job Description</h2>
-                    <form action="" method="post" class="d-inline mb-4">
-                        @csrf
-                        <input id="descriptionInput" type="text" class="form-control d-block" value="Competitive salary package, Health insurance, Flexible working hours, Professional development opportunities. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam esse ipsa tempora! Obcaecati animi laudantium nobis quas harum aspernatur delectus. Facere quas at praesentium. Eius, cupiditate harum nisi alias facere libero architecto dolor sunt accusamus recusandae amet nihil unde enim incidunt repellat modi qui reprehenderit expedita repudiandae at ducimus? Temporibus?">
-                    </form>
-                </div>
+            <hr class="my-1">
+            <form action="{{route('company.updateJob', ['job' => $job])}}" method="POST">
+                @csrf
+                <label for="title"><h2 class="fs-4 m-0 mt-3">Title</h2></label>
+                <input id="title" type="text" class="form-control" value="{{ $job->title }}" name="title" required>
 
-                <div class="d-flex gap-2 flex-column">
-                    <h2 class="section-title">Job Requirements</h2>
-                    <form action="" method="post" class="d-inline mb-4">
-                        @csrf
-                        <input id="descriptionInput" type="text" class="form-control d-block" value="Proven experience as a Back-end Developer, Strong knowledge of PHP, Golang, or Node.js, Experience with database management (MySQL, PostgreSQL), Familiarity with cloud services like AWS or GCP.">
-                    </form>
-                </div>
-                
-                <div class="d-flex gap-2 flex-column">
-                    <h2 class="section-title">Benefits</h2>
-                    <form action="" method="post" class="d-inline mb-4">
-                        @csrf
-                        <input id="benefitsInput" type="text" class="form-control d-block" value="Eius, cupiditate harum nisi alias facere libero architecto dolor sunt accusamus recusandae amet nihil unde enim incidunt repellat modi qui reprehenderit expedita repudiandae at ducimus? Temporibus?">
-                    </form>
+                <label for="address"><h2 class="fs-4 m-0 mt-3">Address</h2></label>
+                <input id="address" type="text" class="form-control" value="{{ $job->address }}" name="address" required>
+
+                <label for="description"><h2 class="fs-4 m-0 mt-3">Description</h2></label>
+                <textarea id="description" class="form-control d-block" name="description" rows="5" required>{{ $job->description }}</textarea>
+
+                <label for="requirement"><h2 class="fs-4 m-0 mt-3">Job Requirement</h2></label>
+                <textarea id="requirement" class="form-control d-block" name="requirement" rows="5" required>{{ $job->requirement }}</textarea>
+
+                <label for="benefit"><h2 class="fs-4 m-0 mt-3">Job Benefit</h2></label>
+                <textarea id="benefit" class="form-control d-block" name="benefit" rows="5" required>{{ $job->benefit }}</textarea>
+
+                <div class="d-flex mt-3 justify-content-between">
+                    <div style="width:45%">
+                        <label for="is_active"><h2 class="fs-4 m-0 me-2">Status</h2></label>
+                        <select id="is_active" class="form-select" name="is_active" required>
+                            <option value="1" @if($job->is_active == true) selected @endif>Open</option>
+                            <option value="0" @if($job->is_active == false) selected @endif>Closed</option>
+                        </select>
+                    </div>
+
+                    <div style="width:45%">
+                        <label for="job_type"><h2 class="fs-4 m-0 me-2">Job Type</h2></label>
+                        <select id="job_type" class="form-select" name="job_type" required>
+                            <option value="Full Time" @if($job->job_type == 'Full Time') selected @endif>Full Time</option>
+                            <option value="Part Time " @if($job->job_type == 'Part Time') selected @endif>Part Time</option>
+                            <option value="Internship " @if($job->job_type == 'Internship') selected @endif>Internship</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="mt-4 d-flex align-items-center justify-content-end gap-3">
-                    <a href="{{ route('editJob') }}" class="btn btn-primary">Update</a>
+                <label for="person_in_charge"><h2 class="fs-4 m-0 mt-3">Person In Charge</h2></label>
+                <input id="person_in_charge" type="text" class="form-control" value="{{ $job->person_in_charge }}" name="person_in_charge" required>
+
+                <label for="contact_person"><h2 class="fs-4 m-0 mt-3">Contact Person</h2></label>
+                <input id="contact_person" type="text" class="form-control" value="{{ $job->contact_person }}" name="contact_person" required>
+
+                <div class="mt-4 d-flex align-items-center justify-content-center gap-3">
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
-            </div>
+            </form>
         </div>
-
     </div>
 
     <hr class="mt-5">

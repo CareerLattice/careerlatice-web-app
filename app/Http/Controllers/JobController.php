@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\JobApplication;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
@@ -44,38 +45,53 @@ class JobController extends Controller
         return redirect()->route('company.listJob');
     }
 
+    public function editJob(Job $job){
+        return view('company.editJob', compact('job'));
+    }
+
     // Company can update Job
-    public function updateJob(Request $req, Job $job){
+    public function update(Request $req, Job $job){
         $req->validate([
-            'title' => 'string|max:255',
-            'job_type' => 'in:full_time,part_time,internship',
-            'address' => 'string|max:255',
-            'skill_required' => 'string',
-            'description' => 'string',
-            'requirement' => 'string',
-            'person_in_charge' => 'string',
-            'contact_person' => 'string',
-            'is_active' => 'boolean',
+            'title' => 'required|string|max:255',
+            'job_type' => 'required|in:Full Time,Part Time,Internship',
+            'address' => 'required|string|max:255',
+            'description' => 'required|string',
+            'requirement' => 'required|string',
+            'benefit' => 'required|string',
+            'person_in_charge' => 'required|string',
+            'contact_person' => 'required|string',
+            'is_active' => 'required|boolean',
         ]);
+
+        // Update status job application to rejected
+        if($req->is_active == 0 && $job->is_active == 1){
+            JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
+        }
 
         $job->update([
-            'job_type' => $req->job_type ?? $job->job_type,
-            'title' => $req->title ?? $job->title,
-            'address' => $req->address ?? $job->address,
-            'skill_required' => $req->skill_required ?? $job->skill_required,
-            'description' => $req->description ?? $job->description,
-            'requirement' => $req->requirement ?? $job->requirement,
-            'person_in_charge' => $req->person_in_charge ?? $job->person_in_charge,
-            'contact_person' => $req->contact_person ?? $job->contact_person,
-            'is_active' => $req->is_active ?? $job->is_active,
+            'title' => $req->title,
+            'job_type' => $req->job_type,
+            'address' => $req->address,
+            'description' => $req->description,
+            'requirement' => $req->requirement,
+            'benefit' => $req->benefit,
+            'person_in_charge' => $req->person_in_charge,
+            'contact_person' => $req->contact_person,
+            'is_active' => $req->is_active,
         ]);
 
-        return redirect()->route('company.job', ['job' => $job]);
+        return redirect()->route('company.job', compact('job'));
     }
 
     // Company can view the job vacancies they create
     public function viewJob(Job $job){
-        return view('company.job', ['job' => $job]);
+        $applicants = DB::table('users')
+            ->join('appliers', 'users.id', '=', 'appliers.user_id')
+            ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
+            ->where('job_applications.job_id', $job->id)
+            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id')
+            ->paginate(25);
+        return view('company.job', compact('job', 'applicants'));
     }
 
     // Company can view all job vacancies they create
@@ -87,29 +103,31 @@ class JobController extends Controller
 
     // Company can delete job vacancies they create
     public function deleteJob(Job $job){
-        // Soft Delete
+        // Update status job application to rejected
+        JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
+
+        // Soft Delete the Job
         $job->delete();
         return redirect()->route('company.listJob');
     }
 
     // Company can upload job picture
-    public function uploadJobPicture(Request $request) {
-        $request->validate([
+    public function uploadJobPicture(Request $req, Job $job) {
+        $req->validate([
             'job_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $path = $request->file('job_picture')->store('company_upload/job_picture');
-        $id = session($request->id);
-        $job = Job::findOrFail($id);
+        $path = $req->file('job_picture')->store('company_upload/job_picture');
 
         // Delete old profile picture from folder
         if (Storage::exists($job->job_picture)) {
             Storage::delete($job->job_picture);
         }
 
-        $job->job_picture = $path;
-        $job->save();
-        return redirect()->route('company.job', ['id' => $id]);
+        $job->update([
+            'job_picture' => $path,
+        ]);
+        return redirect()->route('company.job', ['id' => $job->id]);
     }
 
     // User Section for Job
@@ -144,7 +162,7 @@ class JobController extends Controller
             ->join('companies', 'companies.id', '=', 'job_vacancies.company_id')
             ->join('users','users.id','=','companies.user_id')
             ->where('is_active', true)
-            ->where('company_id', $company->id)
+            ->where('company_id', $company->user->id)
             ->select(
                 'job_vacancies.id',
                 'job_vacancies.title',
@@ -159,7 +177,6 @@ class JobController extends Controller
             $jobs->where($req->filter, 'like', '%' . $req->search . '%');
         }
 
-        // dd($jobs);
         $jobs = $jobs->paginate(3)->withQueryString();
         return view('user.companyJobVacancies', compact('jobs', 'company'));
     }

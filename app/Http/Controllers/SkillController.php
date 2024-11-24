@@ -20,12 +20,11 @@ class SkillController extends Controller
             'name' => 'required|string|max:100',
         ]);
 
-        $skill = new Skill([
+        $skill = Skill::create([
             'name' => $request->name,
             'description' => $request->description,
         ]);
 
-        $skill->save();
         return response()->json($skill, 201);
     }
 
@@ -40,9 +39,10 @@ class SkillController extends Controller
         ]);
 
         $skill = Skill::findOrFail($id);
-        $skill->name = $request->name;
-        $skill->description = $request->description;
-        $skill->save();
+        $skill->update([
+            'name'=> $request->name,
+            'description'=> $request->description,
+        ]);
         return response()->json($skill);
     }
 
