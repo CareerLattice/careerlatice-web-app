@@ -60,9 +60,10 @@ Route::prefix("company")->group(function(){
         Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
 
         // Route for company selected job
-        Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
-        Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
-
+        Route::middleware('job_auth')->group(function(){
+            Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
+            Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
+        });
         // Route for company create job
         Route::get('/create-job', [JobController::class, 'createJob'])->name('company.createJobPage');
         Route::post('/create-job', [JobController::class, 'create'])->name('company.createJob');
@@ -72,7 +73,7 @@ Route::prefix("company")->group(function(){
         Route::post('/edit-job/{job}', [JobController::class, 'update'])->name('company.updateJob');
 
         // Route for company view applicants
-        Route::get('/job-applicants/{id}', [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
+        Route::get('/job-applicants/{id}', action: [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
         // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
     });
 
@@ -123,11 +124,11 @@ Route::prefix("user")->group(function(){
 
 
 route::get('/user/editEducation', function(){
-    return view('user.editEducation'); 
+    return view('user.editEducation');
 })->name ('editEducation');
 
 route::get('/user/editExperience', function(){
-    return view('user.editExperience'); 
+    return view('user.editExperience');
 })->name ('editExperience');
 // Dibuat setelah user dan company selesai dibuat
 // Route::prefix("admin")->group(function(){
