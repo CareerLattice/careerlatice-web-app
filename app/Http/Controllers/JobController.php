@@ -94,12 +94,62 @@ class JobController extends Controller
         return view('company.job', compact('job', 'applicants'));
     }
 
+    public function filterJobs(Request $req, Job $job){
+        $req->validate([
+            'filter' => 'string|nullable'
+        ]);
+
+        $applicants = DB::table('users')
+            ->join('appliers', 'users.id', '=', 'appliers.user_id')
+            ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
+            ->where('job_applications.job_id', $job->id)
+            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id');
+
+        if($req->filled('filter')){
+            $applicants = $applicants->where('status', 'LIKE',$req->filter);
+        }
+
+        $applicants= $applicants->paginate(25);
+
+        return view('company.job', compact('job', 'applicants'));
+    }
+
     // Company can view all job vacancies they create
     public function getJobs(){
         $company = Auth::user()->company;
         $jobs = $company->jobs()->paginate(20)->withQueryString();
         return view('company.listJob', compact('jobs'));
     }
+
+
+    // Company can search specific job they create
+    public function CompanySearchJobs(Request $req){
+        $req->validate([
+            'search' => 'string|nullable',
+            'job_type' => 'array|nullable',
+            'is_active' => 'array|nullable'
+        ]);
+
+        $company = Auth::user()->company;
+        $query = $company->jobs();
+
+        if ($req->has('search') && !empty($req->search)) {
+            $query = $query->where('title', 'like', '%'.$req->search.'%');
+        }
+
+        if ($req->filled('job_type')) {
+            $query = $query->whereIn('job_type', $req->job_type);
+        }   
+
+        if ($req->filled('is_active')) {
+            $query = $query->whereIn('is_active', $req->is_active);
+        }     
+
+        $jobs = $query->paginate(20)->withQueryString();
+
+        return view('company.listJob', compact('jobs'));
+    }
+
 
     // Company can delete job vacancies they create
     public function deleteJob(Job $job){
