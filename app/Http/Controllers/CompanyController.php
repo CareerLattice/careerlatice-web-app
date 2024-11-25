@@ -90,34 +90,48 @@ class CompanyController extends Controller
     }
 
     public function viewProfile(){
-        return view('company.companyProfile');
+        $company = Auth::user()->company;
+        return view('company.companyProfile', compact('company'));
     }
 
     public function updateProfile(Request $req){
         $req->validate([
-            'name' => 'string|max:255',
-            'phone_number' => 'string|max:20',
+            'name' => 'required|string|max:255',
+            'phone_number' => 'required|string|max:20',
             'field' => 'string|max:255',
             'address' => 'string|max:255',
-            'password' => 'string|min:8',
             'description' => 'string',
-            'logo' => 'string|max:255',
+            'logo' => 'image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $company = Company::findOrFail(session('company_id'));
+        $company = Auth::user();
+        if($req->logo){
+            if ($company->profile_picture && Storage::exists($company->profile_picture)) {
+                // dd($req->logo);
+                $test = Storage::delete($company->profile_picture);
+                dd($test);
+            }
+
+            $path = $req->file('logo')->storeAs('company_upload/profile_picture', $company->id . '_profile_picture.' . $req->file('logo')->getClientOriginalExtension(), 'public');
+            $company->profile_picture = $path;
+        }
 
         $company->update([
             'name' => $req->name ?? $company->name,
-            'email' => $req->email ?? $company->email,
             'phone_number' => $req->phone_number ?? $company->phone_number,
-            'description' => $req->description ?? $company->description,
-            'logo' => $req->logo ?? $company->logo,
-            'field' => $req->field ?? $company->field,
-            'location' => $req->location ?? $company->location,
-            'password' => $req->password ? Hash::make($req->password) : $company->password,
+            'profile_picture' => $company->profile_picture,
         ]);
 
-        return redirect()->route('company.profile');
+        Company::where('user_id', Auth::user()->id)->update([
+            'description' => $req->description ?? $company->description,
+            'field' => $req->field ?? $company->field,
+            'address' => $req->address ?? $company->address,
+        ]);
+
+        $updatedCompany = User::find($company->id);
+        Auth::login($updatedCompany);
+
+        return redirect()->route('company.profile', compact('company'));
     }
 
     public function index(){

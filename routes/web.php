@@ -73,13 +73,11 @@ Route::prefix("company")->group(function(){
         Route::post('/edit-job/{job}', [JobController::class, 'update'])->name('company.updateJob');
 
         // Route for company view applicants
-        Route::get('/job-applicants/{id}', action: [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
+        // Route::get('/job-applicants/{id}', action: [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
         // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
     });
 
-    Route::get('/edit-profile', function(){
-        return view('company.companyProfile');
-    })->name('updateCompany');
+    Route::get('/edit-profile', [CompanyController::class, 'viewProfile'])->name('updateCompany');
 });
 
 Route::prefix("user")->group(function(){
