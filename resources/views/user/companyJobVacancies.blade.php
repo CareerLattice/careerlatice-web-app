@@ -69,13 +69,12 @@
                         </h5>
                     </div>
 
-                    <form action="{{ route('user.searchJobsByCompany', ['company' => $company]) }}" method="GET">
+                    <form action="{{route('user.companyJobVacancies', ['company' => $company])}}" method="GET">
                         <div class="row justify-content-center">
                             <div class="col-12 col-md-6 mb-2 mb-md-0">
-                                <select name="filter" class="form-select form-select-sm" id="filter-group"
-                                    style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
-                                    <option value="name">Job Name</option>
-                                    <option value="field">Field</option>
+                                <select name="filter" class="form-select form-select-sm" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
+                                    <option value="title">Job Name</option>
+                                    <option value="job_type">Job Type</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-4 mb-2 mb-md-0">
@@ -116,11 +115,8 @@
                                 </p>
                             </div>
                             <div>
-                                <p style="color: #6c757d; margin-bottom: 0.5rem; text-align: left; font-size: 1rem;">
-                                    {{ $job->address }} ({{ $job->job_type }})
-                                </p>
-                                <p style="color: #6c757d; margin-bottom: 0.5rem; text-align: left; font-size: 1rem;">
-                                    Last Updated:
+                                <p class="text-muted mb-2 text-start" style="font-size: 1rem">{{$job->address}} ({{$job->job_type}})</p>
+                                <p class="text-muted mb-2 text-start" style="font-size: 1rem">Last Updated:
                                     @if (gettype($job->updated_at) == 'string')
                                         {{ $job->updated_at }}
                                     @else
@@ -141,6 +137,10 @@
                     </div>
                 @endforelse
             </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+            {{$jobs->links()}}
         </div>
     </div>
 
