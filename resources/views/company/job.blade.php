@@ -158,6 +158,7 @@
                             <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
                             <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
                             <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
+                            <li><button class="dropdown-item" name="filter" value="on process" type="submit">On Process</button></li>
                             <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
                         </ul>
                     
