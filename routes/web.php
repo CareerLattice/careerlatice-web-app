@@ -59,9 +59,15 @@ Route::prefix("company")->group(function(){
         // Route for list of jobs by company
         Route::get('/jobs', [JobController::class, 'getJobs'])->name('company.listJob');
 
+        // Route for company search job
+        Route::get('/jobs/search', [JobController::class, 'companySearchJobs'])->name('company.searchJobs');
+
         // Route for company selected job
         Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
         Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
+
+        // Route for company filter job
+        Route::get('/job/{job}/filter',[JobController::class, 'filterJobs'])->name('company.filter');
 
         // Route for company create job
         Route::get('/create-job', [JobController::class, 'createJob'])->name('company.createJobPage');
