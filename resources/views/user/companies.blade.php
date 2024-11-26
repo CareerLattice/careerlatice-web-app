@@ -1,74 +1,79 @@
 
-@extends('layout.master')
+@extends('layouts.app')
+
+@section('title', 'Companies')
+
+@section('custom_css')
+    <style>
+        .custom-input-group {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .company-card {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .company-card:hover {
+            transform: translateY(-10px);
+        }
+        .company-card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+        }
+        .company-details h5 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        .company-details p {
+            color: grey;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .btn-visit {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-visit:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .company-info-section {
+            margin-top: 15px;
+            text-align: justify;
+        }
+        .company-info-section .description {
+            height: 50px;
+            overflow: hidden;
+            text-overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+@endsection
 
 @section('content')
-<style>
-    .custom-input-group {
-        width: 100%;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    .company-card {
-        border: 1px solid #ddd;
-        border-radius: 15px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        height: 100%;
-    }
-    .company-card:hover {
-        transform: translateY(-10px);
-    }
-    .company-card img {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 15px;
-        border-radius: 50%;
-    }
-    .company-details h5 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-    }
-    .company-details p {
-        color: grey;
-        font-size: 0.9rem;
-        text-align: center;
-    }
-    .btn-visit {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size: 1rem;
-        transition: all 0.3s ease-in-out;
-    }
-    .btn-visit:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-    }
-    .company-info-section {
-        margin-top: 15px;
-        text-align: justify;
-    }
-    .company-info-section .description {
-        height: 50px;
-        overflow: hidden;
-        text-overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-    }
-</style>
     @include('components.navbar')
 
     <section style="background-color: #fff;">
@@ -77,7 +82,7 @@
                 <div class="col-12 col-md-12 col-lg-7 text-center text-md-start mt-4">
                     <img src="{{ asset('assets/test222.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 85%; height: auto;" />
                 </div>
-    
+
                 <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
                     <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
                         Explore and connect with <strong>500+</strong> reputable companies
@@ -88,19 +93,19 @@
                     <p class="fw-semibold" style="color: gray; font-size: 1rem; line-height: 1.8; text-align: justify">
                         Search, explore, and connect with top companies that match your career aspirations and field of interest.
                     </p>
-    
+
                     <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
                         <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                             Update Profile
                         </a>
-    
+
                         <a href="#companies" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                             Explore Companies
                         </a>
                     </div>
-    
+
                     <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
-    
+
                     <ul class="list-unstyled list-inline mt-2 d-flex justify-content-center justify-content-md-start gap-2">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/" class="text-dark">
@@ -133,7 +138,7 @@
             <hr>
         </div>
     </section>
-    
+
     <div class="container" id="companies">
         <div class="container">
             <h2 class="fw-bold text-center mt-5 mb-3" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
@@ -188,7 +193,6 @@
         </div>
     </div>
 
-
-<hr class="mt-5">
-@include('components.footer')
-@endsection()
+    <hr class="mt-5">
+    @include('components.footer')
+@endsection

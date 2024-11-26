@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('title', 'Job Listings - Company View')
+
 @section('content')
     @include('components.navbar')
     <div class="container my-5">

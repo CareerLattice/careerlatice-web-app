@@ -8,11 +8,10 @@
     {{-- Bootstrap 5 --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="{{ asset('css/landingPage.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     {{-- <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"> --}}
     <link rel="icon" href="{{asset('assets/logo.png')}}">
     {{-- End of Bootstrap 5 --}}
-    
+
     {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     {{-- End of Google Fonts --}}
@@ -65,8 +64,8 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            
-        
+
+
             <div class="container">
                 <div class="col-12 col-md-7">
                     <h2 class="fw-bold fs-1 mt-5">A Quick Look at <span style="color: #7869cd">Our Journey</span></h2>
@@ -74,10 +73,10 @@
                         CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.
                     </p>
                 </div>
-            
+
                 <div id="customCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-inner">
-    
+
                         <div class="carousel-item active">
                             <div class="row">
                                 <div class="col-12 col-md-4">
@@ -100,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                
+
                         <div class="carousel-item">
                             <div class="row">
                                 <div class="col-12 col-md-4">
@@ -124,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <button class="carousel-control-prev custom-control-btn" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
                         <span class="custom-control-text">Previous</span>
                     </button>
@@ -132,9 +131,9 @@
                         <span class="custom-control-text">Next</span>
                     </button>
                 </div>
-                
-                
-            
+
+
+
                 <div class="row">
                     <img src="{{asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-3" alt="Landing Page Image">
                 </div>
@@ -147,17 +146,17 @@
                         <div class="col-12 col-md-6">
                             <h2 class="fw-bold fs-1 mb-4">How we provides <span style="color: #7869cd">Solutions</span></h2>
                             <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                                By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs). 
+                                By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs).
                             </p>
                             <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
                                 With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
-                            </p>    
+                            </p>
                         </div>
                     </div>
                 </div>
 
             </div>
-            
+
         </section>
 
         <section class="landingPage-2 hidden" id="landingPage-2">
@@ -202,7 +201,7 @@
                         <a href="#" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-                
+
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
                     <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -267,7 +266,7 @@
                         <a href="#" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-                
+
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
                     <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -309,12 +308,12 @@
                 </div>
                 {{-- Start of Healthcare and Hospitality --}}
             </div>
-            
+
             <div class="promotion-company-container container hidden">
                 <div class="row">
                     <div class="landing-company-bottom-container col-md-12 mt-2 hidden">
                         <h3 class="display-5">Seize Your Opportunity to Get Hired!</h3>
-                        <p class="my-4 lead mt-3 ms-1">Join the ranks of top talents by applying to leading companies today! Whether you're looking to advance your career or start a new journey, countless opportunities await. Don't let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals</p>    
+                        <p class="my-4 lead mt-3 ms-1">Join the ranks of top talents by applying to leading companies today! Whether you're looking to advance your career or start a new journey, countless opportunities await. Don't let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals</p>
                     </div>
                 </div>
             </div>
@@ -340,10 +339,10 @@
                         <p class="card-subtitle text-muted">Bank Central Asia</p>
                         <p class="card-text mt-1 mb-0">Bandung, Indonesia</p>
                         <p class="card-text mt-1">100+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>                
+                        <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
-                
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -409,7 +408,7 @@
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
-                
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -420,7 +419,7 @@
                         <a href="#" class="btn btn-outline-primary">More Information</a>
                     </div>
                 </div>
-                
+
                 {{-- End of Popular Job Vacancy --}}
             </div>
             <div class="promotion-job-container container hidden">
@@ -428,12 +427,12 @@
                     <div class="landing-job-bottom-container col-md-12 mt-2 hidden">
                         <h3 class="display-5">Discover Exciting Job Vacancies!</h3>
                         <p class="my-4 lead mt-3 ms-1">Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you're aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.
-                        </p>    
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
-            
+
         <section class="landingPage-4 hidden">
             <div class="container hidden">
                 <div class="row">
@@ -442,7 +441,7 @@
                         <p class="my-4 lead mt-3 ms-1 text-center">💬 We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!</p>
                     </div>
                 </div>
-        
+
                 <div class="testimonial-container row hidden">
                     <!-- Testimonial 1 -->
                     <div class="col-md-3 hidden">
@@ -571,7 +570,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </section>
     </main>
@@ -691,5 +690,5 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 {{-- End of Bootstrap 5 --}}
 <script src="{{ asset('js/script.js') }}"></script>
-</body>                 
+</body>
 </html>

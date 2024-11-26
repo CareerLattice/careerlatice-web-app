@@ -1,56 +1,59 @@
-@extends('layout.master')
+@extends('layouts.app')
+
+@section('title', $company->user->name)
+
+@section('custom_css')
+    <style>
+        .nav-link{
+            font-size: 1.2rem;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        .card-title {
+            font-weight: 500;
+        }
+
+        .card-text {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #004095;
+            border-color: #004095;
+        }
+        .btn-dark {
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+@endsection
 
 @section('content')
-
-<style>
-    .nav-link{
-        font-size: 1.2rem;
-    }
-    .section-title {
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        color: #0056b3;
-    }
-    .card-title {
-        font-weight: 500;
-    }
-
-    .card-text {
-        color: #555;
-        margin-bottom: 1rem;
-    }
-    .card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #0056b3;
-        border-color: #0056b3;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary:hover {
-        background-color: #004095;
-        border-color: #004095;
-    }
-    .btn-dark {
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .btn-dark:hover {
-        background-color: #333;
-        color: #fff;
-    }
-</style>
-
-@include('components.navbar')
+    @include('components.navbar')
 
     <div class="position-relative">
         <img src="{{asset('assets/bannerCompany.jpg')}}"
@@ -211,5 +214,5 @@
 
     <hr class="mt-5">
 
-@include('components.footer')
+    @include('components.footer')
 @endsection()

@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Job</title>
+@extends('layouts.app')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@section('title', 'Add New Job')
+
+@section('content')
+    @include('components.navbar')
     <div class="container my-5">
         <h2 class="mb-4">Add New Job Listing</h2>
         <a href="{{route('company.listJob')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
@@ -64,5 +59,5 @@
             <button type="submit" class="btn btn-success">Add Job</button>
         </form>
     </div>
-</body>
-</html>
+    @include('components.footer')
+@endsection

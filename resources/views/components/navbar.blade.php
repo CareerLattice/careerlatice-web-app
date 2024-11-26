@@ -57,7 +57,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i> <!-- Ikon Font Awesome -->
         </button>
-        
+
         <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 @auth
@@ -97,9 +97,9 @@
                             <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">Premium</a>
                         @endif
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('assets/bbca.jpeg')}}" class="rounded-circle" alt="Photo Profile" style="max-width: 40px;">
+                            <img src="{{Storage::url(Auth::user()->profile_picture)}}" class="rounded-circle" alt="Photo Profile" style="max-width: 40px;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->role == 'applier')
