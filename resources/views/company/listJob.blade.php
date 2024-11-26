@@ -102,5 +102,10 @@
         </div>
     </div>
 
+    @include('components.footer')
+@endsection
 
+@section('custom_script')
+
+    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 @endsection

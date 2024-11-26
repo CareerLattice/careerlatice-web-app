@@ -90,7 +90,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     @yield('custom_script')
     <script>
         document.addEventListener('DOMContentLoaded', function () {

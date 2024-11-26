@@ -240,6 +240,7 @@
 
 
 @section('custom_script')
+<script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 <script>
     async function changeStatus(formId, applicationId) {
