@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\JobAuthCheck;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -25,6 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'guest' => RedirectIfAuthenticated::class,
             'company_auth' => CompanyAuthCheck::class,
             'user_auth' => UserAuthCheck::class,
+            'job_auth' => JobAuthCheck::class,
             // 'locale', SetLocale::class
         ]);
     })

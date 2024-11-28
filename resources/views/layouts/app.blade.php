@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
     <title> @yield('title')</title>
 
@@ -90,8 +90,11 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     @yield('custom_script')
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const alert = document.getElementById('alert');
