@@ -21,8 +21,8 @@ class JobSkillSeeder extends Seeder
         $jobs = Job::all();
         $skills = Skill::all();
 
-        for($i = 0; $i < 10; $i++) {
-            JobSkill::create([
+        for ($i = 0; $i < 10; $i++) {
+            JobSkill::firstOrCreate([
                 "job_id" => $jobs->random()->id,
                 "skill_id" => $skills->random()->id,
             ]);

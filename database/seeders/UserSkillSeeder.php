@@ -20,8 +20,8 @@ class UserSkillSeeder extends Seeder
         $users = Applier::all();
         $skills = Skill::all();
 
-        for($i = 0; $i < 20; $i++) {
-            UserSkill::create([
+        for ($i = 0; $i < 20; $i++) {
+            UserSkill::firstOrCreate([
                 "user_id" => $users->random()->id,
                 "skill_id" => $skills->random()->id,
             ]);

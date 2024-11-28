@@ -15,6 +15,8 @@ return new class extends Migration
             $table->foreignId('skill_id')->constrained('skills')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('job_id')->constrained('job_vacancies')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+
+            $table->primary(['skill_id', 'job_id']);
         });
     }
 
