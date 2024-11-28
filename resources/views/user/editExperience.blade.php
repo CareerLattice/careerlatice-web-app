@@ -39,6 +39,10 @@
                         <label class="form-check-label" for="current">I am currently working here</label>
                     </div>
                 </div>
+                <div class="mb-3">
+                    <label for="company-image" class="form-label">Company Image</label>
+                    <input type="file" class="form-control" id="company-image" name="company-image" required>
+                </div>
                 <!-- Submit Buttons -->
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save Changes</button>
