@@ -1,6 +1,8 @@
+@extends('layout.master')
+
 @section('content')
 
-<style> 
+<style>
     .profile-image {
         width: 120px;
         height: 120px;
@@ -11,39 +13,41 @@
 
 <div class="container py-5">
     <div class="row">
-        <a href="{{route('user.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> Back to Home
-        </a>
-    <div class="card mt-3 d-flex flex-column">
-        <div class="card-body">
-            <ul class="nav nav-tabs mb-4" id="profileTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="fs-5 title nav-link active fw-bold" id="personal-info-tab" data-bs-toggle="tab" data-bs-target="#personal-info" type="button" role="tab">Personal Information</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="fs-5 title nav-link fw-bold" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">Education</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="fs-5 title nav-link fw-bold" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">Professional Experience</button>
-                </li>
-            </ul>
-
-            <div class="tab-content" id="educationContent">
-                <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
-                    @for($i = 0; $i < 2; $i++)
-                        <div class="d-md-flex align-items-center mb-4">
-                            <div class="col-12 col-md-7 ms-3">
-                                <h4 class="card-title mb-2">Bina Nusantara University</h4>
-                                <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                    Bachelor's degree, Computer Science
-                                </p>
-                                <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                    Sept 2022 - Aug 2026
-                                </p>
-                                <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                    Grade: 3.78/4.00
-                                </p>
-                                <button class="btn btn-warning btn-custom" data-bs-toggle="modal" data-bs-target="#editEducation">Edit</button>
+            <a href="{{route('user.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
+                <i class="bi bi-arrow-left-circle"></i> Back to Home
+            </a>
+        <div class="card mt-3 d-flex flex-column">
+            <div class="card-body">
+                <ul class="nav nav-tabs mb-4" id="profileTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="fs-5 title nav-link active fw-bold" id="personal-info-tab" data-bs-toggle="tab" data-bs-target="#personal-info" type="button" role="tab">Personal Information</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="fs-5 title nav-link fw-bold" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">Education</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="fs-5 title nav-link fw-bold" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">Professional Experience</button>
+                    </li>
+                </ul>
+                
+        
+                <div class="tab-content" id="educationContent">
+                    <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+                        @for($i = 0; $i < 2; $i++)
+                            <div class="d-md-flex align-items-center mb-4">
+                                <div class="col-12 col-md-7 ms-3">
+                                    <h4 class="card-title mb-2">Bina Nusantara University</h4>
+                                    <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
+                                        Bachelor's degree, Computer Science
+                                    </p>
+                                    <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
+                                        Sept 2022 - Aug 2026
+                                    </p>
+                                    <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
+                                        Grade: 3.78/4.00
+                                    </p>
+                                    
+                                    <button class="btn btn-warning btn-custom" data-bs-toggle="modal" data-bs-target="#editEducation">Edit</button>
                                     <button class="btn btn-danger btn-custom" id="del">Delete</button>
                                    
                                 </div>
@@ -61,7 +65,7 @@
 
                     <!-- Professional Experience Tab -->
                     <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
-
+                       
                         @for($i = 0; $i < 3; $i++)
                             <div class="d-md-flex align-items-center mb-4">
                                 <div class="col-12 col-md-2 mb-2 d-flex justify-content-center">
@@ -78,6 +82,7 @@
                                     <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                         Jakarta, Indonesia
                                     </p>
+                                    
                                     <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience">Edit</button>
                                     <button class="btn btn-danger btn-custom" id="del">Delete</button>
                                 </div>
@@ -92,6 +97,7 @@
                             <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addExperienceModal">Add Experience</button>
                         </div>
                     </div>
+
                     <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                         <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                             <div class="d-flex justify-content-center mb-3">
@@ -120,6 +126,7 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="addEducationModal" tabindex="-3" aria-labelledby="addEducationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -131,7 +138,7 @@
                 <form action="test" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="school" class="form-label">School/University</label>    
+                        <label for="school" class="form-label">School/University</label>
                         <input type="text" class="form-control" id="school" name="school">
                     </div>
                     <div class="mb-3">
@@ -144,7 +151,6 @@
                     </div>
                     <div class="mb-3">
                         <label for="gpa" class="form-label">GPA</label>
-                        <input type="number" class="form-control" id="gpa" name="gpa" min="0" max="4.0" step="0.01" required>
                         <input type="number" class="form-control" id="gpa" name="gpa" min="0" max="4.0" step="1">
                     </div>
                     <div class="mb-3">
@@ -194,6 +200,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="modal fade" id="addExperienceModal" tabindex="-1" aria-labelledby="addExperienceModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -288,14 +296,17 @@
                     <label for="jobTitle" class="form-label">Job Title</label>
                     <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter job title">
                 </div>
+
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea class="form-control" id="description" name="description" placeholder="Describe your role and achievements" rows="4"></textarea>
                 </div>
+
                 <div class="mb-3">
                     <label for="startDate" class="form-label">Start Date</label>
                     <input type="date" class="form-control" id="startDate" name="startDate">
                 </div>
+
                 <div class="mb-3">
                     <label for="endDate" class="form-label">End Date</label>
                     <input type="date" class="form-control" id="endDate" name="endDate">
@@ -304,6 +315,7 @@
                         <label class="form-check-label" for="current">I am currently working here</label>
                     </div>
                 </div>
+
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                     <a href="{{route('updateUser')}}" class="btn btn-secondary">Cancel</a>
@@ -313,7 +325,11 @@
         </div>
     </div>
 </div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 <script>
    document.querySelectorAll("#del").forEach((button) => {
     button.addEventListener("click", () => {
@@ -337,5 +353,6 @@
     });
 });
 </script>
+
+
 @endsection
-                                
