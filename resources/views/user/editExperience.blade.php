@@ -16,6 +16,19 @@
                         <label for="companyName" class="form-label">Company Name</label>
                         <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter company name" required>
                     </div>
+<<<<<<< HEAD
+                </div>
+                <div class="mb-3">
+                    <label for="company-image" class="form-label">Company Image</label>
+                    <input type="file" class="form-control" id="company-image" name="company-image" required>
+                </div>
+                <!-- Submit Buttons -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a href="{{route('updateUser')}}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+=======
                     <!-- Job Title -->
                     <div class="mb-3">
                         <label for="jobTitle" class="form-label">Job Title</label>
@@ -47,6 +60,7 @@
                     </div>
                 </form>
             </div>
+>>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
         </div>
     </div>
 @endsection
