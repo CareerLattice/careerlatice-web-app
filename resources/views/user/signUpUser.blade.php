@@ -57,7 +57,7 @@
                         Birth Date
                         <span class="text-danger">*</span>
                     </label>
-                    <input type="date" class="form-control" id="inputBirthDate" name="dob" required>
+                    <input type="date" class="form-control" id="inputBirthDate" name="birth_date" required>
                 </div>
                 <div class="col-12">
                     <label for="phoneNumber" class="form-label">

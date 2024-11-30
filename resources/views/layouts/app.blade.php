@@ -91,7 +91,7 @@
         </main>
     </div>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> --}}
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     @yield('custom_script')
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class ApplierController extends Controller
 {
@@ -29,8 +30,8 @@ class ApplierController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
             'phone_number' => 'string|min:8|unique:users,phone_number',
-            'birth_date' => 'required|date|before:today',
             'address' => 'required|string|max:100',
+            'birth_date' => ['required', 'date', 'before_or_equal:' . Carbon::today()->toDateString()],
         ]);
 
         DB::beginTransaction();
