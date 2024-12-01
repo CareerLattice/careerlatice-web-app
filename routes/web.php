@@ -190,3 +190,5 @@ Route::get('/test/data', function(){
 
 // Testing untuk MidTrans
 Route::post('/premium', [PremiumController::class, 'process'])->name('user.upgradeToPremium');
+Route::get('/checkout/{transaction}', [PremiumController::class, 'checkout'])->name('user.checkout');
+Route::post('/subscription/success', [PremiumController::class, 'success'])->name('user.premiumSuccess');

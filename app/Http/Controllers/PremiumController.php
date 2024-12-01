@@ -15,17 +15,13 @@ class PremiumController extends Controller
             'duration' => 'required|in:1,3,6,12',
         ]);
 
-        $applier = Applier::where('user_id', Auth::user()->id)->first();
+        $applier = Applier::where('user_id', Auth::id())->first();
         if($applier->end_date_premium > now()){
             return redirect()->back();
         }
 
         DB::beginTransaction();
         try {
-            // $applier->update([
-            //     'start_date_premium' => now(),
-            //     'end_date_premium' => now()->addMonths($req->duration),
-            // ]);
             $duration = intval($req->duration);
 
             $price = 0;
@@ -74,10 +70,28 @@ class PremiumController extends Controller
 
             $transaction->update(['snap_token' => $snapToken]);
             DB::commit();
-            return view('user.checkout', compact('transaction'));
+            return redirect()->route('user.checkout', ['transaction' => $transaction->id]);
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->withErrors(['error' => 'Please try again later.']);
         }
+    }
+
+    public function checkout(UserHistory $transaction){
+        return view('user.checkout', compact('transaction'));
+    }
+
+    public function success(Request $req){
+        Applier::where('user_id', Auth::id())->update([
+            'start_date_premium' => now(),
+            'end_date_premium' => now()->addMonths($req->json('duration')),
+        ]);
+
+        UserHistory::where('snap_token', $req->json('snap_token'))->update([
+            'status' => 'success',
+        ]);
+
+        session()->put('success', 'Payment Success');
+        return redirect()->route('user.home');
     }
 }
