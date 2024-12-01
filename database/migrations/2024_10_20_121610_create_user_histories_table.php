@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->timestamp('start_date')->useCurrent();
             $table->timestamp('end_date')->nullable();
+            $table->integer('duration');
+            $table->integer('price');
+            $table->string('snap_token')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
             $table->foreignId('applier_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
         });

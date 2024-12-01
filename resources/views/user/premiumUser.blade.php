@@ -124,9 +124,13 @@
                     <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
                         Fast-track your career progression with a profile that attracts attention from leading employers, setting you on a path to success.
                     </p>
-                    <a href="#" class="btn btn-lg rounded-pill px-5 py-3" style="background: #7869cd; color: white; font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                        Subscribe Today
-                    </a>
+                    <form action="{{route('user.upgradeToPremium')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="duration" value="1">
+                        <button class="btn btn-lg rounded-pill px-5 py-3" style="background: #7869cd; color: white; font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                            Subscribe Today
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
