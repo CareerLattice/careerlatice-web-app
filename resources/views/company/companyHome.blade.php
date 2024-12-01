@@ -98,6 +98,5 @@
 @endsection
 
 @section('custom_script')
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 @endsection

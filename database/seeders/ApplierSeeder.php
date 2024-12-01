@@ -26,6 +26,7 @@ class ApplierSeeder extends Seeder
                 'end_date_premium' => $faker->date(),
                 'user_id' => $user->id,
                 'cv_url' => 'Kalender.pdf',
+                'headline' => $faker->sentence,
             ]);
         }
     }

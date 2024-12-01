@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('experiences', function (Blueprint $table) {
+        Schema::create('experience', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('company_name')->nullable();
+            $table->string('job_type')->nullable();
             $table->timestamp('start_date');
             $table->timestamp('end_date')->nullable();
+            $table->string('address')->nullable();
             $table->text('description');
+            $table->string('company_picture');
 
-            $table->foreignId('user_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('applier_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('experiences');
+        Schema::dropIfExists('experience');
     }
 };

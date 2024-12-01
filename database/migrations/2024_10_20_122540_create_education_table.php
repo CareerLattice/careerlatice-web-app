@@ -14,14 +14,16 @@ return new class extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->string('institution_name');
-            $table->float('grade');
+            $table->float('grade')->nullable();
+            $table->float('max_grade')->nullable();
             $table->string('degree');
-            $table->string('field_of_study');
+            $table->string('field_of_study')->nullable();
             $table->timestamp('start_date');
             $table->timestamp('end_date')->nullable();
-
+            $table->text('description')->nullable();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreignId('applier_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
