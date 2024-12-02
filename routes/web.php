@@ -135,15 +135,18 @@ route::get('/user/editExperience', function(){
     return view('user.editExperience');
 })->name ('editExperience');
 // Dibuat setelah user dan company selesai dibuat
-// Route::prefix("admin")->group(function(){
-//     // Route::get('/home',[AdminController::class, 'home'])->name('adminHome');
+Route::prefix("admin")->group(function(){
+    // Route::get('/home',[AdminController::class, 'home'])->name('adminHome');
+    route::get('/home', function(){
+        return view('admin.adminHome');
+    })->name ('home');
 
-//     // Sekaligus menampilkan list user yang apply premium beserta start dan end date premium
-//     // Route::get('/revenue', [AdminController::class, 'revenue'])->name('adminRevenue');
+    // Sekaligus menampilkan list user yang apply premium beserta start dan end date premium
+    // Route::get('/revenue', [AdminController::class, 'revenue'])->name('adminRevenue');
 
-//     // Export data csv
-//     // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
-// });
+    // Export data csv
+    // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
+});
 
 // Testing Open CV
 Route::get('/testing_CV', function(){
