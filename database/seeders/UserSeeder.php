@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'email' => $faker->email,
             'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
-            'profile_picture' => 'assets/bbca.jpeg',
+            'profile_picture' => 'user_upload/profile_picture/default_profile.jpg',
             'role' => 'applier',
         ]);
 
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'email' => $faker->email,
             'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
-            'profile_picture' => 'assets/bbca.jpeg',
+            'profile_picture' => 'user_upload/profile_picture/default_profile.jpg',
             'role' => 'company',
         ]);
 
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
             'email' => $faker->email,
             'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
-            'profile_picture' => 'assets/bbca.jpeg',
+            'profile_picture' => 'user_upload/profile_picture/default_profile.jpg',
             'role' => 'admin',
         ]);
     }
