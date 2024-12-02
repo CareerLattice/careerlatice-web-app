@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             ]);
         }
 
-        // Buat minimal masing-masing 1 user dengan role Applier, Company, dan Admin
+        // Make at least one user for each role
         User::create(attributes: [
             'name' => $faker->name,
             'email' => $faker->email,

@@ -107,7 +107,6 @@ class CompanyController extends Controller
         $company = Auth::user();
         if($req->logo){
             if ($company->profile_picture && Storage::exists($company->profile_picture)) {
-                // dd($req->logo);
                 $test = Storage::delete($company->profile_picture);
                 dd($test);
             }
@@ -122,7 +121,7 @@ class CompanyController extends Controller
             'profile_picture' => $company->profile_picture,
         ]);
 
-        Company::where('user_id', Auth::user()->id)->update([
+        Company::where('user_id', Auth::id())->update([
             'description' => $req->description ?? $company->description,
             'field' => $req->field ?? $company->field,
             'address' => $req->address ?? $company->address,

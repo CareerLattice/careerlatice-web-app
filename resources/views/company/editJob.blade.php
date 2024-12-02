@@ -3,12 +3,7 @@
 @section('title', 'Edit Job Detail')
 
 @section('custom_css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
         .job-card {
             background-color: #ffffff;
             border-radius: 8px;
