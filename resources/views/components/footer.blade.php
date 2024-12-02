@@ -77,7 +77,7 @@
                     <a href="#!" class="text-dark" style="text-decoration: none">Site Map</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-dark" style="text-decoration: none">Settings</a>
+                    <a href="{{route('settings')}}" class="text-dark" style="text-decoration: none">Settings</a>
                 </p>
             </div>
 

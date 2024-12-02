@@ -45,7 +45,7 @@
                         </li>
                     </ul>
 
-<<<<<<< HEAD
+
 <style>
     .profile-image {
         width: 120px;
@@ -57,9 +57,6 @@
 
 <div class="container py-5">
     <div class="row">
-            <a href="{{route('user.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-                <i class="bi bi-arrow-left-circle"></i> Back to Home
-            </a>
         <div class="card mt-3 d-flex flex-column">
             <div class="card-body">
                 <ul class="nav nav-tabs mb-4" id="profileTab" role="tablist">
@@ -94,7 +91,7 @@
                                     <button class="btn btn-warning btn-custom" data-bs-toggle="modal" data-bs-target="#editEducation">Edit</button>
                                     <button class="btn btn-danger btn-custom" id="del">Delete</button>
                                    
-=======
+
 
                     <div class="tab-content" id="profileTabContent">
                         <div class="tab-pane fade show active" id="education" role="tabpanel" aria-labelledby="education-tab">
@@ -122,7 +119,7 @@
                                 <div class="col-md-12 d-flex flex-column justify-content-center">
                                     <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">Description</h4>
                                     <p style="text-align: justify">I have chosen Database Technology as my streaming specialization for both Semester 4 and Semester 5...</p>
->>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
+
                                 </div>
                                 <hr>
                             @endfor
@@ -155,7 +152,7 @@
                                         <button class="btn btn-danger btn-custom">Delete</button>
                                     </div>
                                 </div>
-<<<<<<< HEAD
+
                                 <div class="col-12 col-md-7 ms-3">
                                     <h4 class="card-title mb-2">Back-end Developer</h4>
                                     <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
@@ -170,11 +167,11 @@
                                     
                                     <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience">Edit</button>
                                     <button class="btn btn-danger btn-custom" id="del">Delete</button>
-=======
+
                                 <div class="col-md-12 d-flex flex-column justify-content-center">
                                     <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">Description</h4>
                                     <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
->>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
+
                                 </div>
                                 <hr>
                             @endfor
@@ -183,7 +180,6 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
                     <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                         <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                             <div class="d-flex justify-content-center mb-3">
@@ -204,14 +200,13 @@
                                     Edit Profile
                                 </button>
                             </div>
-=======
-                        <div class="tab-pane fade" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
+
+                            <div class="tab-pane fade" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                             <strong>Name: </strong><span>Jane Doe</span><br>
                             <strong>Email: </strong><span>janedoe@example.com</span><br>
                             <strong>Phone: </strong><span>+123456789</span><br>
                             <strong>Description: </strong><span>Software Developer, passionate about coding and technology.</span><br>
                             <button class="btn btn-warning btn-custom mt-3" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
->>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
                         </div>
                     </div>
                 </div>
@@ -220,7 +215,6 @@
     </div>
 
 
-<<<<<<< HEAD
 <div class="modal fade" id="addEducationModal" tabindex="-3" aria-labelledby="addEducationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -253,7 +247,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
-=======
+
     <div class="modal fade" id="addEducationModal" tabindex="-3" aria-labelledby="addEducationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -283,7 +277,6 @@
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
->>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
             </div>
         </div>
     </div>
@@ -327,7 +320,7 @@
 
 
 
-<<<<<<< HEAD
+
 <div class="modal fade" id="addExperienceModal" tabindex="-1" aria-labelledby="addExperienceModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -356,7 +349,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
-=======
+
     <div class="modal fade" id="addExperienceModal" tabindex="-1" aria-labelledby="addExperienceModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -386,12 +379,12 @@
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
->>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
+
             </div>
         </div>
     </div>
 
-<<<<<<< HEAD
+
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -511,7 +504,7 @@
 </script>
 
 
-=======
+
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -544,6 +537,6 @@
             </div>
         </div>
     </div>
->>>>>>> 69ebf961d42c6f437d873cb68d084183cf37523f
+
 @endsection
 
