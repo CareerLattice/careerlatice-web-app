@@ -140,7 +140,7 @@
         <div class="container py-5">
             <div class="mb-4">
                 <h2 class="fw-bold mb-4 text-center" style="font-size: 2.5rem; color: #192A51;">
-                    Premium Members Unlock More Opportunities!
+                    Premium Members Unlock More <span style="color: #7869cd; font-weight: 700;">Opportunities</span>!
                 </h2>
                 <p class="text-center text-muted mb-2" style="font-size: 1.2rem; line-height: 1.8; font-family: 'Arial', sans-serif;">
                     Did you know that becoming a Premium member not only gives you access to exclusive features, but also increases your chances of receiving job offers and career opportunities? Invest in your future and watch the opportunities pour in!
