@@ -107,7 +107,7 @@
                             @elseif (Auth::user()->role == 'company')
                                 <li><a class="dropdown-item" href="{{route('updateCompany')}}">Edit Profile</a></li>
                             @endif
-                            <li><a class="dropdown-item" href="#">Setting</a></li>
+                            <li><a class="dropdown-item" href="{{route('settings')}}">Setting</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">

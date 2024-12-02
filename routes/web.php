@@ -182,6 +182,10 @@ Route::get('/user/edit-profile', function(){
     return view('user.updateProfileUser');
 })->name('updateUser');
 
+Route::get('/settings',function(){
+    return view('settings');
+})->name('settings');
+
 // Testing Membuat Data untuk Client Side Rendering
 Route::get('/test/data', function(){
     $data = Company::orderBy('id')->take(10)->get();
