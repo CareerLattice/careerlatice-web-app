@@ -80,7 +80,7 @@
                 action="{{ route('user.searchCompany') }}" method="GET">
                 <input style="max-width: 500px" class="form-control mb-2 mb-md-0 me-md-2" name="search">
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2"
-                    style="border-color: var(--bs-primary); width: 150px;">
+                    style="border-color: var(--bs-primary); width: 150px;" onchange="updatePlaceholder()">
                     <option value="name">Company Name</option>
                     <option value="field">Field</option>
                 </select>
@@ -135,4 +135,29 @@
 
     <hr class="mt-5">
     @include('components.footer')
+@endsection
+
+@section('custom_script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var filterGroup = document.querySelector('select[name="filter"]');
+            var searchInput = document.querySelector('input[name="search"]');
+
+            filterGroup.addEventListener('change', function () {
+                switch (filterGroup.value) {
+                    case 'name':
+                        searchInput.placeholder = 'Search by Company Name';
+                        break;
+                    case 'field':
+                        searchInput.placeholder = 'Search by Field';
+                        break;
+                    default:
+                        searchInput.placeholder = 'Search';
+                        break;
+                }
+            });
+
+            searchInput.placeholder = filterGroup.value === 'name' ? 'Search by Company Name' : 'Search by Field';
+        });
+    </script>
 @endsection

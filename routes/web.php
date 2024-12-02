@@ -11,6 +11,7 @@ use App\Http\Controllers\JobApplicationController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PremiumController;
+use App\Models\Applier;
 
 /* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
@@ -98,7 +99,8 @@ Route::prefix("user")->group(function(){
     Route::middleware('user_auth')->group(function(){
         // Route for user home
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
-
+        
+        Route::get('/job-vacancies', [ApplierController::class, 'viewAllJobVacancies'])->name('user.jobVacancies');
         // Route for user profile
         Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');
         Route::post('/profile', [UserController::class, 'updateProfile'])->name('user.updateProfile');
@@ -122,10 +124,9 @@ Route::prefix("user")->group(function(){
         // Route for user to add skill
         // Route::post('/user-skill', [SkillController::class, 'addSkill'])->name('user.addSkill');
         // Route::delete('/user-skill/{skill}', [SkillController::class, 'deleteSkill'])->name('user.deleteSkill');
+        
     });
 });
-
-
 
 route::get('/user/editEducation', function(){
     return view('user.editEducation');
@@ -139,7 +140,7 @@ Route::prefix("admin")->group(function(){
     // Route::get('/home',[AdminController::class, 'home'])->name('adminHome');
     route::get('/home', function(){
         return view('admin.adminHome');
-    })->name ('home');
+    })->name ('admin.home');
 
     // Sekaligus menampilkan list user yang apply premium beserta start dan end date premium
     // Route::get('/revenue', [AdminController::class, 'revenue'])->name('adminRevenue');

@@ -61,7 +61,29 @@ class ApplierController extends Controller
     }
 
     public function viewHome(){
-        return view('user.homeUser');
+        $jobApplications = DB::table('job_applications')
+            ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
+            ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
+            ->join('users', 'users.id', '=', 'companies.user_id')
+            ->select('name', 'title', 
+            DB::raw(value: "DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at"))
+            ->orderBy('job_applications.created_at', 'desc')
+            ->limit(3)
+            ->get();
+        return view('user.homeUser', ['jobApplications' => $jobApplications]);
+    }
+
+    public function viewAllJobVacancies(){
+        $userJobApplications = DB::table('job_applications')
+            ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
+            ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
+            ->join('users', 'users.id', '=', 'companies.user_id')
+            ->select('job_vacancies.id', 'name', 'title', 
+            DB::raw(value: "DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at"))
+            ->orderBy('job_applications.created_at', 'desc')
+            ->paginate(6);
+
+        return view('user.userJobVacancies', ['userJobApplications' => $userJobApplications]);
     }
 
     public function viewProfile(){
@@ -141,4 +163,5 @@ class ApplierController extends Controller
         $history = UserHistory::where('applier_id', $applier->id)->orderBy('end_date', 'desc')->paginate(10);
         return view('user.premiumHistory', compact('history'));
     }
+
 }

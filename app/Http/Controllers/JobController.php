@@ -304,7 +304,7 @@ class JobController extends Controller
             $jobs->where($req->filter, 'like', '%' . $req->search . '%');
         }
 
-        $jobs = $jobs->paginate(2)->withQueryString();
+        $jobs = $jobs->paginate(5)->withQueryString();
         return view('user.companyJobVacancies', compact('jobs', 'company'));
     }
 

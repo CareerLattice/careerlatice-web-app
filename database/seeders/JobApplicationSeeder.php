@@ -19,7 +19,7 @@ class JobApplicationSeeder extends Seeder
         $users = Applier::all();
         $jobs = Job::all();
         $faker = Factory::create("id_ID");
-        for($i = 0; $i < 30; $i++) {
+        for($i = 0; $i < 10; $i++) {
             JobApplication::create([
                 'applier_id' => $users->random()->id,
                 'job_id' => $jobs->random()->id,

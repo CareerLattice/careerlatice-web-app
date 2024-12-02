@@ -2,7 +2,6 @@
 
 @section('title', $company->user->name . ' Job Vacancies')
 
-
 <style>
     @media (max-width: 612px) {
         .bannerText {
@@ -46,7 +45,7 @@
 
     <div class="position-relative" style="position: relative;">
         <img src="{{ asset('assets/BannerTest.jpg') }}" alt="Company Cover" class="img-fluid"
-            style="object-fit: cover; width: 100%; height: 45vh; max-height: 450px;">
+            style="object-fit: cover; width: 100%; height: 35vh; max-height: 450px;">
 
         <div class="container position-absolute top-50 start-50 translate-middle"
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; padding: 0 15px; width: 100%;">
@@ -131,6 +130,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr>
                 @empty
                     <div class="alert alert-danger">
                         No job vacancies available.

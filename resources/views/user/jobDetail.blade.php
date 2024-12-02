@@ -36,9 +36,9 @@
 
     @include('components.navbar')
 
-    <div class="container mt-5">
-        <a href="{{ route('jobs') }}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> Back to Jobs
+    <div class="container mt-4">
+        <a href="{{ route('companies') }}" class="text-primary text-decoration-none mb-4 d-inline-block">
+            <i class="bi bi-arrow-left-circle"></i> Back to Company
         </a>
 
         <div class="job-card" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 1.5rem;">
@@ -62,10 +62,10 @@
             <hr class="my-4">
 
             <div class="job-details">
-                <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.75rem;">Job Description</h2>
+                <h2 style="font-size: 1.25rem; font-weight: bold;" class="mb-0">Job Description</h2>
                 <p>{{ $job->description }}</p>
 
-                <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.75rem;">Requirements</h2>
+                <h2 style="font-size: 1.25rem; font-weight: bold;" class="mb-0">Requirements</h2>
                 @forelse ($requirement as $line)
                     <p class="m-0">{{ $line }}</p>
                 @empty
@@ -74,7 +74,7 @@
                     </div>
                 @endforelse
 
-                <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.75rem;">Benefits</h2>
+                <h2 style="font-size: 1.25rem; font-weight: bold; " class="mb-0 mt-3">Benefits</h2>
                 @forelse ($benefit as $line)
                     <p class="m-0">{{ $line }}</p>
                 @empty
@@ -94,6 +94,5 @@
     </div>
 
     <hr class="mt-5">
-
     @include('components.footer')
 @endsection

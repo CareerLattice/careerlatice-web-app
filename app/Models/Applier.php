@@ -22,18 +22,18 @@ class Applier extends Model
     }
 
     public function userHistories(): HasMany{
-        return $this->hasMany(UserHistory::class, 'user_id', 'id');
+        return $this->hasMany(UserHistory::class, 'applier_id', 'id');
     }
 
     public function jobApplications(): HasMany{
-        return $this->hasMany(JobApplication::class, 'user_id', 'id');
+        return $this->hasMany(JobApplication::class, 'applier_id', 'id');
     }
 
     public function educations(): HasMany{
-        return $this->hasMany(Education::class, 'user_id', 'id');
+        return $this->hasMany(Education::class, 'applier_id', 'id');
     }
 
     public function userSkills(): HasMany{
-        return $this->hasMany(UserSkill::class, 'user_id', 'id');
+        return $this->hasMany(UserSkill::class, 'applier_id', 'id');
     }
 }

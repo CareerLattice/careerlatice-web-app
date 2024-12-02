@@ -25,30 +25,45 @@
     @include('components.navbar')
 
     <div class="position-relative">
-        <img src="{{asset('assets/tesBannerUser.jpeg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 40vh;">
+        <img src="{{asset('assets/tesBannerUser.jpeg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh;">
         <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
             <p class="lead text-wrap fw-bold" style="font-weight: 600;">Unleash your potential with <span style="color: #682b90;">CareerLattice—connect, explore, and land</span> your dream job.</p>
         </div>
     </div>
 
     <div class="container mt-5">
-        <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">Current Active <span style="color: #682b90">Job Applications</span></h3>
+        <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">
+            Current Active <span style="color: #682b90">Job Applications</span>
+        </h3>
         <div class="row">
-            @for($i = 0; $i < 3; $i++)
+            @forelse ($jobApplications as $jobVacancy)
                 <div class="col-sm-8 col-md-4 mb-4">
                     <div class="card job-card" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px;">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold mb-2" style="color: #192a51;">Bank Central Asia</h5>
-                            <p class="card-text text-muted">Senior Back-End Developer</p>
-                            <p class="card-text">Applied on 20 November 2024.</p>
+                            <h5 class="card-title fw-bold mb-2" style="color: #192a51;">{{ $jobVacancy->name }}</h5>
+                            <p class="card-text text-muted">{{ $jobVacancy->title }}</p>
+                            <p class="card-text">
+                                Applied on {{ $jobVacancy->created_at ?? 'Unknown Date' }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @empty
+                <div class="col-12">
+                    <p class="text-muted text-center">You have no active job applications.</p>
+                </div>
+            @endforelse
         </div>
+        <div class="text-center mb-4">
+            <a href="{{route('user.jobVacancies')}}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
+                Show All Job Applications
+            </a>
+        </div>
+
+        <hr>
     </div>
 
-    <div class="container mt-3">
+    <div class="container mt-4">
         <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">Your <span style="color: #682b90">Profile</span></h3>
         <div class="card">
             <div class="card-body">

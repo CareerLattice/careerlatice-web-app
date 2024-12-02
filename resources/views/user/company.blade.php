@@ -9,17 +9,17 @@
         <img src="{{asset('assets/bannerCompany.jpg')}}"
              alt="Company Cover"
              class="img-fluid w-100"
-             style="object-fit: cover; height: 50vh; max-height: 500px;">
+             style="object-fit: cover; height: 35vh; max-height: 500px;">
 
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
-            <h1 class="display-4 fw-bold text-wrap">Welcome to {{$company->user->name}}</h1>
-            <p class="lead text-wrap fw-bold" style="color: gold; font-size: 1.8rem;">Your trusted financial partner.</p>
+            <h1 class="display-5 fw-bold text-wrap">Welcome to {{$company->user->name}}</h1>
+            <p class="lead text-wrap fw-bold" style="color: gold; font-size: 1.5rem;">Your trusted professional partner.</p>
         </div>
     </div>
 
     <div class="container mt-4">
-        <a href="{{route('jobs')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> Back to Jobs
+        <a href="{{route('companies')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
+            <i class="bi bi-arrow-left-circle"></i> Back to Companies
         </a>
     </div>
 
