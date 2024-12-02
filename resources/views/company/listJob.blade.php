@@ -2,6 +2,24 @@
 
 @section('title', 'Job Listings - Company View')
 
+@section('custom_css')
+<style>
+    @media(min-width:768px){
+        .dropdown-menu{
+            margin-left: 210px
+        }
+    }
+    @media (max-width: 767px) {
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            left: auto; 
+        }
+    }
+</style>
+@endsection
+
+
 @section('content')
     @include('components.navbar')
     <div class="container my-5">
@@ -9,56 +27,64 @@
         <div class="d-flex justify-content-between">
             <h2 class="mb-4">Job Listings</h2>
 
-            <div>
+            <div class="">
+                
                 <form class="" role="search" action="{{route('company.searchJobs')}}" method="GET">
                     <div class="d-md-flex dropdown text-end">
-                        <input style="max-width: 300px" class="form-control mb-2 mb-md-0 me-md-2" name="search" value="{{ request('search') }}">
-                        <button class="btn btn-outline-primary dropdown-toggle me-md-2 mb-2 mb-md-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <input style="" class="form-control mb-2 mb-md-0 me-md-2" name="search" placeholder="Search..." value="{{ request('search') }}">
+                        
+                        <button class="btn btn-outline-primary dropdown-toggle me-md-2 mb-2 mb-md-0" type="button" id="dropdownMenuButton1" onclick="toggleDropdown()">
                             Filter
                         </button>
-                        <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
-                                <li class="form-group">
-                                    <ul class="list-unstyled"><label class="fw-bold">Job Type</label>
-                                        <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Full Time" id="checkFulltime" 
-                                            @if(in_array('Full Time', request('job_type', []))) checked @endif>
-                                            <label class="form-check-label" for="checkFulltime">
-                                                Full-time
-                                            </label>
-                                        </li>
-                                        <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Part Time" id="checkParttime"
-                                            @if(in_array('Part Time', request('job_type', []))) checked @endif>
-                                            <label class="form-check-label" for="checkParttime">
-                                                Part-time
-                                            </label>
-                                        </li>
-                                        <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Internship" id="checkInternship"
-                                            @if(in_array('Internship', request('job_type', []))) checked @endif>
-                                            <label class="form-check-label" for="checkInternship">
-                                                Internship
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="form-group">
-                                    <ul class="list-unstyled"><label class="fw-bold">Status</label>
-                                        <li><input class="form-check-input" name="is_active[]" type="checkbox" value="1" id="checkOpen"
-                                            @if(in_array('1', request('is_active', []))) checked @endif>
-                                            <label class="form-check-label" for="checkOpen">
-                                                Open
-                                            </label>
-                                        </li>
-                                        <li><input class="form-check-input" name="is_active[]" type="checkbox" value="0" id="CheckClosed">
-                                            <label class="form-check-label" for="checkClosed"
-                                            @if(in_array('0', request('is_active', []))) checked @endif>
-                                                Closed
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </li>
+                        
+                        <ul class="dropdown-menu mt-md-5  p-2" id="dropdownMenu" aria-labelledby="dropdownMenuButton" >
+                            <li class="form-group">
+                                <ul class="list-unstyled">
+                                    <label class="fw-bold">Job Type</label>
+                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Full Time" id="checkFulltime" 
+                                        @if(in_array('Full Time', request('job_type', []))) checked @endif>
+                                        <label class="form-check-label" for="checkFulltime">
+                                            Full-time
+                                        </label>
+                                    </li>
+                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Part Time" id="checkParttime"
+                                        @if(in_array('Part Time', request('job_type', []))) checked @endif>
+                                        <label class="form-check-label" for="checkParttime">
+                                            Part-time
+                                        </label>
+                                    </li>
+                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Internship" id="checkInternship"
+                                        @if(in_array('Internship', request('job_type', []))) checked @endif>
+                                        <label class="form-check-label" for="checkInternship">
+                                            Internship
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="form-group">
+                                <ul class="list-unstyled">
+                                    <label class="fw-bold">Status</label>
+                                    <li><input class="form-check-input" name="is_active[]" type="checkbox" value="1" id="checkOpen"
+                                        @if(in_array('1', request('is_active', []))) checked @endif>
+                                        <label class="form-check-label" for="checkOpen">
+                                            Open
+                                        </label>
+                                    </li>
+                                    <li><input class="form-check-input" name="is_active[]" type="checkbox" value="0" id="checkOpen"
+                                        @if(in_array('0', request('is_active', []))) checked @endif>
+                                        <label class="form-check-label" for="checkOpen">
+                                            Closed
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                        <button class="btn btn-outline-success mb-2 mb-md-0 " type="submit">Search</button>
+                        
+                        <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
                     </div>
                 </form>
+
             </div>
 
         </div>
@@ -110,5 +136,27 @@
 
 @section('custom_script')
 
-    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script>
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            var isOpen = dropdownMenu.classList.contains('show');
+
+            if (isOpen) {
+                dropdownMenu.classList.remove('show');
+            } else {
+                dropdownMenu.classList.add('show');
+            }
+
+        }
+
+        window.addEventListener('click', function(event) {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            var button = document.getElementById('dropdownMenuButton1');
+
+            if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
+
 @endsection
