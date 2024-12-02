@@ -139,31 +139,26 @@
             </div>
         </div>
 
-
-    
-    
         <div class="job-card mt-5">
             <div class="job-header justify-content-between">
                 <h4 class="fw-bold">List Applicant</h4>
             
-            <form role="filter" action="{{route('company.filter',['job'=>$job])}}" method="GET"> 
-                <input type="hidden" name="job_id" value="$job">
-                <div class="dropdown">
-                    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Filter
-                    </button>
+                <form role="filter" action="{{ route('company.filter', ['job' => $job]) }}" method="GET">
+                    <input type="hidden" name="job_id" value="{{ $job }}">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
+                            Filter
+                        </button>
                     
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
                             <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
                             <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
                             <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
                             <li><button class="dropdown-item" name="filter" value="on process" type="submit">On Process</button></li>
                             <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
                         </ul>
-                    
-                </div>
-            </form>
-
+                    </div>
+                </form>
 
                 <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
             </div>
@@ -238,7 +233,6 @@
 @endsection
 
 @section('custom_script')
-<script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <script>
         async function changeStatus(formId, applicationId) {
@@ -280,6 +274,28 @@
                 console.error(error);
             }
         }
+
+
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            var isOpen = dropdownMenu.classList.contains('show');
+
+            if (isOpen) {
+                dropdownMenu.classList.remove('show');
+            } else {
+                dropdownMenu.classList.add('show');
+            }
+
+        }
+
+        window.addEventListener('click', function(event) {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            var button = document.getElementById('dropdownMenuButton1');
+
+            if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
     </script>
 @endsection
 

@@ -124,6 +124,9 @@ class JobController extends Controller
 
     // Company can search specific job they create
     public function CompanySearchJobs(Request $req){
+
+        // dd($req->all());
+
         $req->validate([
             'search' => 'string|nullable',
             'job_type' => 'array|nullable',
