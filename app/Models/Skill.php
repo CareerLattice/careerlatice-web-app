@@ -22,4 +22,8 @@ class Skill extends Model
     public function userSkill(): HasMany{
         return $this->hasMany(UserSkill::class, 'skill_id', 'id');
     }
+
+    public function jobSkill(): HasMany{
+        return $this->hasMany(JobSkill::class,'skill_id', 'id');
+    }
 }

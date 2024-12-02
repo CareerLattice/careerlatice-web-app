@@ -13,8 +13,8 @@ class UserSkill extends Model
     protected $table = 'user_skills';
     protected $guarded = [];
 
-    public function user(): BelongsTo{
-        return $this->belongsTo(User::class);
+    public function applier(): BelongsTo{
+        return $this->belongsTo(Applier::class);
     }
 
     public function skill(): BelongsTo{

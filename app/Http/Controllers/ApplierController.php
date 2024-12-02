@@ -136,53 +136,6 @@ class ApplierController extends Controller
         return redirect()->route('user.profile', ['user' => $user]);
     }
 
-    // public function userEducation($id){
-    //     $user = User::findOrFail($id);
-    //     $educations = $user->educations;
-    //     return $educations;
-    // }
-
-    // public function userHistory($id){
-    //     $user = User::findOrFail($id);
-    //     $histories = $user->userHistories;
-    //     return $histories;
-    // }
-
-    // public function viewApplicant(User $user){
-    //     return view('company.applicant', ['applicant' => $user]);
-    // }
-
-    // public function upgradeToPremium(Request $req){
-    //     $req->validate([
-    //         'duration' => 'required|numeric',
-    //     ]);
-
-    //     $applier = Applier::where('user_id', Auth::user()->id)->first();
-    //     if($applier->end_date_premium > now()){
-    //         return redirect()->back();
-    //     }
-
-    //     DB::beginTransaction();
-    //     try {
-    //         $applier->update([
-    //             'start_date_premium' => now(),
-    //             'end_date_premium' => now()->addMonths($req->duration),
-    //         ]);
-
-    //         UserHistory::create([
-    //             'applier_id'=> $applier->id,
-    //             'start_date' => $applier->start_date_premium,
-    //             'end_date' => $applier->end_date_premium,
-    //         ]);
-
-    //         DB::commit();
-    //         return redirect()->route('user.home');
-    //     } catch (\Exception $e) {
-    //         DB::rollBack();
-    //         return back()->withErrors(['error' => 'Please try again later.']);
-    //     }
-    // }
-
     public function viewPremiumHistory(){
         $applier = Auth::user()->applier;
         $history = UserHistory::where('applier_id', $applier->id)->orderBy('end_date', 'desc')->paginate(10);
