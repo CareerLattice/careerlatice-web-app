@@ -57,7 +57,7 @@
                         Birth Date
                         <span class="text-danger">*</span>
                     </label>
-                    <input type="date" class="form-control" id="inputBirthDate" name="dob" required>
+                    <input type="date" class="form-control" id="inputBirthDate" name="birth_date" required>
                 </div>
                 <div class="col-12">
                     <label for="phoneNumber" class="form-label">
@@ -91,13 +91,13 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
                 <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
                     <div class="carousel-item active h-100">
-                        <img src="{{ asset('assets/loginDevPic1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
+                        <img src="{{asset('assets/loginDevPic1.jpg')}}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
                     </div>
                     <div class="carousel-item h-100">
-                        <img src="{{ asset('assets/loginDevPic2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
+                        <img src="{{asset('assets/loginDevPic2.jpg')}}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
                     </div>
                     <div class="carousel-item h-100">
-                        <img src="{{ asset('assets/loginDevPic3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
+                        <img src="{{asset('assets/loginDevPic3.jpg')}}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="carousel-controls">

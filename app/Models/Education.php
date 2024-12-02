@@ -10,7 +10,7 @@ class Education extends Model
 {
     use HasFactory;
 
-    protected $table = 'educations';
+    protected $table = 'education';
 
     protected $guarded = [
         'id',
@@ -18,17 +18,14 @@ class Education extends Model
         'updated_at',
     ];
 
-    public $incrementing = true;
-    public $timestamps = true;
-    protected $primaryKey = 'id';
+    protected function casts(): array{
+        return [
+            'applier_id' => 'string',
+            'is_active' => 'boolean',
+        ];
+    }
 
-    protected $casts = [
-        'id' => 'string',
-        'user_id' => 'string',
-        'is_active' => 'boolean',
-    ];
-
-    public function user(): BelongsTo {
-        return $this->belongsTo(User::class);
+    public function applier(): BelongsTo {
+        return $this->belongsTo(Applier::class);
     }
 }

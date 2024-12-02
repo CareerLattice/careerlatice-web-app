@@ -10,6 +10,7 @@ use App\Http\Controllers\JobApplicationController;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PremiumController;
 
 /* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
@@ -116,7 +117,6 @@ Route::prefix("user")->group(function(){
         // Route::delete('/applied-job/{job}', [UserController::class, 'cancelAppliedJob'])->name('user.cancelAppliedJob');
 
         // Route for user to be premium user
-        // Route::post('/premium', [UserController::class, 'upgradeToPremium'])->name('user.upgradeToPremium');
         Route::get('/premium-history', [UserController::class, 'viewPremiumHistory'])->name('user.premiumHistory');
 
         // Route for user to add skill
@@ -187,3 +187,8 @@ Route::get('/test/data', function(){
         'data' => $data,
     ]);
 });
+
+// Testing untuk MidTrans
+Route::post('/premium', [PremiumController::class, 'process'])->name('user.upgradeToPremium');
+Route::get('/checkout/{transaction}', [PremiumController::class, 'checkout'])->name('user.checkout');
+Route::post('/subscription/success', [PremiumController::class, 'success'])->name('user.premiumSuccess');

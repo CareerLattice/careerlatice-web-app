@@ -26,7 +26,7 @@ class UserHistory extends Model
         'user_id' => 'string',
     ];
 
-    public function user(): BelongsTo{
-        return $this->belongsTo(User::class);
+    public function applier(): BelongsTo{
+        return $this->belongsTo(Applier::class);
     }
 }

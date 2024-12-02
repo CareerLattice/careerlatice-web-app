@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+
     }
 
     /**
@@ -34,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
             'company_upload/job_picture',
         ];
 
+        $defaultFolder = ['default'];
+
         // Create user upload folders
         foreach ($userUploadPaths as $path) {
             if (!Storage::disk('public')->exists($path)) {
@@ -43,6 +45,13 @@ class AppServiceProvider extends ServiceProvider
 
         // Create company upload folders
         foreach ($companyUploadPaths as $path) {
+            if (!Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->makeDirectory($path);
+            }
+        }
+
+        // Create default folder for default picture
+        foreach ($defaultFolder as $path) {
             if (!Storage::disk('public')->exists($path)) {
                 Storage::disk('public')->makeDirectory($path);
             }

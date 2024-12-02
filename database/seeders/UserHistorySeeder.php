@@ -25,6 +25,8 @@ class UserHistorySeeder extends Seeder
                 'name' => $faker->sentence,
                 'start_date' => $faker->dateTimeBetween('-1 year', 'now'),
                 'end_date' => $faker->dateTimeBetween('now', '+1 year'),
+                'duration' => $faker->randomElement([1, 3, 6, 12]),
+                'price' => $faker->randomElement([10000, 28000, 50000, 90000]),
             ]);
         }
     }

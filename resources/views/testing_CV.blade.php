@@ -98,11 +98,7 @@
 
 @section('custom_script')
 <script src="{{ asset('js/script.js') }}"></script>
-<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 <script>
-    // function showCV() {
-    //     window.open("{{route('getCV', ['filename' => 'Localization.pdf'])}}", "_blank");
-    // }
     function testingJS(){
         if (document.getElementById('test').style.color == 'red')
             document.getElementById('test').style.color = 'black';

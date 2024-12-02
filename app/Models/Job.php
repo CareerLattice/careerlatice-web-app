@@ -12,9 +12,6 @@ class Job extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'job_vacancies';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-    public $incrementing = true;
 
     protected $guarded = [
         'id',

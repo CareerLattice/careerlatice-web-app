@@ -3,7 +3,6 @@
 @section('title', 'Job Detail')
 
 @section('custom_css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -139,33 +138,28 @@
             </div>
         </div>
 
-
-    
-    
-        <div class="job-card mt-5">
+        <div class="job-card mt-5 d-flex flex-column">
             <div class="job-header justify-content-between">
                 <h4 class="fw-bold">List Applicant</h4>
-            
-            <form role="filter" action="{{route('company.filter',['job'=>$job])}}" method="GET"> 
-                <input type="hidden" name="job_id" value="$job">
-                <div class="dropdown">
-                    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Filter
-                    </button>
-                    
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
-                            <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
-                            <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
-                            <li><button class="dropdown-item" name="filter" value="on process" type="submit">On Process</button></li>
-                            <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
-                        </ul>
-                    
+                <div class="d-flex gap-2">
+                    <form role="filter" action="{{route('company.filter',['job'=>$job])}}" method="GET">
+                        <input type="hidden" name="job_id" value="$job">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
+                                <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
+                                <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
+                                <li><button class="dropdown-item" name="filter" value="on process" type="submit">On Process</button></li>
+                                <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
                 </div>
-            </form>
-
-
-                <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
             </div>
 
             <hr class="my-4">
@@ -238,8 +232,7 @@
 @endsection
 
 @section('custom_script')
-<script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script>
         async function changeStatus(formId, applicationId) {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');

@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('appliers', function (Blueprint $table) {
             $table->id();
-            $table->string('cv_url')->nullable();
+            $table->string('headline');
             $table->string('address')->nullable();
             $table->text('description')->nullable();
             $table->timestamp('birth_date')->nullable();
             $table->timestamp('start_date_premium')->nullable();
             $table->timestamp('end_date_premium')->nullable();
+            $table->string('cv_url')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
