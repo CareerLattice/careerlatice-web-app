@@ -140,16 +140,37 @@
         </div>
 
         <div class="job-card mt-5">
-            <div class="job-header justify-content-between">
-                <h4 class="fw-bold">List Applicant</h4>
-                <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
+            <div class="job-header row g-3 align-items-center justify-content-between">
+                <div class="col-md-2">
+                    <h4 class="m-0">List Applicant</h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-3">
+                            <h6 class="mb-1">From</h6>
+                            <input type="date" class="form-control" id="inputDateFrom" name="from">
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="mb-1">To</h6>
+                            <input type="date" class="form-control" id="inputDateTo" name="to">
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" class="btn btn-secondary w-100">Search</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary w-100">
+                                Export List Applicant
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+            
             <hr class="my-4">
 
             <div class="list-applicant">
                 @forelse ($applicants as $application)
-                    <div class="row align-items-center text-center text-md-start mb-3">
+                    <div class="d-flex row align-items-center text-center text-md-start mb-3">
                         <div class="col-md-4 d-flex align-items-center gap-3 mb-2">
                             <img src="{{asset('assets/formal-person.jpg') }}" alt="User Profile" class="user-profile border-circle">
                             <div>
@@ -157,11 +178,15 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3 my-2">
+                        <div class="col-md-2 my-2">
                             <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">Open CV</a>
                         </div>
 
-                        <div class="col-md-5 d-flex gap-2 justify-content-center justify-content-md-end my-2" id="statusContainer_{{$application->job_application_id}}">
+                        <div class="col-md-3">
+                            <h6 class="m-0">Applied: 20/11/2024</h6>
+                        </div>
+
+                        <div class="col-md-3 d-flex gap-2 justify-content-center justify-content-md-end my-2" id="statusContainer_{{$application->job_application_id}}">
                             @if ($application->status == 'accepted')
                                 <div class="bg-success text-light p-2 rounded-3">Accepted</div>
                             @elseif ($application->status == 'rejected')

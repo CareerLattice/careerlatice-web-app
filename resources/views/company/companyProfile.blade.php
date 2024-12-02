@@ -2,6 +2,40 @@
 
 @section('title', 'Edit Profile')
 
+@section('custom_css')
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+            width: 180px;
+            height: 180px;
+        }
+
+        .change-image-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 100px;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .change-image-btn {
+            opacity: 1;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="container my-5">
         <a href="{{route('company.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
@@ -49,10 +83,15 @@
 
                     <div class="mb-4">
                         <div class="d-flex flex-column">
-                            <label for="logo" class="form-label">Upload Company Logo</label>
+                            <label class="form-label"><strong>Upload Company Logo</strong></label>
                             <div class="d-flex align-items-center">
-                                <img src="{{Storage::url(Auth::user()->profile_picture)}}" alt="Profile Picture" class="rounded-circle me-2" style="max-width: 100px; max-height: 100px;" />
-                                <input type="file" class="form-control" id="logo" name="logo" style="width: 50%;">
+                                <div class="image-container">
+                                    <img src="{{Storage::url(Auth::user()->profile_picture)}}" alt="Profile Picture" class="rounded-circle me-2" style="width: 180px; height: 180px;" />
+                                    <input type="file" class="form-control" id="logo" name="logo" style="display: none;">
+                                    <label for="logo" class="change-image-btn">
+                                        <i class="bi bi-pencil-fill fs-3"></i>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>

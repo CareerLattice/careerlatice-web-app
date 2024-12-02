@@ -23,8 +23,8 @@
         }
 
         .company-logo {
-            width: 80px;
-            height: 80px;
+            width: 160px;
+            height: 160px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -44,6 +44,36 @@
         .applicant-details .btn{
             padding: 1.2rem;
         }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+        }
+
+        .change-image-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 9px;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .change-image-btn {
+            opacity: 1;
+        }
     </style>
 @endsection
 
@@ -62,6 +92,17 @@
             <hr class="my-1">
             <form action="{{route('company.updateJob', ['job' => $job])}}" method="POST">
                 @csrf
+                <div class="d-flex flex-column justify-content-center">
+                    <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">Job Image</h2></label>
+                    <div class="image-container">
+                        <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo">
+                        <input type="file" id="uploadImage" name="job_image" style="display: none;">
+                        <label for="uploadImage" class="change-image-btn">
+                            <i class="bi bi-pencil-fill fs-5"></i>
+                        </label>
+                    </div>
+                </div>
+
                 <label for="title"><h2 class="fs-4 m-0 mt-3">Title</h2></label>
                 <input id="title" type="text" class="form-control" value="{{ $job->title }}" name="title" required>
 
