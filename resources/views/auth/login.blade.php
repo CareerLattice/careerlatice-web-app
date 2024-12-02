@@ -1,5 +1,51 @@
 @extends('layouts.app')
 
+@section('custom_css')
+    <link href="{{ asset('css/loginCompany.css') }}" rel="stylesheet">
+
+    <style>
+        @media (max-width: 1040px) {
+            h3 {
+                font-size: 1.3rem;
+                line-height: 1.4;
+                margin-bottom: 1.5rem;
+            }
+
+            .span-text {
+                font-size: 1.7rem;
+            }
+
+            .col-md-7 h3 {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h3 {
+                font-size: 1.2rem;
+                line-height: 1.3;
+                margin-bottom: 1rem;
+            }
+
+            .span-text {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 0.9rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .span-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+@endsection
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -69,51 +115,7 @@
     </div>
 </div> --}}
 
-<link href="{{ asset('css/loginCompany.css') }}" rel="stylesheet">
-
-<style>
-    @media (max-width: 1040px) {
-        h3 {
-            font-size: 1.3rem;
-            line-height: 1.4;
-            margin-bottom: 1.5rem;
-        }
-
-        .span-text {
-            font-size: 1.7rem;
-        }
-
-        .col-md-7 h3 {
-            padding: 0 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        h3 {
-            font-size: 1.2rem;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-        }
-
-        .span-text {
-            font-size: 1.7rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        h3 {
-            font-size: 0.9rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .span-text {
-            font-size: 1.5rem;
-        }
-    }
-</style>
-
-<div class="row h-100">
+<div class="d-flex">
     <div class="col-md-7">
         <a href="{{route('landingPage')}}">
             <button type="button" class="btn btn-dark mt-4 ms-4">
@@ -159,7 +161,7 @@
         </p>
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-5 pe-0">
         <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
             <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
                 <div class="carousel-item active h-100">
