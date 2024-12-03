@@ -61,7 +61,7 @@
                     </ul>
                 </div>
                 <div class="col-12 col-md-12 col-lg-7 text-center text-md-start mt-4">
-                    <img src="{{ secure_asset('assets/11464491.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 85%; height: auto;" />
+                    <img src="{{ asset('assets/11464491.jpg') }}" class="img-fluid" alt="Company Image" style="max-width: 85%; height: auto;" />
                 </div>
             </div>
             <hr>
@@ -105,7 +105,7 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0 d-flex justify-content-center">
                             <div class="col-12 col-sm-10 col-md-4 mt-3">
-                                <img src="{{secure_asset('assets/bbca.jpeg')}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
+                                <img src="{{asset('assets/bbca.jpeg')}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
                             </div>
                             <div class="col-12 col-md-8">
                                 <div class="card-body p-3">

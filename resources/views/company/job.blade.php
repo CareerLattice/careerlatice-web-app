@@ -71,7 +71,7 @@
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row">
                         <div class="col-10 col-md-3 d-flex justify-content-center">
-                            <img src="{{secure_asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                            <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">
@@ -169,7 +169,7 @@
                 @forelse ($applicants as $application)
                     <div class="d-flex row align-items-center text-center text-md-start mb-3">
                         <div class="col-md-4 d-flex align-items-center gap-3 mb-2">
-                            <img src="{{secure_asset('assets/formal-person.jpg') }}" alt="User Profile" class="user-profile border-circle">
+                            <img src="{{asset('assets/formal-person.jpg') }}" alt="User Profile" class="user-profile border-circle">
                             <div>
                                 <h5 class="fw-bold m-0">{{$application->name}}</h5>
                             </div>

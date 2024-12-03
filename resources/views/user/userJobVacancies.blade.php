@@ -44,7 +44,7 @@
     @include('components.navbar')
 
     <div class="position-relative" style="position: relative;">
-        <img src="{{ secure_asset('assets/bannerUserJobVacan.jpg') }}" alt="Job Opportunities Banner" class="img-fluid"
+        <img src="{{ asset('assets/bannerUserJobVacan.jpg') }}" alt="Job Opportunities Banner" class="img-fluid"
             style="object-fit: cover; width: 100%; height: 35vh; max-height: 450px;">
 
         <div class="container position-absolute top-50 start-50 translate-middle text-center"

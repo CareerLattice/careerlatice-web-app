@@ -3,7 +3,7 @@
 @section('title', 'Career Lattice')
 
 @section('custom_css')
-    <link href="{{ secure_asset('css/landingPage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landingPage.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 @endsection
 
@@ -14,7 +14,7 @@
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ secure_asset('assets/sliders5.jpg') }}" class="carousel-image d-block w-100" alt="Slide 1">
+                        <img src="{{ asset('assets/sliders5.jpg') }}" class="carousel-image d-block w-100" alt="Slide 1">
                         <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
                                 Welcome to <span style="color: #7869cd">CareerLattice</span>.
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ secure_asset('assets/sliders7.jpg') }}" class="carousel-image d-block w-100" alt="Slide 2">
+                        <img src="{{ asset('assets/sliders7.jpg') }}" class="carousel-image d-block w-100" alt="Slide 2">
                         <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
                                 Join Top Leading <span style="color: #7869cd">Companies</span>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ secure_asset('assets/sliders1.jpg') }}" class="carousel-image d-block w-100" alt="Slide 3">
+                        <img src="{{ asset('assets/sliders1.jpg') }}" class="carousel-image d-block w-100" alt="Slide 3">
                         <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
                                 Explore Exciting <span style="color: #7869cd">Job Vacancies</span>
@@ -121,13 +121,13 @@
 
 
                 <div class="row">
-                    <img src="{{secure_asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-3" alt="Landing Page Image">
+                    <img src="{{asset('assets/landingPagePhoto.jpg')}}" class="img-fluid mb-3" alt="Landing Page Image">
                 </div>
 
                 <div class="container mb-5">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-6 text-center">
-                            <img src="{{secure_asset('assets/sdgs.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
+                            <img src="{{asset('assets/sdgs.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
                         </div>
                         <div class="col-12 col-md-6">
                             <h2 class="fw-bold fs-1 mb-4">How we provides <span style="color: #7869cd">Solutions</span></h2>
@@ -180,7 +180,7 @@
               <div class="popular-company container hidden">
                 {{-- Technology and Information category --}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{secure_asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tokopedia</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -189,7 +189,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{secure_asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Shopee</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -198,7 +198,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{secure_asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Grab</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -207,7 +207,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{secure_asset('/assets/traveloka.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/traveloka.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Traveloka</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -216,7 +216,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{secure_asset('/assets/blibli.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/blibli.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Blibli</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -225,7 +225,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{secure_asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Gojek</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -236,7 +236,7 @@
 
                 {{-- Start of Consulting and Accounting category--}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{secure_asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Deloitte</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -245,7 +245,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{secure_asset('/assets/kpmg.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/kpmg.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">KPMG</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -254,7 +254,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{secure_asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">EY</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -263,7 +263,7 @@
                 </div>
 
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{secure_asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">PwC</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -274,7 +274,7 @@
 
                 {{-- Start of Finance and Insurance category--}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Finance and Insurance">
-                    <img src="{{secure_asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Bank Central Asia</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -285,7 +285,7 @@
 
                 {{-- Start of Healthcare and Hospitality --}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Healthcare and Hospitality">
-                    <img src="{{secure_asset('/assets/omnihospital.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/omnihospital.jpeg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Omni Hospital</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -319,7 +319,7 @@
 
               <div class="job-vacancy container hidden">
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">DevOps Engineer</h5>
                         <p class="card-subtitle text-muted">Bank Central Asia</p>
@@ -330,7 +330,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">UI/UX Designer</h5>
                         <p class="card-subtitle text-muted">Grab</p>
@@ -341,7 +341,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Project Manager</h5>
                         <p class="card-subtitle text-muted">Deloitte.</p>
@@ -352,7 +352,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Mobile App Developer</h5>
                         <p class="card-subtitle text-muted">Shopee</p>
@@ -363,7 +363,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">System Administrator</h5>
                         <p class="card-subtitle text-muted">PwC</p>
@@ -374,7 +374,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Tech Intern</h5>
                         <p class="card-subtitle text-muted">Tokopedia</p>
@@ -385,7 +385,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Software Engineer Intern</h5>
                         <p class="card-subtitle text-muted">Gojek</p>
@@ -396,7 +396,7 @@
                 </div>
 
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
-                    <img src="{{secure_asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
                         <h5 class="card-title">Data Analyst Intern</h5>
                         <p class="card-subtitle text-muted">Bukalapak</p>
@@ -565,5 +565,5 @@
 @endsection
 
 @section('custom_script')
-    <script src="{{ secure_asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 @endsection
