@@ -72,17 +72,25 @@
                     <div class="col-12 col-md-3 mb-2 d-flex justify-content-center">
                         <img src="{{Storage::url($applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
                     </div>
+
                     <div class="col-12 col-md-7 ms-3">
                         <h3 class="card-title mb-2">{{$applier->user->name}}</h3>
                         <p class="section-description" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">{{$applier->headline}}</p>
-                        <a href="{{route ('updateUser')}}" class="btn btn-outline-success">Edit Profile</a>
+                        @if ($applier->end_date_premium < now())
+                            <div class="alert alert-success rounded-pill p-2 text-center" style="width:20%; min-width: 85px; max-width: 100px;">
+                                Premium
+                            </div>
+                        @endif
+                        <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">Edit Profile</a>
                     </div>
                 </div>
+
                 <ul class="nav nav-tabs mb-4" id="companyTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="fs-5 nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab">About Me</button>
                     </li>
                 </ul>
+
                 <div class="tab-content" id="companyTabContent">
                     <h4 class="section-title mb-3" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">Description</h4>
                     <p style="text-align: justify">{{$applier->description}}</p>
@@ -103,7 +111,7 @@
                         <button class="fs-5 title nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab">Education</button>
                     </li>
                 </ul>
-                {{-- @dd($applier->educations) --}}
+
                 @forelse ($applier->educations as $education)
                     <div class="d-md-flex align-items-center mb-2">
                         <div class="col-12 col-md-7 ms-3">

@@ -71,7 +71,7 @@ class ApplierController extends Controller
             ->limit(3)
             ->get();
 
-        $applier = Applier::where('user_id', Auth::user()->id)
+        $applier = Applier::where('user_id', Auth::id())
             ->with('user')
             ->with('educations')
             ->with('experiences')
@@ -97,71 +97,54 @@ class ApplierController extends Controller
         return view('user.userProfile', ['user' => $user]);
     }
 
+    public function edit(){
+        $applier = Applier::where('user_id', Auth::id())
+            ->with('user')
+            ->with('educations')
+            ->with('experiences')
+            ->first();
+
+        return view('user.updateProfileUser', compact('applier'));
+    }
+
     public function updateProfile(Request $req){
+        // dd('test');
+        $user = Auth::user();
         $req->validate([
             'name' => 'string|min:3',
-            'phone_number' => 'string|max:20',
+            'headline' => 'string|max:100',
+            'phone_number' => 'string|max:20|unique:users,phone_number,' . $user->id,
             'address' => 'string|max:100',
-            'profile_picture' => 'string',
-            'birth_date' => 'before:today',
+            'birth_date' => ['required', 'date', 'before_or_equal:' . Carbon::today()->toDateString()],
+            'description' => 'string|max:255',
+            'profile_picture' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $user = Auth::user();
+        if($req->profile_picture){
+            if ($user->profile_picture && Storage::disk('public')->exists($user->profile_picture)) {
+                Storage::disk('public')->delete($user->profile_picture);
+            }
+
+            $path = $req->file('profile_picture')->storeAs('user_upload/profile_picture', $user->id . '_profile_picture.' . $req->file('profile_picture')->getClientOriginalExtension(), 'public');
+            $user->profile_picture = $path;
+        }
+
         $user->update([
             'name'=> $req->name,
             'phone_number'=> $req->phone_number,
-            'profile_picture' => $req->profile_picture,
+            'profile_picture'=> $user->profile_picture,
         ]);
 
         Applier::where('user_id', $user->id)->update([
+            'headline' => $req->headline,
             'address' => $req->address,
             'birth_date' => $req->birth_date,
+            'description'=> $req->description,
         ]);
 
         Auth::login($user);
         session()->put('success','Profile updated');
-        return redirect()->route('user.profile');
-    }
-
-    // User can upload CV
-    public function uploadUserCV(Request $req) {
-        $req->validate([
-            'cv' => 'required|file|mimes:pdf|max:2048',
-        ]);
-
-        $path = $req->file('cv')->store('user_upload/CV');
-        $user = Auth::user();
-
-        // Delete old CV from folder
-        if (Storage::exists($user->applier->cv)) {
-            Storage::delete($user->applier->cv);
-        }
-
-        Applier::where('user_id', $user->id)->update(['cv_url' => $path]);
-        Auth::login($user);
-        return redirect()->route('user.profile');
-    }
-
-    // User can upload profile picture
-    public function uploadUserProfilePicture(Request $req) {
-        $req->validate([
-            'profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
-
-        $path = $req->file('profile_picture')->store('user_upload/profile_picture');
-        $user = Auth::user();
-
-        // Delete old profile picture from folder
-        if (Storage::exists($user->profile_picture)) {
-            Storage::delete($user->profile_picture);
-        }
-
-        $user->profilePicture = $path;
-        User::where('id', $user->id)->update(['profile_picture' => $path]);
-
-        $updatedUser = User::find($user->id);
-        Auth::login($updatedUser);
-        return redirect()->route('user.profile', ['user' => $user]);
+        return redirect()->back();
     }
 
     public function viewPremiumHistory(){
