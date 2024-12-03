@@ -70,7 +70,13 @@ class ApplierController extends Controller
             ->orderBy('job_applications.created_at', 'desc')
             ->limit(3)
             ->get();
-        return view('user.home', ['jobApplications' => $jobApplications]);
+
+        $applier = Applier::where('user_id', Auth::user()->id)
+            ->with('user')
+            ->with('educations')
+            ->with('experiences')
+            ->first();
+        return view('user.home', compact('jobApplications', 'applier'));
     }
 
     public function viewAllJobVacancies(){
