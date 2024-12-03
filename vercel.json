@@ -11,6 +11,7 @@
         }
     ],
     "env": {
+        "LD_LIBRARY_PATH": "/usr/lib64:/usr/lib",
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://career-lattice-binus-e3ec.e.aivencloud.com/",
@@ -24,7 +25,17 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+        "SESSION_DRIVER": "cookie",
+
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "career-lattice-binus-e3ec.e.aivencloud.com",
+        "DB_PORT": "11925",
+        "DB_DATABASE": "career-lattice",
+        "DB_USERNAME": "avnadmin",
+        "DB_PASSWORD": "AVNS_J0WRVZTA63jSGGPKZp9"
+    },
+    "build": {
+        "commands": ["bash build.sh"]
     },
     "outputDirectory": "public"
 }
