@@ -97,9 +97,10 @@ Route::prefix("user")->group(function(){
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
 
         Route::get('/job-vacancies', [ApplierController::class, 'viewAllJobVacancies'])->name('user.jobVacancies');
+
         // Route for user profile
-        Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');
-        Route::post('/profile', [UserController::class, 'updateProfile'])->name('user.updateProfile');
+        Route::get('/update-profile', [ApplierController::class, 'edit'])->name('user.editProfile');
+        Route::post('/update-profile', [ApplierController::class, 'updateProfile'])->name('user.updateProfile');
 
         // Route for user view companies
         Route::get('/search/companies', [CompanyController::class, 'searchCompany'])->name('user.searchCompany');
@@ -172,10 +173,6 @@ Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany
 Route::post('/company/update/application/{application}', [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
 
 // Not Done
-Route::get('/user/edit-profile', function(){
-    return view('user.updateProfileUser');
-})->name('updateUser');
-
 Route::get('/settings',function(){
     return view('settings');
 })->name('settings');

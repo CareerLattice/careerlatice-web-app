@@ -153,8 +153,8 @@
                 @endif
                 <button type="submit" class="btn btn-primary w-100">Login</button>
 
-            <p class="mt-3 mb-0 text-center">Don't have an account? <a href="{{route("signUpPage")}}"> {{ __('Register Here') }}</a></p>
-            <p class="text-center">Forget Password? <a href="{{route("password.request")}}"> {{ __('Reset Password') }}</a></p>
+            <p class="mt-3 mb-0 text-center">Don't have an account? <a href="{{route("signUpPage")}}" class="text-decoration-none"> {{ __('Register Here') }}</a></p>
+            <p class="text-center">Forget Password? <a href="{{route("password.request")}}" class="text-decoration-none"> {{ __('Reset Password') }}</a></p>
         </form>
         <p class="privacy col-md-6 mt-4 mx-auto text-center text-muted" style="font-size: 0.85rem;">
             Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.

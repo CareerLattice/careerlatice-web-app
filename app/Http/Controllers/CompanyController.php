@@ -107,8 +107,7 @@ class CompanyController extends Controller
         $company = Auth::user();
         if($req->logo){
             if ($company->profile_picture && Storage::disk('public')->exists($company->profile_picture)) {
-                $test = Storage::delete($company->profile_picture);
-                dd($test);
+                $test = Storage::disk('public')->delete($company->profile_picture);
             }
 
             $path = $req->file('logo')->storeAs('company_upload/profile_picture', $company->id . '_profile_picture.' . $req->file('logo')->getClientOriginalExtension(), 'public');
@@ -145,25 +144,6 @@ class CompanyController extends Controller
         $company = Company::with('user')->findOrFail($company_id);
         $jobs = Job::where('company_id', $company_id)->limit(3)->get();
         return view('user.company', compact('company', 'jobs'));
-    }
-
-    public function uploadCompanyProfilePicture(Request $req) {
-        $req->validate([
-            'company_profile_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
-
-        $path = $req->file('company_profile_picture')->store('company_upload/profile_picture');
-
-        $company = Auth::user();
-        if (Storage::exists($company->profilePicture)) {
-            Storage::delete($company->profilePicture);
-        }
-
-        User::where('id', $company->id)->update(['profile_picture' => $path]);
-
-        $updatedCompany = User::find($company->id);
-        Auth::login($updatedCompany);
-        return redirect()->route('company.profile', ['company' => $company]);
     }
 
     public function searchCompany(Request $req){

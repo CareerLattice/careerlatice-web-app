@@ -142,11 +142,11 @@ class JobController extends Controller
 
         if ($req->filled('job_type')) {
             $query = $query->whereIn('job_type', $req->job_type);
-        }   
+        }
 
         if ($req->filled('is_active')) {
             $query = $query->whereIn('is_active', $req->is_active);
-        }     
+        }
 
         $jobs = $query->paginate(20)->withQueryString();
 
@@ -174,7 +174,7 @@ class JobController extends Controller
 
         // Delete old profile picture from folder
         if (Storage::exists($job->job_picture)) {
-            Storage::delete($job->job_picture);
+            Storage::disk('public')->delete($job->job_picture);
         }
 
         $job->update([

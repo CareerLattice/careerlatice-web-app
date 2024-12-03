@@ -22,7 +22,7 @@ class UserSkillSeeder extends Seeder
 
         for ($i = 0; $i < 20; $i++) {
             UserSkill::firstOrCreate([
-                "user_id" => $users->random()->id,
+                "applier_id" => $users->random()->id,
                 "skill_id" => $skills->random()->id,
             ]);
         }

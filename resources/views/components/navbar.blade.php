@@ -102,7 +102,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->role == 'applier')
-                                <li><a class="dropdown-item" href="{{route('updateUser')}}">Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.editProfile')}}">Edit Profile</a></li>
                             @elseif (Auth::user()->role == 'company')
                                 <li><a class="dropdown-item" href="{{route('updateCompany')}}">Edit Profile</a></li>
                             @endif

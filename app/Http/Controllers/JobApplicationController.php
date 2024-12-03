@@ -51,10 +51,7 @@ class JobApplicationController extends Controller
             'status' => $req->status,
         ]);
 
-        $status = '';
-        if($req->status == 'accepted') $status = 'Accepted';
-        else $status = 'Rejected';
-
+        $status = $req->status == 'accepted' ? 'Accepted' : 'Rejected';
         return response()->json(['status'=> $status]);
 
         // Reload page
