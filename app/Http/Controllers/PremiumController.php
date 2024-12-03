@@ -17,6 +17,7 @@ class PremiumController extends Controller
 
         $applier = Applier::where('user_id', Auth::id())->first();
         if($applier->end_date_premium > now()){
+            session()->flash('error', 'You are already a premium member.');
             return redirect()->back();
         }
 

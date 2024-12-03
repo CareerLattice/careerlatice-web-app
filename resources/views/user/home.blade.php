@@ -58,7 +58,7 @@
                 </div>
             @endforelse
         </div>
-        
+
         <div class="text-center mb-4">
             <a href="{{route('user.jobVacancies')}}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
                 Show All Job Applications
@@ -80,7 +80,7 @@
                     <div class="col-12 col-md-7 ms-3">
                         <h3 class="card-title mb-2">{{$applier->user->name}}</h3>
                         <p class="section-description" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">{{$applier->headline}}</p>
-                        @if ($applier->end_date_premium < now())
+                        @if ($applier->end_date_premium > now())
                             <div class="alert alert-success rounded-pill p-2 text-center" style="width:20%; min-width: 85px; max-width: 100px;">
                                 Premium
                             </div>
