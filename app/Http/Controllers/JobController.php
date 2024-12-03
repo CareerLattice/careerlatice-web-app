@@ -224,6 +224,7 @@ class JobController extends Controller
                 'job_vacancies.address',
                 'job_vacancies.job_type',
                 'job_vacancies.description',
+                'job_vacancies.person_in_charge',
                 DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
                 'companies.id as company_id'

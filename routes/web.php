@@ -98,7 +98,7 @@ Route::prefix("user")->group(function(){
         // Route for user home
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
 
-        Route::get('/job-vacancies', [ApplierController::class, 'viewAllJobVacancies'])->name('user.jobVacancies');
+        Route::get('/job-vacancies', [JobApplicationController::class, 'viewJobApplications'])->name('user.jobVacancies');
 
         // Route for user profile
         Route::get('/update-profile', [ApplierController::class, 'edit'])->name('user.editProfile');

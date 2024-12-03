@@ -59,21 +59,36 @@ class JobApplicationController extends Controller
     }
 
     // User can view job application
-    // public function userJobApplication(){
+    public function viewJobApplications(){
+        $userJobApplications = DB::table('job_applications')
+            ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
+            ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
+            ->join('users', 'users.id', '=', 'companies.user_id')
+            ->select([
+                'job_vacancies.id',
+                'name',
+                'job_vacancies.title',
+                'job_applications.status',
+                DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
+            ])
+            ->where("job_applications.applier_id", Auth::user()->applier->id)
+            ->orderByRaw("
+                CASE
+                    WHEN job_applications.status = 'rejected' THEN 1
+                    ELSE 0
+                END,
+                job_applications.created_at DESC
+            ")
+            ->paginate(6);
 
-    //     $id = session('user_id');
-    //     $jobs = JobApplication::where('user_id', $id)->get();
-
-    //     Or
-
-    //     $user = User::findOrFail($id);
-    //     $jobs = $user->jobApplications;
-
-    //     return view('user.home', ['jobs' => $jobs]);
-    // }
+        return view('user.userJobVacancies', compact('userJobApplications'));
+    }
 
     public function create(Job $job){
-        $jobApplication = JobApplication::where('job_id', $job->id)->where('applier_id', Auth::user()->applier->id)->first();
+        $jobApplication = JobApplication::where('job_id', $job->id)
+            ->where('applier_id', Auth::user()->applier->id)
+            ->first();
+
         if($jobApplication){
             session()->put('error', 'You already applied for this job');
             return redirect()->back();
@@ -86,6 +101,6 @@ class JobApplicationController extends Controller
         ]);
 
         session()->put('message', 'Job application submitted successfully');
-        return redirect()->back();
+        return redirect()->route('user.jobVacancies');
     }
 }
