@@ -118,12 +118,15 @@
                     <h2 class="fw-bold fs-1 mb-4">
                         Take Your Career to the <span style="color: #7869cd">Next Level</span>
                     </h2>
+
                     <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
                         With a Career Lattice Premium subscription, you'll unlock unparalleled opportunities to stand out, gain enhanced visibility, and connect directly with top industry professionals who are actively seeking talent.
                     </p>
+
                     <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
                         Fast-track your career progression with a profile that attracts attention from leading employers, setting you on a path to success.
                     </p>
+
                     <form action="{{route('user.upgradeToPremium')}}" method="post">
                         @csrf
                         <input type="hidden" name="duration" value="1">

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
@@ -162,5 +162,14 @@ class CompanyController extends Controller
 
         $companies = $companiesQuery->paginate(12)->withQueryString();
         return view('user.companies', compact('companies'));
+    }
+
+    public function viewApplicants(Applier $applier){
+        $applier = Applier::where('id', $applier->id)
+            ->with('user')
+            ->with('educations')
+            ->with('experiences')
+            ->first();
+        return view('user.home', compact( 'applier'));
     }
 }

@@ -89,8 +89,10 @@ class JobController extends Controller
             ->join('appliers', 'users.id', '=', 'appliers.user_id')
             ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
             ->where('job_applications.job_id', $job->id)
-            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id')
+            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id', 'appliers.id as applier_id',
+            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at'))
             ->paginate(25);
+
         return view('company.job', compact('job', 'applicants'));
     }
 
@@ -124,9 +126,6 @@ class JobController extends Controller
 
     // Company can search specific job they create
     public function CompanySearchJobs(Request $req){
-
-        // dd($req->all());
-
         $req->validate([
             'search' => 'string|nullable',
             'job_type' => 'array|nullable',
@@ -161,26 +160,8 @@ class JobController extends Controller
 
         // Soft Delete the Job
         $job->delete();
+        session()->flash('message', 'Job has been deleted');
         return redirect()->route('company.listJob');
-    }
-
-    // Company can upload job picture
-    public function uploadJobPicture(Request $req, Job $job) {
-        $req->validate([
-            'job_picture' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
-
-        $path = $req->file('job_picture')->store('company_upload/job_picture');
-
-        // Delete old profile picture from folder
-        if (Storage::exists($job->job_picture)) {
-            Storage::disk('public')->delete($job->job_picture);
-        }
-
-        $job->update([
-            'job_picture' => $path,
-        ]);
-        return redirect()->route('company.job', ['id' => $job->id]);
     }
 
     // User Section for Job
@@ -243,6 +224,7 @@ class JobController extends Controller
                 'job_vacancies.address',
                 'job_vacancies.job_type',
                 'job_vacancies.description',
+                'job_vacancies.person_in_charge',
                 DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
                 'companies.id as company_id'

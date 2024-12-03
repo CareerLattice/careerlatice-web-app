@@ -113,7 +113,7 @@
                                     <p class="card-text text-dark mb-1" style="text-align: justify; font-size: 1rem;">{{$job->company_name}}</p>
                                     <p class="card-text mb-1" style="text-align: justify; color: gray; font-size: 0.9rem;">{{$job->address}} ({{$job->job_type}})</p>
                                     <p class="card-text mb-2" style="text-align: justify; font-size: 0.95rem;">{{$job->description}}</p>
-                                    <p class="card-text mb-1 fw-bold mt-5" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <span class="text-primary"><strong>Michelle Joanne</strong></span></p>
+                                    <p class="card-text mb-1 fw-bold mt-5" style="text-align: justify; font-size: 0.95rem;">Meet the hiring team <span class="text-primary"><strong>{{$job->person_in_charge}}</strong></span></p>
                                     <p class="card-text mb-0"><small class="text-body-secondary">Last updated {{$job->updated_at}}</small></p>
 
                                     <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">

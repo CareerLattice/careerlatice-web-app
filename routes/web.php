@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -96,7 +98,7 @@ Route::prefix("user")->group(function(){
         // Route for user home
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
 
-        Route::get('/job-vacancies', [ApplierController::class, 'viewAllJobVacancies'])->name('user.jobVacancies');
+        Route::get('/job-vacancies', [JobApplicationController::class, 'viewJobApplications'])->name('user.jobVacancies');
 
         // Route for user profile
         Route::get('/update-profile', [ApplierController::class, 'edit'])->name('user.editProfile');
@@ -176,6 +178,10 @@ Route::post('/company/update/application/{application}', [JobApplicationControll
 Route::get('/settings',function(){
     return view('settings');
 })->name('settings');
+
+Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
+Route::post('/add-experience', [ExperienceController::class, 'create'])->name('user.addExperience');
+Route::get('/company/view-applicants/{applier}', [CompanyController::class, 'viewApplicants'])->name('company.viewApplicants');
 
 // Testing Membuat Data untuk Client Side Rendering
 use App\Models\Company;

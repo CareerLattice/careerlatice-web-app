@@ -24,49 +24,50 @@
 @section('content')
     @include('components.navbar')
 
-    <div class="position-relative">
-        <img src="{{asset('assets/tesBannerUser.jpeg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh;">
-        <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
-            <p class="lead text-wrap fw-bold" style="font-weight: 600;">Unleash your potential with <span style="color: #682b90;">CareerLattice—connect, explore, and land</span> your dream job.</p>
+    @if (Auth::user()->role == 'applier')
+        <div class="position-relative">
+            <img src="{{asset('assets/tesBannerUser.jpeg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh;">
+            <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
+                <p class="lead text-wrap fw-bold" style="font-weight: 600;">Unleash your potential with <span style="color: #682b90;">CareerLattice—connect, explore, and land</span> your dream job.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="container mt-5">
-        <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">
-            Current Active <span style="color: #682b90">Job Applications</span>
-        </h3>
+        <div class="container mt-5">
+            <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">
+                Current Active <span style="color: #682b90">Job Applications</span>
+            </h3>
 
-        <div class="row">
-                @forelse ($jobApplications as $jobVacancy)
-                    <div class="col-sm-6 col-md-4 mb-4">
-                        <div class="card job-card shadow-sm rounded-3">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="card-title fw-bold mb-2 text-primary">{{ $jobVacancy->name }}</h5>
-                                    <span class="badge bg-secondary text-light">{{ $jobVacancy->status }}</span>
+            <div class="row">
+                    @forelse ($jobApplications as $jobVacancy)
+                        <div class="col-sm-6 col-md-4 mb-4">
+                            <div class="card job-card shadow-sm rounded-3">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title fw-bold mb-2 text-primary">{{ $jobVacancy->name }}</h5>
+                                        <span class="badge bg-secondary text-light">{{ $jobVacancy->status }}</span>
+                                    </div>
+                                    <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
+                                    <p class="card-text text-muted">
+                                        <small>Applied on {{ $jobVacancy->created_at }}</small>
+                                    </p>
                                 </div>
-                                <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
-                                <p class="card-text text-muted">
-                                    <small>Applied on {{ $jobVacancy->created_at }}</small>
-                                </p>
                             </div>
                         </div>
+                    @empty
+                    <div class="col-12">
+                        <p class="text-muted text-center">You have no active job applications.</p>
                     </div>
-                @empty
-                <div class="col-12">
-                    <p class="text-muted text-center">You have no active job applications.</p>
-                </div>
-            @endforelse
-        </div>
-        
-        <div class="text-center mb-4">
-            <a href="{{route('user.jobVacancies')}}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
-                Show All Job Applications
-            </a>
-        </div>
+                @endforelse
+            </div>
 
-        <hr>
-    </div>
+            <div class="text-center mb-4">
+                <a href="{{route('user.jobVacancies')}}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
+                    Show All Job Applications
+                </a>
+            </div>
+            <hr>
+        </div>
+    @endif
 
     <div class="container mt-4">
         <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">Your <span style="color: #682b90">Profile</span></h3>
@@ -80,12 +81,14 @@
                     <div class="col-12 col-md-7 ms-3">
                         <h3 class="card-title mb-2">{{$applier->user->name}}</h3>
                         <p class="section-description" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">{{$applier->headline}}</p>
-                        @if ($applier->end_date_premium < now())
-                            <div class="alert alert-success rounded-pill p-2 text-center" style="width:20%; min-width: 85px; max-width: 100px;">
-                                Premium
-                            </div>
+                        @if (Auth::user()->role == 'applier')
+                            @if ($applier->end_date_premium > now())
+                                <div class="alert alert-success rounded-pill p-2 text-center" style="width:20%; min-width: 85px; max-width: 100px;">
+                                    Premium
+                                </div>
+                            @endif
+                            <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">Edit Profile</a>
                         @endif
-                        <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">Edit Profile</a>
                     </div>
                 </div>
 
