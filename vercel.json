@@ -11,6 +11,7 @@
         }
     ],
     "env": {
+        "LD_LIBRARY_PATH": "/usr/lib64:/usr/lib",
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://yourprojectdomain.com",
@@ -31,5 +32,8 @@
         "DB_PORT": "11925",
         "DB_DATABASE": "career-lattice",
         "DB_USERNAME": "avnadmin"
+    },
+    "build": {
+        "commands": ["bash build.sh"]
     }
 }
