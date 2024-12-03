@@ -42,7 +42,7 @@
                                             {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}}
                                         </p>
                                         <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                            Grade: {{$education->grade}}/{{$education->max_grade}}
+                                            Grade: {{$education->grade}} of {{$education->max_grade}}
                                         </p>
                                     </div>
                                 </div>
@@ -52,7 +52,15 @@
                                     <p style="text-align: justify">{{$education->description}}</p>
                                 </div>
 
-                                <button class="btn btn-warning btn-custom ms-3" data-bs-toggle="modal" data-bs-target="#editEducation">Edit</button>
+                                <button class="btn btn-warning btn-custom ms-3"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editEducation"
+                                    data-institute="{{$education->institution_name}}"
+                                    data-degrees="{{$education->degree}}"
+                                    data-field_study="{{$education->field_of_study}}"
+                                    data-grades="{{$education->grade}}"
+                                    data-max_grades="{{$education->max_grade}}"
+                                    data-description="{{$education->description}}">Edit</button>
                                 <button class="btn btn-danger btn-custom" id="del">Delete</button>
                                 <hr>
                             @empty
@@ -61,12 +69,8 @@
                                 </div>
                             @endforelse
 
-                            @for($i = 0; $i < 2; $i++)
-
-
-                            @endfor
                             <div class="mb-3 d-flex justify-content-center">
-                            <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addEducationModal">Add Education</button>
+                                <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addEducationModal">Add Education</button>
                             </div>
                         </div>
 
@@ -151,24 +155,33 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="test" method="POST">
+                    <form action="{{route('user.addEducation')}}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="school" class="form-label">School/University</label>
-                            <input type="text" class="form-control" id="school" name="school">
+                            <label for="institution" class="form-label">Institution</label>
+                            <input type="text" class="form-control" id="institution" name="institution">
                         </div>
+
                         <div class="mb-3">
                             <label for="degree" class="form-label">Degree</label>
                             <input type="text" class="form-control" id="degree" name="degree">
                         </div>
+
                         <div class="mb-3">
                             <label for="field" class="form-label">Field of Study</label>
                             <input type="text" class="form-control" id="field" name="field">
                         </div>
+
                         <div class="mb-3">
-                            <label for="gpa" class="form-label">GPA</label>
-                            <input type="number" class="form-control" id="gpa" name="gpa" min="0" max="4.0" step="1">
+                            <label for="grade" class="form-label">Grade</label>
+                            <input type="number" class="form-control" id="grade" name="grade" min="0" step="0.01">
                         </div>
+
+                        <div class="mb-3">
+                            <label for="max_grade" class="form-label">Max Grade</label>
+                            <input type="number" class="form-control" id="max_grade" name="max_grade" min="0" step="0.01">
+                        </div>
+
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" id="description" name="description" rows="4"></textarea>
@@ -191,24 +204,33 @@
                     <form action="test" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="school" class="form-label">School/University</label>
-                            <input type="text" class="form-control" id="school" name="school">
+                            <label for="institute" class="form-label">Institution</label>
+                            <input type="text" class="form-control" id="institute" name="institution">
                         </div>
+
                         <div class="mb-3">
-                            <label for="degree" class="form-label">Degree</label>
-                            <input type="text" class="form-control" id="degree" name="degree">
+                            <label for="degrees" class="form-label">Degree</label>
+                            <input type="text" class="form-control" id="degrees" name="degree">
                         </div>
+
                         <div class="mb-3">
-                            <label for="field" class="form-label">Field of Study</label>
-                            <input type="text" class="form-control" id="field" name="field">
+                            <label for="field_study" class="form-label">Field of Study</label>
+                            <input type="text" class="form-control" id="field_study" name="field_study">
                         </div>
+
                         <div class="mb-3">
-                            <label for="gpa" class="form-label">GPA</label>
-                            <input type="number" class="form-control" id="gpa" name="gpa" min="0" max="4.0" step="0.01">
+                            <label for="grades" class="form-label">Grade</label>
+                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01">
                         </div>
+
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                            <label for="max_grades" class="form-label">Max Grade</label>
+                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="edit_education_description" class="form-label">Description</label>
+                            <textarea class="form-control" id="edit_education_description" name="description" rows="4"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
@@ -225,7 +247,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="ertest" method="POST">
+                    <form action="{{route('user.addExperience')}}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="company" class="form-label">Company Name</label>
@@ -235,13 +257,25 @@
                             <label for="position" class="form-label">Position</label>
                             <input type="text" class="form-control" id="position" name="position">
                         </div>
+
                         <div class="mb-3">
-                            <label for="duration" class="form-label">Duration</label>
-                            <input type="text" class="form-control" id="duration" name="duration">
+                            <label for="job_type" class="form-label">Job Type</label>
+                            <select name="job_type" id="job_type">
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Freelance">Freelance</option>
+                                <option value="Internship">Internship</option>
+                            </select>
                         </div>
+
                         <div class="mb-3">
-                            <label for="description" class="form-label">Job Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                            <label for="experience_address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="experience_address" name="address">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="job_description" class="form-label">Job Description</label>
+                            <textarea class="form-control" id="job_description" name="description" rows="4"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
@@ -286,8 +320,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4">{{$applier->description}}</textarea>
+                            <label for="edit_profile_description" class="form-label">Description</label>
+                            <textarea class="form-control" id="edit_profile_description" name="description" rows="4">{{$applier->description}}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="photo" class="form-label">Profile Picture</label>
@@ -321,8 +355,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" placeholder="Describe your role and achievements" rows="4"></textarea>
+                        <label for="edit_experience_description" class="form-label">Description</label>
+                        <textarea class="form-control" id="edit_experience_description" name="description" placeholder="Describe your role and achievements" rows="4"></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -354,26 +388,48 @@
 @section('custom_script')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-    document.querySelectorAll("#del").forEach((button) => {
-        button.addEventListener("click", () => {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: "Deleted!",
-                        text: "Your file has been deleted.",
-                        icon: "success"
-                    });
-                }
+        document.querySelectorAll("#del").forEach((button) => {
+            button.addEventListener("click", () => {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                });
             });
         });
-    });
+
+        $('#editEducation').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var institution_name = button.data('institute');
+            var degree = button.data('degrees');
+            var field_of_study = button.data('field_study');
+            // var start_date = button.data('start_date');
+            // var end_date = button.data('end_date');
+            var grade = button.data('grades');
+            var max_grade = button.data('max_grades');
+            var description = button.data('description');
+
+            // Populate the form fields
+            $('#institute').val(institution_name);
+            $('#degrees').val(degree);
+            $('#field_study').val(field_of_study);
+            // $('#start_date').val(start_date);
+            // $('#end_date').val(end_date);
+            $('#grades').val(grade);
+            $('#max_grades').val(max_grade);
+            $('#edit_education_description').val(description);
+        });
     </script>
 @endsection

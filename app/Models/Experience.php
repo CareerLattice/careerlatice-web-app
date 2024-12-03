@@ -20,7 +20,6 @@ class Experience extends Model
     protected function casts(): array{
         return [
             'applier_id' => 'string',
-            'is_active' => 'boolean',
         ];
     }
 

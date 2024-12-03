@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -176,6 +178,9 @@ Route::post('/company/update/application/{application}', [JobApplicationControll
 Route::get('/settings',function(){
     return view('settings');
 })->name('settings');
+
+Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
+Route::post('/add-experience', [ExperienceController::class, 'create'])->name('user.addExperience');
 
 // Testing Membuat Data untuk Client Side Rendering
 use App\Models\Company;

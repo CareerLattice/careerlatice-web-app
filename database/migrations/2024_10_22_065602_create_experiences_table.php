@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('experience', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('company_name')->nullable();
-            $table->string('job_type')->nullable();
+            $table->string('company_name');
+            $table->string('job_type');
             $table->timestamp('start_date');
             $table->timestamp('end_date')->nullable();
             $table->string('address')->nullable();
-            $table->text('description');
-            $table->string('company_picture');
+            $table->text('description')->nullable();
+            $table->string('company_picture')->nullable();
 
             $table->foreignId('applier_id')->constrained('appliers')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

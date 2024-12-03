@@ -24,7 +24,6 @@ class ApplierController extends Controller
     }
 
     public function signUp(Request $req){
-
         $req->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
@@ -83,7 +82,7 @@ class ApplierController extends Controller
             ->first();
         return view('user.home', compact('jobApplications', 'applier'));
     }
-    
+
 
     public function viewAllJobVacancies()
     {
@@ -99,10 +98,10 @@ class ApplierController extends Controller
                 DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
             ])
             ->orderByRaw("
-                CASE 
-                    WHEN job_applications.status = 'rejected' THEN 1 
-                    ELSE 0 
-                END, 
+                CASE
+                    WHEN job_applications.status = 'rejected' THEN 1
+                    ELSE 0
+                END,
                 job_applications.created_at DESC
             ")
             ->paginate(6);
@@ -127,7 +126,6 @@ class ApplierController extends Controller
     }
 
     public function updateProfile(Request $req){
-        // dd('test');
         $user = Auth::user();
         $req->validate([
             'name' => 'string|min:3',
@@ -162,7 +160,7 @@ class ApplierController extends Controller
         ]);
 
         Auth::login($user);
-        session()->put('success','Profile updated');
+        session()->put('message','Profile updated');
         return redirect()->back();
     }
 
@@ -171,5 +169,4 @@ class ApplierController extends Controller
         $history = UserHistory::where('applier_id', $applier->id)->orderBy('end_date', 'desc')->paginate(10);
         return view('user.premiumHistory', compact('history'));
     }
-
 }

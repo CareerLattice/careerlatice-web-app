@@ -91,7 +91,7 @@ class PremiumController extends Controller
             'status' => 'success',
         ]);
 
-        session()->put('success', 'Payment Success');
+        session()->put('message', 'Payment Success');
         return redirect()->route('user.home');
     }
 }
