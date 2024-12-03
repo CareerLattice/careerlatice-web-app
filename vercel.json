@@ -12,6 +12,7 @@
     "env": {
         "LD_LIBRARY_PATH": "/usr/lib64:/usr/lib",
         "APP_ENV": "production",
+        "APP_KEY": "base64:hvwzX6+JJb0WxoCDPvLOdGC6ykwGB9q+CLXn5Nk5PaU=",
         "APP_DEBUG": "true",
         "APP_URL": "https://career-lattice-binus-e3ec.e.aivencloud.com/",
         "APP_CONFIG_CACHE": "/tmp/config.php",
