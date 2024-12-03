@@ -1,28 +1,24 @@
 <?php
 
 use App\Http\Controllers\ApplierController;
-use App\Models\Company;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobApplicationController;
-
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PremiumController;
-use App\Models\Applier;
+use App\Http\Controllers\AdminController;
 
 /* Controller yang belum dipakai */
 // use App\Http\Controllers\SkillController;
 // use App\Http\Controllers\UserSkillController;
-// use App\Http\Controllers\AdminController;
 
 /* View yang tidak akan dipakai */
-// LoginPage
 // testing_CV
 // home
-// user.loginUser
 
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');
@@ -99,7 +95,7 @@ Route::prefix("user")->group(function(){
     Route::middleware('user_auth')->group(function(){
         // Route for user home
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
-        
+
         Route::get('/job-vacancies', [ApplierController::class, 'viewAllJobVacancies'])->name('user.jobVacancies');
         // Route for user profile
         Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');
@@ -124,7 +120,7 @@ Route::prefix("user")->group(function(){
         // Route for user to add skill
         // Route::post('/user-skill', [SkillController::class, 'addSkill'])->name('user.addSkill');
         // Route::delete('/user-skill/{skill}', [SkillController::class, 'deleteSkill'])->name('user.deleteSkill');
-        
+
     });
 });
 
@@ -135,12 +131,10 @@ route::get('/user/editEducation', function(){
 route::get('/user/editExperience', function(){
     return view('user.editExperience');
 })->name ('editExperience');
+
 // Dibuat setelah user dan company selesai dibuat
 Route::prefix("admin")->group(function(){
-    // Route::get('/home',[AdminController::class, 'home'])->name('adminHome');
-    route::get('/home', function(){
-        return view('admin.adminHome');
-    })->name ('admin.home');
+    Route::get('/home',[AdminController::class, 'viewHome'])->name('admin.home');
 
     // Sekaligus menampilkan list user yang apply premium beserta start dan end date premium
     // Route::get('/revenue', [AdminController::class, 'revenue'])->name('adminRevenue');
@@ -187,6 +181,7 @@ Route::get('/settings',function(){
 })->name('settings');
 
 // Testing Membuat Data untuk Client Side Rendering
+use App\Models\Company;
 Route::get('/test/data', function(){
     $data = Company::orderBy('id')->take(10)->get();
     return response()->json([

@@ -72,7 +72,7 @@ class JobApplicationController extends Controller
     //     $user = User::findOrFail($id);
     //     $jobs = $user->jobApplications;
 
-    //     return view('user.homeUser', ['jobs' => $jobs]);
+    //     return view('user.home', ['jobs' => $jobs]);
     // }
 
     public function create(Job $job){
