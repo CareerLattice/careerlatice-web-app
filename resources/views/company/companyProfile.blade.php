@@ -37,6 +37,8 @@
 @endsection
 
 @section('content')
+    @include('components.navbar')
+
     <div class="container my-5">
         <a href="{{route('company.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
             <i class="bi bi-arrow-left-circle"></i> Back
@@ -51,6 +53,30 @@
             <div class="card-body p-5">
                 <form action="{{route('company.updateProfile')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <div class="mb-4">
+                        <div class="d-flex flex-column align-items-center">
+                            <label class="form-label"><strong>Upload Company Profile</strong></label>
+                            <div class="d-flex align-items-center">
+                                <div class="image-container">
+                                    <!-- Display Current Profile Picture -->
+                                    <img src="{{ Storage::url(Auth::user()->profile_picture) }}"
+                                         alt="Profile Picture"
+                                         id="preview-image"
+                                         class="rounded-circle me-2 object-fit-fill"
+                                         style="width: 180px; height: 180px;"/>
+
+                                    <!-- File Input (Hidden) -->
+                                    <input type="file" class="form-control" id="logo" name="logo" style="display: none;" onchange="previewImage(event)">
+
+                                    <!-- Label for the Input -->
+                                    <label for="logo" class="change-image-btn">
+                                        <i class="bi bi-pencil-fill fs-3"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="name" class="form-label"><strong>Company Name</strong></label>
@@ -81,21 +107,6 @@
                         <textarea class="form-control" id="description" name="description" rows="4" placeholder="Write a short description about the company" required>{{$company->description}}</textarea>
                     </div>
 
-                    <div class="mb-4">
-                        <div class="d-flex flex-column">
-                            <label class="form-label"><strong>Upload Company Logo</strong></label>
-                            <div class="d-flex align-items-center">
-                                <div class="image-container">
-                                    <img src="{{Storage::url(Auth::user()->profile_picture)}}" alt="Profile Picture" class="rounded-circle me-2" style="width: 180px; height: 180px;" />
-                                    <input type="file" class="form-control" id="logo" name="logo" style="display: none;">
-                                    <label for="logo" class="change-image-btn">
-                                        <i class="bi bi-pencil-fill fs-3"></i>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary btn-lg px-4">Save Changes</button>
                     </div>
@@ -103,4 +114,22 @@
             </div>
         </div>
     </div>
+
+    @include('components.footer')
+@endsection
+
+@section('custom_script')
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Update the src of the image with the uploaded file's data URL
+                    document.getElementById('preview-image').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 @endsection
