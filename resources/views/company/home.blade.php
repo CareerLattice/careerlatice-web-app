@@ -4,7 +4,7 @@
 @section('title', 'Company Home')
 
 @section('custom_css')
-    <link href="{{ asset('css/homeCompany.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/homeCompany.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
                         <h4 class="fw-bold">Applicants This Month: <span style="color: #7869cd">{{number_format($data['month_application'])}}</span></h4>
                     </div>
                     <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
-                        <img class="img-fluid" src="{{asset('assets/companyPerformance.png')}}" style="width: 231px">
+                        <img class="img-fluid" src="{{secure_asset('assets/companyPerformance.png')}}" style="width: 231px">
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
 
                 <div class="col-12 col-md-6 text-center d-flex flex-column">
                     <div class="card m-3 p-4 flex-fill">
-                        <img class="card-img-top mx-auto mb-3" src="{{asset('assets/newJob.png')}}" style="max-width: 200px">
+                        <img class="card-img-top mx-auto mb-3" src="{{secure_asset('assets/newJob.png')}}" style="max-width: 200px">
                         <h2 class="card-title fw-bold" style="color: #682b90">Job Listing</h5>
                         <p class="card-text text-muted">Ready to create a new job posting head over to new job application.</p>
                         <a href="{{route('company.listJob')}}" class="btn btn-outline-primary m-4 mt-auto">Create New Job</a>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-12 col-md-6 text-center d-flex flex-column">
                     <div class="card m-3 p-4 flex-fill">
-                        <img class="card-img-top mx-auto mb-3" src="{{asset('assets/companyProfileJob.jpg')}}" style="max-width: 200px">
+                        <img class="card-img-top mx-auto mb-3" src="{{secure_asset('assets/companyProfileJob.jpg')}}" style="max-width: 200px">
                         <h2 class="card-title fw-bold" style="color: #682b90">Company Profile</h5>
                         <p class="card-text text-muted">Update any company details such as address, description, and others.</p>
                         <a href="{{route('company.profile')}}" class="btn btn-outline-primary m-4 mt-auto">Edit Company Profile</a>
@@ -66,7 +66,7 @@
                         <div class="col-12 my-3 shadow">
                             <div class="m-3 p-md-4 d-flex flex-column flex-md-row align-items-center">
                                 <div>
-                                    <img class="mx-auto p-3 mb-3" alt="image" src="{{asset('assets/joblistImagePlaceHolder.jpeg')}}" style="max-width: 300px;">
+                                    <img class="mx-auto p-3 mb-3" alt="image" src="{{secure_asset('assets/joblistImagePlaceHolder.jpeg')}}" style="max-width: 300px;">
                                 </div>
 
                                 <div style="width:70%">
@@ -100,5 +100,5 @@
 @endsection
 
 @section('custom_script')
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ secure_asset('js/script.js') }}"></script>
 @endsection

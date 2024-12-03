@@ -53,7 +53,7 @@
 
 <nav class="navbar navbar-expand-lg bg-white shadow-lg">
     <div class="container mt-3 mb-3">
-        <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="window.location='/'">
+        <img src="{{secure_asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="window.location='/'">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i> <!-- Ikon Font Awesome -->
         </button>

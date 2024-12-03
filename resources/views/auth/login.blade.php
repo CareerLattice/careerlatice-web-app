@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('custom_css')
-    <link href="{{ asset('css/loginCompany.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/loginCompany.css') }}" rel="stylesheet">
 
     <style>
         @media (max-width: 1040px) {
@@ -125,7 +125,7 @@
             </button>
         </a>
 
-        <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="window.location='/'">
+        <img src="{{ secure_asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="window.location='/'">
         <h3 class="text-center mb-5 fs-lg-2 fs-md-3 fs-sm-2">
             Welcome back! <span class="span-text fw-bold ls-tight" >Log in</span> to find <span class="span-text fw-bold ls-tight" >skilled talent</span> and connect with <span class="span-text fw-bold ls-tight" >potential</span> candidates through our platform.
         </h3>
@@ -165,13 +165,13 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
             <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
                 <div class="carousel-item active h-100">
-                    <img src="{{ asset('assets/businessImage1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
+                    <img src="{{ secure_asset('assets/businessImage1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
                 </div>
                 <div class="carousel-item h-100">
-                    <img src="{{ asset('assets/businessImage2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
+                    <img src="{{ secure_asset('assets/businessImage2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
                 </div>
                 <div class="carousel-item h-100">
-                    <img src="{{ asset('assets/businessImage3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
+                    <img src="{{ secure_asset('assets/businessImage3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
                 </div>
             </div>
             <div class="carousel-controls">

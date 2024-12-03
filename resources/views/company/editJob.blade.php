@@ -90,7 +90,7 @@
                 <div class="d-flex flex-column justify-content-center">
                     <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">Job Image</h2></label>
                     <div class="image-container">
-                        <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo">
+                        <img src="{{secure_asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo">
                         <input type="file" id="uploadImage" name="job_image" style="display: none;">
                         <label for="uploadImage" class="change-image-btn">
                             <i class="bi bi-pencil-fill fs-5"></i>
