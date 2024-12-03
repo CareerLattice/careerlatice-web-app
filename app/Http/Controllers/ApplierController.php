@@ -60,31 +60,51 @@ class ApplierController extends Controller
         }
     }
 
-    public function viewHome(){
+    public function viewHome() {
         $jobApplications = DB::table('job_applications')
             ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'users.id', '=', 'companies.user_id')
-            ->select('name', 'title', 
-            DB::raw(value: "DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at"))
+            ->select([
+                'users.name',
+                'job_vacancies.title',
+                'job_applications.status',
+                DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
+            ])
+            ->where('job_applications.status', '!=', 'rejected')
             ->orderBy('job_applications.created_at', 'desc')
             ->limit(3)
             ->get();
-        return view('user.homeUser', ['jobApplications' => $jobApplications]);
+    
+        return view('user.homeUser', compact('jobApplications'));
     }
+    
 
-    public function viewAllJobVacancies(){
+    public function viewAllJobVacancies()
+    {
         $userJobApplications = DB::table('job_applications')
             ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'users.id', '=', 'companies.user_id')
-            ->select('job_vacancies.id', 'name', 'title', 
-            DB::raw(value: "DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at"))
-            ->orderBy('job_applications.created_at', 'desc')
+            ->select([
+                'job_vacancies.id',
+                'name',
+                'job_vacancies.title',
+                'job_applications.status',
+                DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
+            ])
+            ->orderByRaw("
+                CASE 
+                    WHEN job_applications.status = 'rejected' THEN 1 
+                    ELSE 0 
+                END, 
+                job_applications.created_at DESC
+            ")
             ->paginate(6);
 
-        return view('user.userJobVacancies', ['userJobApplications' => $userJobApplications]);
+        return view('user.userJobVacancies', compact('userJobApplications'));
     }
+
 
     public function viewProfile(){
         $user = Auth::user();
