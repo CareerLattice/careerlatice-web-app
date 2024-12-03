@@ -106,7 +106,7 @@ class CompanyController extends Controller
 
         $company = Auth::user();
         if($req->logo){
-            if ($company->profile_picture && Storage::exists($company->profile_picture)) {
+            if ($company->profile_picture && Storage::disk('public')->exists($company->profile_picture)) {
                 $test = Storage::delete($company->profile_picture);
                 dd($test);
             }

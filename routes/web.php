@@ -19,10 +19,8 @@ use App\Models\Applier;
 // use App\Http\Controllers\AdminController;
 
 /* View yang tidak akan dipakai */
-// LoginPage
 // testing_CV
 // home
-// user.loginUser
 
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');
@@ -99,7 +97,7 @@ Route::prefix("user")->group(function(){
     Route::middleware('user_auth')->group(function(){
         // Route for user home
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
-        
+
         Route::get('/job-vacancies', [ApplierController::class, 'viewAllJobVacancies'])->name('user.jobVacancies');
         // Route for user profile
         Route::get('/profile', [UserController::class, 'viewProfile'])->name('user.profile');
@@ -124,7 +122,7 @@ Route::prefix("user")->group(function(){
         // Route for user to add skill
         // Route::post('/user-skill', [SkillController::class, 'addSkill'])->name('user.addSkill');
         // Route::delete('/user-skill/{skill}', [SkillController::class, 'deleteSkill'])->name('user.deleteSkill');
-        
+
     });
 });
 

@@ -35,14 +35,14 @@
             <div class="col-12">
                 <h3 class="fw-bold">Manage Your Workflow</h3>
             </div>
-            <div class="d-flex overflow-x-auto">
+            <div class="d-flex flex-wrap">
 
                 <div class="col-12 col-md-6 text-center d-flex flex-column">
                     <div class="card m-3 p-4 flex-fill">
                         <img class="card-img-top mx-auto mb-3" src="{{asset('assets/newJob.png')}}" style="max-width: 200px">
                         <h2 class="card-title fw-bold" style="color: #682b90">Job Listing</h5>
                         <p class="card-text text-muted">Ready to create a new job posting head over to new job application.</p>
-                        <a href="{{route('company.listJob')}}" class="btn btn-outline-primary m-4 rounded-pill mt-auto">Create New Job</a>
+                        <a href="{{route('company.listJob')}}" class="btn btn-outline-primary m-4 mt-auto">Create New Job</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 text-center d-flex flex-column">
@@ -50,7 +50,7 @@
                         <img class="card-img-top mx-auto mb-3" src="{{asset('assets/companyProfileJob.jpg')}}" style="max-width: 200px">
                         <h2 class="card-title fw-bold" style="color: #682b90">Company Profile</h5>
                         <p class="card-text text-muted">Update any company details such as address, description, and others.</p>
-                        <a href="{{route('company.profile')}}" class="btn btn-outline-primary m-4 rounded-pill mt-auto">Edit Company Profile</a>
+                        <a href="{{route('company.profile')}}" class="btn btn-outline-primary m-4 mt-auto">Edit Company Profile</a>
                     </div>
                 </div>
             </div>
@@ -63,11 +63,13 @@
                 <h3 class="fw-bold">Recent Job Listing</h3>
                 <div class="row">
                     @forelse ($data['recent_job'] as $job)
-                        <div class="col-12">
-                            <div class="card m-3 p-4 d-flex flex-column flex-md-row align-items-center">
-                                <img class="card-img-top mx-auto p-3 mb-3" alt="image" src="{{asset('assets/joblistImagePlaceHolder.jpeg')}}" style="width:300px;">
+                        <div class="col-12 my-3 shadow">
+                            <div class="m-3 p-md-4 d-flex flex-column flex-md-row align-items-center">
+                                <div>
+                                    <img class="mx-auto p-3 mb-3" alt="image" src="{{asset('assets/joblistImagePlaceHolder.jpeg')}}" style="max-width: 300px;">
+                                </div>
 
-                                <div class="card-body text-start" style="max-width: 100%;">
+                                <div style="width:70%">
                                     <div class="btn btn-sm btn-outline-danger rounded-pill mb-2" style="width: 80px; pointer-events:none" alt="status job">
                                         @if ($job->is_active == true)
                                             Open
@@ -76,7 +78,9 @@
                                         @endif
                                     </div>
                                     <h3 class="card-title fw-bold text-start" style="color: #682b90">{{$job->title}}</h3>
-                                    <p class="card-text text-muted text-start" style="max-width: 100%" alt="job description">{{$job->description}}</p>
+                                    <div>
+                                        <p class="text-muted text-start text-truncate" alt="job description">{{$job->description}}</p>
+                                    </div>
                                     <p><strong>Total Applicant: </strong> {{$job->applicants->count()}}</p>
                                     <a href="{{route('company.job', ['job' => $job])}}" class="btn btn-primary">See Detail</a>
                                 </div>
@@ -92,9 +96,7 @@
         </div>
     </section>
 
-        <a></a>
-</main>
-@include('components.footer')
+    @include('components.footer')
 @endsection
 
 @section('custom_script')

@@ -97,9 +97,8 @@
                             <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">Premium</a>
                         @endif
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{Storage::url(Auth::user()->profile_picture)}}" class="rounded-circle" alt="Photo Profile" style="max-width: 40px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{Storage::url(Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->role == 'applier')
@@ -110,7 +109,7 @@
                             <li><a class="dropdown-item" href="{{route('settings')}}">Setting</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <form action="{{ route('logout') }}" method="POST">
+                                <form action="{{route('logout')}}" method="POST">
                                     @csrf
                                     <button type="submit" class="dropdown-item text-danger">Log Out</button>
                                 </form>
