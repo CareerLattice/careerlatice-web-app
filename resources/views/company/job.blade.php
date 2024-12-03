@@ -166,8 +166,8 @@
             <hr class="my-4">
 
             <div class="list-applicant">
-                <table class="table table-hover">
-                    <thead>
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
                       <tr>
                         <th scope="col">No</th>
                         <th scope="col">Name</th>
@@ -178,7 +178,7 @@
                       </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="table-group-divider">
                         @forelse ($applicants as $application)
                             <tr style="cursor: pointer">
                                 <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$applicants->firstItem() + $loop->index}}</th>
