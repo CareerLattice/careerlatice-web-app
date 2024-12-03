@@ -65,14 +65,17 @@
         <div class="row">
             @forelse ($userJobApplications as $jobVacancy)
                 <div class="col-sm-12 col-md-6 mb-4">
-                    <div class="card job-card" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+                    <div class="card job-card shadow-sm" style="border-radius: 8px;">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold mb-2" style="color: #192a51;">{{ $jobVacancy->name }}</h5>
-                            <p class="card-text text-muted">{{ $jobVacancy->title }}</p>
-                            <p class="card-text">
-                                Applied on {{ $jobVacancy->created_at ?? 'Unknown Date' }}
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title fw-bold mb-2" style="color: #192a51;">{{ $jobVacancy->name }}</h5>
+                                <span class="badge bg-secondary">{{ $jobVacancy->status }}</span>
+                            </div>
+                            <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
+                            <p class="card-text text-muted">
+                                <small>Applied on {{ $jobVacancy->created_at ?? 'Unknown Date' }}</small>
                             </p>
-                            <div class="col-sm-8">
+                            <div>
                                 <a href="{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
                                     View Job Vacancy
                                 </a>
@@ -85,6 +88,7 @@
                     <p class="text-muted text-center">You have no active job applications.</p>
                 </div>
             @endforelse
+
         </div>
 
         <div class="d-flex justify-content-center mt-4">
