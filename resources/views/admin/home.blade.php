@@ -88,7 +88,7 @@
                         <tr>
                             <th scope="row">{{$listPremium->firstItem() + $loop->index}}</th>
                             <td>{{$premiumApplier->name}}</td>
-                            <td>{{$premiumApplier->price}}</td>
+                            <td>{{number_format($premiumApplier->price)}}</td>
                             <td>{{$premiumApplier->start_date}}</td>
                             <td>{{$premiumApplier->end_date}}</td>
                         </tr>
