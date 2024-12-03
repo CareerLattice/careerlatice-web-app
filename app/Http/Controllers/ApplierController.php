@@ -65,12 +65,12 @@ class ApplierController extends Controller
             ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'users.id', '=', 'companies.user_id')
-            ->select('name', 'title', 
+            ->select('name', 'title',
             DB::raw(value: "DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at"))
             ->orderBy('job_applications.created_at', 'desc')
             ->limit(3)
             ->get();
-        return view('user.homeUser', ['jobApplications' => $jobApplications]);
+        return view('user.home', ['jobApplications' => $jobApplications]);
     }
 
     public function viewAllJobVacancies(){
@@ -78,7 +78,7 @@ class ApplierController extends Controller
             ->join('job_vacancies', 'job_applications.job_id', '=', 'job_vacancies.id')
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'users.id', '=', 'companies.user_id')
-            ->select('job_vacancies.id', 'name', 'title', 
+            ->select('job_vacancies.id', 'name', 'title',
             DB::raw(value: "DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at"))
             ->orderBy('job_applications.created_at', 'desc')
             ->paginate(6);

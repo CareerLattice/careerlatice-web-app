@@ -86,7 +86,7 @@ class CompanyController extends Controller
             'recent_job' => $recentCreatedJob,
         ];
 
-        return view('company.companyHome', compact('data'));
+        return view('company.home', compact('data'));
     }
 
     public function viewProfile(){
