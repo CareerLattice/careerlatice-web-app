@@ -181,6 +181,7 @@ Route::get('/settings',function(){
 
 Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
 Route::post('/add-experience', [ExperienceController::class, 'create'])->name('user.addExperience');
+Route::get('/company/view-applicants/{applier}', [CompanyController::class, 'viewApplicants'])->name('company.viewApplicants');
 
 // Testing Membuat Data untuk Client Side Rendering
 use App\Models\Company;
