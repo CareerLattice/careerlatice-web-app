@@ -1,28 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CareerLattice</title>
+@extends('layouts.app')
 
-    {{-- Bootstrap 5 --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+@section('title', 'Career Lattice')
+
+@section('custom_css')
     <link href="{{ asset('css/landingPage.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"> --}}
-    <link rel="icon" href="{{asset('assets/logo.png')}}">
-    {{-- End of Bootstrap 5 --}}
-
-    {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    {{-- End of Google Fonts --}}
+@endsection
 
-
-</head>
-<body>
-    {{-- Start of Navbar --}}
+@section('content')
     @include('components.navbar')
-    {{-- End of Navbar --}}
-
     <main>
         <section class="landingPage-1 hidden">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -575,118 +561,9 @@
         </section>
     </main>
 
-    {{-- Start of Footer --}}
-    <footer class="pt-5 pb-4 hidden">
-        <div class="container text-center text-md-left hidden">
+    @include('components.footer')
+@endsection
 
-            <div class="footer-container row text-center text-md-left hidden">
-
-                <div class="footer-left-container col md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
-                    <p>Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
-
-                </div>
-
-                <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h5 class=" mb-4 font-weight-bold">Services</h5>
-                    <p>
-                        <a href="{{ route('landingPage') }}" class="text-dark" style="text-decoration: none">Home</a>
-                    </p>
-                    <p>
-                        <a href="#Job" class="text-dark" style="text-decoration: none">Find a Job</a>
-                    </p>
-                    <p>
-                        <a href="#Company" class="text-dark" style="text-decoration: none">Company</a>
-                    </p>
-                    <p>
-                        <a href="#Contact" class="text-dark" style="text-decoration: none">Contact</a>
-                    </p>
-                </div>
-
-                <div class="footer-right-container col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h5 class="mb-4 font-weight-bold">Useful Links</h5>
-                    <p>
-                        <a href="#!" class="text-dark" style="text-decoration: none">Privacy Policy</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-dark" style="text-decoration: none">Terms of Service</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-dark" style="text-decoration: none">Site Map</a>
-                    </p>
-                    <p>
-                        <a href="{{route('settings')}}" class="text-dark" style="text-decoration: none">Settings</a>
-                    </p>
-                </div>
-
-                <div class="footer-right-container col-md-4 col-xl-3 mx-auto mt-3">
-                    <h5 class="mb-4 font-weight-bold">Contact</h5>
-                    <p>
-                        <i class="bi bi-house-door-fill me-3"></i>Jakarta, Indonesia</p>
-                    <p>
-                        <i class="bi bi-envelope-fill me-3"></i>careerlattice@gmail.com
-                    </p>
-                    <p>
-                        <i class="bi bi-telephone-fill me-3"></i>+62 08942012049
-                    </p>
-                    <p>
-                        <i class="bi bi-calendar-fill me-3"></i>Since 10/03/2024
-                    </p>
-                </div>
-            </div>
-
-            <hr class="mb-4">
-
-            <div class="footer-bottom-container row align-items-center hidden">
-                <div class="rights col-md-7 col-lg-8">
-                    <p class="text-center"> <strong>©2024 All Rights Reserved</strong>
-                    <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Lattice</span>
-                    </a>
-                </p>
-                </div>
-
-                <div class="col-md-5 col-lg-2">
-                    <div class="text-center">
-                        <ul class="ul-container list-unstyled list-inline">
-                            <li class="list-inline-item">
-                                <a href="" class="btn-floating btn-sm text-dark">
-                                    <i class="bi bi-facebook"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="" class="btn-floating btn-sm text-dark">
-                                    <i class="bi bi-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="" class="btn-floating btn-sm text-dark">
-                                    <i class="bi bi-google"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="" class="btn-floating btn-sm text-dark">
-                                    <i class="bi bi-linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="" class="btn-floating btn-sm text-dark">
-                                    <i class="bi bi-instagram"></i>
-                                </a>
-                            </li>
-                        </p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    {{-- End of Footer --}}
-
-{{-- Start of Bootstrap 5 --}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-{{-- End of Bootstrap 5 --}}
-<script src="{{ asset('js/script.js') }}"></script>
-</body>
-</html>
+@section('custom_script')
+    <script src="{{ asset('js/script.js') }}"></script>
+@endsection

@@ -35,7 +35,6 @@
         color: #7869cd;
         font-weight: bolder;
     }
-
 </style>
 
 <footer class="pt-5 pb-4 hidden">
@@ -52,32 +51,16 @@
             <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h5 class=" mb-4 font-weight-bold">Services</h5>
                 <p>
-                    <a href="{{ route('landingPage') }}" class="text-dark" style="text-decoration: none">Home</a>
+                    <a href="{{route('landingPage')}}" class="text-dark" style="text-decoration: none">Home</a>
                 </p>
                 <p>
-                    <a href="#Job" class="text-dark" style="text-decoration: none">Find a Job</a>
+                    <a href="{{route('jobs')}}" class="text-dark" style="text-decoration: none">Find a Job</a>
                 </p>
                 <p>
-                    <a href="#Company" class="text-dark" style="text-decoration: none">Company</a>
+                    <a href="{{route('companies')}}" class="text-dark" style="text-decoration: none">Company</a>
                 </p>
                 <p>
-                    <a href="#Contact" class="text-dark" style="text-decoration: none">Contact</a>
-                </p>
-            </div>
-
-            <div class="footer-right-container col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="mb-4 font-weight-bold">Useful Links</h5>
-                <p>
-                    <a href="#!" class="text-dark" style="text-decoration: none">Privacy Policy</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-dark" style="text-decoration: none">Terms of Service</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-dark" style="text-decoration: none">Site Map</a>
-                </p>
-                <p>
-                    <a href="{{route('settings')}}" class="text-dark" style="text-decoration: none">Settings</a>
+                    <a href="#Contact" class="text-dark" style="text-decoration: none">Contact Us</a>
                 </p>
             </div>
 
