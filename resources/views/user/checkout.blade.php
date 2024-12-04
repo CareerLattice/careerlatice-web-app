@@ -4,7 +4,7 @@
     @include('components.navbar')
 
     <div class="container-fluid">
-        <div class="row" style="min-height: 85vh">
+        <div class="row" style="min-height: calc(100vh - 135px);">
             <div class="col-lg-7 col-12" style="background-color: #ffffff; padding-left: 20px">
                 <h3 class="fw-bold mt-5 ms-5 text-center">Checkout & Payment</h3>
                 
