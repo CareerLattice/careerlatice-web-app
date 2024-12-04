@@ -12,7 +12,7 @@ class PremiumController extends Controller
 {
     public function process(Request $req){
         $req->validate([
-            'duration' => 'required|in:1,3,6,12',
+            'duration' => 'required|in:3,6,12',
         ]);
 
         $applier = Applier::where('user_id', Auth::id())->first();
@@ -27,10 +27,9 @@ class PremiumController extends Controller
 
             $price = 0;
             $price = match($duration) {
-                1 => 10000,
-                3 => 28000,
-                6 => 50000,
-                12 => 90000,
+                3 => 1499000,
+                6 => 2399000,
+                12 => 3799000,
             };
 
             $transaction = UserHistory::create([
@@ -79,7 +78,8 @@ class PremiumController extends Controller
     }
 
     public function checkout(UserHistory $transaction){
-        return view('user.checkout', compact('transaction'));
+        $applier = Auth::user()->applier;
+        return view('user.checkout', compact('transaction', 'applier'));
     }
 
     public function success(Request $req){
@@ -94,5 +94,8 @@ class PremiumController extends Controller
 
         session()->put('message', 'Payment Success');
         return redirect()->route('user.home');
+    }
+    public function viewPremiumBundle(){
+        return view('user.premiumBundle');
     }
 }
