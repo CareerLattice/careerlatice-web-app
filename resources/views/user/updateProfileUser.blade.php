@@ -53,14 +53,16 @@
                                 </div>
 
                                 <button class="btn btn-warning btn-custom ms-3"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#editEducation"
-                                    data-institute="{{$education->institution_name}}"
-                                    data-degrees="{{$education->degree}}"
-                                    data-field_study="{{$education->field_of_study}}"
-                                    data-grades="{{$education->grade}}"
-                                    data-max_grades="{{$education->max_grade}}"
-                                    data-description="{{$education->description}}">Edit</button>
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#editEducation"
+                                        data-institute="{{$education->institution_name}}"
+                                        data-degrees="{{$education->degree}}"
+                                        data-field_study="{{$education->field_of_study}}"
+                                        data-grades="{{$education->grade}}"
+                                        data-max_grades="{{$education->max_grade}}"
+                                        data-description="{{$education->description}}">
+                                    Edit
+                                </button>
                                 <button class="btn btn-danger btn-custom" id="del">Delete</button>
                                 <hr>
                             @empty
@@ -193,52 +195,53 @@
         </div>
     </div>
 
-    <div class="modal fade" id="editEducation" tabindex="-3" aria-labelledby="editEducation" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addEducationModalLabel">Edit Education</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="test" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="institute" class="form-label">Institution</label>
-                            <input type="text" class="form-control" id="institute" name="institution" value="">
-                        </div>
+    <div class="modal fade" id="editEducation" tabindex="-1" aria-labelledby="editEducationLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEducationLabel">Edit Education</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="test" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="institute" class="form-label">Institution</label>
+                        <input type="text" class="form-control" id="institute" name="institution" value="">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="degrees" class="form-label">Degree</label>
-                            <input type="text" class="form-control" id="degrees" name="degree" value="{{$education->degree}}">
-                        </div>
+                    <div class="mb-3">
+                        <label for="degrees" class="form-label">Degree</label>
+                        <input type="text" class="form-control" id="degrees" name="degree" value="">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="field_study" class="form-label">Field of Study</label>
-                            <input type="text" class="form-control" id="field_study" name="field_study" value="{{$education->field_of_study}}">
-                        </div>
+                    <div class="mb-3">
+                        <label for="field_study" class="form-label">Field of Study</label>
+                        <input type="text" class="form-control" id="field_study" name="field_study" value="">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="grades" class="form-label">Grade</label>
-                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01"  value="{{$education->grade}}">
-                        </div>
+                    <div class="mb-3">
+                        <label for="grades" class="form-label">Grade</label>
+                        <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01" value="">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="max_grades" class="form-label">Max Grade</label>
-                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01" value="{{$education->max_grade}}">
-                        </div>
+                    <div class="mb-3">
+                        <label for="max_grades" class="form-label">Max Grade</label>
+                        <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01" value="">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="edit_education_description" class="form-label">Description</label>
-                            <textarea class="form-control" id="edit_education_description" name="description" rows="4">{{$education->description}}</textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
-                </div>
+                    <div class="mb-3">
+                        <label for="edit_education_description" class="form-label">Description</label>
+                        <textarea class="form-control" id="edit_education_description" name="description" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
+
 
     <div class="modal fade" id="addExperienceModal" tabindex="-1" aria-labelledby="addExperienceModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -412,26 +415,27 @@
             });
         });
 
-        $('#editEducation').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var institution_name = button.data('institute');
-            var degree = button.data('degrees');
-            var field_of_study = button.data('field_study');
-            // var start_date = button.data('start_date');
-            // var end_date = button.data('end_date');
-            var grade = button.data('grades');
-            var max_grade = button.data('max_grades');
-            var description = button.data('description');
+        $(document).ready(function() {
+    $('#editEducation').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Tombol yang memicu modal
+        var institution_name = button.data('institute');
+        var degree = button.data('degrees');
+        var field_of_study = button.data('field_study');
+        var grade = button.data('grades');
+        var max_grade = button.data('max_grades');
+        var description = button.data('description');
 
-            // Populate the form fields
-            $('#institute').val(institution_name);
-            $('#degrees').val(degree);
-            $('#field_study').val(field_of_study);
-            // $('#start_date').val(start_date);
-            // $('#end_date').val(end_date);
-            $('#grades').val(grade);
-            $('#max_grades').val(max_grade);
-            $('#edit_education_description').val(description);
-        });
+        // Isi form modal dengan data yang diambil dari tombol
+        $('#institute').val(institution_name);
+        $('#degrees').val(degree);
+        $('#field_study').val(field_of_study);
+        $('#grades').val(grade);
+        $('#max_grades').val(max_grade);
+        $('#edit_education_description').val(description);
+    });
+});
     </script>
+
+    
+
 @endsection
