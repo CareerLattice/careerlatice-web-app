@@ -87,7 +87,7 @@
                                     Premium
                                 </div>
                             @endif
-                            <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">Edit Profile</a>
+                            <a href="{{route ('user.editProfile')}}" class="btn btn-outline-success">Edit Profile</a>
                         @endif
                     </div>
                 </div>

@@ -26,7 +26,7 @@
                     </p>
 
                     <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
+                        <a href="{{route('user.editProfile')}}" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
                             Update Profile
                         </a>
 

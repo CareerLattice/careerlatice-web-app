@@ -46,7 +46,7 @@
                 <!-- Submit Buttons -->
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save Changes</button>
-                    <a href="{{route('user.updateProfile')}}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{route('user.editProfile')}}" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>

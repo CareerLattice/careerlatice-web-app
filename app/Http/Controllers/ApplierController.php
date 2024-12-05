@@ -71,6 +71,7 @@ class ApplierController extends Controller
                 DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
             ])
             ->where('job_applications.status', '!=', 'rejected')
+            ->where('applier_id', Auth::user()->applier->id)
             ->orderBy('job_applications.created_at', 'desc')
             ->limit(3)
             ->get();

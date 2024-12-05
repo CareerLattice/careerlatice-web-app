@@ -39,7 +39,7 @@
                                             {{$education->degree}}, {{$education->field_of_study}}
                                         </p>
                                         <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                            {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}}
+                                            {{-- {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}} --}}
                                         </p>
                                         <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                             Grade: {{$education->grade}} of {{$education->max_grade}}
@@ -148,7 +148,6 @@
         </div>
     </div>
 
-
     <div class="modal fade" id="addEducationModal" tabindex="-3" aria-labelledby="addEducationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -196,51 +195,51 @@
     </div>
 
     <div class="modal fade" id="editEducation" tabindex="-1" aria-labelledby="editEducationLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editEducationLabel">Edit Education</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="test" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="institute" class="form-label">Institution</label>
-                        <input type="text" class="form-control" id="institute" name="institution" value="">
-                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editEducationLabel">Edit Education</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="test" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="institute" class="form-label">Institution</label>
+                            <input type="text" class="form-control" id="institute" name="institution" value="">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="degrees" class="form-label">Degree</label>
-                        <input type="text" class="form-control" id="degrees" name="degree" value="">
-                    </div>
+                        <div class="mb-3">
+                            <label for="degrees" class="form-label">Degree</label>
+                            <input type="text" class="form-control" id="degrees" name="degree" value="">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="field_study" class="form-label">Field of Study</label>
-                        <input type="text" class="form-control" id="field_study" name="field_study" value="">
-                    </div>
+                        <div class="mb-3">
+                            <label for="field_study" class="form-label">Field of Study</label>
+                            <input type="text" class="form-control" id="field_study" name="field_study" value="">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="grades" class="form-label">Grade</label>
-                        <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01" value="">
-                    </div>
+                        <div class="mb-3">
+                            <label for="grades" class="form-label">Grade</label>
+                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01" value="">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="max_grades" class="form-label">Max Grade</label>
-                        <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01" value="">
-                    </div>
+                        <div class="mb-3">
+                            <label for="max_grades" class="form-label">Max Grade</label>
+                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01" value="">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="edit_education_description" class="form-label">Description</label>
-                        <textarea class="form-control" id="edit_education_description" name="description" rows="4"></textarea>
-                    </div>
+                        <div class="mb-3">
+                            <label for="edit_education_description" class="form-label">Description</label>
+                            <textarea class="form-control" id="edit_education_description" name="description" rows="4"></textarea>
+                        </div>
 
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <div class="modal fade" id="addExperienceModal" tabindex="-1" aria-labelledby="addExperienceModalLabel" aria-hidden="true">
@@ -348,10 +347,10 @@
                 <div class="modal-body">
                     <form action="test" method="POST">
                         @csrf
-                        
+
                     <div class="mb-3">
                         <label for="companyName" class="form-label">Company Name</label>
-                        <input type="text" class="form-control" id="companyName" name="companyName" value="{{$experience->company_name}}">
+                        <input type="text" class="form-control" id="companyName" name="companyName" value="">
                     </div>
 
                     <div class="mb-3">
@@ -380,7 +379,7 @@
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Save Changes</button>
-                        <a href="{{route('user.updateProfile')}}" class="btn btn-secondary">Cancel</a>
+                        <a href="{{route('user.editProfile')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                     </form>
                 </div>
@@ -416,26 +415,23 @@
         });
 
         $(document).ready(function() {
-    $('#editEducation').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Tombol yang memicu modal
-        var institution_name = button.data('institute');
-        var degree = button.data('degrees');
-        var field_of_study = button.data('field_study');
-        var grade = button.data('grades');
-        var max_grade = button.data('max_grades');
-        var description = button.data('description');
+            $('#editEducation').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Tombol yang memicu modal
+                var institution_name = button.data('institute');
+                var degree = button.data('degrees');
+                var field_of_study = button.data('field_study');
+                var grade = button.data('grades');
+                var max_grade = button.data('max_grades');
+                var description = button.data('description');
 
-        // Isi form modal dengan data yang diambil dari tombol
-        $('#institute').val(institution_name);
-        $('#degrees').val(degree);
-        $('#field_study').val(field_of_study);
-        $('#grades').val(grade);
-        $('#max_grades').val(max_grade);
-        $('#edit_education_description').val(description);
-    });
-});
+                // Isi form modal dengan data yang diambil dari tombol
+                $('#institute').val(institution_name);
+                $('#degrees').val(degree);
+                $('#field_study').val(field_of_study);
+                $('#grades').val(grade);
+                $('#max_grades').val(max_grade);
+                $('#edit_education_description').val(description);
+            });
+        });
     </script>
-
-    
-
 @endsection
