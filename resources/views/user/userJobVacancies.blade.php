@@ -50,7 +50,7 @@
         <div class="container position-absolute top-50 start-50 translate-middle text-center"
             style="transform: translate(-50%, -50%); color: black;">
             <h1 class="fw-bold" style="font-size: 2rem;">
-                Hello, <span style="color: #0d6efd;">Senn</span>! Your Journey Awaits
+                Hello, <span style="color: #0d6efd;">{{ Auth::user()->name }}</span>! Your Journey Awaits
             </h1>
             <p style="font-size: 1.2rem; color: black;">
                 Discover endless possibilities and unlock new opportunities for your bright future!
