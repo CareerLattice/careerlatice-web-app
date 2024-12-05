@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{route('password.email')}}">
                         @csrf
 
                         <div class="row mb-3">
@@ -31,7 +31,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{$message}}</strong>
                                     </span>
                                 @enderror
                             </div>

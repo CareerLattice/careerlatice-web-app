@@ -83,11 +83,6 @@
                     </div>
                 @endforelse
 
-                {{-- <div class="mb-3">
-                    <h2 style="font-size: 1.25rem; font-weight: bold; " class="mb-0 mt-3">Upload CV</h2>
-                    <input type="file" class="form-control" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
-                </div> --}}
-
                 <div class="text-center mt-4">
                     <form action="{{route('user.applyJob', ['job' => $job->id])}}" method="POST">
                         @csrf

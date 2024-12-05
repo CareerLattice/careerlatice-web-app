@@ -139,7 +139,7 @@
                     </div>
                     <hr>
                 @empty
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger text-center">
                         No Education Yet
                     </div>
                 @endforelse
@@ -178,8 +178,8 @@
                     </div>
                     <hr>
                 @empty
-                    <div class="alert alert-danger">
-                        No Education Yet
+                    <div class="alert alert-danger text-center">
+                        No Experience Yet
                     </div>
                 @endforelse
             </div>

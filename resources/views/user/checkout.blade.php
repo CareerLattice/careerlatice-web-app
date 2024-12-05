@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Checkout and Payment')
+
 @section('content')
     @include('components.navbar')
 
@@ -7,7 +9,7 @@
         <div class="row" style="min-height: calc(100vh - 135px);">
             <div class="col-lg-7 col-12" style="background-color: #ffffff; padding-left: 20px">
                 <h3 class="fw-bold mt-5 ms-5 text-center">Checkout & Payment</h3>
-                
+
                 <div class="d-flex flex-column flex-sm-row justify-content-between mt-4 ms-5">
                     <h5 class="fw-bold mb-2 mb-sm-0">Personal Information</h5>
                     <p class="text-muted me-3 mt-2 mt-sm-0">Please review your information carefully before proceeding!</p>
@@ -20,21 +22,21 @@
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->name}}</p>
                     </div>
-                
+
                     <div class="col-12 col-md-4">
                         <p class="fw-bold">Email Address</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->email}}</p>
                     </div>
-                
+
                     <div class="col-12 col-md-4">
                         <p class="fw-bold">Phone Number</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->phone_number}}</p>
                     </div>
-                
+
                     <div class="col-12 col-md-4">
                         <p class="fw-bold">Shipping Address</p>
                     </div>
@@ -42,7 +44,7 @@
                         <p>{{$applier->address}}</p>
                     </div>
                 </div>
-                
+
                 <hr>
 
                 <div class="d-flex flex-row justify-content-between mt-4 ms-5">
@@ -61,14 +63,13 @@
                         <p><strong>Important Notice:</strong> By proceeding with the payment, you confirm that you have read, understood, and agreed to the terms and conditions, including the no-refund policy.</p>
                     </p>
                 </div>
-
             </div>
 
             <div class="col-lg-5 shadow-sm col-12" style="background-color: #f8f9fa">
                 <div class="d-flex flex-column justify-content-center align-items-center py-5">
                     <h3 class="fw-bold mb-2 text-center">Payment Summary</h3>
                     <p class="text-muted mb-4 text-center mt-0">You are about to purchase the following:</p>
-                    
+
                     <div class="row w-100">
                         <div class="col-12 col-md-4">
                             <p class="fw-bold">Product</p>
@@ -90,7 +91,7 @@
                         <div class="col-12 col-md-8">
                             <p class="mb-2">{{$transaction->end_date}}</p>
                         </div>
-                        
+
                         <hr>
 
                         <div class="col-12 col-md-4">
@@ -100,11 +101,11 @@
                             <h3 class="mb-2">Rp {{number_format($transaction->price, 0, ',', '.')}}</h3>
                         </div>
                     </div>
-            
+
                     <button id="pay-button" class="btn btn-primary w-75 py-2 mt-4">Proceed to Payment</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 @endsection
