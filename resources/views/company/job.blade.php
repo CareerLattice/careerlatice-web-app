@@ -138,31 +138,32 @@
         </div>
 
         <div class="job-card mt-5 d-flex flex-column">
-            <div class="job-header justify-content-between">
-                <h4 class="fw-bold">List Applicant</h4>
+            <div class="job-header d-flex justify-content-between">
+                <div class="align-self-start">
+                    <h4 class="fw-bold">List Applicant</h4>
+                </div>
 
-                <form role="filter" action="{{route('company.filter', ['job' => $job])}}" method="GET">
-                    <div class="dropdown">
-                        <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
-                            Filter
-                        </button>
+                <div class="d-flex gap-2">
+                    <form role="filter" action="{{route('company.filter', ['job' => $job])}}" method="GET">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
+                                Filter
+                            </button>
 
-                        <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
-                            <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
-                            <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
-                            <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
-                            <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
-                        </ul>
-                    </div>
-                </form>
+                            <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
+                                <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
+                                <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
+                                <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
+                                <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
+                            </ul>
+                        </div>
+                    </form>
 
-                <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
+                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
                 </div>
             </div>
 
-            <hr class="my-4">
-
-            <div class="list-applicant">
+            <div class="mt-2">
                 <table class="table table-hover table-bordered">
                     <thead class="table-dark">
                       <tr>
@@ -227,7 +228,10 @@
                         @endforelse
                     </tbody>
                 </table>
-                {{$applicants->links()}}
+
+                <div class="d-flex justify-content-center">
+                    {{$applicants->links()}}
+                </div>
             </div>
         </div>
     </div>

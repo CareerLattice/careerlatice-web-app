@@ -92,7 +92,7 @@ class JobController extends Controller
             ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id', 'appliers.id as applier_id',
             DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at')   )
             ->orderBy('appliers.end_date_premium','desc')
-            ->paginate(25);
+            ->paginate(10);
 
         return view('company.job', compact('job', 'applicants'));
     }
@@ -114,7 +114,7 @@ class JobController extends Controller
             $applicants = $applicants->where('status', 'LIKE',$req->filter);
         }
 
-        $applicants = $applicants->paginate(25);
+        $applicants = $applicants->paginate(10);
 
         return view('company.job', compact('job', 'applicants'));
     }

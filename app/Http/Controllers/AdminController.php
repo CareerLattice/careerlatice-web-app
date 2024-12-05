@@ -23,7 +23,7 @@ class AdminController extends Controller
         $listPremium = DB::table('user_histories')
             ->join('appliers', 'user_histories.applier_id', '=', 'appliers.id')
             ->join('users', 'appliers.user_id', '=', 'users.id')
-            ->select('users.name', 'user_histories.price',
+            ->select('users.name', 'user_histories.price', 'appliers.id as applier_id',
             DB::raw("DATE_FORMAT(user_histories.start_date, '%d %M %Y') as start_date"),
             DB::raw("DATE_FORMAT(user_histories.end_date, '%d %M %Y') as end_date"))
             ->where('user_histories.status', 'success')

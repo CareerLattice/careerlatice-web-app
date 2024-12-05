@@ -2,12 +2,8 @@
 
 @section('title', 'Admin Home')
 
-@section('content')
-    @include('components.navbar')
-
+@section('custom_css')
     <style>
-              
-       
         .bg-gradient-primary {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
         }
@@ -34,14 +30,15 @@
             font-size: 1rem;
         }
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
+    @include('components.navbar')
     <!-- Content -->
     <div class="container mt-4">
         <div class="card p-4 custom-bg">
-
             <h4 class="text-start mb-4">Welcome back,<span class="fw-bold" style= "color: #682b90;"> Admin! </span></h4>
-            
+
             <!-- Statistics -->
             <div class="row g-2 p-3 mb-4 bg-light shadow-lg rounded border">
                 <div class="col-12 col-md-6">
@@ -50,18 +47,21 @@
                         <h2 class="fs-3 fw-bold">IDR. {{number_format($monthRevenue)}}</h2>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-success text-start p-3 text-white " style="height: 150px;">
                         <h6>Total Income</h6>
                         <h2 class="fs-3 fw-bold">IDR. {{number_format($totalRevenue)}}</h2>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-info text-start p-3 text-white" style="height: 150px;">
                         <h6>Total Applier</h6>
                         <h2 class="fs-3 fw-bold">{{number_format($totalApplier)}}</h2>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-danger text-start p-3 text-white" style="height: 150px;">
                         <h6>Total Company</h6>
@@ -71,27 +71,28 @@
             </div>
 
             <!-- Website Income -->
-            <div class="mb-4">
+            <div class="mb-4 d-flex flex-column align-items-center">
                 <h5>Website Income</h5>
                 <div class="row g-3 align-items-end">
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-md-6">
                         <label for="inputDateFrom" class="form-label">From</label>
-                        <input type="date" class="form-control" id="inputDateFrom">
+                        <input type="date" class="form-control" id="inputDateFrom" onchange="checkRevenue()">
                     </div>
-                    <div class="col-12 col-md-3">
+
+                    <div class="col-12 col-md-6">
                         <label for="inputDateTo" class="form-label">To</label>
-                        <input type="date" class="form-control" id="inputDateTo">
+                        <input type="date" class="form-control" id="inputDateTo" onchange="checkRevenue()">
                     </div>
-                    <div class="col-12 col-md-3">
-                        <button class="btn btn-secondary w-100">Search</button>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <button class="btn btn-primary w-100">Export All Income</button>
+
+                    <div class="col-12">
+                        <div class="card card-stats bg-gradient-danger text-start p-3 text-white text-center" style="height: 150px;">
+                            <h6>Total Income</h6>
+                            <h2 class="fs-3 fw-bold" id="revenue_range">{{number_format($totalCompany)}}</h2>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            
             <div class="mb-4">
                 <h5>List of All Premium Users</h5>
                 <div class="row g-3 align-items-end">
@@ -99,13 +100,16 @@
                         <label for="inputDateFromPremium" class="form-label">From</label>
                         <input type="date" class="form-control" id="inputDateFromPremium">
                     </div>
+
                     <div class="col-12 col-md-3">
                         <label for="inputDateToPremium" class="form-label">To</label>
                         <input type="date" class="form-control" id="inputDateToPremium">
                     </div>
+
                     <div class="col-12 col-md-3">
                         <button class="btn btn-secondary w-100">Search</button>
                     </div>
+
                     <div class="col-12 col-md-3">
                         <button class="btn btn-primary w-100">Export All Users</button>
                     </div>
@@ -113,29 +117,68 @@
             </div>
 
             <!-- Table -->
-    <div class="header d-flex justify-content-between align-items-center py-2">
-        <div class="col text-start"><strong>No</strong></div>
-        <div class="col text-start"><strong>Name</strong></div>
-        <div class="col text-center"><strong>Revenue</strong></div>
-        <div class="col text-center"><strong>Start Date</strong></div>
-        <div class="col text-center"><strong>End Date</strong></div>
-    </div>
+            <div class="mt-2">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Revenue</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                        </tr>
+                    </thead>
 
-<div class="premium-list">
-    @forelse ($listPremium as $premiumApplier)
-        <div class="premium-item d-flex justify-content-between align-items-center border-bottom py-2">
-            <div class="col">{{$listPremium->firstItem() + $loop->index}}</div>
-            <div class="col">{{$premiumApplier->name}}</div>
-            <div class="col text-center">{{number_format($premiumApplier->price)}}</div>
-            <div class="col text-center">{{$premiumApplier->start_date}}</div>
-            <div class="col text-center">{{$premiumApplier->end_date}}</div>
+                    <tbody class="table-group-divider">
+                        @forelse ($listPremium as $premiumApplier)
+                            <tr style="cursor: pointer">
+                                <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$listPremium->firstItem() + $loop->index}}</th>
+                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->name}}</td>
+                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->price}}</td>
+                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->start_date}}</td>
+                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->end_date}}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5">
+                                    <div class="alert alert-danger text-center">
+                                        No Premium User Found.
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-center">
+                    {{$listPremium->links()}}
+                </div>
+            </div>
         </div>
-    @empty
-        <div class="alert alert-danger text-center">
-            No premium user found.
-        </div>
-    @endforelse
-</div>
-</div>
+    </div>
     @include('components.footer')
+@endsection
+
+
+@section('custom_script')
+    <script>
+        async function checkRevenue(){
+            const dateFrom = document.getElementById('inputDateFrom').value;
+            const dateTo = document.getElementById('inputDateTo').value;
+            if(dateFrom === '' || dateTo === '') return;
+
+            try {
+                const response = await fetch(`/admin/revenue?dateFrom=${dateFrom}&dateTo=${dateTo}`);
+
+                if(!response.ok){
+                    throw new Error('Something went wrong');
+                }
+
+                const data = await response.json();
+                document.getElementById('revenue_range').innerText = `IDR. ${data.revenue}`;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
 @endsection
