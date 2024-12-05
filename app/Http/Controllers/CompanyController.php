@@ -38,6 +38,7 @@ class CompanyController extends Controller
                 'password' => Hash::make($req->password),
                 'phone_number' => $req->phone_number,
                 'role' => 'company',
+                'profile_picture' => 'default/profile_picture.jpg',
             ]);
 
             // Membuat company baru
