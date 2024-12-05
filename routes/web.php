@@ -113,6 +113,7 @@ Route::prefix("user")->group(function(){
 
         Route::post('/apply-job/{job}', [JobApplicationController::class, 'create'])->name('user.applyJob');
 
+        Route::get('/premium/bundle', [PremiumController::class, 'viewPremiumBundle'])->name('user.premiumBundle');
         // Route for user view applied jobs
         // Route::get('/applied-jobs', [UserController::class, 'userViewAppliedJobs'])->name('user.appliedJobs');
         // Route::delete('/applied-job/{job}', [UserController::class, 'cancelAppliedJob'])->name('user.cancelAppliedJob');

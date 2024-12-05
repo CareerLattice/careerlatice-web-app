@@ -85,22 +85,34 @@ class JobApplicationController extends Controller
     }
 
     public function create(Job $job){
+        $applier = Auth::user()->applier;
+
         $jobApplication = JobApplication::where('job_id', $job->id)
-            ->where('applier_id', Auth::user()->applier->id)
+            ->where('applier_id', $applier->id)
             ->first();
 
         if($jobApplication){
-            session()->put('error', 'You already applied for this job');
+            session()->flash('error', 'You already applied for this job');
             return redirect()->back();
+        }
+
+        if(Auth::user()->phone_number == null){
+            session()->flash('error', 'Please fill your phone number before applying for a job');
+            return redirect()->route('user.jobVacancies');
+        }
+
+        if($applier->cv_url == null){
+            session()->flash('error', 'Please upload your CV before applying for a job');
+            return redirect()->route('user.jobVacancies');
         }
 
         JobApplication::create([
             'job_id' => $job->id,
-            'applier_id' => Auth::user()->applier->id,
+            'applier_id' => $applier->id,
             'status' => 'pending',
         ]);
 
-        session()->put('message', 'Job application submitted successfully');
+        session()->flash('message', 'Job application submitted successfully');
         return redirect()->route('user.jobVacancies');
     }
 }

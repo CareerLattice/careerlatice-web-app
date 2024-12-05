@@ -127,13 +127,9 @@
                         Fast-track your career progression with a profile that attracts attention from leading employers, setting you on a path to success.
                     </p>
 
-                    <form action="{{route('user.upgradeToPremium')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="duration" value="1">
-                        <button class="btn btn-lg rounded-pill px-5 py-3" style="background: #7869cd; color: white; font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                            Subscribe Today
-                        </button>
-                    </form>
+                    <a href="{{route('user.premiumBundle')}}" class="btn btn-lg rounded-pill px-5 py-3" style="background: #7869cd; color: white; font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-decoration: none; display: inline-block;">
+                        Subscribe Today
+                    </a>
                 </div>
             </div>
         </div>
