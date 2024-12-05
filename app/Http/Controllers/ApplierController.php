@@ -34,7 +34,6 @@ class ApplierController extends Controller
         ]);
 
         DB::beginTransaction();
-
         try {
             $user = User::create([
                 'name' => $req->name,
@@ -46,9 +45,9 @@ class ApplierController extends Controller
             ]);
 
             Applier::create([
-                'user_id' => $user->id,
-                'address' => $req->address,
-                'birth_date' => $req->dob,
+                'user_id'=> $user->id,
+                'address'=> $req->address,
+                'birth_date'=> $req->birth_date,
             ]);
 
             DB::commit();
@@ -112,7 +111,7 @@ class ApplierController extends Controller
         ]);
 
         if($req->profile_picture){
-            if ($user->profile_picture && Storage::disk('public')->exists($user->profile_picture)) {
+            if ($user->profile_picture && $user->profile_picture != 'default/profile_picture.jpg' && Storage::disk('public')->exists($user->profile_picture)) {
                 Storage::disk('public')->delete($user->profile_picture);
             }
 

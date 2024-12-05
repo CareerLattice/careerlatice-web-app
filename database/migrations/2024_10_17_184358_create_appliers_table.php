@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('appliers', function (Blueprint $table) {
             $table->id();
-            $table->string('headline');
+            $table->string('headline')->nullable();
             $table->string('address')->nullable();
             $table->text('description')->nullable();
             $table->timestamp('birth_date')->nullable();
