@@ -416,7 +416,7 @@
 
         $(document).ready(function() {
             $('#editEducation').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget); // Tombol yang memicu modal
+                var button = $(event.relatedTarget);
                 var institution_name = button.data('institute');
                 var degree = button.data('degrees');
                 var field_of_study = button.data('field_study');
@@ -424,7 +424,6 @@
                 var max_grade = button.data('max_grades');
                 var description = button.data('description');
 
-                // Isi form modal dengan data yang diambil dari tombol
                 $('#institute').val(institution_name);
                 $('#degrees').val(degree);
                 $('#field_study').val(field_of_study);

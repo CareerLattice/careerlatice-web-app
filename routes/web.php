@@ -67,6 +67,7 @@ Route::prefix("company")->group(function(){
             Route::get('/job/{job}', [JobController::class, 'viewJob'])->name('company.job');
             Route::delete('/job/{job}', [JobController::class, 'deleteJob'])->name('company.deleteJob');
         });
+
         // Route for company filter job
         Route::get('/job/{job}/filter',[JobController::class, 'filterJobs'])->name('company.filter');
 
@@ -79,11 +80,11 @@ Route::prefix("company")->group(function(){
         Route::post('/edit-job/{job}', [JobController::class, 'update'])->name('company.updateJob');
 
         // Route for company view applicants
-        // Route::get('/job-applicants/{id}', action: [CompanyController::class, 'viewJobApplicants'])->name('company.jobApplicants');
-        // Route::get('/applicants/{id}', [CompanyController::class, 'viewApplicants'])->name('company.applicants'); // Change status job application pending to read
-    });
+        Route::get('/view-applicants/{applier}', [CompanyController::class, 'viewApplicants'])->name('company.viewApplicants');
 
-    Route::get('/edit-profile', [CompanyController::class, 'viewProfile'])->name('updateCompany');
+        // Route for company update job application status
+        Route::post('/company/update/application/{application}', action: [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
+    });
 });
 
 Route::prefix("user")->group(function(){
@@ -124,17 +125,8 @@ Route::prefix("user")->group(function(){
         // Route for user to add skill
         // Route::post('/user-skill', [SkillController::class, 'addSkill'])->name('user.addSkill');
         // Route::delete('/user-skill/{skill}', [SkillController::class, 'deleteSkill'])->name('user.deleteSkill');
-
     });
 });
-
-route::get('/user/editEducation', function(){
-    return view('user.editEducation');
-})->name ('editEducation');
-
-route::get('/user/editExperience', function(){
-    return view('user.editExperience');
-})->name ('editExperience');
 
 // Dibuat setelah user dan company selesai dibuat
 Route::prefix("admin")->group(function(){
@@ -147,6 +139,9 @@ Route::prefix("admin")->group(function(){
     // Route::get('/premium/data', [AdminController::class, 'premiumData'])->name('adminPremiumData');
 });
 
+
+
+// ================================== TESTING ==================================
 // Testing Open CV
 Route::get('/testing_CV', function(){
     return view('testing_CV');
@@ -173,16 +168,21 @@ Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany
 Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
 Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
 
-Route::post('/company/update/application/{application}', [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
-
 // Not Done
 Route::get('/settings',function(){
     return view('settings');
 })->name('settings');
 
+// User Profile
 Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
 Route::post('/add-experience', [ExperienceController::class, 'create'])->name('user.addExperience');
-Route::get('/company/view-applicants/{applier}', [CompanyController::class, 'viewApplicants'])->name('company.viewApplicants');
+route::get('/user/editEducation', function(){
+    return view('user.editEducation');
+})->name ('editEducation');
+
+route::get('/user/editExperience', function(){
+    return view('user.editExperience');
+})->name ('editExperience');
 
 // Testing Membuat Data untuk Client Side Rendering
 use App\Models\Company;

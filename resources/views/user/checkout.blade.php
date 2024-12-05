@@ -136,12 +136,10 @@
                         console.error('Error:', error);
                     }
                 },
-                // Optional
                 onPending: async function(result){
                     console.log('Pending');
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                 },
-                // Optional
                 onError: async function(result){
                     console.log('Error');
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);

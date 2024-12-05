@@ -243,15 +243,6 @@ class JobController extends Controller
     public function userViewJob(Job $job){
         $requirement = explode("\r\n", $job->requirement);
         $benefit = explode("\r\n", $job->benefit);
-        // $result = DB::table('job_vacancies as jobs')
-        //     ->join('companies', 'jobs.company_id', '=', 'companies.id')
-        //     ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
-        //     ->join('skills','job_skills.skill_id','=','skills.id')
-        //     ->join('users', 'companies.user_id', '=', 'users.id')
-        //     ->select('users.name as company_name', 'jobs.title', 'jobs.address', 'jobs.updated_at', 'jobs.description', 'skills.name as skill_name')
-        //     ->where('jobs.id', $job->id)
-        //     ->get();
-
         $result = DB::table('job_vacancies as jobs')
             ->join('companies', 'jobs.company_id', '=', 'companies.id')
             ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
