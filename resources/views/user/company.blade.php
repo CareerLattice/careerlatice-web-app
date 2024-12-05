@@ -11,8 +11,8 @@
              class="img-fluid w-100"
              style="object-fit: cover; height: 35vh; max-height: 500px;">
 
-        <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
-            <h1 class="display-5 fw-bold text-wrap">Welcome to {{$company->user->name}}</h1>
+        <div class="banner position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+            <h2 class="fw-bold text-wrap">Welcome to {{$company->user->name}}</h2>
             <p class="lead text-wrap fw-bold" style="color: gold; font-size: 1.5rem;">Your trusted professional partner.</p>
         </div>
     </div>
