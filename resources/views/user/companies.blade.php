@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row pt-5 pb-5 d-flex justify-content-center">
                 <div class="col-12 col-md-12 col-lg-7 text-center text-md-start mt-4">
-                    <img src="{{ secure_asset('assets/test222.jpg') }}" class="img-fluid" alt="Company Image"
+                    <img src="{{ asset('assets/test222.jpg') }}" class="img-fluid" alt="Company Image"
                         style="max-width: 85%; height: auto;" />
                 </div>
 
@@ -98,7 +98,7 @@
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                     <div class="company-card"
                         style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; height: 100%;">
-                        <img src="{{ secure_asset('assets/bbca.jpeg') }}" alt="Company Logo"
+                        <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo"
                             style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
                         <div class="company-details text-center">
                             <h5 class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #333;">

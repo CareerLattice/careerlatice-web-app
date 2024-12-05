@@ -3,7 +3,7 @@
 @section('title', 'Sign Up')
 
 @section('custom_css')
-    <link href="{{ secure_asset('css/signUpPage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/signUpPage.css') }}" rel="stylesheet">
     <style>
         @media (max-width: 1040px) {
             h3 {
@@ -60,7 +60,7 @@
             </a>
 
             <div class="image text-center">
-                <img src="{{ secure_asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="window.location='/'">
+                <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="window.location='/'">
             </div>
 
             <div class="text-left">
@@ -72,13 +72,13 @@
                 <div class="align-items-start w-100 buttons">
                     <a href="{{route('user.signUpUser')}}" class="d-flex justify-content-center" style="text-decoration: none">
                         <button type="button" class="btn btn-green mb-2 d-flex justify-content-start align-items-center text-center">
-                            <img src="{{ secure_asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
+                            <img src="{{ asset('assets/portfolio.png') }}" alt="portfolio" class="icons">
                             <span>I'm here to apply</span>
                         </button>
                     </a>
                     <a href="{{route('company.signUpCompany')}}" class="d-flex justify-content-center" style="text-decoration: none">
                         <button type="button" class="btn btn-purple mb-2 d-flex justify-content-start align-items-center text-center">
-                            <img src="{{ secure_asset('assets/office.png') }}" alt="office" class="icons">
+                            <img src="{{ asset('assets/office.png') }}" alt="office" class="icons">
                             <span>I'm hiring talent</span>
                         </button>
                     </a>
@@ -90,13 +90,13 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
                 <div class="carousel-inner h-100 d-none d-md-block d-sm-none">
                     <div class="carousel-item active h-100">
-                        <img src="{{ secure_asset('assets/joinUsImage1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
+                        <img src="{{ asset('assets/joinUsImage1.jpg') }}" class="d-block w-100 h-100" alt="Image 1" style="object-fit: cover;">
                     </div>
                     <div class="carousel-item h-100">
-                        <img src="{{ secure_asset('assets/joinUsImage2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
+                        <img src="{{ asset('assets/joinUsImage2.jpg') }}" class="d-block w-100 h-100" alt="Image 2" style="object-fit: cover;">
                     </div>
                     <div class="carousel-item h-100">
-                        <img src="{{ secure_asset('assets/joinUsImage3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
+                        <img src="{{ asset('assets/joinUsImage3.jpg') }}" class="d-block w-100 h-100" alt="Image 3" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="carousel-controls">

@@ -44,7 +44,7 @@
     @include('components.navbar')
 
     <div class="position-relative" style="position: relative;">
-        <img src="{{ secure_asset('assets/BannerTest.jpg') }}" alt="Company Cover" class="img-fluid"
+        <img src="{{ asset('assets/BannerTest.jpg') }}" alt="Company Cover" class="img-fluid"
             style="object-fit: cover; width: 100%; height: 35vh; max-height: 450px;">
 
         <div class="container position-absolute top-50 start-50 translate-middle"
@@ -98,7 +98,7 @@
                 @forelse ($jobs as $job)
                     <div class="row mb-4">
                         <div class="col-10 col-md-5 col-lg-3">
-                            <img src="{{ secure_asset('assets/bbca.jpeg') }}" class="img-thumbnail" style="width: 100%;">
+                            <img src="{{ asset('assets/bbca.jpeg') }}" class="img-thumbnail" style="width: 100%;">
                         </div>
 
                         <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">

@@ -71,7 +71,7 @@
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row">
                         <div class="col-10 col-md-3 d-flex justify-content-center">
-                            <img src="{{secure_asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                            <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">

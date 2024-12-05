@@ -97,7 +97,7 @@
 @endsection
 
 @section('custom_script')
-<script src="{{ secure_asset('js/script.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 <script>
     function testingJS(){
         if (document.getElementById('test').style.color == 'red')
@@ -130,7 +130,7 @@
                 container.innerHTML += `
                     <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                         <div class="company-card">
-                            <img src="{{ secure_asset('assets/bbca.jpeg') }}" alt="Company Logo">
+                            <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
                             <div class="company-details">
                                 <h5 class="mt-2">Company ID: ${data['id']}</h5>
                                 <p>${data['address']}</p>

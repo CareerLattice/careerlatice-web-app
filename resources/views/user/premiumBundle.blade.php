@@ -28,7 +28,7 @@
     @include('components.navbar')
 
     <div class="position-relative">
-        <img src="{{secure_asset('assets/premiumBanner.jpg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh; max-height: 400px">
+        <img src="{{asset('assets/premiumBanner.jpg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh; max-height: 400px">
         <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
             <h1 class="fw-medium">Explore Exciting <span style="color: gold">Premium Bundle</span> and <span style="color: gold">Benefits</span></h1>
             <h1 class="fw-medium">With CareerLattice</h1>
