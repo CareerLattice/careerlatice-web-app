@@ -63,7 +63,7 @@
     @include('components.navbar')
     <div class="container mt-5">
         <a href="{{route('company.listJob')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> Back to Jobs
+            <i class="bi bi-arrow-left-circle"></i> {{__('company/job.back')}}
         </a>
 
         <div class="job-card">
@@ -80,7 +80,7 @@
                             </div>
                             <div class="d-flex gap-1 flex-column">
                                 <h5 class="text-muted">{{$job->address}}</h5>
-                                <h5 class="text-muted">Last Update: {{$job->updated_at->format('d F Y')}}</h5>
+                                <h5 class="text-muted">{{__('company/job.lastUpdate')}} {{$job->updated_at->format('d F Y')}}</h5>
                                 <h5 class="text-muted">{{$job->job_type}}</h5>
                             </div>
                         </div>
@@ -88,9 +88,9 @@
                 </div>
                 <div class="col-md-2 d-flex">
                     @if ($job->is_active == true)
-                        <div class="bg-success text-light p-2 rounded-3 ms-auto">Open</div>
+                        <div class="bg-success text-light p-2 rounded-3 ms-auto">{{__('company/job.open')}}</div>
                     @else
-                        <div class="bg-danger text-light p-2 rounded-3 ms-auto">Closed</div>
+                        <div class="bg-danger text-light p-2 rounded-3 ms-auto">{{__('company/job.closed')}}</div>
                     @endif
                 </div>
             </div>
@@ -100,7 +100,7 @@
 
             <div class="job-details">
                 <div class="d-flex gap-2">
-                    <h2 class="section-title">Job Description</h2>
+                    <h2 class="section-title">{{__('company/job.jobDescription')}}</h2>
                 </div>
                 <p class="d-block">{{$job->description}}</p>
 
@@ -109,21 +109,21 @@
                     $benefit = explode("\r\n", $job->benefit);
                 @endphp
 
-                <h2 class="fs-4 mt-4">Requirements</h2>
+                <h2 class="fs-4 mt-4">{{__('company/job.jobRequirement')}}</h2>
                 @forelse ($requirement as $line)
                     <p class="m-0">{{$line}}</p>
                     @empty
                     <div class="alert alert-danger">
-                        No requirement available yet
+                        {{__('company/job.noRequirement')}}
                     </div>
                 @endforelse
 
-                <h2 class="fs-4 mt-4">Benefits</h2>
+                <h2 class="fs-4 mt-4">{{__('company/job.jobBenefit')}}</h2>
                 @forelse ($benefit as $line)
                     <p class="m-0">{{$line}}</p>
                     @empty
                     <div class="alert alert-danger">
-                        No requirement available yet
+                        {{__('company/job.noBenefit')}}
                     </div>
                 @endforelse
 
@@ -131,35 +131,35 @@
                     <form action="{{route('company.deleteJob', ['job' => $job->id])}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-outline-danger color-danger">Delete Job</button>
+                        <button class="btn btn-outline-danger color-danger">{{__('company/job.deleteJob')}}</button>
                     </form>
-                    <a href="{{route('company.editJob', ['job' => $job->id])}}" class="btn btn-outline-primary">Edit Details</a>
+                    <a href="{{route('company.editJob', ['job' => $job->id])}}" class="btn btn-outline-primary">{{__('company/job.editDetail')}}</a>
                 </div>
             </div>
         </div>
 
         <div class="job-card mt-5 d-flex flex-column">
             <div class="job-header justify-content-between">
-                <h4 class="fw-bold">List Applicant</h4>
+                <h4 class="fw-bold">{{__('company/job.listApplicant')}}</h4>
 
                 <form role="filter" action="{{route('company.filter', ['job' => $job])}}" method="GET">
                     <input type="hidden" name="job_id" value="{{$job}}">
                     <div class="dropdown">
                         <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
-                            Filter
+                            {{__('company/job.filter')}}
                         </button>
 
                         <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
-                            <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
-                            <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
-                            <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
-                            <li><button class="dropdown-item" name="filter" value="on process" type="submit">On Process</button></li>
-                            <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
+                            <li><button class="dropdown-item" name="filter" value="" type="submit">{{__('company/job.all')}}</button></li>
+                            <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('company/job.accepted')}}</button></li>
+                            <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('company/job.rejected')}}</button></li>
+                            <li><button class="dropdown-item" name="filter" value="on process" type="submit">{{__('company/job.onProcess')}}</button></li>
+                            <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('company/job.pending')}}</button></li>
                         </ul>
                     </div>
                 </form>
 
-                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
+                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">{{__('company/job.exportList')}}</a>
                 </div>
             </div>
 
@@ -169,12 +169,12 @@
                 <table class="table table-hover table-bordered">
                     <thead class="table-dark">
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Applied At</th>
-                        <th scope="col">Application CV</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{{__('company/job.no')}}</th>
+                        <th scope="col">{{__('company/job.name')}}</th>
+                        <th scope="col">{{__('company/job.appliedAt')}}</th>
+                        <th scope="col">{{__('company/job.applicationCV')}}</th>
+                        <th scope="col">{{__('company/job.status')}}</th>
+                        <th scope="col">{{__('company/job.action')}}</th>
                       </tr>
                     </thead>
 
@@ -185,21 +185,21 @@
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->name}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->applied_at}}</td>
                                 <td>
-                                    <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">Open CV</a>
+                                    <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">{{__('company/job.openCV')}}</a>
                                 </td>
                                 <td id="{{'status_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                     @if ($application->status == 'accepted')
-                                        <p class="text-success fw-bold">Accepted</p>
+                                        <p class="text-success fw-bold">{{__('company/job.accepted')}}</p>
                                     @elseif ($application->status == 'rejected')
-                                        <p class="text-danger fw-bold">Rejected</p>
+                                        <p class="text-danger fw-bold">{{__('company/job.rejected')}}</p>
                                     @else
-                                        <p class="text-primary fw-bold">Pending</p>
+                                        <p class="text-primary fw-bold">{{__('company/job.pending')}}</p>
                                     @endif
                                 </td>
 
                                 @if ($application->status == 'accepted' || $application->status == 'rejected')
                                     <td class="d-flex gap-2" id="{{'action_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
-                                        <div class="bg-secondary text-light p-2 rounded-3" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">None</div>
+                                        <div class="bg-secondary text-light p-2 rounded-3" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{__('company/job.none')}}</div>
                                     </td>
                                 @else
                                     <td class="d-flex gap-2" id="{{'action_' . $application->job_application_id}}">
@@ -239,7 +239,7 @@
                             <tr>
                                 <td colspan="6">
                                     <div class="alert alert-danger text-center">
-                                        No application found.
+                                        {{__('company/job.noApplicationFound')}}
                                     </div>
                                 </td>
                             </tr>
@@ -284,14 +284,14 @@
                 }
 
                 const result = await response.json();
-                let statusValue = `<p class="text-danger fw-bold">Rejected</p>`;
+                let statusValue = `<p class="text-danger fw-bold">{{__('company/job.rejected')}}</p>`;
                 if (result.status == 'Accepted') {
-                    statusValue = `<p class="text-success fw-bold">Accepted</p>`;
+                    statusValue = `<p class="text-success fw-bold">{{__('company/job.accepted')}}</p>`;
                 }
 
                 alert('Job Application Status Updated to ' + result.status);
                 document.getElementById('status_' + applicationId).innerHTML = statusValue;
-                document.getElementById('action_' + applicationId).innerHTML = `<div class="bg-secondary text-light p-2 rounded-3">None</div>`;
+                document.getElementById('action_' + applicationId).innerHTML = `<div class="bg-secondary text-light p-2 rounded-3">{{__('company/job.none')}}</div>`;
             } catch (error) {
                 console.error(error);
             }
