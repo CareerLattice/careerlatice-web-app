@@ -18,7 +18,7 @@ class JobSeeder extends Seeder
         $faker = Factory::create("id_ID");
         for($i = 0; $i < 15; $i++) {
             Job::create([
-                'job_type' => $faker->randomElement(['Full Time', 'Part Time', 'Internship']),
+                'job_type' => $faker->randomElement(['Full-time', 'Part-time', 'Internship', 'Freelance']),
                 'title' => $faker->jobTitle,
                 'address' => $faker->address,
                 'description' => $faker->paragraph,

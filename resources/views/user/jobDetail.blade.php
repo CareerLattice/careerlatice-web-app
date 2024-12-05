@@ -51,8 +51,8 @@
                     <div class="jobsTitle col-12 col-md-10">
                         <h1 style="font-size: 1.5rem; font-weight: bold; color: #212529;">{{ $job->title }} - {{ $job->company->user->name }}</h1>
                         <h5 style="color: #6c757d;">{{ $job->address }} · Last Update: {{ $job->updated_at->format('d F Y') }}</h5>
-                        <p class="p-2 {{ $job->job_type == 'Full Time' ? 'bg-success' : ($job->job_type == 'Part Time' ? 'bg-warning' : 'bg-danger') }} rounded-pill text-center" 
-                            style="width: 10%; background-color: {{ $job->job_type == 'Full Time' ? '#198754' : ($job->job_type == 'Part Time' ? '#ffc107' : '#dc3545') }}; color: white;">
+                        <p class="p-2 {{ $job->job_type == 'Full-time' ? 'bg-success' : ($job->job_type == 'Part-time' ? 'bg-warning' : 'bg-danger') }} rounded-pill text-center"
+                            style="width: 10%; background-color: {{ $job->job_type == 'Full-time' ? '#198754' : ($job->job_type == 'Part-time' ? '#ffc107' : '#dc3545') }}; color: white;">
                             {{ $job->job_type }}
                         </p>
                     </div>
@@ -83,20 +83,17 @@
                     </div>
                 @endforelse
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <h2 style="font-size: 1.25rem; font-weight: bold; " class="mb-0 mt-3">Upload CV</h2>
                     <input type="file" class="form-control" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
-                </div>
+                </div> --}}
 
                 <div class="text-center mt-4">
-                    <form action="{{ route('user.applyJob', ['job' => $job->id]) }}" method="POST">
+                    <form action="{{route('user.applyJob', ['job' => $job->id])}}" method="POST">
                         @csrf
-
                         <button class="btn btn-primary" type="submit" style="padding: 0.5rem 1.5rem; font-size: 1rem;">Apply Now</button>
                     </form>
                 </div>
-
-               
             </div>
         </div>
     </div>

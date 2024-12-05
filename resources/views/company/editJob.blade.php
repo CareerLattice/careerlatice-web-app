@@ -125,9 +125,10 @@
                     <div style="width:45%">
                         <label for="job_type"><h2 class="fs-4 m-0 me-2">Job Type</h2></label>
                         <select id="job_type" class="form-select" name="job_type" required>
-                            <option value="Full Time" @if($job->job_type == 'Full Time') selected @endif>Full Time</option>
-                            <option value="Part Time " @if($job->job_type == 'Part Time') selected @endif>Part Time</option>
-                            <option value="Internship " @if($job->job_type == 'Internship') selected @endif>Internship</option>
+                            <option value="Full-time" @if($job->job_type == 'Full-time') selected @endif>Full-time</option>
+                            <option value="Part-time" @if($job->job_type == 'Part-time') selected @endif>Part-time</option>
+                            <option value="Internship" @if($job->job_type == 'Internship') selected @endif>Internship</option>
+                            <option value="Freelance" @if($job->job_type == 'Freelance') selected @endif>Freelance</option>
                         </select>
                     </div>
                 </div>

@@ -156,7 +156,7 @@
                     searchInput.placeholder = 'Search by Job Title';
                     break;
                 case 'job_type':
-                    searchInput.placeholder = 'ex: Full Time, Part Time, Internship';
+                    searchInput.placeholder = 'ex: Full-time, Part-time, Internship, or Freelance';
                     break;
             }
         }

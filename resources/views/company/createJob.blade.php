@@ -35,9 +35,10 @@
             <div class="mb-3">
                 <label for="job_type" class="form-label">Job Type</label>
                 <select class="form-select" id="job_type" name="job_type" required>
-                    <option value="Full Time">Full Time</option>
-                    <option value="Part Time">Part Time</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
                     <option value="Internship">Internship</option>
+                    <option value="Freelance">Freelance</option>
                 </select>
             </div>
 

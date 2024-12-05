@@ -11,19 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class JobApplicationController extends Controller
 {
-    // Company can view job applicants
-    // public function viewJobApplicants(Job $job){
-    //     $applicants = $job->applicants->paginate(25)->withQueryString();
-    //     return view('company.jobApplicants', ['applicants' => $applicants]);
-    // }
-
     public function exportCSV(Job $job){
-        // $data = JobApplication::with('applier.user')->where('job_id', $job->id)->get();
         $result = DB::table('job_applications')
             ->join('appliers', 'job_applications.applier_id', '=', 'appliers.id')
             ->join('users', 'appliers.user_id', '=', 'users.id')
             ->select('users.name', 'users.email', 'users.phone_number', 'appliers.address', 'appliers.birth_date', 'job_applications.created_at')
             ->where('job_applications.job_id', $job->id)
+            ->orderBy('appliers.end_date_premium','desc')
             ->get();
 
         $fileName = 'jobApplications.csv';
@@ -53,9 +47,6 @@ class JobApplicationController extends Controller
 
         $status = $req->status == 'accepted' ? 'Accepted' : 'Rejected';
         return response()->json(['status'=> $status]);
-
-        // Reload page
-        // return redirect()->back();
     }
 
     // User can view job application

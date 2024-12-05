@@ -13,7 +13,7 @@
         .dropdown-menu {
             position: absolute;
             right: 0;
-            left: auto; 
+            left: auto;
         }
     }
 </style>
@@ -28,27 +28,27 @@
             <h2 class="mb-4">Job Listings</h2>
 
             <div class="">
-                
+
                 <form class="" role="search" action="{{route('company.searchJobs')}}" method="GET">
                     <div class="d-md-flex dropdown text-end">
                         <input style="" class="form-control mb-2 mb-md-0 me-md-2" name="search" placeholder="Search..." value="{{ request('search') }}">
-                        
+
                         <button class="btn btn-outline-primary dropdown-toggle me-md-2 mb-2 mb-md-0" type="button" id="dropdownMenuButton1" onclick="toggleDropdown()">
                             Filter
                         </button>
-                        
+
                         <ul class="dropdown-menu mt-md-5  p-2" id="dropdownMenu" aria-labelledby="dropdownMenuButton" >
                             <li class="form-group">
                                 <ul class="list-unstyled">
                                     <label class="fw-bold">Job Type</label>
-                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Full Time" id="checkFulltime" 
-                                        @if(in_array('Full Time', request('job_type', []))) checked @endif>
+                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Full-time" id="checkFulltime"
+                                        @if(in_array('Full-time', request('job_type', []))) checked @endif>
                                         <label class="form-check-label" for="checkFulltime">
                                             Full-time
                                         </label>
                                     </li>
-                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Part Time" id="checkParttime"
-                                        @if(in_array('Part Time', request('job_type', []))) checked @endif>
+                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Part-time" id="checkParttime"
+                                        @if(in_array('Part-time', request('job_type', []))) checked @endif>
                                         <label class="form-check-label" for="checkParttime">
                                             Part-time
                                         </label>
@@ -57,6 +57,12 @@
                                         @if(in_array('Internship', request('job_type', []))) checked @endif>
                                         <label class="form-check-label" for="checkInternship">
                                             Internship
+                                        </label>
+                                    </li>
+                                    <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Freelance" id="checkFreelance"
+                                        @if(in_array('Freelance', request('job_type', []))) checked @endif>
+                                        <label class="form-check-label" for="checkFreelance">
+                                            Freelance
                                         </label>
                                     </li>
                                 </ul>
@@ -80,7 +86,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        
+
                         <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
                     </div>
                 </form>
@@ -89,7 +95,7 @@
 
         </div>
 
-        
+
 
         <div class="mt-4 mb-3">
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">Add New Job Listing</a>

@@ -95,7 +95,6 @@
                 </div>
             </div>
 
-
             <hr class="my-4">
 
             <div class="job-details">
@@ -143,7 +142,6 @@
                 <h4 class="fw-bold">List Applicant</h4>
 
                 <form role="filter" action="{{route('company.filter', ['job' => $job])}}" method="GET">
-                    <input type="hidden" name="job_id" value="{{$job}}">
                     <div class="dropdown">
                         <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
                             Filter
@@ -153,13 +151,12 @@
                             <li><button class="dropdown-item" name="filter" value="" type="submit">All</button></li>
                             <li><button class="dropdown-item" name="filter" value="accepted" type="submit">Accepted</button></li>
                             <li><button class="dropdown-item" name="filter" value="rejected" type="submit">Rejected</button></li>
-                            <li><button class="dropdown-item" name="filter" value="on process" type="submit">On Process</button></li>
                             <li><button class="dropdown-item" name="filter" value="pending" type="submit">Pending</button></li>
                         </ul>
                     </div>
                 </form>
 
-                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
+                <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">Export List Applicant</a>
                 </div>
             </div>
 
@@ -217,22 +214,6 @@
                                             </button>
                                         </form>
                                     </td>
-
-                                    {{-- <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="status" value="rejected">
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="bi bi-x-circle"></i>
-                                        </button>
-                                    </form>
-
-                                    <form action="{{route('company.updateJobApplicationStatus', ['application' => $application->job_application_id]) }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="status" value="accepted">
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="bi bi-check-circle"></i>
-                                        </button>
-                                    </form> --}}
                                 @endif
                             </tr>
                         @empty

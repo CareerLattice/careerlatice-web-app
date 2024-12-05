@@ -21,7 +21,7 @@ class JobController extends Controller
     public function create(Request $req){
         $req->validate([
             'title' => 'required|string|max:255',
-            'job_type' => 'required|in:Full Time,Part Time,Internship',
+            'job_type' => 'required|in:Full-time,Part-time,Internship,Freelance',
             'address' => 'required|string|max:255',
             'description' => 'required|string',
             'requirement' => 'required|string',
@@ -53,7 +53,7 @@ class JobController extends Controller
     public function update(Request $req, Job $job){
         $req->validate([
             'title' => 'required|string|max:255',
-            'job_type' => 'required|in:Full Time,Part Time,Internship',
+            'job_type' => 'required|in:Full-time,Part-time,Internship,Freelance',
             'address' => 'required|string|max:255',
             'description' => 'required|string',
             'requirement' => 'required|string',
@@ -90,7 +90,8 @@ class JobController extends Controller
             ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
             ->where('job_applications.job_id', $job->id)
             ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id', 'appliers.id as applier_id',
-            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at'))
+            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at')   )
+            ->orderBy('appliers.end_date_premium','desc')
             ->paginate(25);
 
         return view('company.job', compact('job', 'applicants'));
@@ -104,14 +105,16 @@ class JobController extends Controller
         $applicants = DB::table('users')
             ->join('appliers', 'users.id', '=', 'appliers.user_id')
             ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
+            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id', 'appliers.id as applier_id',
+            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at')   )
             ->where('job_applications.job_id', $job->id)
-            ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id');
+            ->orderBy('appliers.end_date_premium','desc');
 
-        if($req->filled('filter')){
+        if($req->filter){
             $applicants = $applicants->where('status', 'LIKE',$req->filter);
         }
 
-        $applicants= $applicants->paginate(25);
+        $applicants = $applicants->paginate(25);
 
         return view('company.job', compact('job', 'applicants'));
     }

@@ -29,7 +29,6 @@ class AdminController extends Controller
             ->where('user_histories.status', 'success')
             ->orderBy('user_histories.created_at', 'desc')
             ->paginate(5);
-        // dd($listPremium);
 
         return view('admin.home', compact('totalApplier', 'totalCompany', 'totalRevenue', 'monthRevenue', 'listPremium'));
     }
