@@ -22,6 +22,12 @@
         text-decoration: underline;
     }
 
+    .ul-container{
+        display: flex;
+        justify-content: center; 
+        gap: 10px;
+    }
+
     .ul-container i {
         font-size: 1.3rem;
     }
@@ -92,7 +98,7 @@
 
             <div class="col-md-5 col-lg-3">
                 <div class="text-center">
-                    <ul class="ul-container list-unstyled list-inline">
+                    <ul class="ul-container list-unstyled list-inline d-flex justify-content-center">
                         <li class="list-inline-item">
                             <a href="" class="btn-floating btn-sm text-dark">
                                 <i class="bi bi-facebook"></i>

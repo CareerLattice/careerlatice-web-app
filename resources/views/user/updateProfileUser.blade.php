@@ -198,39 +198,40 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addEducationModalLabel">Edit Education</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form action="test" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="institute" class="form-label">Institution</label>
-                            <input type="text" class="form-control" id="institute" name="institution">
+                            <input type="text" class="form-control" id="institute" name="institution" value="">
                         </div>
 
                         <div class="mb-3">
                             <label for="degrees" class="form-label">Degree</label>
-                            <input type="text" class="form-control" id="degrees" name="degree">
+                            <input type="text" class="form-control" id="degrees" name="degree" value="{{$education->degree}}">
                         </div>
 
                         <div class="mb-3">
                             <label for="field_study" class="form-label">Field of Study</label>
-                            <input type="text" class="form-control" id="field_study" name="field_study">
+                            <input type="text" class="form-control" id="field_study" name="field_study" value="{{$education->field_of_study}}">
                         </div>
 
                         <div class="mb-3">
                             <label for="grades" class="form-label">Grade</label>
-                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01">
+                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01"  value="{{$education->grade}}">
                         </div>
 
                         <div class="mb-3">
                             <label for="max_grades" class="form-label">Max Grade</label>
-                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01">
+                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01" value="{{$education->max_grade}}">
                         </div>
 
                         <div class="mb-3">
                             <label for="edit_education_description" class="form-label">Description</label>
-                            <textarea class="form-control" id="edit_education_description" name="description" rows="4"></textarea>
+                            <textarea class="form-control" id="edit_education_description" name="description" rows="4">{{$education->description}}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
@@ -344,9 +345,10 @@
                 <div class="modal-body">
                     <form action="test" method="POST">
                         @csrf
-                        <div class="mb-3">
+                        
+                    <div class="mb-3">
                         <label for="companyName" class="form-label">Company Name</label>
-                        <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter company name">
+                        <input type="text" class="form-control" id="companyName" name="companyName" value="{{$experience->company_name}}">
                     </div>
 
                     <div class="mb-3">
