@@ -26,7 +26,7 @@
 
     @if (Auth::user()->role == 'applier')
         <div class="position-relative">
-            <img src="{{asset('assets/tesBannerUser.jpeg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh;">
+            <img src="{{secure_asset('assets/tesBannerUser.jpeg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh;">
             <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
                 <p class="lead text-wrap fw-bold" style="font-weight: 600;">Unleash your potential with <span style="color: #682b90;">CareerLattice—connect, explore, and land</span> your dream job.</p>
             </div>

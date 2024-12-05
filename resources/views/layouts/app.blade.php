@@ -14,11 +14,11 @@
 
     <title> @yield('title')</title>
 
-    <link rel="icon" href="{{asset('assets/logo.png')}}">
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+    <link rel="icon" href="{{secure_asset('assets/logo.png')}}">
+    <link rel="stylesheet" href="{{secure_asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/app.css')}}">
     @yield('custom_css')
 </head>
 <body>
@@ -92,7 +92,7 @@
         </main>
     </div>
 
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{secure_asset('bootstrap/js/bootstrap.min.js')}}"></script>
     @yield('custom_script')
 
     <script>

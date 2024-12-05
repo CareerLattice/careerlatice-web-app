@@ -98,7 +98,7 @@
             @forelse ($jobs as $job)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card shadow h-100">
-                        <img src="{{asset('assets/bbca.jpeg')}}" alt="Job Image" class="card-img-top">
+                        <img src="{{secure_asset('assets/bbca.jpeg')}}" alt="Job Image" class="card-img-top">
                         <div class="card-body d-flex flex-column align-items">
                             <h5 class="card-title">{{$job->title}}</h5>
                             <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
