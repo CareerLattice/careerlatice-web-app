@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function viewHome(){
+    public function viewHome(Request $request){
         $totalApplier = Applier::all()->count();
         $totalCompany = Company::all()->count();
         $totalRevenue = UserHistory::all()->sum('price');
@@ -27,9 +27,15 @@ class AdminController extends Controller
             DB::raw("DATE_FORMAT(user_histories.start_date, '%d %M %Y') as start_date"),
             DB::raw("DATE_FORMAT(user_histories.end_date, '%d %M %Y') as end_date"))
             ->where('user_histories.status', 'success')
-            ->orderBy('user_histories.created_at', 'desc')
-            ->paginate(5);
+            ->orderBy('user_histories.created_at', 'desc');
 
-        return view('admin.home', compact('totalApplier', 'totalCompany', 'totalRevenue', 'monthRevenue', 'listPremium'));
+        $sort = $request->get('sort');
+        $order = $request->get('order');
+        if($sort != null){
+            $listPremium = $order == 'desc' ? $listPremium->orderByDesc($sort) : $listPremium->orderBy($sort);
+        }
+
+        $listPremium = $listPremium->paginate(5);
+        return view('admin.home', compact('totalApplier', 'totalCompany', 'totalRevenue', 'monthRevenue', 'listPremium', 'order', 'sort'));
     }
 }

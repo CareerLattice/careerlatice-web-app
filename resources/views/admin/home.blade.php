@@ -121,11 +121,11 @@
                 <table class="table table-hover table-bordered">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Revenue</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
+                            <th scope="col" class="text-center">No</th>
+                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Name</a></th>
+                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Revenue</a></th>
+                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Start Date</a></th>
+                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">End Date</a></th>
                         </tr>
                     </thead>
 
@@ -134,7 +134,7 @@
                             <tr style="cursor: pointer">
                                 <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$listPremium->firstItem() + $loop->index}}</th>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->name}}</td>
-                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->price}}</td>
+                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{number_format($premiumApplier->price)}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->start_date}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->end_date}}</td>
                             </tr>
