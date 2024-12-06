@@ -1,0 +1,33 @@
+<?php
+return [
+    'back' => 'Back to Jobs',
+    'lastUpdate' => 'Last Update:',
+    'open' => 'Open',
+    'closed' => 'Closed',
+    'jobDescription' => 'Job Description',
+    'jobRequirement' => 'Requirements',
+    'jobBenefit' => 'Benefits',
+    'deleteJob' => 'Delete Job',
+    'editDetail' => 'Edit Details',
+    'noRequirement' => 'No requirement available yet',
+    'noBenefit' => 'No benefit available yet',
+    'listApplicant' => 'List Applicant',
+    'filter' => 'Filter',
+    'all' => 'All',
+    'accepted' => 'Accepted',
+    'rejected' => 'Rejected',
+    'onProcess' => 'On Process',
+    'pending' => 'Pending',
+    'none' => 'None',
+    'exportList' => 'Export List Applicant',
+    'no' => 'No',
+    'name' => 'Name',
+    'appliedAt' => 'Applied At',
+    'applicationCV' => 'Application CV',
+    'status' => 'Status',
+    'action' => 'Action',
+    'openCV' => 'Open CV',
+    'noApplicationFound' => 'No application found.',
+];
+
+?>

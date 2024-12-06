@@ -18,7 +18,7 @@
             @empty
                 <div class="col-md-12">
                     <div class="alert alert-warning">
-                        There is no job available.
+                        {{__('company/companyJobs.noJobsAvailable')}}
                     </div>
                 </div>
             @endforelse
