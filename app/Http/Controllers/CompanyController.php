@@ -136,7 +136,7 @@ class CompanyController extends Controller
     public function index(){
         $companies = DB::table('companies')
             ->join('users', 'companies.user_id', '=', 'users.id')
-            ->select('companies.*', 'users.name as user_name')
+            ->select('companies.*', 'users.name as user_name', 'users.profile_picture as company_image')
             ->paginate(20);
         return view('user.companies', compact('companies'));
     }
@@ -155,7 +155,7 @@ class CompanyController extends Controller
 
         $companiesQuery = DB::table('companies')
             ->join('users', 'companies.user_id', '=', 'users.id')
-            ->select('companies.*', 'users.name as user_name');
+            ->select('companies.*', 'users.name as user_name', 'users.profile_picture as company_image');
 
         if ($req->filled('search')) {
             $companiesQuery->where($req->filter, 'like', '%' . $req->search . '%');

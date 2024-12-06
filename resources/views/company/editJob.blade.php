@@ -85,13 +85,13 @@
             </div>
 
             <hr class="my-1">
-            <form action="{{route('company.updateJob', ['job' => $job])}}" method="POST">
+            <form action="{{route('company.updateJob', ['job' => $job])}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column justify-content-center align-items-center">
                     <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">Job Image</h2></label>
                     <div class="image-container">
-                        <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo">
-                        <input type="file" id="uploadImage" name="job_image" style="display: none;">
+                        <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" class="company-logo" id="preview-image">
+                        <input type="file" id="uploadImage" name="job_image" style="display: none;" onchange="previewImage(event)">
                         <label for="uploadImage" class="change-image-btn">
                             <i class="bi bi-pencil-fill fs-5"></i>
                         </label>
@@ -149,4 +149,21 @@
     <hr class="mt-5">
 
     @include('components.footer')
+@endsection
+
+
+@section('custom_script')
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Update the src of the image with the uploaded file's data URL
+                    document.getElementById('preview-image').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 @endsection

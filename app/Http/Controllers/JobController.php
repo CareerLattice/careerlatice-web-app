@@ -61,11 +61,21 @@ class JobController extends Controller
             'person_in_charge' => 'required|string',
             'contact_person' => 'required|string',
             'is_active' => 'required|boolean',
+            'job_image' => 'image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         // Update status job application to rejected
         if($req->is_active == 0 && $job->is_active == 1){
             JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
+        }
+
+        if($req->job_image){
+            if ($job->job_image && $job->job_picture != 'default/job_image.jpg' && Storage::disk('public')->exists($job->job_picture)) {
+                $test = Storage::disk('public')->delete($job->job_picture);
+            }
+
+            $path = $req->file('job_image')->storeAs('company_upload/job_picture', $job->id . '_job_image.' . $req->file('job_image')->getClientOriginalExtension(), 'public');
+            $job->job_picture = $path;
         }
 
         $job->update([
@@ -78,6 +88,7 @@ class JobController extends Controller
             'person_in_charge' => $req->person_in_charge,
             'contact_person' => $req->contact_person,
             'is_active' => $req->is_active,
+            'job_picture' => $job->job_picture,
         ]);
 
         return redirect()->route('company.job', compact('job'));
@@ -207,6 +218,7 @@ class JobController extends Controller
                 'job_vacancies.job_type',
                 'job_vacancies.description',
                 'job_vacancies.is_active',
+                'job_vacancies.job_picture',
                 DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name');
 
@@ -228,9 +240,10 @@ class JobController extends Controller
                 'job_vacancies.job_type',
                 'job_vacancies.description',
                 'job_vacancies.person_in_charge',
+                'job_vacancies.job_picture',
                 DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
-                'companies.id as company_id'
+                'companies.id as company_id',
             )
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'companies.user_id', '=', 'users.id')
@@ -273,6 +286,7 @@ class JobController extends Controller
                 'job_vacancies.job_type',
                 'job_vacancies.description',
                 'job_vacancies.is_active',
+                'job_vacancies.job_picture',
                 DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name');
 
@@ -284,6 +298,7 @@ class JobController extends Controller
         return view('user.companyJobVacancies', compact('jobs', 'company'));
     }
 
+    // Testing add Requirement
     public function addRequirement(Request $req){
         Job::where('id', 1)->update(['requirement' => $req->requirement, 'benefit' => $req->benefit]);
         return redirect()->route('user.job', ['job' => 1]);

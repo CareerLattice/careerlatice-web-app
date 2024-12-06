@@ -70,8 +70,8 @@
             <div class="job-header row align-items-md-center d-flex justify-content-between">
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row">
-                        <div class="col-10 col-md-3 d-flex justify-content-center">
-                            <img src="{{asset('assets/bbca.jpeg')}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                        <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
+                            <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">

@@ -30,6 +30,7 @@ class CompanySeeder extends Seeder
             User::where('id', $company->id)->update([
                 'name' => $companyName,
                 'email' => $companyEmail,
+                'profile_picture' => 'default/company.jpeg',
             ]);
         }
     }
