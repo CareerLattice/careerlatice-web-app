@@ -3,7 +3,490 @@
 @section('title', 'Career Lattice')
 
 @section('custom_css')
-    <link href="{{ asset('css/landingPage.css') }}" rel="stylesheet">
+        <style>
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .hidden {
+            opacity: 0;
+            transition: all 1.5s;
+        }
+
+        .show {
+            opacity: 1;
+            transition: all 1.5s;
+        }
+
+        /* Landing Page Content */
+        .landing-about-container {
+            padding-top: 2rem;
+        }
+
+        .landing-about-container h3 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #682b90;
+        }
+
+        .landing-about-container h3 span {
+            color: #7869cd;
+        }
+
+        .landing-about-container p {
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-top: 1rem;
+        }
+
+        .landingPage-btn .btn {
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            margin-top: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .offer {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .offer ul {
+            display: flex;
+            justify-content: space-evenly;
+            list-style-type: none;
+        }
+
+        .offer li {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .offer:hover {
+            background-color: #e9ecef;
+        }
+
+        .offer ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .offer-item {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .offer-item::before {
+            content: "• ";
+            color: #007bff;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .promotion {
+            padding-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card-body h5 {
+            font-size: 1.4rem;
+            font-weight: bolder;
+            color: #682b90;
+            text-align: center;
+        }
+
+        .card-body p {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-caption h5 {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .carousel-caption p {
+            font-size: 1.4rem;
+            line-height: 1.5;
+        }
+
+        /* End of Landing Page 1 */
+
+        /* Start of Landing Page 2 */
+        .landingPage-2 {
+            background-color: #c0dcf7;
+            padding: 50px 0;
+        }
+
+        .landing-company-container {
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        .navbar-company-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .navbar-company .nav-link {
+            font-size: 1rem;
+            color: #555;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-company .nav-link:hover {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .navbar-company .nav-link.active {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .popular-company {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 20px;
+        }
+
+        .popular-company-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .popular-company-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .popular-company-card img {
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+            border-bottom: 3px solid #682b90;
+        }
+
+        .popular-company-card .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .popular-company-card h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .popular-company-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .company-container {
+            border-radius: 13px;
+            color: rgb(105, 105, 255);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+        }
+
+        .landing-company-bottom-container {
+            background-color: rgb(255, 203, 203);
+            padding-top: 50px;
+        }
+
+        .landing-company-bottom-container {
+            padding-top: 30px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .promotion-company-container {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+        }
+
+        .landing-company-bottom-container h3 {
+            font-size: 2rem;
+            text-align: left;
+            color: #682b90;
+            font-weight: bold;
+        }
+
+        .landing-company-bottom-container p {
+            font-size: 1rem;
+            text-align: justify;
+            color: black;
+            font-weight: 400;
+        }
+
+        .promotion .card {
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .promotion .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .promotion .card-body i {
+            color: #555;
+        }
+
+        .promotion .card-body h5 {
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+        .promotion .card-body p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* End of Landing Page 2 */
+
+        /* Start of Landing Page 3 */
+        .landingPage-3 {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .landing-vacancy-container {
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        .job-vacancy-card img {
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+        }
+
+        .job-vacancy-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .job-vacancy {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+            gap: 15px;
+        }
+
+        .job-vacancy-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .popular-job-card-container {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .popular-job-card-container h5 {
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .popular-job-card-container p {
+            font-size: 1rem;
+            text-align: left;
+            color: grey;
+        }
+
+        .promotion-job-container {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+        }
+
+        .landing-job-bottom-container h3 {
+            font-size: 2rem;
+            text-align: left;
+            color: #008080;
+            font-weight: bold;
+        }
+
+        .landing-job-bottom-container p {
+            font-size: 1rem;
+            text-align: justify;
+            color: #4a4a4a;
+            font-weight: 400;
+        }
+
+        .landing-job-bottom-container {
+            background-color: #e0f7fa;
+            padding-top: 50px;
+            padding-top: 30px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        /* End of Landing Page 3 */
+
+        /* Start of Landing Page 4 */
+        .landingPage-4 {
+            background-color: #c0dcf7;
+            padding: 50px 0;
+        }
+
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .star {
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .star.filled {
+            color: #ffd700;
+        }
+
+        .testimonial-card {
+            background-image: linear-gradient(to right, #682b90, #7869cd);
+        }
+
+        @media (max-width: 768px) {
+            .job-vacancy {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .img {
+                width: 30%;
+                height: 30%;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .img {
+                width: 50%;
+                height: 50%;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .img {
+                width: 50%;
+                height: 50%;
+            }
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 @endsection
 

@@ -3,7 +3,99 @@
 @section('title', 'Sign Up')
 
 @section('custom_css')
-    <link href="{{ asset('css/signupDevPage.css') }}" rel="stylesheet">
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+
+        .row.g-0 {
+            display: flex;
+        }
+
+        .left-side {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+
+        /* START OF SIGNUP FORM CSS */
+
+        .form-custom {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: black;
+            border: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #d3d3d3;
+            color: white;
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            width: 50%;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+
+        .btn-custom:focus {
+            outline: none;
+        }
+
+        .logo-img {
+            width: 350px;
+            height: auto;
+            display: block;
+            margin: 1.2rem auto;
+            cursor: pointer;
+        }
+
+        .carousel {
+            height: 50vh;
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        .carousel-item {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+/* END OF SIGNUP FORM CSS */
+
+    </style>
 @endsection
 
 @section('content')

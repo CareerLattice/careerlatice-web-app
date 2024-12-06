@@ -3,7 +3,6 @@
 @section('title', 'Sign Up')
 
 @section('custom_css')
-    <link href="{{ asset('css/signUpPage.css') }}" rel="stylesheet">
     <style>
         @media (max-width: 1040px) {
             h3 {
@@ -43,6 +42,113 @@
             .span-text {
                 font-size: 1.5rem;
             }
+        }
+        body,
+        html {
+            height: 100%;
+            font-family: "Work Sans", sans-serif;
+            margin: 0;
+        }
+
+        .bodyclass {
+            display: flex;
+            min-height: 100vh;
+            background-color: #fff;
+            margin-left: 2rem;
+        }
+
+        h3 {
+            font-size: 1.45rem;
+            line-height: 1.4;
+            letter-spacing: 0.1em;
+            color: #333;
+            margin: 2rem 0;
+            font-weight: medium;
+            padding: 0 4.5rem 0 4.5rem;
+        }
+
+        .span-text {
+            color: #7869cd;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .text-left {
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .buttons .btn {
+            padding: 1rem 3rem 1rem 1rem;
+            width: 80%;
+        }
+
+        .btn-purple {
+            color: rgb(84, 84, 84);
+            border: none;
+            transition: 0.2s;
+            background-color: rgb(246, 246, 246);
+            border-radius: 10px;
+        }
+
+        .btn-green {
+            color: rgb(48, 48, 48);
+            border: none;
+            transition: 0.2s;
+            background-color: rgb(246, 246, 246);
+            border-radius: 10px;
+        }
+
+        .btn-purple:hover {
+            background-color: #5a34a1;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .btn-green:hover {
+            background-color: #117737;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .icons {
+            max-width: 3rem;
+            max-height: 3rem;
+            margin-right: 1.75rem;
+        }
+
+        .logo-img {
+            width: 350px;
+            height: auto;
+            display: block;
+            margin: 1.2rem auto;
+            cursor: pointer;
+        }
+
+        .carousel {
+            height: 50vh;
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        .carousel-item {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .custom-bg {
+            background: linear-gradient(to bottom right, #343a40, #495057);
+            color: white;
         }
 
     </style>
