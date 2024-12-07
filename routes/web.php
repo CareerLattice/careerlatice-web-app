@@ -132,6 +132,7 @@ Route::prefix("user")->group(function(){
 Route::prefix("admin")->group(function(){
     Route::get('/home',[AdminController::class, 'viewHome'])->name('admin.home');
 
+    Route::get('/range-revenue', [AdminController::class, 'rangeRevenue'])->name('admin.rangeRevenue');
     // Sekaligus menampilkan list user yang apply premium beserta start dan end date premium
     // Route::get('/revenue', [AdminController::class, 'revenue'])->name('adminRevenue');
 

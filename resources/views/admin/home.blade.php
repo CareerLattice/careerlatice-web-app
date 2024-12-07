@@ -73,21 +73,22 @@
             <!-- Website Income -->
             <div class="mb-4 d-flex flex-column align-items-center">
                 <h5>Website Income</h5>
+
                 <div class="row g-3 align-items-end">
                     <div class="col-12 col-md-6">
                         <label for="inputDateFrom" class="form-label">From</label>
-                        <input type="date" class="form-control" id="inputDateFrom" onchange="checkRevenue()">
+                        <input type="date" class="form-control" id="inputDateFrom" name="start_date" onchange="checkRevenue()">
                     </div>
 
                     <div class="col-12 col-md-6">
                         <label for="inputDateTo" class="form-label">To</label>
-                        <input type="date" class="form-control" id="inputDateTo" onchange="checkRevenue()">
+                        <input type="date" class="form-control" id="inputDateTo" name="end_date" onchange="checkRevenue()">
                     </div>
 
                     <div class="col-12">
                         <div class="card card-stats bg-gradient-danger text-start p-3 text-white text-center" style="height: 150px;">
                             <h6>Total Income</h6>
-                            <h2 class="fs-3 fw-bold" id="revenue_range">{{number_format($totalCompany)}}</h2>
+                            <h2 class="fs-3 fw-bold" id="revenue_range">{{number_format($totalRevenue)}}</h2>
                         </div>
                     </div>
                 </div>
@@ -167,15 +168,26 @@
             const dateTo = document.getElementById('inputDateTo').value;
             if(dateFrom === '' || dateTo === '') return;
 
-            try {
-                const response = await fetch(`/admin/revenue?dateFrom=${dateFrom}&dateTo=${dateTo}`);
+            const fromDate = new Date(dateFrom);
+            const toDate = new Date(dateTo);
 
+            // Check if dateFrom is greater than dateTo
+            if (fromDate > toDate) {
+                alert('The "From" date cannot be later than the "To" date.');
+                document.getElementById('inputDateTo').value = null;
+                return;
+            }
+
+            try {
+                const response = await fetch(`/admin/range-revenue?dateFrom=${dateFrom}&dateTo=${dateTo}`);
                 if(!response.ok){
                     throw new Error('Something went wrong');
                 }
 
                 const data = await response.json();
-                document.getElementById('revenue_range').innerText = `IDR. ${data.revenue}`;
+                const formattedRevenue = new Intl.NumberFormat('en-US').format(data.rangeRevenue);
+
+                document.getElementById('revenue_range').innerText = `IDR. ${formattedRevenue}`;
             } catch (error) {
                 console.error(error);
             }

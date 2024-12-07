@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Applier;
 use App\Models\Company;
 use App\Models\UserHistory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +17,8 @@ class AdminController extends Controller
         $totalRevenue = UserHistory::all()->sum('price');
 
         $monthRevenue = DB::table('user_histories')
-            ->whereMonth('created_at', '=', now()->month)
-            ->whereYear('created_at', '=', now()->year)
+            ->whereMonth('start_date', '=', now()->month)
+            ->whereYear('start_date', '=', now()->year)
             ->sum('price');
 
         $listPremium = DB::table('user_histories')
@@ -37,5 +38,18 @@ class AdminController extends Controller
 
         $listPremium = $listPremium->paginate(5);
         return view('admin.home', compact('totalApplier', 'totalCompany', 'totalRevenue', 'monthRevenue', 'listPremium', 'order', 'sort'));
+    }
+
+    public function RangeRevenue(Request $request){
+        $startDate = $request->query('dateFrom');
+        $endDate = $request->query('dateTo');
+        $endDate = Carbon::parse($endDate)->setTime(23, 59, 59);
+
+        $rangeRevenue = DB::table('user_histories')
+            ->where('start_date', '>=', $startDate)
+            ->where('start_date', '<=', $endDate)
+            ->sum('price');
+
+        return response()->json(['rangeRevenue' => $rangeRevenue]);
     }
 }
