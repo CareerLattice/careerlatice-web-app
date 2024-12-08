@@ -10,6 +10,7 @@ use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 // use \App\Http\Middleware\SetLocale;
 use \App\Http\Middleware\UserAuthCheck;
 use \App\Http\Middleware\CompanyAuthCheck;
+use App\Http\Middleware\AdminAuth;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -27,6 +28,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'company_auth' => CompanyAuthCheck::class,
             'user_auth' => UserAuthCheck::class,
             'job_auth' => JobAuthCheck::class,
+            'admin_auth' => AdminAuth::class,
             // 'locale', SetLocale::class
         ]);
     })

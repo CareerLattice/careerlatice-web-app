@@ -137,7 +137,7 @@ Route::prefix("admin")->group(function(){
 
     // Export data csv
     Route::get('/premium/data', [AdminController::class, 'exportPremiumData'])->name('adminPremiumData');
-});
+})->middleware('admin_auth');
 
 
 

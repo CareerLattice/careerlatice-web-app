@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
-class UserAuthCheck
+class AdminAuth
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class UserAuthCheck
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role != 'applier') {
+        if (Auth::user()->role != 'admin') {
             abort(401);
         }
         return $next($request);
