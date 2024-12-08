@@ -97,22 +97,24 @@
             <div class="mb-4">
                 <h5>List of All Premium Users</h5>
                 <div class="row g-3 align-items-end">
-                    <div class="col-12 col-md-3">
-                        <label for="inputDateFromPremium" class="form-label">From</label>
-                        <input type="date" class="form-control" id="inputDateFromPremium">
-                    </div>
+                    <form action="{{route('admin.home')}}" method="GET" class="d-flex">
+                        <div class="col-12 col-md-3">
+                            <label for="inputDateFromPremium" class="form-label">From</label>
+                            <input type="date" class="form-control" id="inputDateFromPremium" name="start_premium" value="{{request('start_premium')}}">
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label for="inputDateToPremium" class="form-label">To</label>
+                            <input type="date" class="form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <button class="btn btn-secondary w-100" type="submit">Search</button>
+                        </div>
+                    </form>
 
                     <div class="col-12 col-md-3">
-                        <label for="inputDateToPremium" class="form-label">To</label>
-                        <input type="date" class="form-control" id="inputDateToPremium">
-                    </div>
-
-                    <div class="col-12 col-md-3">
-                        <button class="btn btn-secondary w-100">Search</button>
-                    </div>
-
-                    <div class="col-12 col-md-3">
-                        <button class="btn btn-primary w-100">Export All Users</button>
+                        <button class="btn btn-primary w-100" onclick="exportIncome()">Export All Users</button>
                     </div>
                 </div>
             </div>
@@ -191,6 +193,37 @@
             } catch (error) {
                 console.error(error);
             }
+        }
+
+        async function exportIncome(){
+            const dateFrom = document.getElementById('inputDateFromPremium').value;
+            const dateTo = document.getElementById('inputDateToPremium').value;
+
+            if(dateFrom === '' || dateTo === '') {
+                alert('Please fill the date range.');
+                return;
+            };
+
+            const fromDate = new Date(dateFrom);
+            const toDate = new Date(dateTo);
+
+            // Check if dateFrom is greater than dateTo
+            if (fromDate > toDate) {
+                alert('The "From" date cannot be later than the "To" date.');
+                document.getElementById('inputDateTo').value = null;
+                return;
+            }
+
+            let url = `/admin/premium/data?dateFrom=${dateFrom}&dateTo=${dateTo}`;
+            try {
+                const response = await fetch(url);
+                if(!response.ok){
+                    throw new Error('Something went wrong');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+            window.location.href = url;
         }
     </script>
 @endsection
