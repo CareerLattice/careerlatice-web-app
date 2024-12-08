@@ -113,8 +113,6 @@ Route::prefix("user")->group(function(){
         // Route for user home
         Route::get('/home', [ApplierController::class, 'viewHome'])->name('user.home');
 
-        Route::get('/job-vacancies', [JobApplicationController::class, 'viewJobApplications'])->name('user.jobVacancies');
-
         // Route for user profile
         Route::get('/update-profile', [ApplierController::class, 'edit'])->name('user.editProfile');
         Route::post('/update-profile', [ApplierController::class, 'updateProfile'])->name('user.updateProfile');
@@ -130,16 +128,13 @@ Route::prefix("user")->group(function(){
 
         Route::get('/premium', [PremiumController::class, 'viewPremium'])->name('user.premiumUser');
         Route::get('/premium/bundle', [PremiumController::class, 'viewPremiumBundle'])->name('user.premiumBundle');
+
         // Route for user view applied jobs
-        // Route::get('/applied-jobs', [UserController::class, 'userViewAppliedJobs'])->name('user.appliedJobs');
+        Route::get('/job-applications', [JobApplicationController::class, 'viewJobApplications'])->name('user.jobVacancies');
         // Route::delete('/applied-job/{job}', [UserController::class, 'cancelAppliedJob'])->name('user.cancelAppliedJob');
 
         // Route for user to be premium user
         Route::get('/premium-history', [UserController::class, 'viewPremiumHistory'])->name('user.premiumHistory');
-
-        // Route for user to add skill
-        // Route::post('/user-skill', [SkillController::class, 'addSkill'])->name('user.addSkill');
-        // Route::delete('/user-skill/{skill}', [SkillController::class, 'deleteSkill'])->name('user.deleteSkill');
     });
 });
 
@@ -161,7 +156,6 @@ Route::prefix("admin")->group(function(){
     // Export data csv
     Route::get('/premium/data', [AdminController::class, 'exportPremiumData'])->name('adminPremiumData');
 })->middleware('admin_auth');
-
 
 
 // ================================== TESTING ==================================
