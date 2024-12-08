@@ -34,7 +34,7 @@ Route::middleware('guest')->group(function(){
 // Turn off register and logout route from Laravel UI
 Auth::routes(['register' => false, 'logout' => false]);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth')->name('logout');
 
 // Route to get the jobs page
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
@@ -42,6 +42,19 @@ Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
 // Route to get the companies page
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 
+// Route to get the job detail page
+Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.jobDetail');
+
+// Route to get the company detail page
+Route::get('/company/{company_id}', action: [CompanyController::class, 'viewCompany'])->name('user.company');
+
+// Route to get the job vacancies by company
+Route::get('/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
+
+// Route to search jobs by company
+Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
+
+// Route for Company
 Route::prefix("company")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for company sign up
@@ -87,6 +100,7 @@ Route::prefix("company")->group(function(){
     });
 });
 
+// Route for User Applier
 Route::prefix("user")->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
@@ -114,6 +128,7 @@ Route::prefix("user")->group(function(){
 
         Route::post('/apply-job/{job}', [JobApplicationController::class, 'create'])->name('user.applyJob');
 
+        Route::get('/premium', [PremiumController::class, 'viewPremium'])->name('user.premiumUser');
         Route::get('/premium/bundle', [PremiumController::class, 'viewPremiumBundle'])->name('user.premiumBundle');
         // Route for user view applied jobs
         // Route::get('/applied-jobs', [UserController::class, 'userViewAppliedJobs'])->name('user.appliedJobs');
@@ -128,6 +143,14 @@ Route::prefix("user")->group(function(){
     });
 });
 
+// Payment with MidTrans
+Route::middleware('user_auth')->group(function(){
+    Route::post('/premium', [PremiumController::class, 'process'])->name('user.upgradeToPremium');
+    Route::get('/checkout/{transaction}', [PremiumController::class, 'checkout'])->name('user.checkout');
+    Route::post('/subscription/success', [PremiumController::class, 'success'])->name('user.premiumSuccess');
+});
+
+// Route for Admin
 Route::prefix("admin")->group(function(){
     // Route for admin home
     Route::get('/home',[AdminController::class, 'viewHome'])->name('admin.home');
@@ -155,19 +178,6 @@ Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV
 // Testing Add Requirement
 Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
 
-// For User
-Route::get('/user/premium', function(){
-    return view('user.premiumUser');
-})->name('user.premiumUser');
-
-// Done and Tested
-Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.jobDetail');
-
-// Done and Have not been tested
-Route::get('/user/company/{company_id}', [CompanyController::class, 'viewCompany'])->name('user.company');
-Route::get('/user/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
-Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
-
 // Not Done
 Route::get('/settings',function(){
     return view('settings');
@@ -194,8 +204,3 @@ Route::get('/test/data', function(){
         'data' => $data,
     ]);
 });
-
-// Testing untuk MidTrans
-Route::post('/premium', [PremiumController::class, 'process'])->name('user.upgradeToPremium');
-Route::get('/checkout/{transaction}', [PremiumController::class, 'checkout'])->name('user.checkout');
-Route::post('/subscription/success', [PremiumController::class, 'success'])->name('user.premiumSuccess');
