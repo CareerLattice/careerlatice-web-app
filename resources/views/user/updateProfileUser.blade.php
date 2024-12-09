@@ -136,6 +136,9 @@
                                 <strong class="fs-5">Description</strong>
                                 <p style="text-align: justify;">{{$applier->description}}</p>
                                 <strong class="fs-5">Birth Date </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
+                                <strong>Upload CV</strong>
+                                   
+                                <input type="file" class="form-control" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
                                 <div class="d-flex justify-content-center">
                                     <button class="btn btn-warning btn-custom mt-3 px-4" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                                         Edit Profile
@@ -172,6 +175,16 @@
                         <div class="mb-3">
                             <label for="field" class="form-label">Field of Study</label>
                             <input type="text" class="form-control" id="field" name="field">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate">
                         </div>
 
                         <div class="mb-3">
@@ -215,10 +228,21 @@
                             <input type="text" class="form-control" id="degrees" name="degree">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="field_study" class="form-label">Field of Study</label>
-                            <input type="text" class="form-control" id="field_study" name="field_study">
-                        </div>
+                    <div class="mb-3">
+                        <label for="field_study" class="form-label">Field of Study</label>
+                        <input type="text" class="form-control" id="field_study" name="field_study" value="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit_education_description" class="form-label">Start Date</label>
+                        <input type="date" textarea class="form-control" id="edit_education_description" name="description" rows="4"></inputtextarea>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit_education_description" class="form-label">End Date</label>
+                        <input type="date" textarea class="form-control" id="edit_education_description" name="description" rows="4"></inputtextarea>
+                    </div>
 
                         <div class="mb-3">
                             <label for="grades" class="form-label">Grade</label>
@@ -280,6 +304,16 @@
                         <div class="mb-3">
                             <label for="job_description" class="form-label">Job Description</label>
                             <textarea class="form-control" id="job_description" name="description" rows="4"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
