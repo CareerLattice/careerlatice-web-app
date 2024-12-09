@@ -116,6 +116,7 @@ Route::prefix("user")->group(function(){
         // Route for user profile
         Route::get('/update-profile', [ApplierController::class, 'edit'])->name('user.editProfile');
         Route::post('/update-profile', [ApplierController::class, 'updateProfile'])->name('user.updateProfile');
+        Route::post('/edit-education/{education}', [EducationController::class, 'update'])->name('user.updateEducation');
 
         // Route for user view companies
         Route::get('/search/companies', [CompanyController::class, 'searchCompany'])->name('user.searchCompany');

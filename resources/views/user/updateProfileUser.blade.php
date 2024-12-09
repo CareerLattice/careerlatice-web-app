@@ -39,7 +39,7 @@
                                             {{$education->degree}}, {{$education->field_of_study}}
                                         </p>
                                         <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                            {{-- {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}} --}}
+                                            {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}}
                                         </p>
                                         <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                             Grade: {{$education->grade}} of {{$education->max_grade}}
@@ -56,11 +56,12 @@
                                         data-bs-toggle="modal"
                                         data-bs-target="#editEducation"
                                         data-institute="{{$education->institution_name}}"
-                                        data-degrees="{{$education->degree}}"
+                                        data-degree="{{$education->degree}}"
                                         data-field_study="{{$education->field_of_study}}"
-                                        data-grades="{{$education->grade}}"
-                                        data-max_grades="{{$education->max_grade}}"
-                                        data-description="{{$education->description}}">
+                                        data-grade="{{$education->grade}}"
+                                        data-max_grade="{{$education->max_grade}}"
+                                        data-description="{{$education->description}}"
+                                        data-route = "{{ route('user.updateEducation', ['education' => $education->id]) }}">
                                     Edit
                                 </button>
                                 <button class="btn btn-danger btn-custom" id="del">Delete</button>
@@ -202,31 +203,31 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="test" method="POST">
+                    <form method="POST" id="editEducationForm">
                         @csrf
                         <div class="mb-3">
                             <label for="institute" class="form-label">Institution</label>
-                            <input type="text" class="form-control" id="institute" name="institution" value="">
+                            <input type="text" class="form-control text-dark" id="institute" name="institution">
                         </div>
 
                         <div class="mb-3">
                             <label for="degrees" class="form-label">Degree</label>
-                            <input type="text" class="form-control" id="degrees" name="degree" value="">
+                            <input type="text" class="form-control" id="degrees" name="degree">
                         </div>
 
                         <div class="mb-3">
                             <label for="field_study" class="form-label">Field of Study</label>
-                            <input type="text" class="form-control" id="field_study" name="field_study" value="">
+                            <input type="text" class="form-control" id="field_study" name="field_study">
                         </div>
 
                         <div class="mb-3">
                             <label for="grades" class="form-label">Grade</label>
-                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01" value="">
+                            <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01">
                         </div>
 
                         <div class="mb-3">
                             <label for="max_grades" class="form-label">Max Grade</label>
-                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01" value="">
+                            <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01">
                         </div>
 
                         <div class="mb-3">
@@ -347,40 +348,39 @@
                 <div class="modal-body">
                     <form action="test" method="POST">
                         @csrf
-
-                    <div class="mb-3">
-                        <label for="companyName" class="form-label">Company Name</label>
-                        <input type="text" class="form-control" id="companyName" name="companyName" value="">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="jobTitle" class="form-label">Job Title</label>
-                        <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter job title">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="edit_experience_description" class="form-label">Description</label>
-                        <textarea class="form-control" id="edit_experience_description" name="description" placeholder="Describe your role and achievements" rows="4"></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="startDate" class="form-label">Start Date</label>
-                        <input type="date" class="form-control" id="startDate" name="startDate">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="endDate" class="form-label">End Date</label>
-                        <input type="date" class="form-control" id="endDate" name="endDate">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" id="current" name="current">
-                            <label class="form-check-label" for="current">I am currently working here</label>
+                        <div class="mb-3">
+                            <label for="companyName" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" name="companyName" value="">
                         </div>
-                    </div>
 
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                        <a href="{{route('user.editProfile')}}" class="btn btn-secondary">Cancel</a>
-                    </div>
+                        <div class="mb-3">
+                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter job title">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="edit_experience_description" class="form-label">Description</label>
+                            <textarea class="form-control" id="edit_experience_description" name="description" placeholder="Describe your role and achievements" rows="4"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="current" name="current">
+                                <label class="form-check-label" for="current">I am currently working here</label>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <a href="{{route('user.editProfile')}}" class="btn btn-secondary">Cancel</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -391,6 +391,10 @@
 
 @section('custom_script')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
     <script>
         document.querySelectorAll("#del").forEach((button) => {
             button.addEventListener("click", () => {
@@ -413,24 +417,38 @@
                 });
             });
         });
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('editEducation');
+            const editEducationForm = document.getElementById('editEducationForm')
+            modal.addEventListener('show.bs.modal', function(event){
+                const button = event.relatedTarget;
 
-        $(document).ready(function() {
-            $('#editEducation').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget);
-                var institution_name = button.data('institute');
-                var degree = button.data('degrees');
-                var field_of_study = button.data('field_study');
-                var grade = button.data('grades');
-                var max_grade = button.data('max_grades');
-                var description = button.data('description');
+                //Get Data from button
+                const institute = button.getAttribute('data-institute')
+                const degree = button.getAttribute('data-degree')
+                const field_study = button.getAttribute('data-field_study')
+                const grade = button.getAttribute('data-grade')
+                const max_grade = button.getAttribute('data-max_grade')
+                const description = button.getAttribute('data-description')
+                const route = button.getAttribute('data-route')
 
-                $('#institute').val(institution_name);
-                $('#degrees').val(degree);
-                $('#field_study').val(field_of_study);
-                $('#grades').val(grade);
-                $('#max_grades').val(max_grade);
-                $('#edit_education_description').val(description);
-            });
-        });
+                const insituteInput = modal.querySelector('#institute')
+                const degreeInput = modal.querySelector('#degrees')
+                const field_studyInput = modal.querySelector('#field_study')
+                const gradesInput = modal.querySelector('#grades')
+                const max_gradesInput = modal.querySelector('#max_grades')
+                const edit_education_descriptionInput = modal.querySelector('#edit_education_description')
+
+                //Update Input value
+                insituteInput.value = institute
+                degreeInput.value = degree
+                field_studyInput.value = field_study
+                gradesInput.value = grade
+                max_gradesInput.value = max_grade
+                edit_education_descriptionInput.textContent = description
+
+                editEducationForm.action = route;
+            })
+        })
     </script>
 @endsection
