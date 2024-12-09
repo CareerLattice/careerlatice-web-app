@@ -20,8 +20,7 @@ class CompanyAuthCheck
             return redirect()->route('login');
         }
 
-        $user = Auth::user();
-        if ($user->role != 'company') {
+        if (Auth::user()->role != 'company') {
             abort(401);
         }
         return $next($request);

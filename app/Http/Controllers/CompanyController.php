@@ -143,7 +143,11 @@ class CompanyController extends Controller
 
     public function viewCompany($company_id){
         $company = Company::with('user')->findOrFail($company_id);
-        $jobs = Job::where('company_id', $company_id)->limit(3)->get();
+        $jobs = Job::where('company_id', $company_id)
+            ->where('is_active', true)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
         return view('user.company', compact('company', 'jobs'));
     }
 

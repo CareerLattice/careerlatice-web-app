@@ -95,6 +95,11 @@ class PremiumController extends Controller
         session()->put('message', 'Payment Success');
         return redirect()->route('user.home');
     }
+
+    public function viewPremium(){
+        return view('user.premiumUser');
+    }
+
     public function viewPremiumBundle(){
         return view('user.premiumBundle');
     }

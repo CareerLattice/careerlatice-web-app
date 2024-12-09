@@ -95,7 +95,6 @@ class ApplierController extends Controller
             ->with('educations')
             ->with('experiences')
             ->first();
-
         return view('user.updateProfileUser', compact('applier'));
     }
 

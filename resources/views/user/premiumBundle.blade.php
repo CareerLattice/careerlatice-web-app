@@ -2,27 +2,29 @@
 
 @section('title', 'Upgrade Now')
 
-<style>
-    .badge {
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-    }
+@section('custom_css')
+    <style>
+        .badge {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
 
-    .card:hover {
-        transform: translateY(-5px);
-        transition: 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            transition: 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-    .plan-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        border-radius: 12px;
-        background-color: #f8f9fa;
-    }
-</style>
+        .plan-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: 12px;
+            background-color: #f8f9fa;
+        }
+    </style>
+@endsection
 
 @section('content')
     @include('components.navbar')
@@ -53,9 +55,9 @@
                         ✅ No long-term commitment required<br>
                     </p>
                     <p>Get started with all the essentials to take your experience to the next level. Sign up today and make the most of your journey!</p>
-                    <form action="{{route('user.upgradeToPremium')}}" method="post"> 
+                    <form action="{{route('user.upgradeToPremium')}}" method="post">
                         @csrf
-                        <input type="hidden" name="duration" value="3">  
+                        <input type="hidden" name="duration" value="3">
                         <button class="btn btn-primary w-100" type="submit">Subscribe Now</button>
                     </form>
                 </div>
@@ -74,9 +76,9 @@
                         ✅ Exclusive access to premium features<br>
                     </p>
                     <p>Upgrade to the Plus Plan for a more enhanced and seamless experience. Make the smart choice and save more with this plan!</p>
-                    <form action="{{route('user.upgradeToPremium')}}" method="post"> 
+                    <form action="{{route('user.upgradeToPremium')}}" method="post">
                         @csrf
-                        <input type="hidden" name="duration" value="6">  
+                        <input type="hidden" name="duration" value="6">
                         <button class="btn btn-primary w-100" type="submit">Subscribe Now</button>
                     </form>
                 </div>
@@ -95,9 +97,9 @@
                         ✅ Maximum savings and exclusive rewards<br>
                     </p>
                     <p>Choose the Premium Plan for the ultimate experience and maximum savings. This is the best value for those who want it all!</p>
-                    <form action="{{route('user.upgradeToPremium')}}" method="post"> 
+                    <form action="{{route('user.upgradeToPremium')}}" method="post">
                         @csrf
-                        <input type="hidden" name="duration" value="12">  
+                        <input type="hidden" name="duration" value="12">
                         <button class="btn btn-primary w-100" type="submit">Subscribe Now</button>
                     </form>
                 </div>
