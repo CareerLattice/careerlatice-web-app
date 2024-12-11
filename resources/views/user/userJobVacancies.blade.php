@@ -75,11 +75,28 @@
                             <p class="card-text text-muted">
                                 <small>Applied on {{ $jobVacancy->created_at ?? 'Unknown Date' }}</small>
                             </p>
-                            <div>
-                                <a href="{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
-                                    View Job Vacancy
-                                </a>
+                            <div class="d-flex gap-2">
+                                <div>
+                                    <button 
+                                        onclick="window.location.href='{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}'" 
+                                        id="view-job-btn" 
+                                        class="btn btn-primary" 
+                                        style="background-color: #682b90; border-color: #682b90;">
+                                        View Job Vacancy
+                                    </button>
+
+
+                                </div>
+                                @if ($jobVacancy->status != 'rejected' && $jobVacancy->status != 'accepted')
+                                    <form action="#" method="POST" onsubmit="return confirm('Are you sure you want to unapply from this job?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Unapply</button>
+                                    </form>
+                                @endif
+
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -99,4 +116,38 @@
     <hr class="mt-5">
 
     @include('components.footer')
+@endsection
+
+@section('custom_script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".btn-danger").forEach((button) => {
+            button.addEventListener("click", (event) => {
+                event.preventDefault(); 
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, Unapply it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Job Applicant has been deleted.",
+                            icon: "success"
+                        }).then(() => {
+                            button.closest("form").submit();
+                        });
+                    }
+                });
+            });
+        });
+    });
+
+    </script>
 @endsection
