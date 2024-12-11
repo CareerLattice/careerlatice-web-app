@@ -49,6 +49,33 @@
             width: 40%;
         }
     }
+    .accordion {
+        position: relative;
+        overflow: visible;
+    }
+
+    .accordion-body a{
+        text-decoration: none;
+    }
+    .accordion-collapse {
+        position: absolute;
+        top: 60px; 
+        right: 0;
+        z-index: 1000;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 200px; 
+    }
+
+    .accordion-collapse.show {
+        display: block !important; 
+    }
+
+    .accordion-body {
+        padding: 1rem;
+    }
+
 </style>
 
 <nav class="navbar navbar-expand-lg bg-white shadow-lg">
@@ -97,24 +124,30 @@
                             <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">Premium</a>
                         @endif
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{Storage::url(Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @if (Auth::user()->role == 'applier')
-                                <li><a class="dropdown-item" href="{{route('user.editProfile')}}">Edit Profile</a></li>
-                            @elseif (Auth::user()->role == 'company')
-                                <li><a class="dropdown-item" href="{{route('company.profile')}}">Edit Profile</a></li>
-                            @endif
-                            <li><a class="dropdown-item" href="{{route('settings')}}">Setting</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <form action="{{route('logout')}}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item text-danger">Log Out</button>
-                                </form>
-                            </li>
-                        </ul>
+                        <div class="accordion" id="userAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingUser">
+                                    <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+                                        <img src="{{Storage::url(Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                    </button>
+                                </h2>
+                                <div id="collapseUser" class="accordion-collapse collapse" aria-labelledby="headingUser" data-bs-parent="#userAccordion">
+                                    <div class="accordion-body">
+                                        @if (Auth::user()->role == 'applier')
+                                            <a class="btn btn-link w-100 text-start" href="{{route('user.editProfile')}}">Edit Profile</a>
+                                        @elseif (Auth::user()->role == 'company')
+                                            <a class="btn btn-link w-100 text-start" href="{{route('company.profile')}}">Edit Profile</a>
+                                        @endif
+                                        <a class="btn btn-link w-100 text-start" href="{{route('settings')}}">Settings</a>
+                                        <hr>
+                                        <form action="{{route('logout')}}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link w-100 text-start text-danger">Log Out</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             @endauth
