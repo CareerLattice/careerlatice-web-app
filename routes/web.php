@@ -16,7 +16,6 @@ use App\Http\Controllers\AdminController;
 
 /* View yang tidak akan dipakai */
 // testing_CV
-// home
 
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');
