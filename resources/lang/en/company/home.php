@@ -15,7 +15,7 @@ return [
     'editCompanyProfile' => 'Edit Company Profile',
     'recentJob' => 'Recent Job Listing',
     'open' => 'Open',
-    'close' => 'Closed',
+    'closed' => 'Closed', 
     'totalApplicant' => 'Total Applicant:',
     'noJobListing' => 'No recent job listing',
     'seeDetail' => 'See Detail',
