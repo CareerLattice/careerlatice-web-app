@@ -167,19 +167,51 @@
                 <table class="table table-hover table-bordered">
                     <thead class="table-dark">
                       <tr>
-                        <th scope="col">{{__('company/job.no')}}</th>
-                        <th scope="col">{{__('company/job.name')}}</th>
-                        <th scope="col">{{__('company/job.appliedAt')}}</th>
-                        <th scope="col">{{__('company/job.applicationCV')}}</th>
-                        <th scope="col">{{__('company/job.status')}}</th>
-                        <th scope="col">{{__('company/job.action')}}</th>
+                        <th scope="col" class="text-center">{{__('company/job.no')}}</th>
+                        <th scope="col" class="text-center">
+                            <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'users.name', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">
+                                {{__('company/job.name')}}
+                                @if(request('sort') == 'users.name')
+                                    @if(request('order') == 'asc')
+                                        <i class="bi bi-arrow-down-short"></i>
+                                    @else
+                                        <i class="bi bi-arrow-up-short"></i>
+                                    @endif
+                                @endif
+                            </a>
+                        </th>
+                        <th scope="col" class="text-center">
+                            <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.created_at', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('company/job.appliedAt')}}
+                                @if(request('sort') == 'job_applications.created_at')
+                                    @if(request('order') == 'asc')
+                                        <i class="bi bi-arrow-down-short"></i>
+                                    @else
+                                        <i class="bi bi-arrow-up-short"></i>
+                                    @endif
+                                @endif
+                            </a>
+                        </th>
+                        <th scope="col" class="text-center">{{__('company/job.applicationCV')}}</th>
+                        <th scope="col" class="text-center">
+                            <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.status', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">
+                                {{__('company/job.status')}}
+                                @if(request('sort') == 'job_applications.status')
+                                    @if(request('order') == 'asc')
+                                        <i class="bi bi-arrow-down-short"></i>
+                                    @else
+                                        <i class="bi bi-arrow-up-short"></i>
+                                    @endif
+                                @endif
+                            </a>
+                        </th>
+                        <th scope="col" class="text-center">{{__('company/job.action')}}</th>
                       </tr>
                     </thead>
 
                     <tbody class="table-group-divider">
                         @forelse ($applicants as $application)
                             <tr style="cursor: pointer">
-                                <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$applicants->firstItem() + $loop->index}}</th>
+                                <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'" class="text-center">{{$applicants->firstItem() + $loop->index}}</th>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->name}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->applied_at}}</td>
                                 <td>
@@ -190,8 +222,10 @@
                                         <p class="text-success fw-bold">{{__('company/job.accepted')}}</p>
                                     @elseif ($application->status == 'rejected')
                                         <p class="text-danger fw-bold">{{__('company/job.rejected')}}</p>
-                                    @else
+                                    @elseif($application->status == 'pending')
                                         <p class="text-primary fw-bold">{{__('company/job.pending')}}</p>
+                                    @else
+                                        <p class="text-primary fw-bold">{{__('company/job.cancelled')}}</p>
                                     @endif
                                 </td>
 
