@@ -98,7 +98,7 @@
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                     <div class="company-card"
                         style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; height: 100%;">
-                        <img src="{{Storage::url($company->company_image)}}" alt="Company Logo"
+                        <img src="{{url('profile_url/grab.jpeg')}}" alt="Company Logo"
                             style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
                         <div class="company-details text-center">
                             <h5 class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #333;">
