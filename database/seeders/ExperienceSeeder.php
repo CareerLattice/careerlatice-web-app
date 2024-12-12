@@ -26,7 +26,7 @@ class ExperienceSeeder extends Seeder
                 'end_date' => $faker->dateTimeBetween('now', '+5 years'),
                 'address' => $faker->address,
                 'description' => $faker->paragraph,
-                'company_picture' => "default/profile_picture.jpg",
+                'company_picture' => "default_profile_picture.jpg",
                 'applier_id' => $applier->random()->id,
             ]);
         }

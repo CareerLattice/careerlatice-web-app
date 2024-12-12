@@ -2,11 +2,10 @@
 return [
 
     /* Start of Company Page */
-        
-        //companyJobs page
+        // companyJobs page
         'noJobsAvailableCompanyJobs' => 'There is no job available.',
 
-        //companyProfile page 
+        // companyProfile page
         'backCompanyProfile'=>'Back',
         'titleCompanyProfile' => 'Edit Company Profile',
         'captionCompanyProfile' => 'Update your company information to keep your profile up-to-date.',
@@ -23,7 +22,7 @@ return [
         'companyPhonePHCompanyProfile' => 'Enter company phone number',
         'companyDescriptionPHCompanyProfile' => 'Write a short description about the company',
 
-        //createJob page
+        // createJob page
         'backCreateJob' => 'Back',
         'titleCreateJob' => 'Add New Job Listing',
         'jobTitleCreateJob' => 'Job Title',
@@ -74,7 +73,7 @@ return [
         'editCompanyProfileCompanyHome' => 'Edit Company Profile',
         'recentJobCompanyHome' => 'Recent Job Listing',
         'openCompanyHome' => 'Open',
-        'closedCompanyHome' => 'Closed', 
+        'closedCompanyHome' => 'Closed',
         'totalApplicantCompanyHome' => 'Total Applicant:',
         'noJobListingCompanyHome' => 'No recent job listing',
         'seeDetailCompanyHome' => 'See Detail',
@@ -145,5 +144,4 @@ return [
     /* End of Company Page */
 
 ];
-
 ?>

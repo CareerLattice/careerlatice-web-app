@@ -71,7 +71,7 @@
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row">
                         <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
-                            <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                            <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">
@@ -215,7 +215,7 @@
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->name}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->applied_at}}</td>
                                 <td>
-                                    <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">{{__('lang.openCVCompanyJob')}}</a>
+                                    <a href="{{asset('upload/applier/cv/' . $application->cv)}}" target="_blank" class="btn btn-primary">{{__('lang.openCVCompanyJob')}}</a>
                                 </td>
                                 <td id="{{'status_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                     @if ($application->status == 'accepted')

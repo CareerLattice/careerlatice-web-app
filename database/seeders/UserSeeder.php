@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'email' => $faker->email,
                 'password' => Hash::make('12345678'),
                 'phone_number' => $faker->phoneNumber,
-                'profile_picture' => 'default/profile_picture.jpg',
+                'profile_picture' => 'default_profile_picture.jpg',
                 'role' => $faker->randomElement(['applier', 'admin', 'company']),
             ]);
         }
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'email' => $faker->email,
             'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
-            'profile_picture' => 'default/profile_picture.jpg',
+            'profile_picture' => 'default_profile_picture.jpg',
             'role' => 'applier',
         ]);
 
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'email' => $faker->email,
             'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
-            'profile_picture' => 'default/profile_picture.jpg',
+            'profile_picture' => 'default_profile_picture.jpg',
             'role' => 'company',
         ]);
 
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
             'email' => $faker->email,
             'password' => Hash::make('12345678'),
             'phone_number' => $faker->phoneNumber,
-            'profile_picture' => 'default/profile_picture.jpg',
+            'profile_picture' => 'default_profile_picture.jpg',
             'role' => 'admin',
         ]);
     }
