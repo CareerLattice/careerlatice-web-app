@@ -24,15 +24,15 @@
     @include('components.navbar')
     <div class="container my-5">
         <div class="d-flex justify-content-between">
-            <h2 class="mb-4">{{__('company/listJob.title')}}</h2>
+            <h2 class="mb-4">{{__('lang.titleListJob')}}</h2>
 
             <div>
                 <form class="" role="search" action="{{route('company.searchJobs')}}" method="GET">
                     <div class="d-md-flex dropdown text-end">
-                        <input class="form-control mb-2 mb-md-0 me-md-2" name="search" placeholder="{{__('company/listJob.searchPH')}}" value="{{ request('search') }}">
+                        <input class="form-control mb-2 mb-md-0 me-md-2" name="search" placeholder="{{__('lang.searchPHListJob')}}" value="{{ request('search') }}">
 
                         <button class="btn btn-outline-primary dropdown-toggle me-md-2 mb-2 mb-md-0" type="button" id="dropdownMenuButton1" onclick="toggleDropdown()">
-                            {{__('company/listJob.filter')}}
+                            {{__('lang.filterListJob')}}
                         </button>
 
                         <ul class="dropdown-menu mt-md-5  p-2" id="dropdownMenu" aria-labelledby="dropdownMenuButton" >
@@ -42,20 +42,20 @@
                                     <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Full Time" id="checkFulltime"
                                         @if(in_array('Full-time', request('job_type', []))) checked @endif>
                                         <label class="form-check-label" for="checkFulltime">
-                                            {{__('company/listJob.fullTime')}}
+                                            {{__('lang.fullTimeListJob')}}
                                         </label>
                                     </li>
                                     <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Part Time" id="checkParttime"
                                         @if(in_array('Part Time', request('job_type', []))) checked @endif>
                                         <label class="form-check-label" for="checkParttime">
-                                            {{__('company/listJob.partTime')}}
+                                            {{__('lang.partTimeListJob')}}
                                         </label>
                                     </li>
 
                                     <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Internship" id="checkInternship"
                                         @if(in_array('Internship', request('job_type', []))) checked @endif>
                                         <label class="form-check-label" for="checkInternship">
-                                            {{__('company/listJob.internship')}}
+                                            {{__('lang.internshipListJob')}}
                                         </label>
                                     </li>
                                     <li><input class="form-check-input" name="job_type[]" type="checkbox" value="Freelance" id="checkFreelance"
@@ -69,24 +69,24 @@
 
                             <li class="form-group">
                                 <ul class="list-unstyled">
-                                    <label class="fw-bold">{{__('company/listJob.status')}}</label>
+                                    <label class="fw-bold">{{__('lang.statusListJob')}}</label>
                                     <li><input class="form-check-input" name="is_active[]" type="checkbox" value="1" id="checkOpen"
                                         @if(in_array('1', request('is_active', []))) checked @endif>
                                         <label class="form-check-label" for="checkOpen">
-                                            {{__('company/listJob.open')}}
+                                            {{__('lang.openListJob')}}
                                         </label>
                                     </li>
                                     <li><input class="form-check-input" name="is_active[]" type="checkbox" value="0" id="checkOpen"
                                         @if(in_array('0', request('is_active', []))) checked @endif>
                                         <label class="form-check-label" for="checkOpen">
-                                            {{__('company/listJob.closed')}}
+                                            {{__('lang.closedListJob')}}
                                         </label>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
 
-                        <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">{{__('company/listJob.search')}}</button>
+                        <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">{{__('lang.searchListJob')}}</button>
                     </div>
                 </form>
             </div>
@@ -95,7 +95,7 @@
 
 
         <div class="mt-4 mb-3">
-            <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">{{__('company/listJob.addNewJob')}}</a>
+            <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">{{__('lang.addNewJobListJob')}}</a>
         </div>
         <div class="row">
             @forelse ($jobs as $job)
@@ -107,28 +107,28 @@
                             <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
                                 @if ($job->is_active == true)
                                     <span class="border bg-success text-light rounded px-1 d-inline-block shadow-sm">
-                                        {{__('company/listJob.open')}}
+                                        {{__('lang.openListJob')}}
                                     </span>
                                 @else
                                     <span class="border bg-danger text-light rounded px-1 d-inline-block shadow-sm">
-                                        {{__('company/listJob.closed')}}
+                                        {{__('lang.closedListJob')}}
                                     </span>
                                 @endif
                             </p>
 
-                            <p class="mb-1"><strong>{{__('company/listJob.company')}}</strong> {{Auth::user()->name}}</p>
-                            <p class="mb-1"><strong>{{__('company/listJob.location')}} </strong>{{$job->address}}</p>
-                            <p class="text-truncate mb-1"><strong>{{__('company/listJob.description')}} </strong>{{$job->description}}</p>
-                            <p class="mb-1"><strong>{{__('company/listJob.personInCharge')}} </strong>{{$job->person_in_charge}}</p>
-                            <p class="mb-1"><strong>{{__('company/listJob.lastUpdated')}} </strong>{{$job->updated_at->format('d F Y')}}</p>
+                            <p class="mb-1"><strong>{{__('lang.companyListJob')}}</strong> {{Auth::user()->name}}</p>
+                            <p class="mb-1"><strong>{{__('lang.locationListJob')}} </strong>{{$job->address}}</p>
+                            <p class="text-truncate mb-1"><strong>{{__('lang.descriptionListJob')}} </strong>{{$job->description}}</p>
+                            <p class="mb-1"><strong>{{__('lang.personInChargeListJob')}} </strong>{{$job->person_in_charge}}</p>
+                            <p class="mb-1"><strong>{{__('lang.lastUpdatedListJob')}} </strong>{{$job->updated_at->format('d F Y')}}</p>
 
-                            <a href="{{route('company.job', ['job' => $job])}}" class="btn btn-primary mt-auto">{{__('company/listJob.details')}}</a>
+                            <a href="{{route('company.job', ['job' => $job])}}" class="btn btn-primary mt-auto">{{__('lang.detailsListJob')}}</a>
                         </div>
                     </div>
                 </div>
             @empty
                 <div class="alert alert-danger">
-                    {{__('company/listJob.noJobListing')}}
+                    {{__('lang.noJobListingListJob')}}
                 </div>
             @endforelse
         </div>
