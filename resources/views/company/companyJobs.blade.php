@@ -18,7 +18,7 @@
             @empty
                 <div class="col-md-12">
                     <div class="alert alert-warning">
-                        {{__('company/companyJobs.noJobsAvailable')}}
+                        {{__('company/companyLang.noJobsAvailableCompanyJobs')}}
                     </div>
                 </div>
             @endforelse

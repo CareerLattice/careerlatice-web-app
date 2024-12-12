@@ -76,19 +76,19 @@
     @include('components.navbar')
     <div class="container mt-5">
         <a href="{{route('company.job', ['job' => $job->id])}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> {{__('company/editJob.cancelEdit')}}
+            <i class="bi bi-arrow-left-circle"></i> {{__('company/companyLang.cancelEditEditJob')}}
         </a>
 
         <div class="job-card">
             <div class="job-header">
-                <h2>{{__('company/editJob.title')}}</h2>
+                <h2>{{__('company/companyLang.titleEditJob')}}</h2>
             </div>
 
             <hr class="my-1">
             <form action="{{route('company.updateJob', ['job' => $job])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">{{__('company/editJob.jobImage')}}</h2></label>
+                    <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">{{__('company/companyLang.jobImageEditJob')}}</h2></label>
                     <div class="image-container">
                         <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" class="company-logo" id="preview-image">
                         <input type="file" id="uploadImage" name="job_image" style="display: none;" onchange="previewImage(event)">
@@ -98,49 +98,49 @@
                     </div>
                 </div>
 
-                <label for="title"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.jobTitle')}}</h2></label>
+                <label for="title"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.jobTitleEditJob')}}</h2></label>
                 <input id="title" type="text" class="form-control" value="{{ $job->title }}" name="title" required>
 
-                <label for="address"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.jobAddress')}}</h2></label>
+                <label for="address"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.jobAddressEditJob')}}</h2></label>
                 <input id="address" type="text" class="form-control" value="{{ $job->address }}" name="address" required>
 
-                <label for="description"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.jobDescription')}}</h2></label>
+                <label for="description"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.jobDescriptionEditJob')}}</h2></label>
                 <textarea id="description" class="form-control d-block" name="description" rows="5" required>{{ $job->description }}</textarea>
 
-                <label for="requirement"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.jobRequirement')}}</h2></label>
+                <label for="requirement"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.jobRequirementEditJob')}}</h2></label>
                 <textarea id="requirement" class="form-control d-block" name="requirement" rows="5" required>{{ $job->requirement }}</textarea>
 
-                <label for="benefit"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.jobBenefit')}}</h2></label>
+                <label for="benefit"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.jobBenefitEditJob')}}</h2></label>
                 <textarea id="benefit" class="form-control d-block" name="benefit" rows="5" required>{{ $job->benefit }}</textarea>
 
                 <div class="d-flex mt-3 justify-content-between">
                     <div style="width:45%">
-                        <label for="is_active"><h2 class="fs-4 m-0 me-2">{{__('company/editJob.jobStatus')}}</h2></label>
+                        <label for="is_active"><h2 class="fs-4 m-0 me-2">{{__('company/companyLang.jobStatusEditJob')}}</h2></label>
                         <select id="is_active" class="form-select" name="is_active" required>
-                            <option value="1" @if($job->is_active == true) selected @endif>{{__('company/editJob.open')}}</option>
-                            <option value="0" @if($job->is_active == false) selected @endif>{{__('company/editJob.close')}}</option>
+                            <option value="1" @if($job->is_active == true) selected @endif>{{__('company/companyLang.openEditJob')}}</option>
+                            <option value="0" @if($job->is_active == false) selected @endif>{{__('company/companyLang.closedEditJob')}}</option>
                         </select>
                     </div>
 
                     <div style="width:45%">
-                        <label for="job_type"><h2 class="fs-4 m-0 me-2">{{__('company/editJob.jobType')}}</h2></label>
+                        <label for="job_type"><h2 class="fs-4 m-0 me-2">{{__('company/companyLang.jobTypeEditJob')}}</h2></label>
                         <select id="job_type" class="form-select" name="job_type" required>
-                            <option value="Full-time" @if($job->job_type == 'Full-time') selected @endif>{{__('company/editJob.fullTime')}}</option>
-                            <option value="Part-time " @if($job->job_type == 'Part-time') selected @endif>{{__('company/editJob.partTime')}}</option>
-                            <option value="Internship " @if($job->job_type == 'Internship') selected @endif>{{__('company/editJob.internship')}}</option>
+                            <option value="Full-time" @if($job->job_type == 'Full-time') selected @endif>{{__('company/companyLang.fullTimeEditJob')}}</option>
+                            <option value="Part-time " @if($job->job_type == 'Part-time') selected @endif>{{__('company/companyLang.partTimeEditJob')}}</option>
+                            <option value="Internship " @if($job->job_type == 'Internship') selected @endif>{{__('company/companyLang.internshipEditJob')}}</option>
                             <option value="Freelance" @if($job->job_type == 'Freelance') selected @endif>Freelance</option>
                         </select>
                     </div>
                 </div>
 
-                <label for="person_in_charge"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.personInCharge')}}</h2></label>
+                <label for="person_in_charge"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.personInChargeEditJob')}}</h2></label>
                 <input id="person_in_charge" type="text" class="form-control" value="{{ $job->person_in_charge }}" name="person_in_charge" required>
 
-                <label for="contact_person"><h2 class="fs-4 m-0 mt-3">{{__('company/editJob.contactPerson')}}</h2></label>
+                <label for="contact_person"><h2 class="fs-4 m-0 mt-3">{{__('company/companyLang.contactPersonEditJob')}}</h2></label>
                 <input id="contact_person" type="text" class="form-control" value="{{ $job->contact_person }}" name="contact_person" required>
 
                 <div class="mt-4 d-flex align-items-center justify-content-center gap-3">
-                    <button type="submit" class="btn btn-primary">{{__('company/editJob.update')}}</button>
+                    <button type="submit" class="btn btn-primary">{{__('company/companyLang.updateEditJob')}}</button>
                 </div>
             </form>
         </div>
