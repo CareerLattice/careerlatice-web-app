@@ -107,9 +107,9 @@ class CompanyController extends Controller
 
         $company = Auth::user();
         if($request->hasFile('logo')){
-            $file = $request->file('profile_picture');
+            $file = $request->file('logo');
             $destinationPath = public_path('upload/profile_picture');
-            $fileName = $company->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
+            $fileName = $company->id . '_profile_picture.' . $request->file('logo')->getClientOriginalExtension();
 
             if ($company->profile_picture && $company->profile_picture != 'default_profile_picture.jpg' && File::exists(public_path('upload/profile_picture/' . $company->profile_picture))) {
                 File::delete(public_path('upload/profile_picture/' . $company->profile_picture));
