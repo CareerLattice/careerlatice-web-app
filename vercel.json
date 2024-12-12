@@ -12,6 +12,10 @@
             "dest": "/public/assets/$1"
         },
         {
+            "src": "/profile_url/(.*)",
+            "dest": "/public/profile_url/$1"
+        },
+        {
             "src": "/css/(.*)",
             "dest": "/public/css/$1"
         },
