@@ -40,17 +40,15 @@ Route::get('/companies', [CompanyController::class, 'index'])->name('companies')
 // Route to get the job detail page
 Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('user.jobDetail');
 
-// Route to get the company detail page
-Route::get('/company/{company_id}', action: [CompanyController::class, 'viewCompany'])->name('user.company');
-
-// Route to get the job vacancies by company
-Route::get('/company/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
-
 // Route to search jobs by company
 Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
 
+Route::get('/testing/error', function(){
+    dd("Coba coba");
+});
+
 // Route for Company
-Route::prefix("company")->group(function(){
+Route::prefix('company')->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for company sign up
         Route::get('/sign-up', [CompanyController::class, 'signUpPage'])->name('company.signUpCompany');
@@ -91,12 +89,18 @@ Route::prefix("company")->group(function(){
         Route::get('/view-applicants/{applier}', [CompanyController::class, 'viewApplicants'])->name('company.viewApplicants');
 
         // Route for company update job application status
-        Route::post('/company/update/application/{application}', action: [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
+        Route::post('/update/application/{application}', action: [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
     });
+
+    // Route to get the company detail page
+    Route::get('/{company_id}', action: [CompanyController::class, 'viewCompany'])->name('user.company');
+
+    // Route to get the job vacancies by company
+    Route::get('/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
 });
 
 // Route for User Applier
-Route::prefix("user")->group(function(){
+Route::prefix('user')->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
         Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
@@ -142,7 +146,7 @@ Route::middleware('user_auth')->group(function(){
 });
 
 // Route for Admin
-Route::prefix("admin")->group(function(){
+Route::prefix('admin')->group(function(){
     // Route for admin home
     Route::get('/home',[AdminController::class, 'viewHome'])->name('admin.home');
 

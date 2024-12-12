@@ -111,9 +111,7 @@ class JobController extends Controller
         }
 
         $applicants = $applicants->orderBy('appliers.end_date_premium','desc')
-        // dd($applicants->toSql());
         ->paginate(10);
-
 
         return view('company.job', compact('job', 'applicants', 'sort', 'order'));
     }
@@ -266,16 +264,7 @@ class JobController extends Controller
     public function userViewJob(Job $job){
         $requirement = explode("\r\n", $job->requirement);
         $benefit = explode("\r\n", $job->benefit);
-        $result = DB::table('job_vacancies as jobs')
-            ->join('companies', 'jobs.company_id', '=', 'companies.id')
-            ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
-            ->join('skills','job_skills.skill_id','=','skills.id')
-            ->join('users', 'companies.user_id', '=', 'users.id')
-            ->select('skills.name as skill_name')
-            ->where('jobs.id', $job->id)
-            ->get();
-
-        return view('user.jobDetail', compact('job', 'requirement', 'result', 'benefit'));
+        return view('user.jobDetail', compact('job', 'requirement', 'benefit'));
     }
 
     public function jobByCompany(Company $company, Request $req){
