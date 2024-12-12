@@ -2,14 +2,11 @@
 return [
 
     /* Start of Company Page */
-    
   
         //companyJobs page    
-    
         'noJobsAvailableCompanyJobs' => 'Tidak ada pekerjaan yang tersedia.',
 
         //companyProfile page
-
         'backCompanyProfile'=>'Kembali',
         'titleCompanyProfile' => 'Edit Profil Perusahaan',
         'captionCompanyProfile' => 'Perbarui informasi perusahaan Anda agar profil Anda selalu terbaru.',
@@ -28,7 +25,6 @@ return [
 
 
         //createJob page
-
         'titleCreateJob' => 'Tambahkan Daftar Pekerjaan Baru',
         'backCreateJob' => 'Kembali',
         'jobTitleCreateJob' => 'Jabatan Pekerjaan',
@@ -45,7 +41,6 @@ return [
 
 
         // editJob page
-        
         'cancelEditEditJob' => 'Batal Edit',
         'titleEditJob' => 'Edit Detail Pekerjaan',
         'jobImageEditJob' => 'Gambar Pekerjaan',
@@ -67,7 +62,6 @@ return [
 
 
         // home page
-
         'welcomeCompanyHome' => 'Selamat datang kembali,',
         'captionCompanyHome' => 'Berikut adalah ringkasan kinerja rekrutmen Anda. Mari kita lihat bagaimana kinerja daftar Anda.',
         'totalJobListingCompanyHome' => 'Jumlah Daftar Pekerjaan:',
@@ -90,7 +84,6 @@ return [
 
 
         // job page
-
         'backCompanyJob' => 'Kembali ke Pekerjaan',
         'lastUpdateCompanyJob' => 'Pembaruan Terakhir:',
         'openCompanyJob' => 'Buka',
@@ -122,7 +115,6 @@ return [
 
 
         // listJob page
-
         'titleListJob' => 'Daftar Lowongan Pekerjaan',
         'searchPHListJob' => 'Cari...',
         'filterListJob' => 'Filter',
@@ -145,7 +137,6 @@ return [
 
 
         //signUpCompany page
-
         'titleSignUpCompany' => 'BERGABUNG DENGAN KAMI SEKARANG',
         'captionSignUpCompany' => 'Bergabunglah dengan kami hari ini dengan mendaftarkan informasi Anda di bawah ini dan buka peluang menarik!',
         'companyNameSignUpCompany' => 'Nama Perusahaan',
@@ -157,7 +148,6 @@ return [
         'agreeSignUpCompany' => 'Saya setuju dengan syarat dan ketentuan',
         'signUpSignUpCompany' => 'Daftar',
     
-
     /* End of Company Page */
 
 

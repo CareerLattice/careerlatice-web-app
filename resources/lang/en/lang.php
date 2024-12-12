@@ -2,14 +2,11 @@
 return [
 
     /* Start of Company Page */
-    
-  
+        
         //companyJobs page
-
         'noJobsAvailableCompanyJobs' => 'There is no job available.',
 
-        //companyProfile page
-
+        //companyProfile page 
         'backCompanyProfile'=>'Back',
         'titleCompanyProfile' => 'Edit Company Profile',
         'captionCompanyProfile' => 'Update your company information to keep your profile up-to-date.',
@@ -26,9 +23,7 @@ return [
         'companyPhonePHCompanyProfile' => 'Enter company phone number',
         'companyDescriptionPHCompanyProfile' => 'Write a short description about the company',
 
-
         //createJob page
-        
         'backCreateJob' => 'Back',
         'titleCreateJob' => 'Add New Job Listing',
         'jobTitleCreateJob' => 'Job Title',
@@ -43,10 +38,7 @@ return [
         'contactPersonCreateJob' => 'Contact Person',
         'addJobCreateJob' => 'Add Job',
 
-
-
         // editJob page
-        
         'cancelEditEditJob' => 'Cancel Edit',
         'titleEditJob' => 'Edit Job Details',
         'jobImageEditJob' => 'Job Image',
@@ -66,9 +58,7 @@ return [
         'contactPersonEditJob' => 'Contact Person',
         'updateEditJob' => 'Update',
 
-
         // home page
-
         'welcomeCompanyHome' => 'Welcome back,',
         'captionCompanyHome' => 'Here\'s your recruitment performance overview. Let\'s check out how your listings are doing.',
         'totalJobListingCompanyHome' => 'Total Job Listings:',
@@ -88,7 +78,6 @@ return [
         'totalApplicantCompanyHome' => 'Total Applicant:',
         'noJobListingCompanyHome' => 'No recent job listing',
         'seeDetailCompanyHome' => 'See Detail',
-
 
         // job page
         'backCompanyJob' => 'Back to Jobs',
@@ -122,7 +111,6 @@ return [
 
 
         // listJob page
-
         'titleListJob' => 'Job Listings',
         'searchPHListJob' => 'Search...',
         'filterListJob' => 'Filter',
@@ -144,7 +132,6 @@ return [
         'noJobListingListJob' => 'No Job Listings found',
 
         //signUpCompany page
-
         'titleSignUpCompany' => 'JOIN US NOW',
         'captionSignUpCompany' => 'Join us today by registering your information below and unlock exciting opportunities!',
         'companyNameSignUpCompany' => 'Company Name',
@@ -155,8 +142,6 @@ return [
         'companyFieldSignUpCompany' => 'Company Field',
         'agreeSignUpCompany' => 'Agree to terms and conditions',
         'signUpSignUpCompany' => 'Sign Up',
-
-
     /* End of Company Page */
 
 ];

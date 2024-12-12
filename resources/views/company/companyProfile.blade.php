@@ -41,11 +41,11 @@
 
     <div class="container my-5">
         <a href="{{route('company.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> {{ __('company/companyLang.backCompanyProfile') }}
+            <i class="bi bi-arrow-left-circle"></i> {{ __('lang.backCompanyProfile') }}
         </a>
         <div class="text-center mb-5">
-            <h2>{{__('company/companyLang.titleCompanyProfile')}}</h2>
-            <p class="text-muted">{{__('company/companyLang.captionCompanyProfile')}}</p>
+            <h2>{{__('lang.titleCompanyProfile')}}</h2>
+            <p class="text-muted">{{__('lang.captionCompanyProfile')}}</p>
         </div>
 
 
@@ -55,7 +55,7 @@
                     @csrf
                     <div class="mb-4">
                         <div class="d-flex flex-column align-items-center">
-                            <label class="form-label"><strong>{{__('company/companyLang.contentTitleCompanyProfile')}}</strong></label>
+                            <label class="form-label"><strong>{{__('lang.contentTitleCompanyProfile')}}</strong></label>
                             <div class="d-flex align-items-center">
                                 <div class="image-container">
                                     <!-- Display Current Profile Picture -->
@@ -79,36 +79,36 @@
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="name" class="form-label"><strong>{{__('company/companyLang.companyNameCompanyProfile')}}</strong></label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="{{__('company/companyLang.companyNamePHCompanyProfile')}}" value="{{Auth::user()->name}}" required>
+                            <label for="name" class="form-label"><strong>{{__('lang.companyNameCompanyProfile')}}</strong></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="{{__('lang.companyNamePHCompanyProfile')}}" value="{{Auth::user()->name}}" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="field" class="form-label"><strong>{{__('company/companyLang.fieldCompanyProfile')}}</strong></label>
-                            <input type="text" class="form-control" id="field" name="field" placeholder="{{__('company/companyLang.companyFieldPHCompanyProfile')}}" value="{{$company->field}}" required>
+                            <label for="field" class="form-label"><strong>{{__('lang.fieldCompanyProfile')}}</strong></label>
+                            <input type="text" class="form-control" id="field" name="field" placeholder="{{__('lang.companyFieldPHCompanyProfile')}}" value="{{$company->field}}" required>
                         </div>
                     </div>
 
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="address" class="form-label"><strong>{{__('company/companyLang.companyAddressCompanyProfile')}}</strong></label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="{{__('company/companyLang.companyAddressPHCompanyProfile')}}" value="{{$company->address}}" required></input>
+                            <label for="address" class="form-label"><strong>{{__('lang.companyAddressCompanyProfile')}}</strong></label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="{{__('lang.companyAddressPHCompanyProfile')}}" value="{{$company->address}}" required></input>
                         </div>
                         <div class="col-md-6">
-                            <label for="phone_number" class="form-label"><strong>{{__('company/companyLang.phoneNumberCompanyProfile')}}</strong></label>
-                            <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="{{__('company/companyLang.companyPhonePHCompanyProfile')}}" value="{{Auth::user()->phone_number}}" required>
+                            <label for="phone_number" class="form-label"><strong>{{__('lang.phoneNumberCompanyProfile')}}</strong></label>
+                            <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="{{__('lang.companyPhonePHCompanyProfile')}}" value="{{Auth::user()->phone_number}}" required>
                         </div>
                     </div>
 
 
                     <div class="mb-3">
-                        <label for="description" class="form-label"><strong>{{__('company/companyLang.companyDescriptionCompanyProfile')}}</strong></label>
-                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="{{__('company/companyLang.companyDescriptionPHCompanyProfile')}}" required>{{$company->description}}</textarea>
+                        <label for="description" class="form-label"><strong>{{__('lang.companyDescriptionCompanyProfile')}}</strong></label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="{{__('lang.companyDescriptionPHCompanyProfile')}}" required>{{$company->description}}</textarea>
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg px-4">{{__('company/companyLang.saveChangesCompanyProfile')}}</button>
+                        <button type="submit" class="btn btn-primary btn-lg px-4">{{__('lang.saveChangesCompanyProfile')}}</button>
                     </div>
                 </form>
             </div>
