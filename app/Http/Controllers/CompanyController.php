@@ -102,11 +102,11 @@ class CompanyController extends Controller
             'field' => 'string|max:255',
             'address' => 'string|max:255',
             'description' => 'string',
-            'logo' => 'image|mimes:jpg,png,jpeg|max:2048',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         $company = Auth::user();
-        if($req->logo){
+        if($req->hasFile('logo')){
             if ($company->profile_picture && $company->profile_picture != 'default/profile_picture.jpg' && Storage::disk('public')->exists($company->profile_picture)) {
                 $test = Storage::disk('public')->delete($company->profile_picture);
             }
@@ -121,14 +121,11 @@ class CompanyController extends Controller
             'profile_picture' => $company->profile_picture,
         ]);
 
-        Company::where('user_id', Auth::id())->update([
+        Company::where('user_id', $company->id)->update([
             'description' => $req->description ?? $company->description,
             'field' => $req->field ?? $company->field,
             'address' => $req->address ?? $company->address,
         ]);
-
-        $updatedCompany = User::find($company->id);
-        Auth::login($updatedCompany);
 
         return redirect()->route('company.profile', compact('company'));
     }

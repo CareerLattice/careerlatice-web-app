@@ -33,10 +33,6 @@ class Applier extends Model
         return $this->hasMany(Education::class, 'applier_id', 'id');
     }
 
-    public function userSkills(): HasMany{
-        return $this->hasMany(UserSkill::class, 'applier_id', 'id');
-    }
-
     public function experiences(): HasMany{
         return $this->hasMany(Experience::class, 'applier_id', 'id');
     }

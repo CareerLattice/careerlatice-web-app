@@ -14,13 +14,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\AdminController;
 
-/* Controller yang belum dipakai */
-// use App\Http\Controllers\SkillController;
-// use App\Http\Controllers\UserSkillController;
-
 /* View yang tidak akan dipakai */
 // testing_CV
-// home
 
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');

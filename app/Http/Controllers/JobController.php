@@ -95,17 +95,27 @@ class JobController extends Controller
     }
 
     // Company can view the job vacancies they create
-    public function viewJob(Job $job){
+    public function viewJob(Job $job, Request $request){
+        $sort = $request->get('sort');
+        $order = $request->get('order');
+
         $applicants = DB::table('users')
             ->join('appliers', 'users.id', '=', 'appliers.user_id')
             ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
             ->where('job_applications.job_id', $job->id)
             ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id', 'appliers.id as applier_id',
-            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at')   )
-            ->orderBy('appliers.end_date_premium','desc')
-            ->paginate(10);
+            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at'));
 
-        return view('company.job', compact('job', 'applicants'));
+        if($sort != null){
+            $applicants = $applicants->orderBy($sort, $order);
+        }
+
+        $applicants = $applicants->orderBy('appliers.end_date_premium','desc')
+        // dd($applicants->toSql());
+        ->paginate(10);
+
+
+        return view('company.job', compact('job', 'applicants', 'sort', 'order'));
     }
 
     public function filterJobs(Request $req, Job $job){

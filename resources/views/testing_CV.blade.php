@@ -97,60 +97,108 @@
 @endsection
 
 @section('custom_script')
-<script src="{{ asset('js/script.js') }}"></script>
-<script>
-    function testingJS(){
-        if (document.getElementById('test').style.color == 'red')
-            document.getElementById('test').style.color = 'black';
-        else
-            document.getElementById('test').style.color = 'red';
-    }
-
-    async function testFetch(){
-        try {
-            const response = await fetch('http://127.0.0.1:8000/test/data', {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-
-            let responses = await response.json()
-            if(!response.ok){
-                throw new Error(responses.message)
-            }
-
-            console.log(responses)
-            let dataCompany = responses.data
-            let container = document.getElementById('data-container')
-            container.innerHTML = ''
-            console.log(dataCompany)
-            console.log(dataCompany[0]['address'])
-            dataCompany.forEach(data => {
-                container.innerHTML += `
-                    <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
-                        <div class="company-card">
-                            <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
-                            <div class="company-details">
-                                <h5 class="mt-2">Company ID: ${data['id']}</h5>
-                                <p>${data['address']}</p>
-                            </div>
-                            <div class="company-info-section">
-                                <p class="fw-bold mb-0">Description</p>
-                                <p class="text-muted mt-0 description">${data['description']}</p>
-                                <p class="fw-bold mb-0">Field</p>
-                                <p class="text-muted mt-0">${data['field']}</p>
-                            </div>
-                            <a href="http://127.0.0.1:8000//user/company/${data['id']}" class="btn btn-visit">Visit Company</a>
-                        </div>
-                    </div>
-                `
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
             });
-            return
-        } catch (error) {
-            alert(error)
-            return null
+        });
+
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((element) => {
+            observer.observe(element);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterLinks = document.querySelectorAll(".navbar-company .nav-link");
+            const cards = document.querySelectorAll(".popular-company .card");
+
+            filterLinks.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    filterLinks.forEach((item) => {
+                        item.classList.remove("active");
+                    });
+
+                    link.classList.add("active");
+
+                    const category = link.textContent.trim();
+                    console.log(`Filtering for category: ${category}`);
+
+                    cards.forEach((card) => {
+                        const cardCategory = card.getAttribute("data-category");
+
+                        if (
+                            category === cardCategory ||
+                            category === "Show All Popular Company"
+                        ) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+        function testingJS(){
+            if (document.getElementById('test').style.color == 'red')
+                document.getElementById('test').style.color = 'black';
+            else
+                document.getElementById('test').style.color = 'red';
         }
-    }
-</script>
+
+        async function testFetch(){
+            try {
+                const response = await fetch('http://127.0.0.1:8000/test/data', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                })
+
+                let responses = await response.json()
+                if(!response.ok){
+                    throw new Error(responses.message)
+                }
+
+                console.log(responses)
+                let dataCompany = responses.data
+                let container = document.getElementById('data-container')
+                container.innerHTML = ''
+                console.log(dataCompany)
+                console.log(dataCompany[0]['address'])
+                dataCompany.forEach(data => {
+                    container.innerHTML += `
+                        <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
+                            <div class="company-card">
+                                <img src="{{ asset('assets/bbca.jpeg') }}" alt="Company Logo">
+                                <div class="company-details">
+                                    <h5 class="mt-2">Company ID: ${data['id']}</h5>
+                                    <p>${data['address']}</p>
+                                </div>
+                                <div class="company-info-section">
+                                    <p class="fw-bold mb-0">Description</p>
+                                    <p class="text-muted mt-0 description">${data['description']}</p>
+                                    <p class="fw-bold mb-0">Field</p>
+                                    <p class="text-muted mt-0">${data['field']}</p>
+                                </div>
+                                <a href="http://127.0.0.1:8000//user/company/${data['id']}" class="btn btn-visit">Visit Company</a>
+                            </div>
+                        </div>
+                    `
+                });
+                return
+            } catch (error) {
+                alert(error)
+                return null
+            }
+        }
+    </script>
 @endsection

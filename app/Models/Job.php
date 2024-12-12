@@ -33,8 +33,4 @@ class Job extends Model
     public function applicants(): HasMany{
         return $this->hasMany(JobApplication::class, 'job_id', 'id');
     }
-
-    public function skills(): HasMany{
-        return $this->hasMany(JobSkill::class, 'job_id', 'id');
-    }
 }

@@ -57,6 +57,11 @@
     .accordion-body a{
         text-decoration: none;
     }
+
+    .accordion-body button{
+        text-decoration: none;
+    }
+    
     .accordion-collapse {
         position: absolute;
         top: 60px; 
