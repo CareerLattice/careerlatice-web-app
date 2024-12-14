@@ -240,9 +240,6 @@
         .landing-company-bottom-container {
             background-color: rgb(255, 203, 203);
             padding-top: 50px;
-        }
-
-        .landing-company-bottom-container {
             padding-top: 30px;
             padding-left: 100px;
             padding-right: 100px;
@@ -255,6 +252,7 @@
             padding-right: 50px;
             text-align: center;
         }
+        /* landing-company-bottom-container */
 
         .landing-company-bottom-container h3 {
             font-size: 2rem;
@@ -460,6 +458,23 @@
         .testimonial-card {
             background-image: linear-gradient(to right, #682b90, #7869cd);
         }
+        .popular-company-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
+        }
+
+        .card-body {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .btn {
+            margin-top: auto; 
+        }
+
 
         @media (max-width: 768px) {
             .job-vacancy {
@@ -663,120 +678,121 @@
               <div class="popular-company container hidden">
                 {{-- Technology and Information category --}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/tokopedia.jpeg') }}" class="card-img-top" alt="Tokopedia">
                     <div class="card-body">
                         <h5 class="card-title">Tokopedia</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods.</p>
+                        <a href="https://www.tokopedia.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/shopee.jpeg') }}" class="card-img-top" alt="Shopee">
                     <div class="card-body">
                         <h5 class="card-title">Shopee</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users.</p>
+                        <a href="https://www.shopee.co.id" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/grab.jpeg') }}" class="card-img-top" alt="Grab">
                     <div class="card-body">
                         <h5 class="card-title">Grab</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services.</p>
+                        <a href="https://www.grab.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{asset('/assets/traveloka.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/traveloka.jpeg') }}" class="card-img-top" alt="Traveloka">
                     <div class="card-body">
                         <h5 class="card-title">Traveloka</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services.</p>
+                        <a href="https://www.traveloka.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{asset('/assets/blibli.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/blibli.jpeg') }}" class="card-img-top" alt="Blibli">
                     <div class="card-body">
                         <h5 class="card-title">Blibli</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries.</p>
+                        <a href="https://www.blibli.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
-                    <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/gojek.jpeg') }}" class="card-img-top" alt="Gojek">
                     <div class="card-body">
                         <h5 class="card-title">Gojek</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia.</p>
+                        <a href="https://www.gojek.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
                 {{-- End of Technology and Information category --}}
-
-                {{-- Start of Consulting and Accounting category--}}
+            
+                {{-- Start of Consulting and Accounting category --}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/deloitte.jpeg') }}" class="card-img-top" alt="Deloitte">
                     <div class="card-body">
                         <h5 class="card-title">Deloitte</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory.</p>
+                        <a href="https://www.deloitte.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{asset('/assets/kpmg.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/kpmg.jpeg') }}" class="card-img-top" alt="KPMG">
                     <div class="card-body">
                         <h5 class="card-title">KPMG</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance.</p>
+                        <a href="https://home.kpmg" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/ey.jpeg') }}" class="card-img-top" alt="EY">
                     <div class="card-body">
                         <h5 class="card-title">EY</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services.</p>
+                        <a href="https://www.ey.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-
+            
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
-                    <img src="{{asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/pwc.jpeg') }}" class="card-img-top" alt="PwC">
                     <div class="card-body">
                         <h5 class="card-title">PwC</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">PwC is a global professional services network providing audit, tax, and consulting services.</p>
+                        <a href="https://www.pwc.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-                {{-- Enf of Consulting and Accounting category --}}
-
-                {{-- Start of Finance and Insurance category--}}
+                {{-- End of Consulting and Accounting category --}}
+            
+                {{-- Start of Finance and Insurance category --}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Finance and Insurance">
-                    <img src="{{asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/bbca.jpeg') }}" class="card-img-top" alt="Bank Central Asia">
                     <div class="card-body">
                         <h5 class="card-title">Bank Central Asia</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Bank Central Asia (BCA) is one of Indonesia's leading banks, providing banking and financial services across the country.</p>
+                        <a href="https://www.bca.co.id" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
                 {{-- End of Finance and Insurance category --}}
-
+            
                 {{-- Start of Healthcare and Hospitality --}}
                 <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Healthcare and Hospitality">
-                    <img src="{{asset('/assets/omnihospital.jpeg')}}" class="card-img-top" alt="...">
+                    <img src="{{ asset('/assets/omnihospital.jpeg') }}" class="card-img-top" alt="Omni Hospital">
                     <div class="card-body">
                         <h5 class="card-title">Omni Hospital</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals.</p>
+                        <a href="https://www.omnihospital.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
                     </div>
                 </div>
-                {{-- Start of Healthcare and Hospitality --}}
+                {{-- End of Healthcare and Hospitality category --}}
             </div>
+            
 
             <div class="promotion-company-container container hidden">
                 <div class="row">
@@ -800,7 +816,7 @@
                 </div>
             </div>
 
-              <div class="job-vacancy container hidden">
+            <div class="job-vacancy container hidden">
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/bbca.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -808,10 +824,10 @@
                         <p class="card-subtitle text-muted">Bank Central Asia</p>
                         <p class="card-text mt-1 mb-0">Bandung, Indonesia</p>
                         <p class="card-text mt-1">100+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://karir.bca.co.id/" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -819,10 +835,10 @@
                         <p class="card-subtitle text-muted">Grab</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">200+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://grab.careers" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -830,10 +846,10 @@
                         <p class="card-subtitle text-muted">Deloitte.</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">300+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://www2.deloitte.com/global/en/careers" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -841,10 +857,10 @@
                         <p class="card-subtitle text-muted">Shopee</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">150+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://careers.shopee.com" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -852,10 +868,10 @@
                         <p class="card-subtitle text-muted">PwC</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">50+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://www.pwc.com/id/en/careers.html" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -863,10 +879,10 @@
                         <p class="card-subtitle text-muted">Tokopedia</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">500+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://www.tokopedia.com/careers" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -874,10 +890,10 @@
                         <p class="card-subtitle text-muted">Gojek</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">300+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://www.gotocompany.com/careers" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -885,12 +901,13 @@
                         <p class="card-subtitle text-muted">Bukalapak</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
                         <p class="card-text mt-1">150+ Applicants</p>
-                        <a href="#" class="btn btn-outline-primary">More Information</a>
+                        <a href="https://career.bukalapak.com" class="btn btn-outline-primary" target="_blank">More Information</a>
                     </div>
                 </div>
-
+            
                 {{-- End of Popular Job Vacancy --}}
             </div>
+            
             <div class="promotion-job-container container hidden">
                 <div class="row">
                     <div class="landing-job-bottom-container col-md-12 mt-2 hidden">

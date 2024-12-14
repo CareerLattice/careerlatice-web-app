@@ -61,6 +61,8 @@
                                         data-grade="{{$education->grade}}"
                                         data-max_grade="{{$education->max_grade}}"
                                         data-description="{{$education->description}}"
+                                        data-start-date="{{\Carbon\Carbon::parse($education->start_date)->format('Y-m-d')}}"
+                                        data-end-date="{{\Carbon\Carbon::parse($education->end_date)->format('Y-m-d')}}"
                                         data-route = "{{ route('user.updateEducation', ['education' => $education->id]) }}">
                                     Edit
                                 </button>
@@ -90,13 +92,15 @@
                                             {{$experience->company_name}} • {{$experience->job_type}}
                                         </p>
                                         <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                            {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}}
+                                            {{\Carbon\Carbon::parse($experience->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($experience->end_date)->format('M Y')}}
                                         </p>
                                         <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                             {{$experience->address}}
                                         </p>
 
-                                        <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience">Edit</button>
+                                        <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}" 
+                                            data-job-title = "{{$experience->job_type}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}" 
+                                            data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">Edit</button>
                                         <button class="btn btn-danger btn-custom" id="del">Delete</button>
                                     </div>
                                 </div>
@@ -233,14 +237,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_education_description" class="form-label">Start Date</label>
-                        <input type="date" textarea class="form-control" id="edit_education_description" name="description" rows="4"></inputtextarea>
+                        <label for="start_date" class="form-label">Start Date</label>
+                        <input type="date" textarea class="form-control" id="start_date" name="start_date" rows="4"></inputtextarea>
 
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_education_description" class="form-label">End Date</label>
-                        <input type="date" textarea class="form-control" id="edit_education_description" name="description" rows="4"></inputtextarea>
+                        <label for="end_date" class="form-label">End Date</label>
+                        <input type="date" textarea class="form-control" id="end_date" name="end_date" rows="4"></inputtextarea>
                     </div>
 
                         <div class="mb-3">
@@ -306,13 +310,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="startDate" class="form-label">Start Date</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date" name="start_date">
                         </div>
 
                         <div class="mb-3">
-                            <label for="endDate" class="form-label">End Date</label>
-                            <input type="date" class="form-control" id="endDate" name="endDate">
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date" name="end_date">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
@@ -383,7 +387,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="test" method="POST">
+                    <form action="test" method="POST" id="editExperinceForm">
                         @csrf
                         <div class="mb-3">
                             <label for="companyName" class="form-label">Company Name</label>
@@ -465,6 +469,8 @@
                 const max_grade = button.getAttribute('data-max_grade')
                 const description = button.getAttribute('data-description')
                 const route = button.getAttribute('data-route')
+                const start_date = button.getAttribute('data-start-date')
+                const end_date = button.getAttribute('data-end-date')
 
                 const insituteInput = modal.querySelector('#institute')
                 const degreeInput = modal.querySelector('#degrees')
@@ -472,6 +478,8 @@
                 const gradesInput = modal.querySelector('#grades')
                 const max_gradesInput = modal.querySelector('#max_grades')
                 const edit_education_descriptionInput = modal.querySelector('#edit_education_description')
+                const start_dateInput = modal.querySelector('#start_date')
+                const end_dateInput = modal.querySelector('#end_date')
 
                 //Update Input value
                 insituteInput.value = institute
@@ -479,9 +487,41 @@
                 field_studyInput.value = field_study
                 gradesInput.value = grade
                 max_gradesInput.value = max_grade
-                edit_education_descriptionInput.textContent = description
+                edit_education_descriptionInput.value = description;
+                start_dateInput.value = start_date
+                end_dateInput.value = end_date
 
                 editEducationForm.action = route;
+            })
+        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('editExperience');
+            const editEducationForm = document.getElementById('editExperinceForm')
+            modal.addEventListener('show.bs.modal', function(event){
+                const button = event.relatedTarget;
+
+                //Get Data from button
+                const company = button.getAttribute('data-company')
+                const jobTitle = button.getAttribute('data-job-title')
+                const description = button.getAttribute('data-exp-description')
+                const startDate = button.getAttribute('data-start-date')
+                const endDate = button.getAttribute('data-end-date')
+
+                const companyInput = modal.querySelector('#companyName')
+                const jobTitleInput = modal.querySelector('#jobTitle')
+                const descriptionInput = modal.querySelector('#edit_experience_description')
+                const startDateInput = modal.querySelector('#startDate')
+                const endDateInput = modal.querySelector('#endDate')
+
+                //Update Input value
+                companyInput.value = company
+                jobTitleInput.value = jobTitle
+                descriptionInput.value = description
+                startDateInput.value = startDate
+                endDateInput.value = endDate
+
+                editExperienceForm.action = route;
             })
         })
     </script>

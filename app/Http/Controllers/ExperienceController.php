@@ -15,8 +15,8 @@ class ExperienceController extends Controller
             "job_type" => "required|string|in:Full-time,Part-time,Internship,Freelance",
             "address" => "nullable|string",
             "description" => "nullable|string",
-            // "start_date"=> "nullable|date",
-            // "end_date"=> "nullable|date"
+            "start_date"=> "nullable|date",
+            "end_date"=> "nullable|date"
         ]);
 
         Experience::create([
@@ -25,8 +25,8 @@ class ExperienceController extends Controller
             "job_type" => $req->job_type,
             "address" => $req->address,
             "description" => $req->description,
-            // "start_date" => $req->start_date,
-            // "end_date" => $req->end_date,
+            "start_date" => $req->start_date,
+            "end_date" => $req->end_date,
             "applier_id" => Auth::user()->applier->id,
         ]);
 
