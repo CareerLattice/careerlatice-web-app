@@ -16,8 +16,8 @@
             "dest": "/public/profile_url/$1"
         },
         {
-            "src": "/user_cv/(.*)",
-            "dest": "/public/user_cv/$1"
+            "src": "upload/(.*)",
+            "dest": "/public/upload/$1"
         },
         {
             "src": "/css/(.*)",
