@@ -41,7 +41,7 @@ class ApplierController extends Controller
                 'password' => Hash::make($req->password),
                 'phone_number' => $req->phone_number,
                 'role' => 'applier',
-                'profile_picture' => 'default/profile_picture.jpg',
+                'profile_picture' => 'default_profile_picture.jpg',
             ]);
 
             Applier::create([
