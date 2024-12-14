@@ -131,7 +131,6 @@
                         });
                         window.location.href = '{{route("user.home")}}';
                     } catch (error) {
-                        console.log('Error Zz');
                         console.error('Error:', error);
                     }
                 },
