@@ -137,7 +137,6 @@ class ApplierController extends Controller
             }
 
             $file->move($destinationPath, $fileName);
-
             $user->profile_picture = $fileName;
         }
 

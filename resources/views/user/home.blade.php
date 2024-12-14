@@ -37,28 +37,28 @@
                 Current Active <span style="color: #682b90">Job Applications</span>
             </h3>
 
-        <div class="row align-items-stretch">
-        @forelse ($jobApplications as $jobVacancy)
-            <div class="col-sm-6 col-md-4 mb-4">
-                <div class="card job-card shadow-sm rounded-3 h-100">
-                    <div class="card-body d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title fw-bold mb-2 text-primary">{{ $jobVacancy->name }}</h5>
-                            <span class="badge bg-secondary text-light">{{ $jobVacancy->status }}</span>
+            <div class="row align-items-stretch d-flex justify-content-center">
+                @forelse ($jobApplications as $jobVacancy)
+                    <div class="col-sm-6 col-md-4 mb-4">
+                        <div class="card job-card shadow-sm rounded-3 h-100">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title fw-bold mb-2 text-primary">{{ $jobVacancy->name }}</h5>
+                                    <span class="badge bg-secondary text-light">{{ $jobVacancy->status }}</span>
+                                </div>
+                                <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
+                                <p class="card-text text-muted">
+                                    <small>Applied on {{ $jobVacancy->created_at }}</small>
+                                </p>
+                            </div>
                         </div>
-                        <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
-                        <p class="card-text text-muted">
-                            <small>Applied on {{ $jobVacancy->created_at }}</small>
-                        </p>
                     </div>
-                </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-muted text-center">You have no active job applications.</p>
+                    </div>
+                @endforelse
             </div>
-        @empty
-            <div class="col-12">
-                <p class="text-muted text-center">You have no active job applications.</p>
-            </div>
-        @endforelse
-    </div>
 
 
             <div class="text-center mb-4">

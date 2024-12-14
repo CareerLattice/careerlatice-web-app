@@ -77,26 +77,23 @@
                             </p>
                             <div class="d-flex gap-2">
                                 <div>
-                                    <button 
-                                        onclick="window.location.href='{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}'" 
-                                        id="view-job-btn" 
-                                        class="btn btn-primary" 
+                                    <button
+                                        onclick="window.location.href='{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}'"
+                                        id="view-job-btn"
+                                        class="btn btn-primary"
                                         style="background-color: #682b90; border-color: #682b90;">
                                         View Job Vacancy
                                     </button>
-
-
                                 </div>
+
                                 @if ($jobVacancy->status != 'rejected' && $jobVacancy->status != 'accepted')
-                                    <form action="#" method="POST" onsubmit="return confirm('Are you sure you want to unapply from this job?');">
+                                    <form action="{{ route('job_application.destroy', $jobVacancy->application_id)}}" method="POST" class="unapply-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Unapply</button>
+                                        <button type="button" class="btn btn-danger unapply-btn">Unapply</button>
                                     </form>
                                 @endif
-
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -123,31 +120,24 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".btn-danger").forEach((button) => {
-            button.addEventListener("click", (event) => {
-                event.preventDefault(); 
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, Unapply it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Job Applicant has been deleted.",
-                            icon: "success"
-                        }).then(() => {
-                            button.closest("form").submit();
-                        });
-                    }
+            document.querySelectorAll(".unapply-btn").forEach((button) => {
+                button.addEventListener("click", () => {
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, Unapply it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Kirim form melalui JavaScript
+                            button.closest(".unapply-form").submit();
+                        }
+                    });
                 });
             });
         });
-    });
-
     </script>
 @endsection

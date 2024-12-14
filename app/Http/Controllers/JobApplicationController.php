@@ -59,10 +59,12 @@ class JobApplicationController extends Controller
                 'job_vacancies.id',
                 'name',
                 'job_vacancies.title',
+                'job_applications.id as application_id',
                 'job_applications.status',
                 DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
             ])
-            ->where("job_applications.applier_id", Auth::user()->applier->id)
+            ->where("job_applications.applier_id", '=', Auth::user()->applier->id)
+            ->where('job_applications.deleted_at', '=', null)
             ->orderByRaw("
                 CASE
                     WHEN job_applications.status = 'rejected' THEN 1
@@ -104,6 +106,17 @@ class JobApplicationController extends Controller
         ]);
 
         session()->flash('message', 'Job application submitted successfully');
+        return redirect()->route('user.jobVacancies');
+    }
+
+    public function destroy(JobApplication $jobApplication){
+        $jobApplication->update([
+            'status'=> 'cancelled',
+        ]);
+
+        $jobApplication->delete();
+
+        session()->flash('message', 'Job Application has been unapplied');
         return redirect()->route('user.jobVacancies');
     }
 }
