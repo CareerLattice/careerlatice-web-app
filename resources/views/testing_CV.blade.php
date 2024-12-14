@@ -77,7 +77,7 @@
 <div class="container m-0 p-0 mt-5 ms-5">
     <div class="d-flex flex-column">
         <div class="mb-3">
-            <a href="{{route('getCV', ['filename' => 'Localization.pdf'])}}" class="btn btn-primary rounded-pill" target="_blank">CV Applicant 1</a>
+            <a href="{{asset('upload/default/default_cv.pdf')}}" class="btn btn-primary rounded-pill" target="_blank">CV Public</a>
         </div>
         <div>
             <a href="{{route('getCV', ['filename' => 'Kalender.pdf'])}}" class="btn btn-primary rounded-pill" target="_blank">CV Applicant 2</a>

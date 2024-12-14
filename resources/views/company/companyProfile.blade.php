@@ -59,7 +59,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="image-container">
                                     <!-- Display Current Profile Picture -->
-                                    <img src="{{ Storage::url(Auth::user()->profile_picture) }}"
+                                    <img src="{{asset('upload/profile_picture/' . Auth::user()->profile_picture)}}"
                                          alt="Profile Picture"
                                          id="preview-image"
                                          class="rounded-circle me-2 object-fit-fill"

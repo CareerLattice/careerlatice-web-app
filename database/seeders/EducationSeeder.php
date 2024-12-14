@@ -28,7 +28,6 @@ class EducationSeeder extends Seeder
                 'start_date' => $faker->dateTimeBetween('-1 year', 'now'),
                 'end_date' => $faker->dateTimeBetween('now', '+3 year'),
                 'description' => $faker->paragraph,
-
                 'applier_id' => $users->random()->id,
             ]);
         }

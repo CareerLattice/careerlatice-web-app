@@ -9,7 +9,7 @@ use App\Models\UserHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
@@ -98,38 +98,76 @@ class ApplierController extends Controller
         return view('user.updateProfileUser', compact('applier'));
     }
 
-    public function updateProfile(Request $req){
+    public function updateProfile(Request $request){
         $user = Auth::user();
-        $req->validate([
+        $request->validate([
             'name' => 'string|min:3',
             'headline' => 'string|max:100',
             'phone_number' => 'string|max:20|unique:users,phone_number,' . $user->id,
             'address' => 'string|max:100',
             'birth_date' => ['required', 'date', 'before_or_equal:' . Carbon::today()->toDateString()],
             'description' => 'string|max:255',
-            'profile_picture' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'profile_picture' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'cv' => 'nullable|mimes:pdf|max:2048',
+        ], [
+            'name.min' => 'The name must be at least 3 characters.',
+            'name.string' => 'The name must be a valid string.',
+            'headline.max' => 'The headline cannot be longer than 100 characters.',
+            'phone_number.max' => 'The phone number cannot be longer than 20 characters.',
+            'phone_number.unique' => 'This phone number has already been taken.',
+            'address.max' => 'The address cannot be longer than 100 characters.',
+            'birth_date.required' => 'The birth date is required.',
+            'birth_date.date' => 'The birth date must be a valid date.',
+            'birth_date.before_or_equal' => 'The birth date cannot be in the future.',
+            'description.max' => 'The description cannot be longer than 255 characters.',
+            'profile_picture.image' => 'The profile picture must be an image.',
+            'profile_picture.mimes' => 'The profile picture must be a file of type: jpg, jpeg, png.',
+            'profile_picture.max' => 'The profile picture cannot be larger than 1MB.',
+            'cv.mimes' => 'The CV must be a PDF file.',
+            'cv.max' => 'The CV cannot be larger than 2MB.',
         ]);
 
-        if($req->profile_picture){
-            if ($user->profile_picture && $user->profile_picture != 'default/profile_picture.jpg' && Storage::disk('public')->exists($user->profile_picture)) {
-                Storage::disk('public')->delete($user->profile_picture);
+        if($request->hasFile('profile_picture')){
+            $file = $request->file('profile_picture');
+            $destinationPath = public_path('upload/profile_picture');
+            $fileName = $user->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
+
+            if ($user->profile_picture && $user->profile_picture != 'default_profile_picture.jpg' && File::exists(public_path('upload/profile_picture/' . $user->profile_picture))) {
+                File::delete(public_path('upload/profile_picture/' . $user->profile_picture));
             }
 
-            $path = $req->file('profile_picture')->storeAs('user_upload/profile_picture', $user->id . '_profile_picture.' . $req->file('profile_picture')->getClientOriginalExtension(), 'public');
-            $user->profile_picture = $path;
+            $file->move($destinationPath, $fileName);
+
+            $user->profile_picture = $fileName;
+        }
+
+        $applier = $user->applier;
+        if( $request->hasFile('cv')){
+            $file = $request->file('cv');
+            $destinationPath = public_path('upload/applier/CV');
+            $fileName = $applier->id . '_cv.' . $request->file('cv')->getClientOriginalExtension();
+
+            if ($user->profile_picture && $user->profile_picture != 'default_cv.pdf' && File::exists(public_path('upload/applier/CV' . $applier->cv_url))) {
+                File::delete(public_path('upload/profile_picture/' . $user->profile_picture));
+            }
+
+            $file->move($destinationPath, $fileName);
+
+            $applier->cv_url = $fileName;
         }
 
         $user->update([
-            'name'=> $req->name,
-            'phone_number'=> $req->phone_number,
+            'name'=> $request->name,
+            'phone_number'=> $request->phone_number,
             'profile_picture'=> $user->profile_picture,
         ]);
 
         Applier::where('user_id', $user->id)->update([
-            'headline' => $req->headline,
-            'address' => $req->address,
-            'birth_date' => $req->birth_date,
-            'description'=> $req->description,
+            'headline' => $request->headline,
+            'address' => $request->address,
+            'birth_date' => $request->birth_date,
+            'description'=> $request->description,
+            'cv_url' => $applier->cv_url,
         ]);
 
         Auth::login($user);

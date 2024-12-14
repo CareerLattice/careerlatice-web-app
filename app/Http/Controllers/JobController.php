@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class JobController extends Controller
 {
@@ -69,13 +69,18 @@ class JobController extends Controller
             JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
         }
 
-        if($req->job_image){
-            if ($job->job_image && $job->job_picture != 'default/job_image.jpg' && Storage::disk('public')->exists($job->job_picture)) {
-                $test = Storage::disk('public')->delete($job->job_picture);
+        if($req->hasFile('job_image')){
+            $file = $req->file('profile_picture');
+            $destinationPath = public_path('upload/company/job_picture');
+            $fileName = $job->id . '_profile_picture.' . $req->file('job_image')->getClientOriginalExtension();
+
+            if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && File::exists(public_path('upload/company/job_picture/' . $job->job_picture))) {
+                File::delete(public_path('upload/company/job_picture/' . $job->job_picture));
             }
 
-            $path = $req->file('job_image')->storeAs('company_upload/job_picture', $job->id . '_job_image.' . $req->file('job_image')->getClientOriginalExtension(), 'public');
-            $job->job_picture = $path;
+            $file->move($destinationPath, $fileName);
+
+            $job->job_picture = $fileName;
         }
 
         $job->update([
@@ -118,7 +123,9 @@ class JobController extends Controller
 
     public function filterJobs(Request $req, Job $job){
         $req->validate([
-            'filter' => 'string|nullable'
+            'filter' => 'string|nullable',
+            'sort' => 'string|nullable',
+            'order'=> 'string|nullable|in:desc,asc',
         ]);
 
         $applicants = DB::table('users')
@@ -133,9 +140,15 @@ class JobController extends Controller
             $applicants = $applicants->where('status', 'LIKE',$req->filter);
         }
 
+        $sort = $req->get('sort');
+        $order = $req->get('order');
+        if($sort){
+            $applicants = $applicants->orderBy($sort, $order);
+        }
+
         $applicants = $applicants->paginate(10);
 
-        return view('company.job', compact('job', 'applicants'));
+        return view('company.job', compact('job', 'applicants', 'sort','order'));
     }
 
     // Company can view all job vacancies they create
@@ -249,7 +262,7 @@ class JobController extends Controller
                 'job_vacancies.description',
                 'job_vacancies.person_in_charge',
                 'job_vacancies.job_picture',
-                DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
+                DB::raw("DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
                 'companies.id as company_id',
             )

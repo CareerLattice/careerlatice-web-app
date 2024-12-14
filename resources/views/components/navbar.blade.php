@@ -61,20 +61,20 @@
     .accordion-body button{
         text-decoration: none;
     }
-    
+
     .accordion-collapse {
         position: absolute;
-        top: 60px; 
+        top: 60px;
         right: 0;
         z-index: 1000;
         background-color: #ffffff;
         border: 1px solid #ddd;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 200px; 
+        width: 200px;
     }
 
     .accordion-collapse.show {
-        display: block !important; 
+        display: block !important;
     }
 
     .accordion-body {
@@ -133,7 +133,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
                                     <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-                                        <img src="{{Storage::url(Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                        <img src="{{asset('upload/profile_picture/' . Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                     </button>
                                 </h2>
                                 <div id="collapseUser" class="accordion-collapse collapse" aria-labelledby="headingUser" data-bs-parent="#userAccordion">

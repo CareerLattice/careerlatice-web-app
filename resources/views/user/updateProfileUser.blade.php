@@ -82,7 +82,7 @@
                             @forelse ($applier->experiences as $experience)
                                 <div class="d-md-flex align-items-center mb-4">
                                     <div class="col-12 col-md-2 mb-2 d-flex justify-content-center">
-                                        <img src="{{Storage::url($experience->company_picture)}}" alt="Profile Image" class="profile-image">
+                                        <img src="{{asset('upload/profile_picture/' . $experience->company_picture)}}" alt="Profile Image" class="profile-image">
                                     </div>
                                     <div class="col-12 col-md-7 ms-3">
                                         <h4 class="card-title mb-2">{{$experience->title}}</h4>
@@ -120,8 +120,7 @@
                         <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                             <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                                 <div class="d-flex justify-content-center mb-3">
-                                    <img src="{{Storage::url($applier->user->profile_picture)}}" alt="Profile Image" class="profile-image"
-                                        style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
+                                    <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
                                 </div>
 
                                 <div class="text-center">
@@ -137,8 +136,8 @@
                                 <p style="text-align: justify;">{{$applier->description}}</p>
                                 <strong class="fs-5">Birth Date </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
                                 <strong>Upload CV</strong>
-                                   
-                                <input type="file" class="form-control" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
+                                <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 10%; max-width: 200px;">View CV</a>
+
                                 <div class="d-flex justify-content-center">
                                     <button class="btn btn-warning btn-custom mt-3 px-4" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                                         Edit Profile
@@ -364,6 +363,10 @@
                         <div class="mb-3">
                             <label for="photo" class="form-label">Profile Picture</label>
                             <input type="file" textarea class="form-control" id="photo" name="profile_picture">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cv" class="form-label">CV</label>
+                            <input type="file" class="form-control" id="cv" name="cv">
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>

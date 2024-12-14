@@ -90,7 +90,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">{{__('lang.jobImageEditJob')}}</h2></label>
                     <div class="image-container">
-                        <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" class="company-logo" id="preview-image">
+                        <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo" id="preview-image">
                         <input type="file" id="uploadImage" name="job_image" style="display: none;" onchange="previewImage(event)">
                         <label for="uploadImage" class="change-image-btn">
                             <i class="bi bi-pencil-fill fs-5"></i>

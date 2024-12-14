@@ -45,7 +45,7 @@
             <div class="job-header" style="display: flex; align-items: center; gap: 1rem;">
                 <div class="row w-100">
                     <div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-                        <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                        <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
                     </div>
 
                     <div class="jobsTitle col-12 col-md-10">

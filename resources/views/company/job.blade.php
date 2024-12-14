@@ -71,7 +71,7 @@
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row">
                         <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
-                            <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                            <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">
@@ -144,20 +144,20 @@
                 </div>
 
                 <div class="d-flex gap-2">
-                    <form role="filter" action="{{route('company.filter', ['job' => $job])}}" method="GET">
+                    <form role="filter" action="{{route('company.filter', ['job' => $job, 'order' => $order, 'sort' => $sort])}}" method="GET">
                         <div class="dropdown">
                             <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
                                 {{__('lang.filterCompanyJob')}}
                             </button>
 
-                        <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
-                            <li><button class="dropdown-item" name="filter" value="" type="submit">{{__('lang.allCompanyJob')}}</button></li>
-                            <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('lang.acceptedCompanyJob')}}</button></li>
-                            <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('lang.rejectedCompanyJob')}}</button></li>
-                            <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('lang.pendingCompanyJob')}}</button></li>
-                        </ul>
-                    </div>
-                </form>
+                            <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
+                                <li><button class="dropdown-item" name="filter" value="" type="submit">{{__('lang.allCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('lang.acceptedCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('lang.rejectedCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('lang.pendingCompanyJob')}}</button></li>
+                            </ul>
+                        </div>
+                    </form>
 
                     <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">{{__('lang.exportListCompanyJob')}}</a>
                 </div>
@@ -180,6 +180,7 @@
                                 @endif
                             </a>
                         </th>
+
                         <th scope="col" class="text-center">
                             <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.created_at', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.appliedAtCompanyJob')}}
                                 @if(request('sort') == 'job_applications.created_at')
@@ -191,6 +192,7 @@
                                 @endif
                             </a>
                         </th>
+
                         <th scope="col" class="text-center">{{__('lang.applicationCVCompanyJob')}}</th>
                         <th scope="col" class="text-center">
                             <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.status', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">
@@ -215,7 +217,7 @@
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->name}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->applied_at}}</td>
                                 <td>
-                                    <a href="{{route('getCV',  ['filename' => $application->cv])}}" target="_blank" class="btn btn-primary">{{__('lang.openCVCompanyJob')}}</a>
+                                    <a href="{{asset('upload/applier/cv/' . $application->cv)}}" target="_blank" class="btn btn-primary">{{__('lang.openCVCompanyJob')}}</a>
                                 </td>
                                 <td id="{{'status_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                     @if ($application->status == 'accepted')
