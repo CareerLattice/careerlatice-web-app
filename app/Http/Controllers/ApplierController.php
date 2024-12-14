@@ -108,6 +108,23 @@ class ApplierController extends Controller
             'birth_date' => ['required', 'date', 'before_or_equal:' . Carbon::today()->toDateString()],
             'description' => 'string|max:255',
             'profile_picture' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'cv' => 'nullable|mimes:pdf|max:2048',
+        ], [
+            'name.min' => 'The name must be at least 3 characters.',
+            'name.string' => 'The name must be a valid string.',
+            'headline.max' => 'The headline cannot be longer than 100 characters.',
+            'phone_number.max' => 'The phone number cannot be longer than 20 characters.',
+            'phone_number.unique' => 'This phone number has already been taken.',
+            'address.max' => 'The address cannot be longer than 100 characters.',
+            'birth_date.required' => 'The birth date is required.',
+            'birth_date.date' => 'The birth date must be a valid date.',
+            'birth_date.before_or_equal' => 'The birth date cannot be in the future.',
+            'description.max' => 'The description cannot be longer than 255 characters.',
+            'profile_picture.image' => 'The profile picture must be an image.',
+            'profile_picture.mimes' => 'The profile picture must be a file of type: jpg, jpeg, png.',
+            'profile_picture.max' => 'The profile picture cannot be larger than 1MB.',
+            'cv.mimes' => 'The CV must be a PDF file.',
+            'cv.max' => 'The CV cannot be larger than 2MB.',
         ]);
 
         if($request->hasFile('profile_picture')){
@@ -124,6 +141,21 @@ class ApplierController extends Controller
             $user->profile_picture = $fileName;
         }
 
+        $applier = $user->applier;
+        if( $request->hasFile('cv')){
+            $file = $request->file('cv');
+            $destinationPath = public_path('upload/applier/CV');
+            $fileName = $applier->id . '_cv.' . $request->file('cv')->getClientOriginalExtension();
+
+            if ($user->profile_picture && $user->profile_picture != 'default_cv.pdf' && File::exists(public_path('upload/applier/CV' . $applier->cv_url))) {
+                File::delete(public_path('upload/profile_picture/' . $user->profile_picture));
+            }
+
+            $file->move($destinationPath, $fileName);
+
+            $applier->cv_url = $fileName;
+        }
+
         $user->update([
             'name'=> $request->name,
             'phone_number'=> $request->phone_number,
@@ -135,6 +167,7 @@ class ApplierController extends Controller
             'address' => $request->address,
             'birth_date' => $request->birth_date,
             'description'=> $request->description,
+            'cv_url' => $applier->cv_url,
         ]);
 
         Auth::login($user);

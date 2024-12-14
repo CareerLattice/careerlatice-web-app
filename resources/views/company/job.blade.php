@@ -144,20 +144,20 @@
                 </div>
 
                 <div class="d-flex gap-2">
-                    <form role="filter" action="{{route('company.filter', ['job' => $job])}}" method="GET">
+                    <form role="filter" action="{{route('company.filter', ['job' => $job, 'order' => $order, 'sort' => $sort])}}" method="GET">
                         <div class="dropdown">
                             <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false" onclick="toggleDropdown()">
                                 {{__('lang.filterCompanyJob')}}
                             </button>
 
-                        <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
-                            <li><button class="dropdown-item" name="filter" value="" type="submit">{{__('lang.allCompanyJob')}}</button></li>
-                            <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('lang.acceptedCompanyJob')}}</button></li>
-                            <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('lang.rejectedCompanyJob')}}</button></li>
-                            <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('lang.pendingCompanyJob')}}</button></li>
-                        </ul>
-                    </div>
-                </form>
+                            <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
+                                <li><button class="dropdown-item" name="filter" value="" type="submit">{{__('lang.allCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('lang.acceptedCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('lang.rejectedCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('lang.pendingCompanyJob')}}</button></li>
+                            </ul>
+                        </div>
+                    </form>
 
                     <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">{{__('lang.exportListCompanyJob')}}</a>
                 </div>
@@ -180,6 +180,7 @@
                                 @endif
                             </a>
                         </th>
+
                         <th scope="col" class="text-center">
                             <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.created_at', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.appliedAtCompanyJob')}}
                                 @if(request('sort') == 'job_applications.created_at')
@@ -191,6 +192,7 @@
                                 @endif
                             </a>
                         </th>
+
                         <th scope="col" class="text-center">{{__('lang.applicationCVCompanyJob')}}</th>
                         <th scope="col" class="text-center">
                             <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.status', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">

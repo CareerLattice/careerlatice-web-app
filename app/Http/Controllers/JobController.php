@@ -123,7 +123,9 @@ class JobController extends Controller
 
     public function filterJobs(Request $req, Job $job){
         $req->validate([
-            'filter' => 'string|nullable'
+            'filter' => 'string|nullable',
+            'sort' => 'string|nullable',
+            'order'=> 'string|nullable|in:desc,asc',
         ]);
 
         $applicants = DB::table('users')
@@ -138,9 +140,15 @@ class JobController extends Controller
             $applicants = $applicants->where('status', 'LIKE',$req->filter);
         }
 
+        $sort = $req->get('sort');
+        $order = $req->get('order');
+        if($sort){
+            $applicants = $applicants->orderBy($sort, $order);
+        }
+
         $applicants = $applicants->paginate(10);
 
-        return view('company.job', compact('job', 'applicants'));
+        return view('company.job', compact('job', 'applicants', 'sort','order'));
     }
 
     // Company can view all job vacancies they create
@@ -254,7 +262,7 @@ class JobController extends Controller
                 'job_vacancies.description',
                 'job_vacancies.person_in_charge',
                 'job_vacancies.job_picture',
-                DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
+                DB::raw("DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
                 'companies.id as company_id',
             )

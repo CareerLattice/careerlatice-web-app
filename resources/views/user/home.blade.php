@@ -89,7 +89,7 @@
                                 </div>
                             @endif
                             <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">Edit Profile</a>
-                            <a href="{{route('user.updateProfile')}}"><button class="btn btn-outline-primary">View CV</button></a>
+                            <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank">View CV</a>
                         @endif
                     </div>
                 </div>

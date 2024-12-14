@@ -136,8 +136,8 @@
                                 <p style="text-align: justify;">{{$applier->description}}</p>
                                 <strong class="fs-5">Birth Date </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
                                 <strong>Upload CV</strong>
+                                <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 10%; max-width: 200px;">View CV</a>
 
-                                <input type="file" class="form-control" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
                                 <div class="d-flex justify-content-center">
                                     <button class="btn btn-warning btn-custom mt-3 px-4" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                                         Edit Profile
@@ -363,6 +363,10 @@
                         <div class="mb-3">
                             <label for="photo" class="form-label">Profile Picture</label>
                             <input type="file" textarea class="form-control" id="photo" name="profile_picture">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cv" class="form-label">CV</label>
+                            <input type="file" class="form-control" id="cv" name="cv">
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
