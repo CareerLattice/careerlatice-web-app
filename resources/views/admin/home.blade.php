@@ -29,6 +29,14 @@
             margin-bottom: 0.5rem;
             font-size: 1rem;
         }
+        @media (max-width: 768px) {
+            .endDate{
+                margin-top: 0.6rem;
+            }
+            .button{
+                margin-top: 0.6rem;
+            }
+        }
     </style>
 @endsection
 
@@ -70,7 +78,6 @@
                 </div>
             </div>
 
-            <!-- Website Income -->
             <div class="mb-4 d-flex flex-column align-items-center">
                 <h5>Website Income</h5>
 
@@ -97,61 +104,58 @@
             <div class="mb-4">
                 <h5>List of All Premium Users</h5>
                 <div class="row g-3 align-items-end">
-                    <form action="{{route('admin.home')}}" method="GET" class="d-flex">
+                    <form action="{{route('admin.home')}}" method="GET" class="d-flex flex-wrap">
                         <div class="col-12 col-md-3">
-                            <label for="inputDateFromPremium" class="form-label">From</label>
                             <input type="date" class="form-control" id="inputDateFromPremium" name="start_premium" value="{{request('start_premium')}}">
                         </div>
-
+            
                         <div class="col-12 col-md-3">
-                            <label for="inputDateToPremium" class="form-label">To</label>
-                            <input type="date" class="form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
+                            <input type="date" style="gap: 1.5rem" class="endDate form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
                         </div>
-
-                        <div class="col-12 col-md-3">
-                            <button class="btn btn-secondary w-100" type="submit">Search</button>
+            
+                        <div class="button col-12 col-md-6 d-flex" style="gap: 0.5rem">
+                            <button class="btn btn-secondary w-50 ms-3" type="submit">Search</button>
+                            <button class="btn btn-primary w-50" onclick="exportIncome()">Export All Users</button>
                         </div>
-                    </form>
-
-                    <div class="col-12 col-md-3">
-                        <button class="btn btn-primary w-100" onclick="exportIncome()">Export All Users</button>
-                    </div>
+                    </form>        
                 </div>
             </div>
-
-            <!-- Table -->
-            <div class="mt-2">
-                <table class="table table-hover table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col" class="text-center">No</th>
-                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Name</a></th>
-                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Revenue</a></th>
-                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Start Date</a></th>
-                            <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">End Date</a></th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="table-group-divider">
-                        @forelse ($listPremium as $premiumApplier)
-                            <tr style="cursor: pointer">
-                                <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$listPremium->firstItem() + $loop->index}}</th>
-                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->name}}</td>
-                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{number_format($premiumApplier->price)}}</td>
-                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->start_date}}</td>
-                                <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->end_date}}</td>
-                            </tr>
-                        @empty
+            
+            <div >
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
                             <tr>
-                                <td colspan="5">
-                                    <div class="alert alert-danger text-center">
-                                        No Premium User Found.
-                                    </div>
-                                </td>
+                                <th scope="col" class="text-center">No</th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Name</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Revenue</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Start Date</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">End Date</a></th>
                             </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                
+                        <tbody class="table-group-divider">
+                            @forelse ($listPremium as $premiumApplier)
+                                <tr style="cursor: pointer">
+                                    <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$listPremium->firstItem() + $loop->index}}</th>
+                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->name}}</td>
+                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{number_format($premiumApplier->price)}}</td>
+                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->start_date}}</td>
+                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->end_date}}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="alert alert-danger text-center">
+                                            No Premium User Found.
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                
 
                 <div class="d-flex justify-content-center">
                     {{$listPremium->links()}}
