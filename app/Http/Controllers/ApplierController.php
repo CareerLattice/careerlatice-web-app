@@ -16,7 +16,7 @@ use Carbon\Carbon;
 class ApplierController extends Controller
 {
     public function open_cv($filename){
-        return response()->file(storage_path('app\\public\\user_upload\\CV\\'. $filename));
+        return response()->file(asset('user_cv/' . $filename));
     }
 
     public function signUpPage(){
