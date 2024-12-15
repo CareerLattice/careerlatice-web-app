@@ -160,7 +160,7 @@
                     <div class="form-check d-flex justify-content-center">
                         <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                            {{__('lang.agree')}}
+                            {{__('lang.agreeSignUpCompany')}}
                         </label>
                     </div>
                 </div>
