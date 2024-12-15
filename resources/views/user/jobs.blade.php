@@ -105,7 +105,7 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0 d-flex justify-content-center">
                             <div class="col-12 col-sm-10 col-md-4 mt-3">
-                                <img src="{{Storage::url($job->job_picture)}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
+                                <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
                             </div>
                             <div class="col-12 col-md-8">
                                 <div class="card-body p-3">

@@ -85,11 +85,11 @@
                                     </button>
                                 </div>
 
-                                @if ($jobVacancy->status != 'rejected' && $jobVacancy->status != 'accepted')
+                                @if ($jobVacancy->status != 'rejected' && $jobVacancy->status != 'accepted' && $jobVacancy->status != 'cancelled')
                                     <form action="{{ route('job_application.destroy', $jobVacancy->application_id)}}" method="POST" class="unapply-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">{{__('lang.unapply')}}</button>
+                                        <button type="button" class="btn btn-danger unapply-btn">{{__('lang.unapply')}}</button>
                                     </form>
                                 @endif
                             </div>
@@ -131,7 +131,6 @@
                         confirmButtonText: "Yes, Unapply it!"
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            // Kirim form melalui JavaScript
                             button.closest(".unapply-form").submit();
                         }
                     });

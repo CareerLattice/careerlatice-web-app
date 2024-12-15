@@ -64,7 +64,6 @@ class JobApplicationController extends Controller
                 DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
             ])
             ->where("job_applications.applier_id", '=', Auth::user()->applier->id)
-            ->where('job_applications.deleted_at', '=', null)
             ->orderByRaw("
                 CASE
                     WHEN job_applications.status = 'rejected' THEN 1

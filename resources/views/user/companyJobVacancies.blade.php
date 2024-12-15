@@ -98,7 +98,7 @@
                 @forelse ($jobs as $job)
                     <div class="row mb-4">
                         <div class="col-10 col-md-5 col-lg-3">
-                            <img src="{{Storage::url($job->job_picture)}}" class="img-thumbnail" style="width: 100%;">
+                            <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" class="img-thumbnail" style="width: 100%;">
                         </div>
 
                         <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">

@@ -259,7 +259,7 @@ return [
         'institute' => 'Institusi',
         'deg' => 'Gelar',
         'startDate' => 'Tanggal mulai',
-        'EndDate' => 'Tanggal akhir',
+        'endDate' => 'Tanggal akhir',
         'maxGrade' => 'Nilai Maksimum',
         'fieldOfStudy' => 'Bidang belajar',
         'save' => 'Simpan',

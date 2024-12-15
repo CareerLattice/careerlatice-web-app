@@ -250,7 +250,7 @@ return [
         'institute' => 'Institution',
         'deg' => 'Degree',
         'startDate' => 'Start Date',
-        'EndDate' => 'EndDate',
+        'endDate' => 'End Date',
         'maxGrade' => 'Max Grade',
         'fieldOfStudy' => 'Field of Study',
         'save' => 'Save',
