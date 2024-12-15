@@ -19,13 +19,13 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-4" id="profileTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="fs-5 title nav-link active fw-bold" id="personal-info-tab" data-bs-toggle="tab" data-bs-target="#personal-info" type="button" role="tab">Personal Information</button>
+                            <button class="fs-5 title nav-link active fw-bold" id="personal-info-tab" data-bs-toggle="tab" data-bs-target="#personal-info" type="button" role="tab">{{__('lang.personalInfo')}}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="fs-5 title nav-link fw-bold" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">Education</button>
+                            <button class="fs-5 title nav-link fw-bold" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">{{__('lang.education')}}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="fs-5 title nav-link fw-bold" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">Professional Experience</button>
+                            <button class="fs-5 title nav-link fw-bold" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">{{__('lang.proExp')}}</button>
                         </li>
                     </ul>
 
@@ -42,13 +42,13 @@
                                             {{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($education->end_date)->format('M Y')}}
                                         </p>
                                         <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
-                                            Grade: {{$education->grade}} of {{$education->max_grade}}
+                                            {{__('lang.grade')}} {{$education->grade}} of {{$education->max_grade}}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 d-flex flex-column justify-content-center ms-3">
-                                    <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">Description</h4>
+                                    <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">{{__('lang.description')}}</h4>
                                     <p style="text-align: justify">{{$education->description}}</p>
                                 </div>
 
@@ -64,18 +64,18 @@
                                         data-start-date="{{\Carbon\Carbon::parse($education->start_date)->format('Y-m-d')}}"
                                         data-end-date="{{\Carbon\Carbon::parse($education->end_date)->format('Y-m-d')}}"
                                         data-route = "{{ route('user.updateEducation', ['education' => $education->id]) }}">
-                                    Edit
+                                        {{__('lang.edit')}}
                                 </button>
-                                <button class="btn btn-danger btn-custom" id="del">Delete</button>
+                                <button class="btn btn-danger btn-custom" id="del">{{__('lang.del')}}</button>
                                 <hr>
                             @empty
                                 <div class="alert alert-danger">
-                                    No Education Yet
+                                {{__('lang.noEdu')}}
                                 </div>
                             @endforelse
 
                             <div class="mb-3 d-flex justify-content-center">
-                                <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addEducationModal">Add Education</button>
+                                <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addEducationModal">{{__('lang.addEdu')}}</button>
                             </div>
                         </div>
 
@@ -100,24 +100,24 @@
 
                                         <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}" 
                                             data-job-title = "{{$experience->job_type}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}" 
-                                            data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">Edit</button>
-                                        <button class="btn btn-danger btn-custom" id="del">Delete</button>
+                                            data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">{{__('lang.edit')}}</button>
+                                        <button class="btn btn-danger btn-custom" id="del">{{__('lang.del')}}</button>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 d-flex flex-column justify-content-center">
-                                    <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">Description</h4>
+                                    <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">{{__('lang.description')}}</h4>
                                     <p style="text-align: justify">{{$experience->description}}</p>
                                 </div>
                                 <hr>
                             @empty
                                 <div class="alert alert-danger">
-                                    No Experience Yet
+                                {{__('lang.noExp')}}
                                 </div>
                             @endforelse
 
                             <div class="mb-3 d-flex justify-content-center">
-                                <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addExperienceModal">Add Experience</button>
+                                <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#addExperienceModal">{{__('lang.addExp')}}</button>
                             </div>
                         </div>
 
@@ -132,19 +132,19 @@
                                     <p class="text-muted mb-4">{{$applier->headline}}</p>
                                 </div>
 
-                                <strong class="fs-5">Phone</strong><span class="mb-3">{{$applier->user->phone_number}}</span>
-                                <strong class="fs-5">Address</strong>
+                                <strong class="fs-5">{{__('lang.phone')}}</strong><span class="mb-3">{{$applier->user->phone_number}}</span>
+                                <strong class="fs-5">{{__('lang.address')}}</strong>
                                 <p style="text-align: justify;">{{$applier->address}}</p>
 
-                                <strong class="fs-5">Description</strong>
+                                <strong class="fs-5">{{__('lang.description')}}</strong>
                                 <p style="text-align: justify;">{{$applier->description}}</p>
-                                <strong class="fs-5">Birth Date </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
-                                <strong>Upload CV</strong>
-                                <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 10%; max-width: 200px;">View CV</a>
+                                <strong class="fs-5">{{__('lang.birthDate')}} </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
+                                <strong>{{__('lang.uploadCV')}}</strong>
+                                <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 10%; max-width: 200px;">{{__('lang.viewCV')}}</a>
 
                                 <div class="d-flex justify-content-center">
                                     <button class="btn btn-warning btn-custom mt-3 px-4" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-                                        Edit Profile
+                                        {{__('lang.editProfile')}} 
                                     </button>
                                 </div>
                             </div>
@@ -159,52 +159,52 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addEducationModalLabel">Add Education</h5>
+                    <h5 class="modal-title" id="addEducationModalLabel">{{__('lang.addEdu')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{route('user.addEducation')}}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="institution" class="form-label">Institution</label>
+                            <label for="institution" class="form-label">{{__('lang.institute')}}</label>
                             <input type="text" class="form-control" id="institution" name="institution">
                         </div>
 
                         <div class="mb-3">
-                            <label for="degree" class="form-label">Degree</label>
+                            <label for="degree" class="form-label">{{__('lang.deg')}}</label>
                             <input type="text" class="form-control" id="degree" name="degree">
                         </div>
 
                         <div class="mb-3">
-                            <label for="field" class="form-label">Field of Study</label>
+                            <label for="field" class="form-label">{{__('lang.fieldOfStudy')}}</label>
                             <input type="text" class="form-control" id="field" name="field">
                         </div>
 
                         <div class="mb-3">
-                            <label for="startDate" class="form-label">Start Date</label>
+                            <label for="startDate" class="form-label">{{__('lang.startDate')}}</label>
                             <input type="date" class="form-control" id="startDate" name="startDate">
                         </div>
 
                         <div class="mb-3">
-                            <label for="endDate" class="form-label">End Date</label>
+                            <label for="endDate" class="form-label">{{__('lang.fieldOfStudy')}}</label>
                             <input type="date" class="form-control" id="endDate" name="endDate">
                         </div>
 
                         <div class="mb-3">
-                            <label for="grade" class="form-label">Grade</label>
+                            <label for="grade" class="form-label">{{__('lang.grade')}}</label>
                             <input type="number" class="form-control" id="grade" name="grade" min="0" step="0.01">
                         </div>
 
                         <div class="mb-3">
-                            <label for="max_grade" class="form-label">Max Grade</label>
+                            <label for="max_grade" class="form-label">{{__('lang.maxGrade')}}</label>
                             <input type="number" class="form-control" id="max_grade" name="max_grade" min="0" step="0.01">
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
+                            <label for="description" class="form-label">{{__('lang.description')}}</label>
                             <textarea class="form-control" id="description" name="description" rows="4"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
                     </form>
                 </div>
             </div>
@@ -215,54 +215,54 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editEducationLabel">Edit Education</h5>
+                    <h5 class="modal-title" id="editEducationLabel">{{__('lang.editEducation')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form method="POST" id="editEducationForm">
                         @csrf
                         <div class="mb-3">
-                            <label for="institute" class="form-label">Institution</label>
+                            <label for="institute" class="form-label">{{__('lang.institute')}}</label>
                             <input type="text" class="form-control text-dark" id="institute" name="institution">
                         </div>
 
                         <div class="mb-3">
-                            <label for="degrees" class="form-label">Degree</label>
+                            <label for="degrees" class="form-label">{{__('lang.deg')}}</label>
                             <input type="text" class="form-control" id="degrees" name="degree">
                         </div>
 
                     <div class="mb-3">
-                        <label for="field_study" class="form-label">Field of Study</label>
+                        <label for="field_study" class="form-label">{{__('lang.fieldOfStudy')}}</label>
                         <input type="text" class="form-control" id="field_study" name="field_study" value="">
                     </div>
 
                     <div class="mb-3">
-                        <label for="start_date" class="form-label">Start Date</label>
+                        <label for="start_date" class="form-label">{{__('lang.startDate')}}</label>
                         <input type="date" textarea class="form-control" id="start_date" name="start_date" rows="4"></inputtextarea>
 
                     </div>
 
                     <div class="mb-3">
-                        <label for="end_date" class="form-label">End Date</label>
+                        <label for="end_date" class="form-label">{{__('lang.endDate')}}</label>
                         <input type="date" textarea class="form-control" id="end_date" name="end_date" rows="4"></inputtextarea>
                     </div>
 
                         <div class="mb-3">
-                            <label for="grades" class="form-label">Grade</label>
+                            <label for="grades" class="form-label">{{__('lang.grade')}}</label>
                             <input type="number" class="form-control" id="grades" name="grade" min="0" step="0.01">
                         </div>
 
                         <div class="mb-3">
-                            <label for="max_grades" class="form-label">Max Grade</label>
+                            <label for="max_grades" class="form-label">{{__('lang.maxGrade')}}</label>
                             <input type="number" class="form-control" id="max_grades" name="max_grade" min="0" step="0.01">
                         </div>
 
                         <div class="mb-3">
-                            <label for="edit_education_description" class="form-label">Description</label>
+                            <label for="edit_education_description" class="form-label">{{__('lang.description')}}</label>
                             <textarea class="form-control" id="edit_education_description" name="description" rows="4"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
                     </form>
                 </div>
             </div>
@@ -274,51 +274,51 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addExperienceModalLabel">Add Professional Experience</h5>
+                    <h5 class="modal-title" id="addExperienceModalLabel">{{__('lang.addExp')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{route('user.addExperience')}}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="company" class="form-label">Company Name</label>
+                            <label for="company" class="form-label">{{__('lang.compName')}}</label>
                             <input type="text" class="form-control" id="company" name="company">
                         </div>
                         <div class="mb-3">
-                            <label for="position" class="form-label">Position</label>
+                            <label for="position" class="form-label">{{__('lang.pos')}}</label>
                             <input type="text" class="form-control" id="position" name="position">
                         </div>
 
                         <div class="mb-3">
-                            <label for="job_type" class="form-label">Job Type</label>
+                            <label for="job_type" class="form-label">{{__('lang.jobType')}}</label>
                             <select name="job_type" id="job_type">
-                                <option value="Full-time">Full-time</option>
-                                <option value="Part-time">Part-time</option>
-                                <option value="Freelance">Freelance</option>
-                                <option value="Internship">Internship</option>
+                                <option value="Full-time">{{__('lang.fullTimeCreateJob')}}</option>
+                                <option value="Part-time">{{__('lang.parttimeCreateJob')}}</option>
+                                <option value="Freelance">{{__('lang.freelance')}}</option>
+                                <option value="Internship">{{__('lang.internshipCreateJob')}}</option>
                             </select>
                         </div>
 
                         <div class="mb-3">
-                            <label for="experience_address" class="form-label">Address</label>
+                            <label for="experience_address" class="form-label">{{__('lang.address')}}</label>
                             <input type="text" class="form-control" id="experience_address" name="address">
                         </div>
 
                         <div class="mb-3">
-                            <label for="job_description" class="form-label">Job Description</label>
+                            <label for="job_description" class="form-label">{{__('lang.jobDesc')}}</label>
                             <textarea class="form-control" id="job_description" name="description" rows="4"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="start_date" class="form-label">Start Date</label>
+                            <label for="start_date" class="form-label">{{__('lang.startDate')}}</label>
                             <input type="date" class="form-control" id="start_date" name="start_date">
                         </div>
 
                         <div class="mb-3">
-                            <label for="end_date" class="form-label">End Date</label>
+                            <label for="end_date" class="form-label">{{__('lang.endDate')}}</label>
                             <input type="date" class="form-control" id="end_date" name="end_date">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
                     </form>
                 </div>
             </div>
@@ -329,50 +329,50 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                    <h5 class="modal-title" id="editProfileModalLabel">{{__('lang.editProfile')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{route('user.updateProfile')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">{{__('lang.name')}}</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{$applier->user->name}}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="headline" class="form-label">Headline</label>
+                            <label for="headline" class="form-label">{{__('lang.headline')}}</label>
                             <input type="text" class="form-control" id="headline" name="headline" value="{{$applier->headline}}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone</label>
+                            <label for="phone" class="form-label">{{__('lang.phone')}}</label>
                             <input type="text" class="form-control" id="phone" name="phone_number" value="{{$applier->user->phone_number}}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
+                            <label for="address" class="form-label">{{__('lang.address')}}</label>
                             <input type="text" class="form-control" id="address" name="address" value="{{$applier->address}}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="birthDate" class="form-label">Birth Date</label>
+                            <label for="birthDate" class="form-label">{{__('lang.birthDate')}}</label>
                             <input type="date" textarea class="form-control" id="birthDate" name="birth_date" value="{{\Carbon\Carbon::parse($applier->birth_date)->format('Y-m-d')}}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="edit_profile_description" class="form-label">Description</label>
+                            <label for="edit_profile_description" class="form-label">{{__('lang.description')}}</label>
                             <textarea class="form-control" id="edit_profile_description" name="description" rows="4">{{$applier->description}}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="photo" class="form-label">Profile Picture</label>
+                            <label for="photo" class="form-label">{{__('lang.profilePic')}}</label>
                             <input type="file" textarea class="form-control" id="photo" name="profile_picture">
                         </div>
                         <div class="mb-3">
-                            <label for="cv" class="form-label">CV</label>
+                            <label for="cv" class="form-label">{{__('lang.cv')}}</label>
                             <input type="file" class="form-control" id="cv" name="cv">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" class="btn btn-primary">{{__('lang.saveChange')}}</button>
                     </form>
                 </div>
             </div>
@@ -383,44 +383,44 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editExperienceModalLabel">Edit Experience</h5>
+                    <h5 class="modal-title" id="editExperienceModalLabel">{{__('lang.editExp')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="test" method="POST" id="editExperinceForm">
                         @csrf
                         <div class="mb-3">
-                            <label for="companyName" class="form-label">Company Name</label>
+                            <label for="companyName" class="form-label">{{__('lang.compName')}}</label>
                             <input type="text" class="form-control" id="companyName" name="companyName" value="">
                         </div>
 
                         <div class="mb-3">
-                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <label for="jobTitle" class="form-label">{{__('lang.jobTitle')}}</label>
                             <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter job title">
                         </div>
 
                         <div class="mb-3">
-                            <label for="edit_experience_description" class="form-label">Description</label>
+                            <label for="edit_experience_description" class="form-label">{{__('lang.description')}}</label>
                             <textarea class="form-control" id="edit_experience_description" name="description" placeholder="Describe your role and achievements" rows="4"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="startDate" class="form-label">Start Date</label>
+                            <label for="startDate" class="form-label">{{__('lang.startDate')}}</label>
                             <input type="date" class="form-control" id="startDate" name="startDate">
                         </div>
 
                         <div class="mb-3">
-                            <label for="endDate" class="form-label">End Date</label>
+                            <label for="endDate" class="form-label">{{__('lang.endDate')}}</label>
                             <input type="date" class="form-control" id="endDate" name="endDate">
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="current" name="current">
-                                <label class="form-check-label" for="current">I am currently working here</label>
+                                <label class="form-check-label" for="current">{{__('lang.currently')}}</label>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                            <a href="{{route('user.editProfile')}}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-primary">{{__('lang.saveChange')}}</button>
+                            <a href="{{route('user.editProfile')}}" class="btn btn-secondary">{{__('lang.cancel')}}</a>
                         </div>
                     </form>
                 </div>

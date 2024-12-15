@@ -50,17 +50,16 @@
         <div class="container position-absolute top-50 start-50 translate-middle text-center"
             style="transform: translate(-50%, -50%); color: black;">
             <h1 class="fw-bold" style="font-size: 2rem;">
-                Hello, <span style="color: #0d6efd;">{{ Auth::user()->name }}</span>! Your Journey Awaits
+                {{__('lang.hello')}} <span style="color: #0d6efd;">{{ Auth::user()->name }}</span>! {{__('lang.journeyAwait')}}
             </h1>
             <p style="font-size: 1.2rem; color: black;">
-                Discover endless possibilities and unlock new opportunities for your bright future!
-            </p>
+                {{__('lang.endlessPossibilities')}}
         </div>
     </div>
 
     <div class="container mt-5">
         <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">
-            Current Active <span style="color: #682b90">Job Applications</span>
+            {{__('lang.currentActive')}} <span style="color: #682b90">{{__('lang.jobApp')}}</span>
         </h3>
         <div class="row">
             @forelse ($userJobApplications as $jobVacancy)
@@ -73,7 +72,7 @@
                             </div>
                             <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
                             <p class="card-text text-muted">
-                                <small>Applied on {{ $jobVacancy->created_at ?? 'Unknown Date' }}</small>
+                                <small>{{__('lang.appliedOn')}} {{ $jobVacancy->created_at ?? 'Unknown Date' }}</small>
                             </p>
                             <div class="d-flex gap-2">
                                 <div>
@@ -82,7 +81,7 @@
                                         id="view-job-btn" 
                                         class="btn btn-primary" 
                                         style="background-color: #682b90; border-color: #682b90;">
-                                        View Job Vacancy
+                                        {{__('lang.viewJobVac')}}
                                     </button>
 
 
@@ -91,7 +90,7 @@
                                     <form action="#" method="POST" onsubmit="return confirm('Are you sure you want to unapply from this job?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Unapply</button>
+                                        <button type="submit" class="btn btn-danger">{{__('lang.unapply')}}</button>
                                     </form>
                                 @endif
 
@@ -102,7 +101,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-muted text-center">You have no active job applications.</p>
+                    <p class="text-muted text-center">{{__('lang.noActiveJob')}}</p>
                 </div>
             @endforelse
 

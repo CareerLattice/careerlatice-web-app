@@ -53,14 +53,14 @@
     <div class="container py-5">
         <div class="text-center mb-4">
             <h1 class="fw-bold mb-4" style="font-size: 2.5rem; color: #192A51; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Achieve More with <span style="color: #7869cd; font-weight: 700;">Premium</span>
+                {{__('lang.achieve')}}<span style="color: #7869cd; font-weight: 700;"> {{__('lang.premium')}}</span>
             </h1>
 
             <p class="text-muted mb-0" style="font-size: 1.2rem; line-height: 1.8; font-family: 'Arial', sans-serif;">
-                Sign up today to become an exclusive creator and gain access to unique
+                {{__('lang.exclusive')}}
             </p>
             <p class="text-muted mb-4" style="font-size: 1.2rem; line-height: 1.8; font-family: 'Arial', sans-serif;">
-                perks and features designed just for you.
+                {{__('lang.features')}}
             </p>
         </div>
 
@@ -70,9 +70,9 @@
                 <div class="card shadow-lg border-0 rounded-3 hover-shadow" style="height: 100%;">
                     <div class="card-body text-center">
                         <i class="bi bi-briefcase-fill" style="font-size: 3rem; color: #7869cd;"></i>
-                        <h5 class="card-title mt-3" style="font-size: 1.5rem; color: #192A51; font-weight: 600;">Easy Job Search</h5>
+                        <h5 class="card-title mt-3" style="font-size: 1.5rem; color: #192A51; font-weight: 600;">{{__('lang.easySearch')}}</h5>
                         <p class="card-text text-muted" style="font-size: 1.1rem; color: #6c757d;">
-                            Get personalized job offers directly on your homepage, making it easier to find the right opportunities.
+                            {{__('lang.personalizedJob')}}
                         </p>
                     </div>
                 </div>
@@ -83,9 +83,9 @@
                 <div class="card shadow-lg border-0 rounded-3 hover-shadow" style="height: 100%;">
                     <div class="card-body text-center">
                         <i class="bi bi-check-circle-fill" style="font-size: 3rem; color: #7869cd;"></i>
-                        <h5 class="card-title mt-3" style="font-size: 1.5rem; color: #192A51; font-weight: 600;">Priority Application</h5>
+                        <h5 class="card-title mt-3" style="font-size: 1.5rem; color: #192A51; font-weight: 600;">{{__('lang.priority')}}</h5>
                         <p class="card-text text-muted" style="font-size: 1.1rem; color: #6c757d;">
-                            Your application will be prioritized by employers, increasing your chances of getting noticed.
+                            {{__('lang.priorityDesc')}}
                         </p>
                     </div>
                 </div>
@@ -96,9 +96,9 @@
                 <div class="card shadow-lg border-0 rounded-3 hover-shadow" style="height: 100%;">
                     <div class="card-body text-center">
                         <i class="bi bi-eye-fill" style="font-size: 3rem; color: #7869cd;"></i>
-                        <h5 class="card-title mt-3" style="font-size: 1.5rem; color: #192A51; font-weight: 600;">Enhanced Profile Visibility</h5>
+                        <h5 class="card-title mt-3" style="font-size: 1.5rem; color: #192A51; font-weight: 600;">{{__('lang.enhancedProfile')}}</h5>
                         <p class="card-text text-muted" style="font-size: 1.1rem; color: #6c757d;">
-                            Your profile will be viewed more frequently by companies, helping you gain more job opportunities.
+                             {{__('lang.enhancedProfileDesc')}}
                         </p>
                     </div>
                 </div>
@@ -116,19 +116,19 @@
 
                 <div class="col-md-12 col-lg-6 mt-2">
                     <h2 class="fw-bold fs-1 mb-4">
-                        Take Your Career to the <span style="color: #7869cd">Next Level</span>
+                        {{__('lang.takeCareer')}} <span style="color: #7869cd">{{__('lang.nextLevel')}}</span>
                     </h2>
 
                     <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                        With a Career Lattice Premium subscription, you'll unlock unparalleled opportunities to stand out, gain enhanced visibility, and connect directly with top industry professionals who are actively seeking talent.
+                        {{__('lang.premiumSub')}}
                     </p>
 
                     <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                        Fast-track your career progression with a profile that attracts attention from leading employers, setting you on a path to success.
+                        {{__('lang.fastTrack')}}
                     </p>
 
                     <a href="{{route('user.premiumBundle')}}" class="btn btn-lg rounded-pill px-5 py-3" style="background: #7869cd; color: white; font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-decoration: none; display: inline-block;">
-                        Subscribe Today
+                        {{__('lang.subToday')}}
                     </a>
                 </div>
             </div>
@@ -139,10 +139,10 @@
         <div class="container py-5">
             <div class="mb-4">
                 <h2 class="fw-bold mb-4 text-center" style="font-size: 2.5rem; color: #192A51;">
-                    Premium Members Unlock More <span style="color: #7869cd; font-weight: 700;">Opportunities</span>!
+                    {{__('lang.premiumMember')}} <span style="color: #7869cd; font-weight: 700;">{{__('lang.oppurtunities')}}</span>!
                 </h2>
                 <p class="text-center text-muted mb-2" style="font-size: 1.2rem; line-height: 1.8; font-family: 'Arial', sans-serif;">
-                    Did you know that becoming a Premium member not only gives you access to exclusive features, but also increases your chances of receiving job offers and career opportunities? Invest in your future and watch the opportunities pour in!
+                    {{__('lang.other')}}
                 </p>
 
                 <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
@@ -151,9 +151,9 @@
                             <div class="testimonial-card d-flex justify-content-center align-items-center">
                                 <div class="testimonial-content text-center">
                                     <p class="testimonial-text" style="font-size: 1.2rem; color: #555; font-style: italic;">
-                                        "This platform completely transformed my job search! I landed my dream job in just a few weeks!"
+                                        {{__('lang.testimoni')}}
                                     </p>
-                                    <h5 class="testimonial-author" style="color: #192A51; font-weight: 600;">— Jane Doe</h5>
+                                    <h5 class="testimonial-author" style="color: #192A51; font-weight: 600;">{{__('lang.peopleTest')}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -161,9 +161,9 @@
                             <div class="testimonial-card d-flex justify-content-center align-items-center">
                                 <div class="testimonial-content text-center">
                                     <p class="testimonial-text" style="font-size: 1.2rem; color: #555; font-style: italic;">
-                                        "Amazing service with fantastic support! I highly recommend it to anyone seeking opportunities."
+                                        {{__('lang.otherTestimoni')}}
                                     </p>
-                                    <h5 class="testimonial-author" style="color: #192A51; font-weight: 600;">— John Smith</h5>
+                                    <h5 class="testimonial-author" style="color: #192A51; font-weight: 600;">{{__('lang.peopleTest2')}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -171,20 +171,20 @@
                             <div class="testimonial-card d-flex justify-content-center align-items-center">
                                 <div class="testimonial-content text-center">
                                     <p class="testimonial-text" style="font-size: 1.2rem; color: #555; font-style: italic;">
-                                        "A seamless user experience and a vast array of job listings. Couldn't be happier!"
+                                        {{__('lang.otherTestimoni2')}}
                                     </p>
-                                    <h5 class="testimonial-author" style="color: #192A51; font-weight: 600;">— Emily Johnson</h5>
+                                    <h5 class="testimonial-author" style="color: #192A51; font-weight: 600;">{{__('lang.peopleTest3')}}</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="visually-hidden">{{__('lang.prev')}}</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="visually-hidden">{{__('lang.next')}}</span>
                     </button>
                 </div>
             </div>
