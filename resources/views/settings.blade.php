@@ -42,42 +42,33 @@
             <div class="tab-content" id="settings-tabContent">
               <!-- Change Password Content -->
               <div class="tab-pane fade show active" id="changePassword" role="tabpanel">
-                <form id="passwordForm" method="get">
-                  <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Current Password</label>
-                    <input 
-                      type="password" 
-                      id="currentPassword" 
-                      name="current-password" 
-                      placeholder="Current Password" 
-                      class="form-control" 
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="newPassword" class="form-label">New Password</label>
-                    <input 
-                      type="password" 
-                      id="newPassword" 
-                      name="new-password" 
-                      placeholder="New Password" 
-                      class="form-control" 
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input 
-                      type="password" 
-                      id="confirmPassword" 
-                      name="confirmpassword" 
-                      placeholder="Confirm Password" 
-                      class="form-control" 
-                      required>
-                  </div>
-                  <button  
-                    id="updatePasswordBtn" 
-                    class="btn btn-primary w-100">
-                    Update Password
-                  </button>
+                <form method="POST" action="{{route('password.email')}}">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label text-md-end">{{ __('Current Password') }}</label>
+                        <input id="password" type="password" placeholder="Password" class="form-control" name="password" required>
+                    </div>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+
+                    @if (session('status'))
+                        <div class="alert alert-success text-center" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Send Password Reset Link') }}
+                    </button>
                 </form>
               </div>
 
@@ -91,8 +82,8 @@
                       <option value="id">Indonesian</option>
                     </select>
                   </div>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     class="btn btn-primary w-100">
                     Save Changes
                   </button>
@@ -108,6 +99,4 @@
 
   @include('components.footer')
 @endsection
-
-
 

@@ -43,10 +43,6 @@ Route::get('/job/detail/{job}', [JobController::class, 'userViewJob'])->name('us
 // Route to search jobs by company
 Route::get('/search/jobs/{company}', [JobController::class, 'searchJobsByCompany'])->name('user.searchJobsByCompany');
 
-Route::get('/testing/error', function(){
-    dd("Coba coba");
-});
-
 // Route for Company
 Route::prefix('company')->group(function(){
     Route::middleware('guest')->group(function(){
@@ -187,6 +183,9 @@ route::get('/user/editEducation', function(){
 route::get('/user/editExperience', function(){
     return view('user.editExperience');
 })->name ('editExperience');
+
+
+Route::delete('/delete-job-application/{jobApplication}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
 
 // Testing Membuat Data untuk Client Side Rendering
 use App\Models\Company;

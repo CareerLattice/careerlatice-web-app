@@ -117,7 +117,6 @@
         function pay(){
             snap.pay('{{$transaction->snap_token}}', {
                 onSuccess: async function(result){
-                    console.log('success');
                     try {
                         const response = await fetch('{{route("user.premiumSuccess")}}', {
                             method: 'POST',
@@ -130,9 +129,8 @@
                                 snap_token: '{{$transaction->snap_token}}',
                             }),
                         });
-                        console.log('success_2');
+                        window.location.href = '{{route("user.home")}}';
                     } catch (error) {
-                        console.log('Error Zz');
                         console.error('Error:', error);
                     }
                 },
