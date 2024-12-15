@@ -23,6 +23,7 @@
                 font-size: 1rem;
             }
         }
+        
     </style>
 @endsection
 
@@ -51,10 +52,10 @@
                     <div class="jobsTitle col-12 col-md-10">
                         <h1 style="font-size: 1.5rem; font-weight: bold; color: #212529;">{{ $job->title }} - {{ $job->company->user->name }}</h1>
                         <h5 style="color: #6c757d;">{{ $job->address }} · Last Update: {{ $job->updated_at->format('d F Y') }}</h5>
-                        <p class="p-2 {{ $job->job_type == 'Full-time' ? 'bg-success' : ($job->job_type == 'Part-time' ? 'bg-warning' : 'bg-danger') }} rounded-pill text-center"
-                            style="width: 10%; background-color: {{ $job->job_type == 'Full-time' ? '#198754' : ($job->job_type == 'Part-time' ? '#ffc107' : '#dc3545') }}; color: white;">
+                        <p class="job-type {{ $job->job_type == 'Full-time' ? 'bg-success' : ($job->job_type == 'Part-time' ? 'bg-warning' : 'bg-danger') }} text-center rounded-pill text-white">
                             {{ $job->job_type }}
                         </p>
+                        
                     </div>
                 </div>
             </div>

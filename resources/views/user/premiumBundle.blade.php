@@ -23,19 +23,74 @@
             border-radius: 12px;
             background-color: #f8f9fa;
         }
+        .banner-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-img {
+            object-fit: cover;
+            width: 100%;
+            height: 35vh;
+            max-height: 400px;
+        }
+
+        .bannerText {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .banner-title {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .banner-img {
+                height: 25vh;
+                max-height: 300px;
+            }
+            
+            .banner-title {
+                font-size: 1.5rem;
+            }
+            
+            .bannerText {
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner-img {
+                height: 20vh;
+                max-height: 250px;
+            }
+            
+            .banner-title {
+                font-size: 1.2rem;
+            }
+            
+            .bannerText {
+                padding: 0 0.25rem;
+            }
+        }
+
     </style>
 @endsection
 
 @section('content')
     @include('components.navbar')
 
-    <div class="position-relative">
-        <img src="{{asset('assets/premiumBanner.jpg')}}" alt="Company Cover" class="img-fluid w-100" style="object-fit: cover; height: 35vh; max-height: 400px">
+    <div class="position-relative banner-container">
+        <img src="{{asset('assets/premiumBanner.jpg')}}" alt="Company Cover" class="img-fluid w-100 banner-img">
         <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
-            <h1 class="fw-medium">Explore Exciting <span style="color: gold">Premium Bundle</span> and <span style="color: gold">Benefits</span></h1>
-            <h1 class="fw-medium">With CareerLattice</h1>
+            <h1 class="fw-medium banner-title">
+                Explore Exciting <span style="color: gold">Premium Bundle</span> and 
+                <span style="color: gold">Benefits</span>
+            </h1>
+            <h1 class="fw-medium banner-title">With CareerLattice</h1>
         </div>
     </div>
+    
 
     <div class="container mt-5 mb-3">
         <h1 class="fw-bold text-center mb-2">Choose Your <span style="color: gold;">Perfect Plan</span> ✨</h1>
