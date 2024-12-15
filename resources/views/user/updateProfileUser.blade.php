@@ -98,8 +98,8 @@
                                             {{$experience->address}}
                                         </p>
 
-                                        <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}" 
-                                            data-job-title = "{{$experience->job_type}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}" 
+                                        <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}"
+                                            data-job-title = "{{$experience->title}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
                                             data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">{{__('lang.edit')}}</button>
                                         <button class="btn btn-danger btn-custom" id="del">{{__('lang.del')}}</button>
                                     </div>
@@ -144,7 +144,7 @@
 
                                 <div class="d-flex justify-content-center">
                                     <button class="btn btn-warning btn-custom mt-3 px-4" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-                                        {{__('lang.editProfile')}} 
+                                        {{__('lang.editProfile')}}
                                     </button>
                                 </div>
                             </div>
