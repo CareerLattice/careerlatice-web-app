@@ -370,18 +370,6 @@ return [
         'agreeTerms' => 'Agree to terms and conditions',
         'signUp' => 'Sign Up',
 
-
-
-
-
-
-
-
-
-
-
-
-
     // Start of Admin Page
         // Admin Home Page
         'Welcome Back' => 'Welcome Back',
@@ -401,8 +389,6 @@ return [
         'Start' => 'Start Date',
         'End' => 'End Date',
         'No Premium' => 'No Premium User Found.'
-
     // End of Admin Page
-
 ];
 ?>

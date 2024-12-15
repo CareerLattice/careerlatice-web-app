@@ -373,9 +373,6 @@ return [
         'proceedPay' => 'Lanjutkan ke Pembayaran',
         'months' => 'Bulan',
 
-
-
-
 ];
 
 ?>
