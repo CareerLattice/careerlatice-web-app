@@ -24,7 +24,7 @@
 
     .ul-container{
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         gap: 10px;
     }
 
@@ -51,7 +51,6 @@
             <div class="footer-left-container col md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
                 <p>Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
-
             </div>
 
             <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">

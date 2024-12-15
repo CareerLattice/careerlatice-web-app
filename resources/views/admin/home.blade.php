@@ -45,7 +45,7 @@
     <!-- Content -->
     <div class="container mt-4">
         <div class="card p-4 custom-bg">
-            <h4 class="text-start mb-4">Welcome back,<span class="fw-bold" style= "color: #682b90;"> Admin! </span></h4>
+            <h4 class="text-start mb-4">Welcome back,<span class="fw-bold" style= "color: #682b90;">Admin!</span></h4>
 
             <!-- Statistics -->
             <div class="row g-2 p-3 mb-4 bg-light shadow-lg rounded border">
@@ -108,19 +108,19 @@
                         <div class="col-12 col-md-3">
                             <input type="date" class="form-control" id="inputDateFromPremium" name="start_premium" value="{{request('start_premium')}}">
                         </div>
-            
+
                         <div class="col-12 col-md-3">
                             <input type="date" style="gap: 1.5rem" class="endDate form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
                         </div>
-            
+
                         <div class="button col-12 col-md-6 d-flex" style="gap: 0.5rem">
                             <button class="btn btn-secondary w-50 ms-3" type="submit">Search</button>
                             <button class="btn btn-primary w-50" onclick="exportIncome()">Export All Users</button>
                         </div>
-                    </form>        
+                    </form>
                 </div>
             </div>
-            
+
             <div >
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered">
@@ -133,7 +133,7 @@
                                 <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">End Date</a></th>
                             </tr>
                         </thead>
-                
+
                         <tbody class="table-group-divider">
                             @forelse ($listPremium as $premiumApplier)
                                 <tr style="cursor: pointer">
@@ -155,7 +155,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
 
                 <div class="d-flex justify-content-center">
                     {{$listPremium->links()}}
