@@ -52,7 +52,8 @@
                                     <p style="text-align: justify">{{$education->description}}</p>
                                 </div>
 
-                                <button class="btn btn-warning btn-custom ms-3"
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-warning btn-custom ms-3"
                                         data-bs-toggle="modal"
                                         data-bs-target="#editEducation"
                                         data-institute="{{$education->institution_name}}"
@@ -65,8 +66,14 @@
                                         data-end-date="{{\Carbon\Carbon::parse($education->end_date)->format('Y-m-d')}}"
                                         data-route = "{{ route('user.updateEducation', ['education' => $education->id]) }}">
                                         {{__('lang.edit')}}
-                                </button>
-                                <button class="btn btn-danger btn-custom" id="del">{{__('lang.del')}}</button>
+                                    </button>
+
+                                    <form action="{{route('user.deleteEducation', $education->id)}}" method="POST" class="delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger delete-btn" type="button">{{__('lang.del')}}</button>
+                                    </form>
+                                </div>
                                 <hr>
                             @empty
                                 <div class="alert alert-danger">
@@ -98,10 +105,16 @@
                                             {{$experience->address}}
                                         </p>
 
-                                        <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}"
-                                            data-job-title = "{{$experience->title}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
-                                            data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">{{__('lang.edit')}}</button>
-                                        <button class="btn btn-danger btn-custom" id="del">{{__('lang.del')}}</button>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}"
+                                                data-job-title = "{{$experience->title}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
+                                                data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">{{__('lang.edit')}}</button>
+                                            <form action="{{route('user.deleteExperience', ['experience' => $experience->id])}}" method="POST" class="delete-form">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger delete-btn" type="button">{{__('lang.del')}}</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -134,6 +147,11 @@
 
                                 <strong class="fs-5">{{__('lang.phone')}}</strong><span class="mb-3">{{$applier->user->phone_number}}</span>
                                 <strong class="fs-5">{{__('lang.address')}}</strong>
+
+                                @if ($applier->address == null)
+                                    <p class="text-muted>{{__('lang.There is no address yet')}}</p>
+
+                                @endif
                                 <p style="text-align: justify;">{{$applier->address}}</p>
 
                                 <strong class="fs-5">{{__('lang.description')}}</strong>
@@ -182,12 +200,12 @@
 
                         <div class="mb-3">
                             <label for="startDate" class="form-label">{{__('lang.startDate')}}</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
+                            <input type="date" class="form-control" id="startDate" name="start_date">
                         </div>
 
                         <div class="mb-3">
                             <label for="endDate" class="form-label">{{__('lang.fieldOfStudy')}}</label>
-                            <input type="date" class="form-control" id="endDate" name="endDate">
+                            <input type="date" class="form-control" id="endDate" name="end_date">
                         </div>
 
                         <div class="mb-3">
@@ -233,7 +251,7 @@
 
                     <div class="mb-3">
                         <label for="field_study" class="form-label">{{__('lang.fieldOfStudy')}}</label>
-                        <input type="text" class="form-control" id="field_study" name="field_study" value="">
+                        <input type="text" class="form-control" id="field_study" name="field_study">
                     </div>
 
                     <div class="mb-3">
@@ -336,7 +354,7 @@
                     <form action="{{route('user.updateProfile')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">{{__('lang.name')}}</label>
+                            <label for="name" class="form-label">{{__('lang.Name')}}</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{$applier->user->name}}">
                         </div>
 
@@ -406,12 +424,12 @@
 
                         <div class="mb-3">
                             <label for="startDate" class="form-label">{{__('lang.startDate')}}</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
+                            <input type="date" class="form-control" id="startDate" name="start_date">
                         </div>
 
                         <div class="mb-3">
                             <label for="endDate" class="form-label">{{__('lang.endDate')}}</label>
-                            <input type="date" class="form-control" id="endDate" name="endDate">
+                            <input type="date" class="form-control" id="endDate" name="end_date">
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="current" name="current">
                                 <label class="form-check-label" for="current">{{__('lang.currently')}}</label>
@@ -434,27 +452,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        document.querySelectorAll("#del").forEach((button) => {
-            button.addEventListener("click", () => {
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                        });
-                    }
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".delete-btn").forEach((button) => {
+                button.addEventListener("click", () => {
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            button.closest(".delete-form").submit();
+                        }
+                    });
                 });
             });
         });
+
         document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('editEducation');
             const editEducationForm = document.getElementById('editEducationForm')

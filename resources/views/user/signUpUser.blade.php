@@ -118,7 +118,7 @@
                 @csrf
                 <div class="col-12">
                     <label for="name" class="form-label">
-                        {{__('lang.name')}}
+                        {{__('lang.Name')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="text" class="form-control" id="name" name="name" required>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-12">
                     <label for="inputPassword" class="form-label">
-                        {{__('lang.pass')}}
+                        {{__('lang.Password')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="password" class="form-control" id="inputPassword" name="password" required>

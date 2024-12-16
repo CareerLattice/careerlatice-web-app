@@ -3,7 +3,7 @@
         background-color: #ffffff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
-        border-bottom: 2px solid #f1f1f1; 
+        border-bottom: 2px solid #f1f1f1;
     }
 
     .logo-right {
@@ -72,7 +72,7 @@
         z-index: 1000;
         background-color: #ffffff;
         border: 1px solid #ddd;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         width: 200px;
     }
@@ -102,7 +102,7 @@
         width: 40px;
         height: 40px;
         object-fit: cover;
-        border: 2px solid #ddd; 
+        border: 2px solid #ddd;
     }
 
     .accordion-button::after {
@@ -138,7 +138,7 @@
     }
 
     .dropdown-menu {
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 </style>
@@ -186,7 +186,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown d-flex justify-content-between align-items-center">
                         @if (Auth::user()->role == 'applier')
-                            <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">Premium</a>
+                            <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3 mt-0">Premium</a>
                         @endif
 
                         <div class="accordion" id="userAccordion">

@@ -131,6 +131,9 @@ Route::prefix('user')->group(function(){
 
         // Route for user to be premium user
         Route::get('/premium-history', [UserController::class, 'viewPremiumHistory'])->name('user.premiumHistory');
+
+        Route::delete('/delete-education/{education}', [EducationController::class, 'destroy'])->name('user.deleteEducation');
+        Route::delete('/delete-experience/{experience}', [ExperienceController::class, 'destroy'])->name('user.deleteExperience');
     });
 });
 

@@ -33,4 +33,14 @@ class ExperienceController extends Controller
         session()->flash("message", "Experience added successfully");
         return redirect()->back();
     }
+
+    public function update(Request $request){
+
+    }
+
+    public function destroy(Request $request, Experience $experience){
+        $experience->delete();
+        session()->flash('message', 'Success Delete Experience');
+        return redirect()->route('user.editProfile');
+    }
 }

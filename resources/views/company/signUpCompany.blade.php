@@ -141,7 +141,7 @@
                     <input type="email" class="form-control" id="inputEmail" name="email" required>
                 </div>
                 <div class="col-12">
-                    <label for="inputPassword" class="form-label">{{__('lang.passwordSignUpCompany')}} <span class="text-danger">*</span></label>
+                    <label for="inputPassword" class="form-label">{{__('lang.Password')}} <span class="text-danger">*</span></label>
                     <input type="password" class="form-control" id="inputPassword" name="password" required>
                 </div>
                 <div class="col-12">
