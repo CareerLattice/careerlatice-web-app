@@ -168,7 +168,7 @@
                                 @if ($applier->cv_url == null)
                                     <p class="text-muted">{{__('lang.You have not upload CV yet')}}</p>
                                 @else
-                                    <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 20%; max-width: 150px;min-width: 90px;">{{__('lang.viewCV')}}</a>
+                                    <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 20%; max-width: 150px;min-width: 90px;">{{__('lang.View CV')}}</a>
                                 @endif
 
                                 <div class="d-flex justify-content-center">

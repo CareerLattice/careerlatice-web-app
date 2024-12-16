@@ -163,7 +163,7 @@ return [
     'premium' => 'Premium',
     'profile' => 'Profil',
     'editProfile' => 'Ubah Profil',
-    'viewCV' => 'Lihat CV',
+    'View CV' => 'Lihat CV',
     'aboutMe' => 'Tentang Saya',
     'description' => 'Deskripsi',
     'personalInfo' => 'Data Diri',

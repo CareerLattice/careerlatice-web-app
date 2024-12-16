@@ -89,7 +89,9 @@
                                 </div>
                             @endif
                             <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">{{__ ('lang.editProfile')}}</a>
-                            <a href="{{route('user.updateProfile')}}"><button class="btn btn-outline-primary">{{__ ('lang.viewCV')}}</button></a>
+                            @if ($applier->cv_url != null)
+                                <a href="{{route('user.updateProfile')}}"><button class="btn btn-outline-primary">{{__ ('lang.View CV')}}</button></a>
+                            @endif
                         @endif
                     </div>
                 </div>

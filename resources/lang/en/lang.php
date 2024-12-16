@@ -155,7 +155,7 @@ return [
         'premium' => 'Premium',
         'profile' => 'Profile',
         'editProfile' => 'Edit Profile',
-        'viewCV' => 'View CV',
+        'View CV' => 'View CV',
         'aboutMe' => 'About Me',
         'description' => 'Description',
         'personalInfo' => 'Personal Information',
