@@ -64,7 +64,7 @@
                                         data-description="{{$education->description}}"
                                         data-start-date="{{\Carbon\Carbon::parse($education->start_date)->format('Y-m-d')}}"
                                         data-end-date="{{\Carbon\Carbon::parse($education->end_date)->format('Y-m-d')}}"
-                                        data-route = "{{ route('user.updateEducation', ['education' => $education->id]) }}">
+                                        data-route = "{{route('user.updateEducation', ['education' => $education->id])}}">
                                         {{__('lang.edit')}}
                                     </button>
 
@@ -106,10 +106,17 @@
                                         </p>
 
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience" data-company="{{$experience->company_name}}"
-                                                data-job-title = "{{$experience->title}}" data-exp-description="{{$experience->description}}" data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
-                                                data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}">{{__('lang.edit')}}</button>
-                                            <form action="{{route('user.deleteExperience', ['experience' => $experience->id])}}" method="POST" class="delete-form">
+                                            <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience"
+                                                data-company="{{$experience->company_name}}"
+                                                data-job-title = "{{$experience->title}}"
+                                                data-exp-description="{{$experience->description}}"
+                                                data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
+                                                data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}"
+                                                data-route = "{{route('user.updateExperience', ['experience' => $experience->id])}}">
+                                                {{__('lang.edit')}}
+                                            </button>
+
+                                            <form action="{{route('user.deleteExperience', $experience->id)}}" method="POST" class="delete-form">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger delete-btn" type="button">{{__('lang.del')}}</button>
@@ -149,16 +156,20 @@
                                 <strong class="fs-5">{{__('lang.address')}}</strong>
 
                                 @if ($applier->address == null)
-                                    <p class="text-muted>{{__('lang.There is no address yet')}}</p>
-
+                                    <p class="text-muted">{{__('lang.There is no address yet')}}</p>
+                                @else
+                                    <p style="text-align: justify;">{{$applier->address}}</p>
                                 @endif
-                                <p style="text-align: justify;">{{$applier->address}}</p>
 
                                 <strong class="fs-5">{{__('lang.description')}}</strong>
                                 <p style="text-align: justify;">{{$applier->description}}</p>
                                 <strong class="fs-5">{{__('lang.birthDate')}} </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
                                 <strong>{{__('lang.uploadCV')}}</strong>
-                                <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 10%; max-width: 200px;">{{__('lang.viewCV')}}</a>
+                                @if ($applier->cv_url == null)
+                                    <p class="text-muted">{{__('lang.You have not upload CV yet')}}</p>
+                                @else
+                                    <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 20%; max-width: 150px;min-width: 90px;">{{__('lang.viewCV')}}</a>
+                                @endif
 
                                 <div class="d-flex justify-content-center">
                                     <button class="btn btn-warning btn-custom mt-3 px-4" data-bs-toggle="modal" data-bs-target="#editProfileModal">
@@ -405,16 +416,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="test" method="POST" id="editExperinceForm">
+                    <form method="POST" id="editExperienceForm">
                         @csrf
                         <div class="mb-3">
                             <label for="companyName" class="form-label">{{__('lang.compName')}}</label>
-                            <input type="text" class="form-control" id="companyName" name="companyName" value="">
+                            <input type="text" class="form-control" id="companyName" name="companyName">
                         </div>
 
                         <div class="mb-3">
                             <label for="jobTitle" class="form-label">{{__('lang.jobTitle')}}</label>
-                            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter job title">
+                            <input type="text" class="form-control" id="jobTitle" name="job_title" placeholder="Enter job title">
                         </div>
 
                         <div class="mb-3">
@@ -430,10 +441,6 @@
                         <div class="mb-3">
                             <label for="endDate" class="form-label">{{__('lang.endDate')}}</label>
                             <input type="date" class="form-control" id="endDate" name="end_date">
-                            <div class="form-check mt-2">
-                                <input class="form-check-input" type="checkbox" id="current" name="current">
-                                <label class="form-check-label" for="current">{{__('lang.currently')}}</label>
-                            </div>
                         </div>
 
                         <div class="text-center">
@@ -485,9 +492,9 @@
                 const grade = button.getAttribute('data-grade')
                 const max_grade = button.getAttribute('data-max_grade')
                 const description = button.getAttribute('data-description')
-                const route = button.getAttribute('data-route')
                 const start_date = button.getAttribute('data-start-date')
                 const end_date = button.getAttribute('data-end-date')
+                const route = button.getAttribute('data-route')
 
                 const insituteInput = modal.querySelector('#institute')
                 const degreeInput = modal.querySelector('#degrees')
@@ -514,7 +521,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('editExperience');
-            const editEducationForm = document.getElementById('editExperinceForm')
+            const editExperienceForm = document.getElementById('editExperienceForm')
             modal.addEventListener('show.bs.modal', function(event){
                 const button = event.relatedTarget;
 
@@ -524,6 +531,7 @@
                 const description = button.getAttribute('data-exp-description')
                 const startDate = button.getAttribute('data-start-date')
                 const endDate = button.getAttribute('data-end-date')
+                const route = button.getAttribute('data-route')
 
                 const companyInput = modal.querySelector('#companyName')
                 const jobTitleInput = modal.querySelector('#jobTitle')
@@ -537,6 +545,7 @@
                 descriptionInput.value = description
                 startDateInput.value = startDate
                 endDateInput.value = endDate
+                console.log(route);
 
                 editExperienceForm.action = route;
             })

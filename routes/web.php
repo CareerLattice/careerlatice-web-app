@@ -134,6 +134,7 @@ Route::prefix('user')->group(function(){
 
         Route::delete('/delete-education/{education}', [EducationController::class, 'destroy'])->name('user.deleteEducation');
         Route::delete('/delete-experience/{experience}', [ExperienceController::class, 'destroy'])->name('user.deleteExperience');
+        Route::post('/update-experience/{experience}', [ExperienceController::class, 'update'])->name('user.updateExperience');
     });
 });
 
