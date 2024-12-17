@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplierController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -190,6 +191,14 @@ route::get('/user/editExperience', function(){
 
 
 Route::delete('/delete-job-application/{jobApplication}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
+Route::get('/set-locale', function(Request $request){
+    $request->validate([
+        'language' => 'required|string|in:en,id',
+    ]);
+
+    $request->session()->put('locale', $request->language);
+    return redirect()->back();
+})->name('setLocale');
 
 // Testing Membuat Data untuk Client Side Rendering
 use App\Models\Company;
