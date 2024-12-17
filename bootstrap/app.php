@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\JobAuthCheck;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -20,8 +21,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Global Middleware
-        // $middleware->append(SetLocale::class);
+        $middleware->web([
+            SetLocale::class,
+        ]);
 
+        // Middleware Alias
         $middleware->alias([
             'auth' => Authenticate::class,
             'guest' => RedirectIfAuthenticated::class,
@@ -29,7 +33,6 @@ return Application::configure(basePath: dirname(__DIR__))
             'user_auth' => UserAuthCheck::class,
             'job_auth' => JobAuthCheck::class,
             'admin_auth' => AdminAuth::class,
-            // 'locale', SetLocale::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
