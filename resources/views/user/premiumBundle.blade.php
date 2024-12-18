@@ -22,7 +22,13 @@
             height: 100%;
             border-radius: 12px;
             background-color: #f8f9fa;
+            justify-content: space-between;
         }
+
+        .plan-card form{
+            margin-top: auto;
+        }
+
         .banner-container {
             position: relative;
             overflow: hidden;
@@ -93,8 +99,12 @@
         <h1 class="fw-bold text-center mb-2">{{__('lang.choose')}} <span style="color: gold;">{{__('lang.plan')}}</span> ✨</h1>
         <p class="text-center text-muted mb-5 mt-1">{{__('lang.unlockPremium')}}</p>
 
-        <div class="row justify-content-center">
-            <!-- Essential Plan -->
+        <div class="container mt-5 mb-3">
+            <h1 class="fw-bold text-center mb-2">{{__('lang.choose')}} <span style="color: gold;">{{__('lang.plan')}}</span> ✨</h1>
+            <p class="text-center text-muted mb-5 mt-1">{{__('lang.unlockPremium')}}</p>
+
+        <div class="row justify-content-center align-items-stretch">
+        <!-- Essential Plan -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card p-4 shadow position-relative plan-card">
                     <span class="badge bg-primary position-absolute top-0 start-50 translate-middle mt-4">3 {{__('lang.planMonthly')}}</span>
@@ -107,7 +117,7 @@
                         ✅ {{__('lang.long-term')}}<br>
                     </p>
                     <p>{{__('lang.getStarted')}}</p>
-                    <form action="{{route('user.upgradeToPremium')}}" method="post">
+                    <form action="{{route('user.upgradeToPremium')}}" method="post" class="mt-auto">
                         @csrf
                         <input type="hidden" name="duration" value="3">
                         <button class="btn btn-primary w-100" type="submit">{{__('lang.subscribe')}}</button>
@@ -128,7 +138,7 @@
                         ✅ {{__('lang.exclusiveFeature')}}<br>
                     </p>
                     <p>{{__('lang.plusPlan')}}</p>
-                    <form action="{{route('user.upgradeToPremium')}}" method="post">
+                    <form action="{{route('user.upgradeToPremium')}}" method="post" class="mt-auto">
                         @csrf
                         <input type="hidden" name="duration" value="6">
                         <button class="btn btn-primary w-100" type="submit">{{__('lang.subscribe')}}</button>
@@ -149,7 +159,7 @@
                         ✅ {{__('lang.maxSaving')}}<br>
                     </p>
                     <p>{{__('lang.ultExp')}}</p>
-                    <form action="{{route('user.upgradeToPremium')}}" method="post">
+                    <form action="{{route('user.upgradeToPremium')}}" method="post" class="mt-auto">
                         @csrf
                         <input type="hidden" name="duration" value="12">
                         <button class="btn btn-primary w-100" type="submit">{{__('lang.subscribe')}}</button>

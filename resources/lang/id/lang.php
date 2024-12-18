@@ -156,8 +156,8 @@ return [
     'unleash' => 'Keluarkan potensi anda',
     'moto' => 'CareerLattice—terhubung, jelajahi, dan dapatkan',
     'dreamJob' => 'pekerjaan impian anda',
-    'curActive' => 'Aktif',
-    'jobApplications' => 'Pengaplikasian lowongan kerja',
+    'curActive' => 'Pendaftaran',
+    'jobApplications' => 'Lowongan Kerja Anda',
     'noJob' => 'Anda tidak memiliki lamaran pekerjaan yang aktif.',
     'applied' => 'Didaftarkan pada',
     'showAllJob' => 'Tampilkan semua lamaran kerja',
@@ -181,15 +181,15 @@ return [
     //Jobs
     'explore' => 'Telusuri dengan lebih dari',
     '500+' => '500+',
-    'exciting' => 'Lowongan Pekerjaan yang Menaarik',
+    'exciting' => 'Lowongan Pekerjaan yang Menarik',
     'launch' => 'Mulai Karir dengan',
     'top' => 'Pimpinan Industri Teratas',
     'gain' => 'Dapatkan wawasan dan peluang eksklusif dari para profesional terbaik di bidang Anda, serta temukan peluang yang disesuaikan dengan keahlian dan aspirasi Anda.',
     'updateProfile' => 'Perbaharui Profil',
     'exploreJob' => ' Telusuri Pekerjaan',
     'contact' => 'Hubungi kami untuk informasi lebih lanjut',
-    'discoverExciting' => 'Temukan hal yang menyenangkan',
-    'jobVacancies' => 'Lowongan Pekerjaan',
+    'discoverExciting' => 'Temukan',
+    'jobVacancies' => 'lowongan pekerjaan yang menarik',
     'browse' =>'Telusuri lebih dari 200+ Lowongan Pekerjaan Terbaik dari Pemimpin Industri Terkemuka.',
     'companyName' => 'Nama Perusahaan',
     'jobTitle' => 'Judul Pekerjaan',
@@ -267,7 +267,7 @@ return [
         'compName' => 'Nama Perusahaan',
         'pos' => 'Posisi',
         'name' => 'Name',
-        'head' => 'Utama',
+        'headline' => 'Sorotan Profil',
         'profilePic' => 'Gambar Profil',
         'saveChange' => 'Simpan Perubahan',
         'cv' => 'CV',
@@ -283,7 +283,7 @@ return [
         'easySearch' => 'Pencarian Pekerjaan Mudah',
         'personalizedJob' => 'Dapatkan tawaran pekerjaan yang dipersonalisasi langsung di beranda Anda, mempermudah menemukan peluang yang tepat.',
         'priority' => 'Prioritas Lamaran',
-        'priotityDesc' => 'Lamaran Anda akan diprioritaskan oleh pemberi kerja, meningkatkan peluang untuk diperhatikan.',
+        'priorityDesc' => 'Lamaran Anda akan diprioritaskan oleh pemberi kerja, meningkatkan peluang untuk diperhatikan.',
         'enhancedProfile' => 'Visibilitas Profil yang Ditingkatkan',
         'enhancedProfileDesc' => 'Profil Anda akan lebih sering dilihat oleh perusahaan, membantu Anda mendapatkan lebih banyak peluang kerja.',
         'takeCareer' => 'Bawa Karier Anda ke',
@@ -308,8 +308,8 @@ return [
         'hello' => 'Halo',
         'journeyAwait' => 'Perjalanan Anda Menanti',
         'endlessPossibilities' => 'Temukan kemungkinan tanpa batas dan buka peluang baru untuk masa depan cerah Anda!',
-        'currentActive' => 'Saat Ini Aktif',
-        'jobApp' => 'Aplikasi Pekerjaan',
+        'currentActive' => 'Lamaran Kerja',
+        'jobApp' => 'Aktif',
         'appliedOn' => 'Dilamar pada',
         'viewJobVac' => 'Lihat Lowongan Pekerjaan',
         'unapply' => 'Batalkan Lamaran',
@@ -411,25 +411,16 @@ return [
 
         // auth/passwords folder
             //confirm
-            'Confirm Password' => 'Konfirmasi Kata Sandi',
+            
             'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
-            'Password' => 'Kata Sandi',
-            'Confirm Password' => 'Konfirmasi Kata Sandi',
             'Forgot Your Password?' => 'Lupa Kata Sandi?',
 
             //email
             'Change Password' => 'Ubah Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-            'Email Address' => 'Alamat Email',
             'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
 
             //reset
-            'Change Password' => 'Ubah Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-            'Email Address' => 'Alamat Email',
-            'Password' => 'Kata Sandi',
-            'Confirm Password' => 'Konfirmasi Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
+            
 
 
     //End of auth

@@ -258,7 +258,7 @@ return [
         'compName' => 'Company Name',
         'pos' => 'Position',
         'name' => 'Name',
-        'head' => 'Headline',
+        'headline' => 'Headline',
         'profilePic' => 'Profile Picture',
         'saveChange' => 'Save Changes',
         'cv' => 'CV',
@@ -388,7 +388,7 @@ return [
         'Revenue' => 'Revenue',
         'Start' => 'Start Date',
         'End' => 'End Date',
-        'No Premium' => 'No Premium User Found.',,
+        'No Premium' => 'No Premium User Found.',
     // End of Admin Page
 
     //Landing Page
@@ -496,11 +496,9 @@ return [
 
         //register
         'Register' => 'Register',
-        'Name' => 'Name',
-        'Email Address' => 'Email Address',
-        'Password' => 'Password',
+        
         'Confirm Password' => 'Confirm Password',
-        'Register' => 'Register',
+       
 
         //verify
         'Verify Your Email Address' => 'Verify Your Email Address',
@@ -511,25 +509,15 @@ return [
 
         // auth/passwords folder
             //confirm
-            'Confirm Password' => 'Confirm Password',
             'Please confirm your password before continuing.' => 'Please confirm your password before continuing.',
-            'Password' => 'Password',
-            'Confirm Password' => 'Confirm Password',
             'Forgot Your Password?' => 'Forgot Your Password?',
 
             //email
             'Change Password' => 'Change Password',
-            'Reset Password' => 'Reset Password',
-            'Email Address' => 'Email Address',
             'Send Password Reset Link' => 'Send Password Reset Link',
 
             //reset
-            'Change Password' => 'Change Password',
-            'Reset Password' => 'Reset Password',
-            'Email Address' => 'Email Address',
-            'Password' => 'Password',
-            'Confirm Password' => 'Confirm Password',
-            'Reset Password' => 'Reset Password',
+        
 
 
     //End of auth

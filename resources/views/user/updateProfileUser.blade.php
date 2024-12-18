@@ -293,7 +293,7 @@
                             <label for="job_type" class="form-label">{{__('lang.jobType')}}</label>
                             <select name="job_type" id="job_type">
                                 <option value="Full-time">{{__('lang.fullTimeCreateJob')}}</option>
-                                <option value="Part-time">{{__('lang.parttimeCreateJob')}}</option>
+                                <option value="Part-time">{{__('lang.partTimeCreateJob')}}</option>
                                 <option value="Freelance">{{__('lang.freelance')}}</option>
                                 <option value="Internship">{{__('lang.internshipCreateJob')}}</option>
                             </select>

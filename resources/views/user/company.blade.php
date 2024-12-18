@@ -64,7 +64,7 @@
                 <div class="tab-content" id="companyTabContent">
                     <h4 class="section-title" style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; color: #0056b3;">{{__('lang.discoverExciting')}}</h4>
                     <p class="mb-4" style="color: #555;">
-                    {{__('company/userCompany.joinUs')}}
+                    {{__('lang.jobVacancies')}}
                         </p>
                     <div class="row">
                         @forelse ($jobs as $job)
