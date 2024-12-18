@@ -400,10 +400,7 @@ return [
         //register
         'Register' => 'Daftar',
         'Name' => 'Nama',
-        'Email Address' => 'Alamat Email',
-        'Password' => 'Kata Sandi',
         'Confirm Password' => 'Konfirmasi Kata Sandi',
-        'Register' => 'Daftar',
 
         //verify
         'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
@@ -436,15 +433,6 @@ return [
 
 
     //End of auth
-
-
-
-
-
-
-
-
-
         //Landing Page
         'Welcome to' => 'Selamat datang di',
         'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
