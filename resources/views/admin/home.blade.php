@@ -45,56 +45,56 @@
     <!-- Content -->
     <div class="container mt-4">
         <div class="card p-4 custom-bg">
-            <h4 class="text-start mb-4">Welcome back,<span class="fw-bold" style= "color: #682b90;">Admin!</span></h4>
+            <h4 class="text-start mb-4">{{__('lang.Welcome Back')}}, <span class="fw-bold" style= "color: #682b90;">Admin!</span></h4>
 
             <!-- Statistics -->
             <div class="row g-2 p-3 mb-4 bg-light shadow-lg rounded border">
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-primary text-start p-3  text-white" style="height: 150px;">
-                        <h6>This Month Income</h6>
+                        <h6>{{__('lang.This Month Income')}}</h6>
                         <h2 class="fs-3 fw-bold">IDR. {{number_format($monthRevenue)}}</h2>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-success text-start p-3 text-white " style="height: 150px;">
-                        <h6>Total Income</h6>
+                        <h6>{{__('lang.Total Income')}}</h6>
                         <h2 class="fs-3 fw-bold">IDR. {{number_format($totalRevenue)}}</h2>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-info text-start p-3 text-white" style="height: 150px;">
-                        <h6>Total Applier</h6>
+                        <h6>{{__('lang.Total Applier')}}</h6>
                         <h2 class="fs-3 fw-bold">{{number_format($totalApplier)}}</h2>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-danger text-start p-3 text-white" style="height: 150px;">
-                        <h6>Total Company</h6>
+                        <h6>{{__('lang.Total Company')}}</h6>
                         <h2 class="fs-3 fw-bold">{{number_format($totalCompany)}}</h2>
                     </div>
                 </div>
             </div>
 
             <div class="mb-4 d-flex flex-column align-items-center">
-                <h5>Website Income</h5>
+                <h5>{{__('lang.Website Income')}}</h5>
 
                 <div class="row g-3 align-items-end">
                     <div class="col-12 col-md-6">
-                        <label for="inputDateFrom" class="form-label">From</label>
+                        <label for="inputDateFrom" class="form-label">{{__('lang.From')}}</label>
                         <input type="date" class="form-control" id="inputDateFrom" name="start_date" onchange="checkRevenue()">
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <label for="inputDateTo" class="form-label">To</label>
+                        <label for="inputDateTo" class="form-label">{{__('lang.To')}}</label>
                         <input type="date" class="form-control" id="inputDateTo" name="end_date" onchange="checkRevenue()">
                     </div>
 
                     <div class="col-12">
                         <div class="card card-stats bg-gradient-danger text-start p-3 text-white text-center" style="height: 150px;">
-                            <h6>Total Income</h6>
+                            <h6>{{__('lang.Total Income')}}</h6>
                             <h2 class="fs-3 fw-bold" id="revenue_range">{{number_format($totalRevenue)}}</h2>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
             </div>
 
             <div class="mb-4">
-                <h5>List of All Premium Users</h5>
+                <h5>{{__('lang.List of All Premium Users')}}</h5>
                 <div class="row g-3 align-items-end">
                     <form action="{{route('admin.home')}}" method="GET" class="d-flex flex-wrap">
                         <div class="col-12 col-md-3">
@@ -114,8 +114,8 @@
                         </div>
 
                         <div class="button col-12 col-md-6 d-flex" style="gap: 0.5rem">
-                            <button class="btn btn-secondary w-50 ms-3" type="submit">Search</button>
-                            <button class="btn btn-primary w-50" onclick="exportIncome()">Export All Users</button>
+                            <button class="btn btn-secondary w-50 ms-3" type="submit">{{__('lang.Search')}}</button>
+                            <button class="btn btn-primary w-50" onclick="exportIncome()">{{__('lang.Export All Users')}}</button>
                         </div>
                     </form>
                 </div>
@@ -127,10 +127,10 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col" class="text-center">No</th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Name</a></th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Revenue</a></th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">Start Date</a></th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">End Date</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Name')}}</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Revenue')}}</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Start')}}</a></th>
+                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.End')}}</a></th>
                             </tr>
                         </thead>
 
@@ -147,7 +147,7 @@
                                 <tr>
                                     <td colspan="5">
                                         <div class="alert alert-danger text-center">
-                                            No Premium User Found.
+                                            {{__('lang.No Premium User Found')}}
                                         </div>
                                     </td>
                                 </tr>

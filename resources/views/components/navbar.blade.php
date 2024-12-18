@@ -155,29 +155,29 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{route('home')}}" id="Home">Home</a>
+                        <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{route('home')}}" id="Home">{{__('lang.Home')}}</a>
                     </li>
 
                     @if (Auth::user()->role == 'applier')
                         <li class="nav-item">
-                            <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
+                            <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">{{__('lang.Find a Job')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
+                            <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">{{__('lang.Company')}}</a>
                         </li>
                     @elseif (Auth::user()->role == 'company')
                         <li class="nav-item">
-                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">Created Job</a>
+                            <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">{{__('lang.Created Job')}}</a>
                         </li>
                     @endif
                 @endauth
 
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">Find a Job</a>
+                        <a class="nav-link @if(request()->routeIs('jobs')) active @endif" aria-current="page" href="{{route('jobs')}}" id="Job">{{__('lang.Find a Job')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">Company</a>
+                        <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">{{__('lang.Company')}}</a>
                     </li>
                 @endguest
             </ul>
@@ -186,7 +186,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown d-flex justify-content-between align-items-center">
                         @if (Auth::user()->role == 'applier')
-                            <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">Premium</a>
+                            <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3">{{__('lang.Premium')}}</a>
                         @endif
 
                         <div class="accordion" id="userAccordion">
@@ -199,15 +199,15 @@
                                 <div id="collapseUser" class="accordion-collapse collapse" aria-labelledby="headingUser" data-bs-parent="#userAccordion">
                                     <div class="accordion-body">
                                         @if (Auth::user()->role == 'applier')
-                                            <a class="btn btn-link w-100 text-start" href="{{route('user.editProfile')}}">Edit Profile</a>
+                                            <a class="btn btn-link w-100 text-start" href="{{route('user.editProfile')}}">{{__('lang.Edit Profile')}}</a>
                                         @elseif (Auth::user()->role == 'company')
-                                            <a class="btn btn-link w-100 text-start" href="{{route('company.profile')}}">Edit Profile</a>
+                                            <a class="btn btn-link w-100 text-start" href="{{route('company.profile')}}">{{__('lang.Edit Profile')}}</a>
                                         @endif
-                                        <a class="btn btn-link w-100 text-start" href="{{route('settings')}}">Settings</a>
+                                        <a class="btn btn-link w-100 text-start" href="{{route('settings')}}">{{__('lang.Settings')}}</a>
                                         <hr>
                                         <form action="{{route('logout')}}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-link w-100 text-start text-danger">Log Out</button>
+                                            <button type="submit" class="btn btn-link w-100 text-start text-danger">{{__('lang.Log Out')}}</button>
                                         </form>
                                     </div>
                                 </div>
@@ -220,10 +220,10 @@
             @guest
                 <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                     <a href="{{route('signUpPage')}}">
-                        <button type="button" class="btn btn-outline-primary">Join Us</button>
+                        <button type="button" class="btn btn-outline-primary">{{__('lang.Join Us')}}</button>
                     </a>
                     <a href="{{route('login')}}">
-                        <button type="button" class="btn btn-outline-dark">Sign In</button>
+                        <button type="button" class="btn btn-outline-dark">{{__('lang.Sign In')}}</button>
                     </a>
                 </div>
             @endguest

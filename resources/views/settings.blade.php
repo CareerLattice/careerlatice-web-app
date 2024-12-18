@@ -21,12 +21,12 @@
         <ul class="nav flex-column nav-pills shadow" id="settings-tabs" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="password-tab" data-bs-toggle="pill" href="#changePassword" role="tab">
-               Change Password
+              {{__('lang.Change Password')}}
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="language-tab" data-bs-toggle="pill" href="#changeLanguage" role="tab">
-              Change Language
+              {{__('lang.Change Language')}}
             </a>
           </li>
         </ul>
@@ -36,7 +36,7 @@
       <div class="col-md-9">
         <div class="card shadow">
           <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">Settings</h4>
+            <h4 class="mb-0">{{__('lang.Settings')}}</h4>
           </div>
           <div class="card-body">
             <div class="tab-content" id="settings-tabContent">
@@ -76,7 +76,7 @@
               <div class="tab-pane fade" id="changeLanguage" role="tabpanel">
                 <form id="languageForm" method="POST">
                   <div class="mb-3">
-                    <label for="language" class="form-label">Select Language</label>
+                    <label for="language" class="form-label">{{__('lang.Select Language')}}</label>
                     <select name="language" id="language" class="form-select">
                       <option value="en">English</option>
                       <option value="id">Indonesian</option>
@@ -85,7 +85,7 @@
                   <button
                     type="submit"
                     class="btn btn-primary w-100">
-                    Save Changes
+                    {{__('lang.Save Changes')}}
                   </button>
                 </form>
               </div>

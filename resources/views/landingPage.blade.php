@@ -515,46 +515,46 @@
                         <img src="{{ asset('assets/sliders5.jpg') }}" class="carousel-image d-block w-100" alt="Slide 1">
                         <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
-                                Welcome to <span style="color: #7869cd">CareerLattice</span>.
+                                {{__('lang.Welcome to')}} <span style="color: #7869cd">CareerLattice</span>.
                             </h5>
-                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">Empowering Your Careers Through Connection. Join us to explore your strength</p>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Empowering Your Careers Through Connection. Join us to explore your strength')}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('assets/sliders7.jpg') }}" class="carousel-image d-block w-100" alt="Slide 2">
                         <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
-                                Join Top Leading <span style="color: #7869cd">Companies</span>
+                                {{__('lang.Join Top Leading')}} <span style="color: #7869cd">{{__('lang.Companies')}}</span>
                             </h5>
-                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">Connect with renowned employers looking for talented individuals ready to make a difference.</p>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Connect with renowned employers looking for talented individuals ready to make a difference.')}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('assets/sliders1.jpg') }}" class="carousel-image d-block w-100" alt="Slide 3">
                         <div class="carousel-caption position-absolute bottom-0 start-0 end-0 p-4">
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
-                                Explore Exciting <span style="color: #7869cd">Job Vacancies</span>
+                                {{__('lang.Explore Exciting')}} <span style="color: #7869cd">{{__('lang.Job Vacancies')}}</span>
                             </h5>
-                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">Discover exciting job opportunities tailored just for you – start exploring now!</p>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Discover exciting job opportunities tailored just for you')}} - {{__('lang.start exploring now!')}}</p>
                         </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">{{__('lang.Previous')}}</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">{{__('lang.Next')}}</span>
                 </button>
             </div>
 
 
             <div class="container">
                 <div class="col-12 col-md-7">
-                    <h2 class="fw-bold fs-1 mt-5">A Quick Look at <span style="color: #7869cd">Our Journey</span></h2>
+                    <h2 class="fw-bold fs-1 mt-5">{{__('lang.A Quick Look at')}} <span style="color: #7869cd">{{__('lang.Our Journey')}}</span></h2>
                     <p class="mt-3 fw-bold" style="text-align: justify; color: gray">
-                        CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.
+                        {{__('lang.CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.')}}
                     </p>
                 </div>
 
@@ -566,19 +566,19 @@
                                 <div class="col-12 col-md-4">
                                     <h3 class="fw-bold text-center" style="color: #682b90">Jan 2024</h3>
                                     <p class="text-center" style="color: gray">
-                                        Launched our platform with <strong>over 100 active users</strong> joining in the first month.
+                                        {{__('lang.Launched our platform with')}} <strong>{{__('lang.over 100 active users')}}</strong> {{__('lang.joining in the first month.')}}
                                     </p>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <h3 class="fw-bold text-center" style="color: #682b90">Apr 2024</h3>
                                     <p class="text-center" style="color: gray">
-                                        Gained momentum, reaching <strong>300+ active users</strong> and improving user engagement.
+                                        {{__('lang.Gained momentum, reaching')}} <strong>300+ {{__('lang.active users')}}</strong> {{__('lang.and improving user engagement')}}.
                                     </p>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <h3 class="fw-bold text-center" style="color: #682b90">Jul 2024</h3>
                                     <p class="text-center" style="color: gray">
-                                        Secured partnerships with <strong>50+ companies</strong> actively hiring talent from our platform.
+                                        {{__('lang.Secured partnerships with')}} <strong>50+ {{__('lang.companies')}}</strong> {{__('lang.actively hiring talent from our platform')}}.
                                     </p>
                                 </div>
                             </div>
@@ -587,21 +587,21 @@
                         <div class="carousel-item">
                             <div class="row">
                                 <div class="col-12 col-md-4">
-                                    <h3 class="fw-bold text-center" style="color: #682b90">Oct 2024</h3>
+                                    <h3 class="fw-bold text-center" style="color: #682b90">{{__('lang.Oct 2024')}}</h3>
                                     <p class="text-center" style="color: gray">
-                                        Expanded to <strong>over 500 active users</strong> benefiting from new features and partnerships.
+                                        {{__('lang.Expanded to')}} <strong>{{__('lang.over 500 active users')}}</strong> {{__('lang.benefiting from new features and partnerships.')}}
                                     </p>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <h3 class="fw-bold text-center" style="color: #682b90">Jan 2025</h3>
                                     <p class="text-center" style="color: gray">
-                                        Achieved a milestone of <strong>700+ active users</strong> with enhanced services and support.
+                                        {{__('lang.Achieved a milestone of')}} <strong>700+ {{__('lang.active users')}}</strong> {{__('lang.with enhanced services and support')}}.
                                     </p>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <h3 class="fw-bold text-center" style="color: #682b90">Apr 2025</h3>
                                     <p class="text-center" style="color: gray">
-                                        Partnered with <strong>100+ companies</strong> and expanded our reach to new regions.
+                                        {{__('lang.Partnered with')}} <strong>100+ {{__('lang.companies')}}</strong> {{__('lang.and expanded our reach to new regions')}}.
                                     </p>
                                 </div>
                             </div>
@@ -609,10 +609,10 @@
                     </div>
 
                     <button class="carousel-control-prev custom-control-btn" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
-                        <span class="custom-control-text">Previous</span>
+                        <span class="custom-control-text">{{__('lang.Previous')}}</span>
                     </button>
                     <button class="carousel-control-next custom-control-btn" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
-                        <span class="custom-control-text">Next</span>
+                        <span class="custom-control-text">{{__('lang.Next')}}</span>
                     </button>
                 </div>
 
@@ -628,12 +628,12 @@
                             <img src="{{asset('assets/sdgs.jpg')}}" class="img-fluid rounded shadow-sm mt-4" alt="Career Growth" style="max-width: 100%; height: auto;">
                         </div>
                         <div class="col-12 col-md-6">
-                            <h2 class="fw-bold fs-1 mb-4">How we provides <span style="color: #7869cd">Solutions</span></h2>
+                            <h2 class="fw-bold fs-1 mb-4">{{__('lang.How we provides')}} <span style="color: #7869cd">{{__('lang.Solutions')}}</span></h2>
                             <p class="mt-3 fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                                By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs).
+                                {{__('lang.By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development')}}. {{__('lang.Our platform is deeply committed to addressing key global challenges as outlined in the United Nations')}}’ {{__('lang.17 Sustainable Development Goals (SDGs)')}}.
                             </p>
                             <p class="fw-semibold" style="text-align: justify; color: #555; line-height: 1.8;">
-                                With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.
+                                {{__('lang.With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals')}}.
                             </p>
                         </div>
                     </div>
@@ -647,8 +647,8 @@
             <div class="container hidden">
                 <div class="row">
                     <div class="landing-about-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Unleash Your Potential with <span>Leading Companies🚀!</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">💼 Connect with renowned employers looking for talented individuals ready to make a difference🌍!</p>
+                        <h3 class="display-5">{{__('lang.Unleash Your Potential with')}} <span>{{__('lang.Leading Companies')}}🚀!</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">💼{{__('lang.Connect with renowned employers looking for talented individuals ready to make a difference')}}🌍!</p>
                     </div>
                 </div>
             </div>
@@ -657,19 +657,19 @@
                 <div class="company-container container bg-white shadow-sm mb-3 hidden">
                     <ul class="navbar-company navbar-nav hidden">
                       <li class="navbar-company ">
-                        <a class="nav-link" href="#">Technology and Information</a>
+                        <a class="nav-link" href="#">{{__('lang.Technology and Information')}}</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Finance and Insurance</a>
+                        <a class="nav-link" href="#">{{__('lang.Finance and Insurance')}}</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Consulting and Accounting</a>
+                        <a class="nav-link" href="#">{{__('lang.Consulting and Accounting')}}</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Healthcare and Hospitality</a>
+                        <a class="nav-link" href="#">{{__('lang.Healthcare and Hospitality')}}</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active" href="#">Show All Popular Company</a>
+                        <a class="nav-link active" href="#">{{__('lang.Show All Popular Company')}}</a>
                       </li>
                     </ul>
                   </div>
@@ -681,8 +681,8 @@
                     <img src="{{ asset('/assets/tokopedia.jpeg') }}" class="card-img-top" alt="Tokopedia">
                     <div class="card-body">
                         <h5 class="card-title">Tokopedia</h5>
-                        <p class="card-text">Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods.</p>
-                        <a href="https://www.tokopedia.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods')}}.</p>
+                        <a href="https://www.tokopedia.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -690,8 +690,8 @@
                     <img src="{{ asset('/assets/shopee.jpeg') }}" class="card-img-top" alt="Shopee">
                     <div class="card-body">
                         <h5 class="card-title">Shopee</h5>
-                        <p class="card-text">Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users.</p>
-                        <a href="https://www.shopee.co.id" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users')}}.</p>
+                        <a href="https://www.shopee.co.id" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -699,8 +699,8 @@
                     <img src="{{ asset('/assets/grab.jpeg') }}" class="card-img-top" alt="Grab">
                     <div class="card-body">
                         <h5 class="card-title">Grab</h5>
-                        <p class="card-text">Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services.</p>
-                        <a href="https://www.grab.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services')}}.</p>
+                        <a href="https://www.grab.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -708,8 +708,8 @@
                     <img src="{{ asset('/assets/traveloka.jpeg') }}" class="card-img-top" alt="Traveloka">
                     <div class="card-body">
                         <h5 class="card-title">Traveloka</h5>
-                        <p class="card-text">Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services.</p>
-                        <a href="https://www.traveloka.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services')}}.</p>
+                        <a href="https://www.traveloka.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -717,8 +717,8 @@
                     <img src="{{ asset('/assets/blibli.jpeg') }}" class="card-img-top" alt="Blibli">
                     <div class="card-body">
                         <h5 class="card-title">Blibli</h5>
-                        <p class="card-text">Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries.</p>
-                        <a href="https://www.blibli.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries')}}.</p>
+                        <a href="https://www.blibli.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -726,8 +726,8 @@
                     <img src="{{ asset('/assets/gojek.jpeg') }}" class="card-img-top" alt="Gojek">
                     <div class="card-body">
                         <h5 class="card-title">Gojek</h5>
-                        <p class="card-text">Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia.</p>
-                        <a href="https://www.gojek.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia')}}.</p>
+                        <a href="https://www.gojek.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
                 {{-- End of Technology and Information category --}}
@@ -737,8 +737,8 @@
                     <img src="{{ asset('/assets/deloitte.jpeg') }}" class="card-img-top" alt="Deloitte">
                     <div class="card-body">
                         <h5 class="card-title">Deloitte</h5>
-                        <p class="card-text">Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory.</p>
-                        <a href="https://www.deloitte.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory')}}.</p>
+                        <a href="https://www.deloitte.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -746,8 +746,8 @@
                     <img src="{{ asset('/assets/kpmg.jpeg') }}" class="card-img-top" alt="KPMG">
                     <div class="card-body">
                         <h5 class="card-title">KPMG</h5>
-                        <p class="card-text">KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance.</p>
-                        <a href="https://home.kpmg" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance')}}.</p>
+                        <a href="https://home.kpmg" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -755,8 +755,8 @@
                     <img src="{{ asset('/assets/ey.jpeg') }}" class="card-img-top" alt="EY">
                     <div class="card-body">
                         <h5 class="card-title">EY</h5>
-                        <p class="card-text">EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services.</p>
-                        <a href="https://www.ey.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services')}}.</p>
+                        <a href="https://www.ey.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             
@@ -764,8 +764,8 @@
                     <img src="{{ asset('/assets/pwc.jpeg') }}" class="card-img-top" alt="PwC">
                     <div class="card-body">
                         <h5 class="card-title">PwC</h5>
-                        <p class="card-text">PwC is a global professional services network providing audit, tax, and consulting services.</p>
-                        <a href="https://www.pwc.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.PwC is a global professional services network providing audit, tax, and consulting services')}}.</p>
+                        <a href="https://www.pwc.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
                 {{-- End of Consulting and Accounting category --}}
@@ -775,8 +775,8 @@
                     <img src="{{ asset('/assets/bbca.jpeg') }}" class="card-img-top" alt="Bank Central Asia">
                     <div class="card-body">
                         <h5 class="card-title">Bank Central Asia</h5>
-                        <p class="card-text">Bank Central Asia (BCA) is one of Indonesia's leading banks, providing banking and financial services across the country.</p>
-                        <a href="https://www.bca.co.id" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country')}}.</p>
+                        <a href="https://www.bca.co.id" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
                 {{-- End of Finance and Insurance category --}}
@@ -786,8 +786,8 @@
                     <img src="{{ asset('/assets/omnihospital.jpeg') }}" class="card-img-top" alt="Omni Hospital">
                     <div class="card-body">
                         <h5 class="card-title">Omni Hospital</h5>
-                        <p class="card-text">Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals.</p>
-                        <a href="https://www.omnihospital.com" target="_blank" class="btn btn-outline-primary">Visit Company</a>
+                        <p class="card-text">{{__('lang.Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals')}}.</p>
+                        <a href="https://www.omnihospital.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
                 {{-- End of Healthcare and Hospitality category --}}
@@ -797,8 +797,8 @@
             <div class="promotion-company-container container hidden">
                 <div class="row">
                     <div class="landing-company-bottom-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Seize Your Opportunity to Get Hired!</h3>
-                        <p class="my-4 lead mt-3 ms-1">Join the ranks of top talents by applying to leading companies today! Whether you're looking to advance your career or start a new journey, countless opportunities await. Don't let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals</p>
+                        <h3 class="display-5">{{__('lang.Seize Your Opportunity to Get Hired!')}}</h3>
+                        <p class="my-4 lead mt-3 ms-1">{{__('lang.Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals')}}</p>
                     </div>
                 </div>
             </div>
@@ -810,8 +810,8 @@
             <div class="container hidden">
                 <div class="row">
                     <div class="landing-about-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Explore Exciting <span>Job Vacancies💼</span></h3>
-                        <p class="my-4 lead mt-3 ms-1">🌈 Discover exciting job opportunities tailored just for you – start exploring now!🚀!</p>
+                        <h3 class="display-5">{{__('lang.Explore Exciting')}}! <span>{{__('lang.Job Vacancies')}}💼</span></h3>
+                        <p class="my-4 lead mt-3 ms-1">🌈 {{__('lang.Discover exciting job opportunities tailored just for you – start exploring now')}}!🚀!</p>
                     </div>
                 </div>
             </div>
@@ -823,8 +823,8 @@
                         <h5 class="card-title">DevOps Engineer</h5>
                         <p class="card-subtitle text-muted">Bank Central Asia</p>
                         <p class="card-text mt-1 mb-0">Bandung, Indonesia</p>
-                        <p class="card-text mt-1">100+ Applicants</p>
-                        <a href="https://karir.bca.co.id/" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">100+ {{__('lang.Applicants')}}</p>
+                        <a href="https://karir.bca.co.id/" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -834,8 +834,8 @@
                         <h5 class="card-title">UI/UX Designer</h5>
                         <p class="card-subtitle text-muted">Grab</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">200+ Applicants</p>
-                        <a href="https://grab.careers" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">200+ {{__('lang.Applicants')}}</p>
+                        <a href="https://grab.careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -845,8 +845,8 @@
                         <h5 class="card-title">Project Manager</h5>
                         <p class="card-subtitle text-muted">Deloitte.</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">300+ Applicants</p>
-                        <a href="https://www2.deloitte.com/global/en/careers" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">300+ {{__('lang.Applicants')}}</p>
+                        <a href="https://www2.deloitte.com/global/en/careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -856,8 +856,8 @@
                         <h5 class="card-title">Mobile App Developer</h5>
                         <p class="card-subtitle text-muted">Shopee</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">150+ Applicants</p>
-                        <a href="https://careers.shopee.com" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">150+ {{__('lang.Applicants')}}</p>
+                        <a href="https://careers.shopee.com" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -867,8 +867,8 @@
                         <h5 class="card-title">System Administrator</h5>
                         <p class="card-subtitle text-muted">PwC</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">50+ Applicants</p>
-                        <a href="https://www.pwc.com/id/en/careers.html" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">50+ {{__('lang.Applicants')}}</p>
+                        <a href="https://www.pwc.com/id/en/careers.html" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -878,8 +878,8 @@
                         <h5 class="card-title">Tech Intern</h5>
                         <p class="card-subtitle text-muted">Tokopedia</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">500+ Applicants</p>
-                        <a href="https://www.tokopedia.com/careers" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">500+ {{__('lang.Applicants')}}</p>
+                        <a href="https://www.tokopedia.com/careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -889,8 +889,8 @@
                         <h5 class="card-title">Software Engineer Intern</h5>
                         <p class="card-subtitle text-muted">Gojek</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">300+ Applicants</p>
-                        <a href="https://www.gotocompany.com/careers" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">300+ {{__('lang.Applicants')}}</p>
+                        <a href="https://www.gotocompany.com/careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -900,8 +900,8 @@
                         <h5 class="card-title">Data Analyst Intern</h5>
                         <p class="card-subtitle text-muted">Bukalapak</p>
                         <p class="card-text mt-1 mb-0">Jakarta, Indonesia</p>
-                        <p class="card-text mt-1">150+ Applicants</p>
-                        <a href="https://career.bukalapak.com" class="btn btn-outline-primary" target="_blank">More Information</a>
+                        <p class="card-text mt-1">150+ {{__('lang.Applicants')}}</p>
+                        <a href="https://career.bukalapak.com" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
             
@@ -911,8 +911,8 @@
             <div class="promotion-job-container container hidden">
                 <div class="row">
                     <div class="landing-job-bottom-container col-md-12 mt-2 hidden">
-                        <h3 class="display-5">Discover Exciting Job Vacancies!</h3>
-                        <p class="my-4 lead mt-3 ms-1">Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you're aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.
+                        <h3 class="display-5">{{__('lang.Discover Exciting Job Vacancies')}}!</h3>
+                        <p class="my-4 lead mt-3 ms-1">{{__('lang.Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations')}}.
                         </p>
                     </div>
                 </div>
@@ -923,8 +923,8 @@
             <div class="container hidden">
                 <div class="row">
                     <div class="landing-about-container col-md-12 mt-2 text-center">
-                        <h3 class="display-5">Hear From Our Users <span>About Their Experience</span></h3>
-                        <p class="my-4 lead mt-3 ms-1 text-center">💬 We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!</p>
+                        <h3 class="display-5">{{__('lang.Hear From Our Users')}} <span>{{__('lang.About Their Experience')}}</span></h3>
+                        <p class="my-4 lead mt-3 ms-1 text-center">💬 {{__('lang.We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence')}}!</p>
                     </div>
                 </div>
 
@@ -939,7 +939,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <p class="testimonial-text">"This platform has transformed my job search experience! I found my dream job within weeks!"</p>
+                            <p class="testimonial-text">"{{__('lang.This platform has transformed my job search experience! I found my dream job within weeks!')}}"</p>
                             <h5 class="testimonial-author">— Jane Doe</h5>
                         </div>
                     </div>
@@ -953,7 +953,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star filled">★</span>
                             </div>
-                            <p class="testimonial-text">"Incredible service and great support! Highly recommend to anyone looking for opportunities."</p>
+                            <p class="testimonial-text">"{{__('lang.Incredible service and great support! Highly recommend to anyone looking for opportunities')}}."</p>
                             <h5 class="testimonial-author">— John Smith</h5>
                         </div>
                     </div>
@@ -967,7 +967,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <p class="testimonial-text">"A user-friendly interface and a wide range of job listings. I couldn’t be happier!"</p>
+                            <p class="testimonial-text">"{{__('lang.A user-friendly interface and a wide range of job listings')}}. {{__('lang.I couldn’t be happier')}}!"</p>
                             <h5 class="testimonial-author">— Emily Johnson</h5>
                         </div>
                     </div>
@@ -981,7 +981,7 @@
                                 <span class="star">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <p class="testimonial-text">"The best job portal I've used. Very intuitive and efficient!"</p>
+                            <p class="testimonial-text">"{{__('lang.The best job portal I\'ve used')}}. {{__('lang.Very intuitive and efficient')}}!"</p>
                             <h5 class="testimonial-author">— Mark Thompson</h5>
                         </div>
                     </div>
@@ -995,7 +995,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star filled">★</span>
                             </div>
-                            <p class="testimonial-text">"Great opportunities and a smooth application process!"</p>
+                            <p class="testimonial-text">"{{__('lang.Great opportunities and a smooth application process')}}!"</p>
                             <h5 class="testimonial-author">— Sarah Brown</h5>
                         </div>
                     </div>
@@ -1009,7 +1009,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star filled">★</span>
                             </div>
-                            <p class="testimonial-text">"I love the personalized job recommendations! They really understand my needs."</p>
+                            <p class="testimonial-text">"{{__('lang.I love the personalized job recommendations! They really understand my needs')}}."</p>
                             <h5 class="testimonial-author">— Alice Davis</h5>
                         </div>
                     </div>
@@ -1023,7 +1023,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <p class="testimonial-text">"The platform helped me land a great job with ease. Highly efficient!"</p>
+                            <p class="testimonial-text">"{{__('lang.The platform helped me land a great job with ease. Highly efficient')}}!"</p>
                             <h5 class="testimonial-author">— Daniel Garcia</h5>
                         </div>
                     </div>
@@ -1037,7 +1037,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star filled">★</span>
                             </div>
-                            <p class="testimonial-text">"Amazing experience, from job search to interviews. Everything was smooth!"</p>
+                            <p class="testimonial-text">"{{__('lang.Amazing experience, from job search to interview')}}. {{__('lang.Everything was smooth')}}!"</p>
                             <h5 class="testimonial-author">— Michael Lee</h5>
                         </div>
                     </div>
@@ -1051,7 +1051,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <p class="testimonial-text">"Found my ideal job quickly. Very happy with the service!"</p>
+                            <p class="testimonial-text">"{{__('lang.Found my ideal job quickly')}}. {{__('lang.Very happy with the service')}}!"</p>
                             <h5 class="testimonial-author">— Olivia Adams</h5>
                         </div>
                     </div>
