@@ -24,6 +24,12 @@
             }
         }
         
+        .job-type{
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
     </style>
 @endsection
 
@@ -44,7 +50,7 @@
 
         <div class="job-card" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 1.5rem;">
             <div class="job-header" style="display: flex; align-items: center; gap: 1rem;">
-                <div class="row w-100">
+                <div class="row">
                     <div class="col-12 col-md-2 d-flex justify-content-center mb-2">
                         <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
                     </div>
@@ -55,7 +61,6 @@
                         <p class="job-type {{ $job->job_type == 'Full-time' ? 'bg-success' : ($job->job_type == 'Part-time' ? 'bg-warning' : 'bg-danger') }} text-center rounded-pill text-white">
                             {{ $job->job_type }}
                         </p>
-                        
                     </div>
                 </div>
             </div>

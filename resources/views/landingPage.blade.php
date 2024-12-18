@@ -501,6 +501,37 @@
                 height: 50%;
             }
         }
+
+        @media (max-width: 344px) {
+            .landing-company-bottom-container {
+                padding: 12px;
+                text-align: center; 
+            }
+
+            .landing-company-bottom-container h3 {
+                font-size: 13px;
+                line-height: 1; 
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .landing-company-bottom-container p {
+                font-size: 12px; 
+            }
+            
+            .landing-job-bottom-container{
+                padding: 10px;
+            }
+            .landing-job-bottom-container h3{
+                text-align: center;
+                line-height: 1;
+                font-size: 20px;
+            }
+            .landing-job-bottom-container p{
+                font-size: 10px;
+            }
+
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 @endsection

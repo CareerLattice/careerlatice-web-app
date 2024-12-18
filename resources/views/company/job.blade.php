@@ -54,6 +54,20 @@
         .applicant-details .btn{
             padding: 1.2rem;
         }
+        @media (max-width: 354px) {
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            min-width: 600px; /* Tambahkan lebar minimum agar tabel memiliki scroll horizontal */
+        }   
+        .export{
+            padding: 5px 10px;
+            font-size: 10px;
+            /* text-align: center; */
+        }
+}
 
 
     </style>
@@ -159,11 +173,11 @@
                         </div>
                     </form>
 
-                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="btn btn-primary">{{__('lang.exportListCompanyJob')}}</a>
+                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="export btn btn-primary">{{__('lang.exportListCompanyJob')}}</a>
                 </div>
             </div>
 
-            <div class="mt-2">
+            <div class="mt-2 " style="overflow-x: auto; max-width: 100%;">
                 <table class="table table-hover table-bordered">
                     <thead class="table-dark">
                       <tr>

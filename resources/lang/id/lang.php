@@ -396,6 +396,37 @@ return [
         'proceedPay' => 'Lanjutkan ke Pembayaran',
         'months' => 'Bulan',
 
+
+        //Landing Page
+        'Welcome to' => 'Selamat datang di',
+        'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
+        'Join Top Leading' => 'Bergabung dengan tim leading',
+        'Companies' => 'Perusahaan',
+        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
+        'Explore Exciting' => 'Telusuri hal menarik',
+        'Job Vacancies' => 'Lowongan Pekerjaan',
+        'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
+        'start exploring now!' => 'mulai telusuri dari sekarang!',
+        'Previous' => 'Sebelumnya',
+        'Next' => 'Selanjutnya',
+        'A Quick Look at' => 'Sekilas',
+        'Our Journey' => 'Perjalanan kami',
+        'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice adalah platform inovatif yang didedikasikan untuk memberdayakan individu dengan membantu mereka memajukan karier dan membangun jaringan profesional yang kuat.',
+        'Launched our platform with' => 'Meluncurkan dengan platform kami',
+        'over 100 active users' => 'lebih dari 100 user aktif',
+        'joining in the first month.' => 'bergabung di bulan pertama',
+        'Gained momentum, reaching' => 'Mendapatkan momentum dan mencapai',
+        'active users' => 'user aktif',
+        'and improving user engagement' => 'dan meningkatkan keterlibatan pengguna',
+        'Secured partnerships with' => 'kemitraan yang aman dengan',
+        'companies' => 'perusahaan',
+        'actively hiring talent from our platform' => 'secara aktif merekrut bakat dari platform kami',
+        'Expanded to' => 'Meluas ke',
+        'over 500 active users' => 'lebih dari 500 aktif user',
+        'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
+
+        //End of Landing Page
+
     // Start of Admin Page
         // Admin Home Page
         'Welcome Back' => 'Selamat Datang Kembali',
