@@ -15,7 +15,7 @@
 
                 <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
                     <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
-                        {{__('lang.exploreConnect')}} <strong> {{__('lang.500+')}}</strong>  {{__('langreputable')}}
+                        {{__('lang.exploreConnect')}} <strong> {{__('lang.500+')}}</strong>  {{__('lang.reputable')}}
                     </p>
                     <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
                         {{__('lang.discover')}} <span style="color: #7869cd;"> {{__('lang.ideal')}}</span>  {{__('lang.here')}}
