@@ -482,14 +482,15 @@ return [
 
     //start of landing page
     'Welcome to' => 'Selamat datang di',
-    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
+    'Empowering Your Careers Through Connection' => 'Bangun kariermu lewat koneksi',
+    'Join us to explore your strength' => 'Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
     'Join Top Leading' => 'Bergabung dengan tim leading',
     'Companies' => 'Perusahaan',
     'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
     'Explore Exciting' => 'Telusuri hal menarik',
     'Job Vacancies' => 'Lowongan Pekerjaan',
-    'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
-    'start exploring now!' => 'mulai telusuri dari sekarang!',
+    'Discover exciting job opportunities tailored just for you' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda',
+    'start exploring now' => 'mulai telusuri dari sekarang',
     'Previous' => 'Sebelumnya',
     'Next' => 'Selanjutnya',
     'A Quick Look at' => 'Sekilas',
@@ -578,8 +579,7 @@ return [
     //End of Setting Page
 
     //Start of Sign Up Page
-    'Please Choose' => 'Silahkan Pilih',
-    'Role' => 'Peran',
+    'Please Choose your Role' => 'Silahkan Pilih Peran kamu',
     'Welcome' => 'Selamat Datang',
     'We\'ll personalize your setup experience accordingly' => 'Kami akan mempersonalisasi pengalaman pengaturan Anda sesuai',
     'I\'m here to apply' => 'Saya disini untuk mencari pekerjaan',
