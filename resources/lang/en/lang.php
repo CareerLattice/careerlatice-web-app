@@ -36,7 +36,7 @@ return [
         'contentTitleCompanyProfile' => 'Upload Company Profile',
         'companyNameCompanyProfile' => 'Company Name',
         'fieldCompanyProfile' => 'Field',
-        'addressCompanyProfile' => 'Address',
+        'companyAddressCompanyProfile' => 'Address',
         'phoneNumberCompanyProfile' => 'Phone Number',
         'companyDescriptionCompanyProfile' => 'Company Description',
         'saveChangesCompanyProfile' => 'Save Changes',

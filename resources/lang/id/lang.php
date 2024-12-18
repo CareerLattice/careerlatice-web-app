@@ -28,22 +28,22 @@ return [
     //companyJobs page
     'noJobsAvailableCompanyJobs' => 'Tidak ada pekerjaan yang tersedia.',
 
-    //companyProfile page
-    'backCompanyProfile'=>'Kembali',
-    'titleCompanyProfile' => 'Edit Profil Perusahaan',
-    'captionCompanyProfile' => 'Perbarui informasi perusahaan Anda agar profil Anda selalu terbaru.',
-    'contentTitleCompanyProfile' => 'Unggah Profil Perusahaan',
-    'companyNameCompanyProfile' => 'Nama Perusahaan',
-    'fieldCompanyProfile' => 'Bidang',
-    'addressCompanyProfile' => 'Alamat',
-    'phoneNumberCompanyProfile' => 'Nomor Telepon',
-    'companyDescriptionCompanyProfile' => 'Deskripsi Perusahaan',
-    'saveChangesCompanyProfile' => 'Simpan Perubahan',
-    'companyNamePHCompanyProfile' => 'Masukkan nama perusahaan',
-    'companyFieldPHCompanyProfile' => 'Masukkan bidang perusahaan',
-    'companyAddressPHCompanyProfile' => 'Masukkan alamat perusahaan',
-    'companyPhonePHCompanyProfile' => 'Masukkan nomor telepon perusahaan',
-    'companyDescriptionPHCompanyProfile' => 'Tulis deskripsi singkat tentang perusahaan',
+        //companyProfile page
+        'backCompanyProfile'=>'Kembali',
+        'titleCompanyProfile' => 'Edit Profil Perusahaan',
+        'captionCompanyProfile' => 'Perbarui informasi perusahaan Anda agar profil Anda selalu terbaru.',
+        'contentTitleCompanyProfile' => 'Unggah Profil Perusahaan',
+        'companyNameCompanyProfile' => 'Nama Perusahaan',
+        'fieldCompanyProfile' => 'Bidang',
+        'companyAddressCompanyProfile' => 'Alamat',
+        'phoneNumberCompanyProfile' => 'Nomor Telepon',
+        'companyDescriptionCompanyProfile' => 'Deskripsi Perusahaan',
+        'saveChangesCompanyProfile' => 'Simpan Perubahan',
+        'companyNamePHCompanyProfile' => 'Masukkan nama perusahaan',
+        'companyFieldPHCompanyProfile' => 'Masukkan bidang perusahaan',
+        'companyAddressPHCompanyProfile' => 'Masukkan alamat perusahaan',
+        'companyPhonePHCompanyProfile' => 'Masukkan nomor telepon perusahaan',
+        'companyDescriptionPHCompanyProfile' => 'Tulis deskripsi singkat tentang perusahaan',
 
 
     //createJob page
