@@ -145,13 +145,13 @@
 
 
 <nav class="navbar navbar-expand-lg bg-white shadow-lg">
-    <div class="container mt-3 mb-3">
+    <div class="container mt-3 mb-3 ms-auto">
         <img src="{{asset('assets/CareerLatice.jpg')}}" class="img" alt="CareerLatice" onclick="window.location='/'">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 @auth
                     <li class="nav-item">
@@ -180,15 +180,17 @@
                         <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">{{__('lang.Company')}}</a>
                     </li>
                 @endguest
+            
             </ul>
+            
 
             @auth
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-end">
                     <li class="nav-item dropdown d-flex justify-content-between align-items-center">
                         @if (Auth::user()->role == 'applier')
                         <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3 mt-0">{{__('lang.Premium')}}</a>
                         @endif
-
+                        
                         <div class="accordion" id="userAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
