@@ -184,7 +184,7 @@
                         <th scope="col" class="text-center">{{__('lang.noCompanyJob')}}</th>
                         <th scope="col" class="text-center">
                             <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'users.name', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">
-                                {{__('lang.nameCompanyJob')}}
+                                {{__('lang.Name')}}
                                 @if(request('sort') == 'users.name')
                                     @if(request('order') == 'asc')
                                         <i class="bi bi-arrow-down-short"></i>

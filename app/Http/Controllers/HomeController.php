@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Company;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {

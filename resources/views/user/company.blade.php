@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <hr class="my-4">
                     <h5 class="fw-bold text-center">{{__('lang.follow')}} <span style="color: #0056b3;">{{$company->user->name}}</span> {{__('lang.socialMed')}}</h5>
 

@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="col-12 col-md-4">
-                        <p class="fw-bold">{{__('lang.emailAddress')}}</p>
+                        <p class="fw-bold">{{__('lang.Email Address')}}</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->email}}</p>

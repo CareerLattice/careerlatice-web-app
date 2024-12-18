@@ -86,7 +86,7 @@
                                 </div>
 
                                 @if ($jobVacancy->status != 'rejected' && $jobVacancy->status != 'accepted' && $jobVacancy->status != 'cancelled')
-                                    <form action="{{ route('job_application.destroy', $jobVacancy->application_id)}}" method="POST" class="unapply-form">
+                                    <form action="{{route('job_application.destroy', $jobVacancy->application_id)}}" method="POST" class="unapply-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" class="btn btn-danger unapply-btn">{{__('lang.unapply')}}</button>

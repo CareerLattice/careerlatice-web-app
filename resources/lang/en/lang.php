@@ -124,7 +124,6 @@ return [
         'noneCompanyJob' => 'None',
         'exportListCompanyJob' => 'Export List Applicant',
         'noCompanyJob' => 'No',
-        'nameCompanyJob' => 'Name',
         'appliedAtCompanyJob' => 'Applied At',
         'applicationCVCompanyJob' => 'Application CV',
         'statusCompanyJob' => 'Status',
@@ -159,7 +158,6 @@ return [
         'captionSignUpCompany' => 'Join us today by registering your information below and unlock exciting opportunities!',
         'companyNameSignUpCompany' => 'Company Name',
         'emailSignUpCompany' => 'Email',
-        'passwordSignUpCompany' => 'Password',
         'addressSignUpCompany' => 'Address',
         'phoneNumberSignUpCompany' => 'Phone Number',
         'companyFieldSignUpCompany' => 'Company Field',
@@ -181,7 +179,7 @@ return [
         'premium' => 'Premium',
         'profile' => 'Profile',
         'editProfile' => 'Edit Profile',
-        'viewCV' => 'View CV',
+        'View CV' => 'View CV',
         'aboutMe' => 'About Me',
         'description' => 'Description',
         'personalInfo' => 'Personal Information',
@@ -189,7 +187,7 @@ return [
         'professionalExp' => 'Professional Experience',
         'email' => 'Email',
         'phoneNumber' => 'Phone Number',
-        'address' => 'Address', 
+        'address' => 'Address',
         'birthDate' => 'Birth Date',
         'noEdu' => 'No Education Yet',
         'noExp' => 'No Experience Yet',
@@ -223,7 +221,7 @@ return [
         'discover' => 'Discover Your',
         'ideal' => 'Ideal Companies',
         'here' => 'Here',
-        'searchExplore' => 'Search, explore, and connect with top companies that match your career aspirations and field of interest.',                   
+        'searchExplore' => 'Search, explore, and connect with top companies that match your career aspirations and field of interest.',
         'exploreComp' => 'Explore Companies',
         'searchYour' => 'Search your',
         'dreamComp' => 'Dream Companies',
@@ -261,7 +259,7 @@ return [
         'benefits' => 'Benefits',
         'noBen' => 'No benefit available yet',
 
-        //Update Profile
+        // Update Profile
         'edu' => 'Education',
         'proExp' => 'Professional Experience',
         'grade' => 'Grade',
@@ -281,7 +279,6 @@ return [
         'editEducation' => 'Edit Education',
         'compName' => 'Company Name',
         'pos' => 'Position',
-        'name' => 'Name',
         'head' => 'Headline',
         'profilePic' => 'Profile Picture',
         'saveChange' => 'Save Changes',
@@ -290,6 +287,7 @@ return [
         'currently' => 'I am currently working here',
         'cancel' => 'Cancel',
         'freelance' => 'Freelance',
+        'There is no address yet' => 'There is no address yet',
 
         // premiumUser
         'achieve' => 'Achieve More with',
@@ -365,7 +363,6 @@ return [
         'checkoutPayment' => 'Checkout & Payment',
         'reviewInfo' => 'Please review your information carefully before proceeding!',
         'fullName' => 'Full Name',
-        'emailAddress' => 'Email Address',
         'shippingAddress' => 'Shipping Address',
         'termsCondition' => 'Terms & Conditions',
         'fullterms' =>'Please read the full Terms and Conditions carefully before proceeding with payment.',
@@ -390,7 +387,6 @@ return [
         //signUp
         'joinUsNow' => 'JOIN US NOW',
         'joinToday' => 'Join us today by registering your information below and unlock exciting opportunities!',
-        'pass' => 'Password',
         'agreeTerms' => 'Agree to terms and conditions',
         'signUp' => 'Sign Up',
 
@@ -408,7 +404,6 @@ return [
         'Search' => 'Search',
         'Export All Users' => 'Export All Users',
         'No' => 'No',
-        'Name' => 'Name',
         'Revenue' => 'Revenue',
         'Start' => 'Start Date',
         'End' => 'End Date',
@@ -507,7 +502,6 @@ return [
         'potential' => 'potential',
         ' candidates through our platform. ' => ' candidates through our platform. ',
         'Login Now!' => 'Login Now!',
-        'Email Address' => 'Email Address',
         'Enter your email' => 'Enter your email',
         'We\'ll never share your email with anyone else.' => 'We\'ll never share your email with anyone else.',
         'Password' => 'Password',
@@ -522,10 +516,6 @@ return [
         //register
         'Register' => 'Register',
         'Name' => 'Name',
-        'Email Address' => 'Email Address',
-        'Password' => 'Password',
-        'Confirm Password' => 'Confirm Password',
-        'Register' => 'Register',
 
         //verify
         'Verify Your Email Address' => 'Verify Your Email Address',
@@ -538,13 +528,10 @@ return [
             //confirm
             'Confirm Password' => 'Confirm Password',
             'Please confirm your password before continuing.' => 'Please confirm your password before continuing.',
-            'Password' => 'Password',
-            'Confirm Password' => 'Confirm Password',
             'Forgot Your Password?' => 'Forgot Your Password?',
 
             //email
             'Change Password' => 'Change Password',
-            'Reset Password' => 'Reset Password',
             'Email Address' => 'Email Address',
             'Send Password Reset Link' => 'Send Password Reset Link',
 
