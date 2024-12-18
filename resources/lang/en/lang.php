@@ -553,14 +553,15 @@ return [
     //End of auth
 
     //Start of Landing Page
-    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Bangun kariermu lewat koneksi. Gabung bersama kami dan temukan potensi terbaikmu!',
+        'Empowering Your Careers Through Connection' => 'Gabung bersama kami dan temukan potensi terbaikmu!',
+        'Join us to explore your strength' => 'Join us to explore your strength',
         'Join Top Leading' => 'Join Top Leading',
         'Companies' => 'Companies',
         'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference.',
         'Explore Exciting' => 'Explore Exciting',
         'Job Vacancies' => 'Job Vacancies',
-        'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Discover exciting job opportunities tailored just for you – start exploring now!',
-        'start exploring now!' => 'start exploring now!',
+        'Discover exciting job opportunities tailored just for you' => 'Discover exciting job opportunities tailored just for you',
+        'start exploring now' => 'start exploring now',
         'Previous' => 'Previous',
         'Next' => 'Next',
         'A Quick Look at' => 'A Quick Look at',
@@ -646,8 +647,7 @@ return [
     //End of Setting Page
 
     //Start of Sign Up Page
-        'Please Choose' => 'Please Choose',
-        'Role' => 'Role',
+        'Please Choose your Role' => 'Please Choose your Role',
         'Welcome' => 'Welcome',
         'We\'ll personalize your setup experience accordingly' => 'We\'ll personalize your setup experience accordingly',
         'I\'m here to apply' => 'I\'m here to apply',

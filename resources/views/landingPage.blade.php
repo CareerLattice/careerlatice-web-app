@@ -548,7 +548,7 @@
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
                                 {{__('lang.Welcome to')}} <span style="color: #7869cd">CareerLattice</span>.
                             </h5>
-                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Empowering Your Careers Through Connection. Join us to explore your strength')}}</p>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Empowering Your Careers Through Connection')}}. {{__('lang.Join us to explore your strength')}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -557,7 +557,7 @@
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
                                 {{__('lang.Join Top Leading')}} <span style="color: #7869cd">{{__('lang.Companies')}}</span>
                             </h5>
-                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Connect with renowned employers looking for talented individuals ready to make a difference.')}}</p>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Connect with renowned employers looking for talented individuals ready to make a difference')}}.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -566,7 +566,7 @@
                             <h5 class="fw-bold fs-1 fs-sm-3 fs-md-2 fs-lg-1" style="color: #682b90">
                                 {{__('lang.Explore Exciting')}} <span style="color: #7869cd">{{__('lang.Job Vacancies')}}</span>
                             </h5>
-                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Discover exciting job opportunities tailored just for you')}} - {{__('lang.start exploring now!')}}</p>
+                            <p class="fw-bold fs-5 fs-sm-6 fs-md-4 fs-lg-3">{{__('lang.Discover exciting job opportunities tailored just for you')}} - {{__('lang.start exploring now')}}!</p>
                         </div>
                     </div>
                 </div>
