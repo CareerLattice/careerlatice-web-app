@@ -204,6 +204,7 @@ return [
         'contact' => 'Contact us for more information!',
         'discoverExciting' => 'Discover Exciting',
         'jobVacancies' =>'Job Vacancies',
+        'jobVacanciesInvite' => 'Explore exciting job vacancies at our company and take the first step toward a brighter career future!',
         'browse' => 'Browse over 200+ Top Jobs Vacancy from Top Industry Leaders',
         'companyName' => 'Company Name',
         'jobTitle' => 'Job Title',
@@ -221,6 +222,7 @@ return [
         'discover' => 'Discover Your',
         'ideal' => 'Ideal Companies',
         'here' => 'Here',
+        'jobVacanciesList' => 'Job Vacancies',
         'searchExplore' => 'Search, explore, and connect with top companies that match your career aspirations and field of interest.',
         'exploreComp' => 'Explore Companies',
         'searchYour' => 'Search your',
@@ -297,7 +299,7 @@ return [
         'easySearch' => 'Easy Job Search',
         'personalizedJob' => 'Get personalized job offers directly on your homepage, making it easier to find the right opportunities.',
         'priority' => 'Priority Application',
-        'priotityDesc' => 'Your application will be prioritized by employers, increasing your chances of getting noticed.',
+        'priorityDesc' => 'Your application will be prioritized by employers, increasing your chances of getting noticed.',
         'enhancedProfile' => 'Enhanced Profile Visibility',
         'enhancedProfileDesc' => 'Your profile will be viewed more frequently by companies, helping you gain more job opportunities.',
         'takeCareer' => 'Take Your Career to the',
@@ -651,5 +653,13 @@ return [
         'I\'m here to apply' => 'I\'m here to apply',
         'I\'m hiring talent' => 'I\'m hiring talent',
     //End of Sign Up Page
+
+    // Start of modal
+    'titleModal' => 'Are you sure?',
+    'textModal' => 'You won\'t be able to revert this!',
+    'confirmButtonModal' => 'Yes, Delete it!',
+    'cancelButtonTextModal' => 'Cancel',
+
+    // End modal
 ];
 ?>

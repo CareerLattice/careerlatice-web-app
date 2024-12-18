@@ -463,13 +463,14 @@
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
+                        title: "{{__('lang.titleModal')}}",
+                        text: "{{__('lang.textModal')}}",
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, delete it!"
+                        confirmButtonText: "{{__('lang.confirmButtonModal')}}",
+                        cancelButtonText: "{{__('lang.cancelButtonTextModal')}}",
                     }).then((result) => {
                         if (result.isConfirmed) {
                             button.closest(".delete-form").submit();

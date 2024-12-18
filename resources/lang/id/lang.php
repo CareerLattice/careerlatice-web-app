@@ -211,7 +211,7 @@ return [
     'exploreJob' => ' Telusuri Pekerjaan',
     'contact' => 'Hubungi kami untuk informasi lebih lanjut',
     'discoverExciting' => 'Temukan',
-    'jobVacancies' => 'lowongan pekerjaan yang menarik',
+    'jobVacancies' => 'Lowongan Pekerjaan yang Menarik',
     'browse' =>'Telusuri lebih dari 200+ Lowongan Pekerjaan Terbaik dari Pemimpin Industri Terkemuka.',
     'companyName' => 'Nama Perusahaan',
     'jobTitle' => 'Judul Pekerjaan',
@@ -229,6 +229,8 @@ return [
     'reputable' => 'perusahaan terkemuka',
     'discover' => 'Temukan',
     'ideal' => 'Perusahaan yang Ideal',
+    'jobVacanciesList' => 'Lowongan Pekerjaan',
+    'jobVacanciesInvite' => 'Telusuri peluang kerja menarik di perusahaan kami dan ambil langkah pertama menuju masa depan karier yang lebih cerah!',
     'here' => 'Disini',
     'searchExplore' => 'Cari, jelajahi, dan terhubung dengan perusahaan-perusahaan terkemuka yang sesuai dengan aspirasi karier dan bidang minat Anda.',
     'exploreComp' => 'Menelusuri Perusahaan',
@@ -591,8 +593,14 @@ return [
     'Welcome' => 'Selamat Datang',
     'We\'ll personalize your setup experience accordingly' => 'Kami akan mempersonalisasi pengalaman pengaturan Anda sesuai',
     'I\'m here to apply' => 'Saya disini untuk mencari pekerjaan',
-    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja'
+    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja',
     //End of Sign Up Page
-];
 
+     // Start of modal
+    'titleModal' => 'Apakah Anda yakin?',
+    'textModal' => 'Anda tidak akan dapat mengembalikannya!',
+    'confirmButtonModal' => 'Ya, Hapus!',
+    'cancelButtonTextModal' => 'Batal',
+     // End modal
+];
 ?>
