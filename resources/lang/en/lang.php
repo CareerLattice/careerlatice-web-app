@@ -397,7 +397,7 @@ return [
     // Start of Admin Page
         // Admin Home Page
         'Welcome Back' => 'Welcome Back',
-        'Month Income' => 'This Month Income',
+        'This Month Income' => 'This Month Income',
         'Total Income' => 'Total Income',
         'Total Applier' => 'Total Applier',
         'Total Company' => 'Total Company',
@@ -413,6 +413,11 @@ return [
         'Start' => 'Start Date',
         'End' => 'End Date',
         'No Premium User Found' => 'No Premium User Found.',
+        'IDR' => 'IDR',
+        'Email Address' => 'Email Address',
+        'Current Password' => 'Current Password',
+        'Password' => 'Password',
+        'Send Password Reset Link' => 'Send Password Reset Link',
     // End of Admin Page
 
 

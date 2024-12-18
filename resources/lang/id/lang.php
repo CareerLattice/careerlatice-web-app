@@ -399,7 +399,7 @@ return [
     // Start of Admin Page
         // Admin Home Page
         'Welcome Back' => 'Selamat Datang Kembali',
-        'Month Income' => 'Pendapatan Bulan Ini',
+        'This Month Income' => 'Pendapatan Bulan Ini',
         'Total Income' => 'Jumlah Pendapatan',
         'Total Applier' => 'Jumlah Pelamar',
         'Total Company' => 'Jumlah Perusahaan',
@@ -415,6 +415,7 @@ return [
         'Start' => 'Tanggal Mulai',
         'End' => 'Tanggal Selesai',
         'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
+        'IDR' => 'Rp',
     // End of Admin Page
         
     //start of auth page
@@ -570,6 +571,10 @@ return [
     'Settings' => 'Pengaturan',
     'Select Language' => 'Pilih Bahasa',
     'Save Changes' => 'Simpan Perubahan',
+    'Email Address' => 'Email Address',
+    'Current Password' => 'Kata Sandi Sekarang',
+    'Password' => 'Kata Sandi',
+    'Send Password Reset Link' => 'Kirim Link Reset Sandi',
     //End of Setting Page
 
     //Start of Sign Up Page
