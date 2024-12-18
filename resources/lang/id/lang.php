@@ -13,7 +13,7 @@ return [
         'contentTitleCompanyProfile' => 'Unggah Profil Perusahaan',
         'companyNameCompanyProfile' => 'Nama Perusahaan',
         'fieldCompanyProfile' => 'Bidang',
-        'addressCompanyProfile' => 'Alamat',
+        'companyAddressCompanyProfile' => 'Alamat',
         'phoneNumberCompanyProfile' => 'Nomor Telepon',
         'companyDescriptionCompanyProfile' => 'Deskripsi Perusahaan',
         'saveChangesCompanyProfile' => 'Simpan Perubahan',
