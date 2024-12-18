@@ -388,7 +388,7 @@ return [
         'Revenue' => 'Revenue',
         'Start' => 'Start Date',
         'End' => 'End Date',
-        'No Premium' => 'No Premium User Found.',
+        'No Premium' => 'No Premium User Found.',,
     // End of Admin Page
 
     //Landing Page
@@ -470,5 +470,68 @@ return [
 
     // End of Landing Page
     
+
+
+    //start of auth page
+        //login page
+        'Welcome back! ' => 'Welcome back! ',
+        'Log in ' => 'Log in ',
+        ' to find ' => ' to find ',
+        'skilled talent' => 'skilled talent',
+        ' and connect with ' => ' and connect with ',
+        'potential' => 'potential',
+        ' candidates through our platform. ' => ' candidates through our platform. ',
+        'Login Now!' => 'Login Now!',
+        'Email Address' => 'Email Address',
+        'Enter your email' => 'Enter your email',
+        'We\'ll never share your email with anyone else.' => 'We\'ll never share your email with anyone else.',
+        'Password' => 'Password',
+        'Enter your password' => 'Enter your password',
+        'Login' => 'Login',
+        'Don\'t have an account?' => 'Don\'t have an account?',
+        'Register Here' => 'Register Here',
+        'Forget Password?' => 'Forget Password? ',
+        'Reset Password' => 'Reset Password',
+        'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.',
+
+        //register
+        'Register' => 'Register',
+        'Name' => 'Name',
+        'Email Address' => 'Email Address',
+        'Password' => 'Password',
+        'Confirm Password' => 'Confirm Password',
+        'Register' => 'Register',
+
+        //verify
+        'Verify Your Email Address' => 'Verify Your Email Address',
+        'A fresh verification link has been sent to your email address.' => 'A fresh verification link has been sent to your email address.',
+        'Before proceeding, please check your email for a verification link.' => 'Before proceeding, please check your email for a verification link.',
+        'If you did not receive the email' => 'If you did not receive the email',
+        'click here to request another' => 'click here to request another',
+
+        // auth/passwords folder
+            //confirm
+            'Confirm Password' => 'Confirm Password',
+            'Please confirm your password before continuing.' => 'Please confirm your password before continuing.',
+            'Password' => 'Password',
+            'Confirm Password' => 'Confirm Password',
+            'Forgot Your Password?' => 'Forgot Your Password?',
+
+            //email
+            'Change Password' => 'Change Password',
+            'Reset Password' => 'Reset Password',
+            'Email Address' => 'Email Address',
+            'Send Password Reset Link' => 'Send Password Reset Link',
+
+            //reset
+            'Change Password' => 'Change Password',
+            'Reset Password' => 'Reset Password',
+            'Email Address' => 'Email Address',
+            'Password' => 'Password',
+            'Confirm Password' => 'Confirm Password',
+            'Reset Password' => 'Reset Password',
+
+
+    //End of auth
 ];
 ?>

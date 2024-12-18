@@ -374,6 +374,77 @@ return [
         'months' => 'Bulan',
 
 
+        
+    //start of auth page
+        //login page
+        'Welcome back! ' => 'Selamat datang kembali! ',
+        'Log in ' => 'Masuk ',
+        ' to find ' => ' dan temukan ',
+        'skilled talent' => 'talenta terampil',
+        ' and connect with ' => ' dan terhubung dengan ',
+        'potential' => 'berbagai potensial',
+        ' candidates through our platform. ' => ' kandidat dalam platform kami ',
+        'Login Now!' => 'Masuk Sekarang!',
+        'Email Address' => 'Alamat Email',
+        'Enter your email' => 'Masukkan email anda',
+        'We\'ll never share your email with anyone else.' => 'Kami tidak akan pernah membagikan email Anda dengan orang lain.',
+        'Password' => 'Kata Sandi',
+        'Enter your password' => 'Masukkan kata sandi',
+        'Login' => 'Masuk',
+        'Don\'t have an account?' => 'Belum memiliki akun?',
+        'Register Here' => 'Daftar Disini',
+        'Forget Password?' => 'Lupa Kata Sandi? ',
+        'Reset Password' => 'Ubah Kata Sandi',
+        'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
+
+        //register
+        'Register' => 'Daftar',
+        'Name' => 'Nama',
+        'Email Address' => 'Alamat Email',
+        'Password' => 'Kata Sandi',
+        'Confirm Password' => 'Konfirmasi Kata Sandi',
+        'Register' => 'Daftar',
+
+        //verify
+        'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
+        'A fresh verification link has been sent to your email address.' => 'Tautan verifikasi baru telah dikirim ke alamat email Anda.',
+        'Before proceeding, please check your email for a verification link.' => 'Sebelum melanjutkan, silakan periksa email Anda untuk tautan verifikasi.',
+        'If you did not receive the email' => 'Jika Anda tidak menerima email',
+        'click here to request another' => 'klik di sini untuk meminta yang lain',
+
+        // auth/passwords folder
+            //confirm
+            'Confirm Password' => 'Konfirmasi Kata Sandi',
+            'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
+            'Password' => 'Kata Sandi',
+            'Confirm Password' => 'Konfirmasi Kata Sandi',
+            'Forgot Your Password?' => 'Lupa Kata Sandi?',
+
+            //email
+            'Change Password' => 'Ubah Kata Sandi',
+            'Reset Password' => 'Reset Kata Sandi',
+            'Email Address' => 'Alamat Email',
+            'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
+
+            //reset
+            'Change Password' => 'Ubah Kata Sandi',
+            'Reset Password' => 'Reset Kata Sandi',
+            'Email Address' => 'Alamat Email',
+            'Password' => 'Kata Sandi',
+            'Confirm Password' => 'Konfirmasi Kata Sandi',
+            'Reset Password' => 'Reset Kata Sandi',
+
+
+    //End of auth
+
+
+
+
+
+
+
+
+
         //Landing Page
         'Welcome to' => 'Selamat datang di',
         'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
