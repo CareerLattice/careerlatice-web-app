@@ -90,7 +90,7 @@ Route::prefix('company')->group(function(){
     });
 
     // Route to get the company detail page
-    Route::get('/{company_id}', action: [CompanyController::class, 'viewCompany'])->name('user.company');
+    Route::get('/{company_id}', [CompanyController::class, 'viewCompany'])->name('user.company');
 
     // Route to get the job vacancies by company
     Route::get('/job-vacancy/{company}', [JobController::class,'jobByCompany'])->name('user.companyJobVacancies');
@@ -102,7 +102,6 @@ Route::prefix('user')->group(function(){
         // Route for user sign up
         Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
         Route::post('/sign-up', [ApplierController::class, 'signUp'])->name('user.submitSignUpUser');
-
     });
 
     Route::middleware('user_auth')->group(function(){
@@ -189,13 +188,11 @@ route::get('/user/editExperience', function(){
     return view('user.editExperience');
 })->name ('editExperience');
 
-
 Route::delete('/delete-job-application/{jobApplication}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
 Route::get('/set-locale', function(Request $request){
     $request->validate([
         'language' => 'required|string|in:en,id',
     ]);
-
     $request->session()->put('locale', $request->language);
     return redirect()->back();
 })->name('setLocale');
