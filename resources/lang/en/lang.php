@@ -115,6 +115,7 @@ return [
     'allCompanyJob' => 'All',
     'acceptedCompanyJob' => 'Accepted',
     'rejectedCompanyJob' => 'Rejected',
+    'cancelledCompanyJob' => 'Cancelled',
     'onProcessCompanyJob' => 'On Process',
     'pendingCompanyJob' => 'Pending',
     'noneCompanyJob' => 'None',
