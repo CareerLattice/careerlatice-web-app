@@ -73,7 +73,7 @@
     <section id="jobsSection" style="overflow-x: hidden">
         <div class="container mt-5 text-center">
             <h1 class="fw-bold ">
-                {{__('lang.discoverExciting')}} <span style="color: #682b90">{{__('lang.jobVacancies')}}</span>
+                {{__('lang.discoverExciting')}} <span style="color: #682b90">{{__('lang.Job Vacancies')}}</span>
             </h1>
             <p class="fw-bold" style="color: #7869cd">
                 {{__('lang.browse')}}

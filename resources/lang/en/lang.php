@@ -2,7 +2,6 @@
 return [
     //start of Navbar
     'Home' => 'Home',
-    'Find a Job' => 'Find a Job',
     'Company' => 'Company',
     'Created Job' => 'Created Job',
     'Find a Job' => 'Find a Job',
@@ -17,9 +16,6 @@ return [
     //Start of Footer
     'Empowers individuals to advance their careers and build professional networks through expert connections and skill development' => 'Empowers individuals to advance their careers and build professional networks through expert connections and skill development',
     'Services' => 'Services',
-    'Home' => 'Home',
-    'Find a Job' => 'Find a Job',
-    'Company' => 'Company',
     'Contact Us' => 'Contact Us',
     'Contact' => 'Contact',
     'Since' => 'Since',
@@ -131,7 +127,6 @@ return [
         'openCVCompanyJob' => 'Open CV',
         'noApplicationFoundCompanyJob' => 'No application found.',
 
-
         // listJob page
         'titleListJob' => 'Job Listings',
         'searchPHListJob' => 'Search...',
@@ -203,7 +198,6 @@ return [
         'exploreJob' => 'Explore Jobs',
         'contact' => 'Contact us for more information!',
         'discoverExciting' => 'Discover Exciting',
-        'jobVacancies' =>'Job Vacancies',
         'jobVacanciesInvite' => 'Explore exciting job vacancies at our company and take the first step toward a brighter career future!',
         'browse' => 'Browse over 200+ Top Jobs Vacancy from Top Industry Leaders',
         'companyName' => 'Company Name',
@@ -222,7 +216,6 @@ return [
         'discover' => 'Discover Your',
         'ideal' => 'Ideal Companies',
         'here' => 'Here',
-        'jobVacanciesList' => 'Job Vacancies',
         'searchExplore' => 'Search, explore, and connect with top companies that match your career aspirations and field of interest.',
         'exploreComp' => 'Explore Companies',
         'searchYour' => 'Search your',
@@ -281,7 +274,6 @@ return [
         'editEducation' => 'Edit Education',
         'compName' => 'Company Name',
         'pos' => 'Position',
-        'name' => 'Name',
         'headline' => 'Headline',
         'profilePic' => 'Profile Picture',
         'saveChange' => 'Save Changes',
@@ -291,6 +283,7 @@ return [
         'cancel' => 'Cancel',
         'freelance' => 'Freelance',
         'There is no address yet' => 'There is no address yet',
+        'You have not upload CV yet' => 'You have not upload CV yet',
 
         // premiumUser
         'achieve' => 'Achieve More with',
@@ -316,8 +309,6 @@ return [
         'peopleTest2' => '— John Smith',
         'otherTestimoni2' => ' "A seamless user experience and a vast array of job listings. Couldn\'t be happier!"',
         'peopleTest3' => '-Emily Johnson',
-        'prev' => 'Previous',
-        'next' => 'Next',
 
         //UserJobVacancies
         'hello' => 'Hello',
@@ -331,7 +322,6 @@ return [
         'noActiveJob' => 'You have no active job applications.',
 
         //PremiumBundle
-        'exploreExciting' => 'Explore Exciting',
         'bundle' => 'Premium Bundle',
         'and' => 'and',
         'benefit' => 'Benefits',
@@ -412,10 +402,7 @@ return [
         'End' => 'End Date',
         'No Premium User Found' => 'No Premium User Found.',
         'IDR' => 'IDR',
-        'Email Address' => 'Email Address',
         'Current Password' => 'Current Password',
-        'Password' => 'Password',
-        'Send Password Reset Link' => 'Send Password Reset Link',
     // End of Admin Page
 
     //Landing Page
@@ -423,7 +410,7 @@ return [
         'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Empowering Your Careers Through Connection. Join us to explore your strength',
         'Join Top Leading' => 'Join Top Leading',
         'Companies' => 'Companies',
-        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference.',
+        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference',
         'Explore Exciting' => 'Explore Exciting',
         'Job Vacancies' => 'Job Vacancies',
         'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Discover exciting job opportunities tailored just for you – start exploring now!',
@@ -496,7 +483,7 @@ return [
 
 
     // End of Landing Page
-    
+
 
 
     //start of auth page
@@ -511,6 +498,7 @@ return [
         'Login Now!' => 'Login Now!',
         'Enter your email' => 'Enter your email',
         'We\'ll never share your email with anyone else.' => 'We\'ll never share your email with anyone else.',
+        'Email Address' => 'Email Address',
         'Password' => 'Password',
         'Enter your password' => 'Enter your password',
         'Login' => 'Login',
@@ -532,46 +520,24 @@ return [
         'click here to request another' => 'click here to request another',
 
         // auth/passwords folder
-            //confirm
-            'Confirm Password' => 'Confirm Password',
-            'Please confirm your password before continuing.' => 'Please confirm your password before continuing.',
-            'Forgot Your Password?' => 'Forgot Your Password?',
+        //confirm
+        'Please confirm your password before continuing.' => 'Please confirm your password before continuing.',
+        'Forgot Your Password?' => 'Forgot Your Password?',
 
-            //email
-            'Email Address' => 'Email Address',
-            'Send Password Reset Link' => 'Send Password Reset Link',
+        //email
+        'Send Password Reset Link' => 'Send Password Reset Link',
 
-            //reset
-            'Change Password' => 'Change Password',
-            'Reset Password' => 'Reset Password',
-            'Email Address' => 'Email Address',
-            'Password' => 'Password',
-            'Confirm Password' => 'Confirm Password',
-            'Reset Password' => 'Reset Password',
-
-
+        //reset
+        'Change Password' => 'Change Password',
+        'Confirm Password' => 'Confirm Password',
     //End of auth
 
     //Start of Landing Page
         'Empowering Your Careers Through Connection' => 'Gabung bersama kami dan temukan potensi terbaikmu!',
         'Join us to explore your strength' => 'Join us to explore your strength',
-        'Join Top Leading' => 'Join Top Leading',
-        'Companies' => 'Companies',
-        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference.',
-        'Explore Exciting' => 'Explore Exciting',
-        'Job Vacancies' => 'Job Vacancies',
         'Discover exciting job opportunities tailored just for you' => 'Discover exciting job opportunities tailored just for you',
         'start exploring now' => 'start exploring now',
-        'Previous' => 'Previous',
-        'Next' => 'Next',
-        'A Quick Look at' => 'A Quick Look at',
-        'Our Journey' => 'Our Journey',
         'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.',
-        'Launched our platform with' => 'Launched our platform with',
-        'over 100 active users' => 'over 100 active users',
-        'joining in the first month.' => 'joining in the first month',
-        'Gained momentum, reaching' => 'Gained momentum, reaching',
-        'active users' => 'active users',
         'and improving user engagement' => 'and improving user engagement',
         'Secured partnerships with' => 'Secured partnerships wiht',
         'companies' => 'companies',
@@ -582,17 +548,12 @@ return [
         'Achieved a milestone of' => 'Achieved a milestone of',
         'with enhanced services and support' => 'with enhanced services and support',
         'and expanded our reach to new regions' => 'and expanded our reach to new regions',
-        'Partnered with' => 'Partnered with',
         'Oct 2024' => 'Oct 2024',
-        'Solutions' => 'Solutions',
-        'How we provides' => 'How we provides',
         'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development' => 'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development',
         'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations' => 'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations',
         '17 Sustainable Development Goals (SDGs)' => '17 Sustainable Development Goals (SDGs)',
         'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals' => 'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals',
-        'Unleash Your Potential with' => 'Unleash Your Potential with',
         'Leading Companies' => 'Leading Companies',
-        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference',
         'Technology and Information' => 'Technology and Information',
         'Finance and Insurance' => 'Finance and Insurance',
         'Consulting and Accounting' => 'Consulting and Accounting',
@@ -613,7 +574,6 @@ return [
         'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals' => 'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals',
         'Seize Your Opportunity to Get Hired!' => 'Seize Your Opportunity to Get Hired!',
         'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals' => 'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals',
-        'Explore Exciting' => 'Explore Exciting',
         'Discover exciting job opportunities tailored just for you – start exploring now' => 'Discover exciting job opportunities tailored just for you – start exploring now',
         'Applicants' => 'Applicants',
         'More Information' => 'More Information',
@@ -639,9 +599,7 @@ return [
     //End of Landing Page
 
     //Start of Setting Page
-        'Change Password' => 'Change Password',
         'Change Language' => 'Change Language',
-        'Settings' => 'Settings',
         'Select Language' => 'Select Language',
         'Save Changes' => 'Save Changes',
     //End of Setting Page

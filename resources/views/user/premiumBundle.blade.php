@@ -55,11 +55,11 @@
                 height: 25vh;
                 max-height: 300px;
             }
-            
+
             .banner-title {
                 font-size: 1.5rem;
             }
-            
+
             .bannerText {
                 padding: 0 0.5rem;
             }
@@ -70,11 +70,11 @@
                 height: 20vh;
                 max-height: 250px;
             }
-            
+
             .banner-title {
                 font-size: 1.2rem;
             }
-            
+
             .bannerText {
                 padding: 0 0.25rem;
             }
@@ -89,11 +89,11 @@
     <div class="position-relative banner-container">
         <img src="{{asset('assets/premiumBanner.jpg')}}" alt="Company Cover" class="img-fluid w-100 banner-img">
         <div class="bannerText position-absolute top-50 start-50 translate-middle text-center text-white px-4">
-            <h1 class="fw-medium">{{__('lang.exploreExciting')}} <span style="color: gold">{{__('lang.bundle')}}</span> {{__('lang.and')}} <span style="color: gold">{{__('lang.benefit')}}</span></h1>
+            <h1 class="fw-medium">{{__('lang.Explore Exciting')}} <span style="color: gold">{{__('lang.bundle')}}</span> {{__('lang.and')}} <span style="color: gold">{{__('lang.benefit')}}</span></h1>
             <h1 class="fw-medium">{{__('lang.careerLattice')}}</h1>
         </div>
     </div>
-    
+
 
     <div class="container mt-5 mb-3">
         <h1 class="fw-bold text-center mb-2">{{__('lang.choose')}} <span style="color: gold;">{{__('lang.plan')}}</span> ✨</h1>

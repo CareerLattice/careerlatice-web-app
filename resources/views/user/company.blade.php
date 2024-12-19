@@ -57,7 +57,7 @@
             <div class="card-body">
                 <ul class="nav nav-tabs mb-4" id="companyTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" style="font-size: 1.2rem;">{{__('lang.jobVacanciesList')}}</button>
+                        <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" style="font-size: 1.2rem;">{{__('lang.Job Vacancies')}}</button>
                     </li>
                 </ul>
 
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <hr class="my-4">
                     <h5 class="fw-bold text-center">{{__('lang.follow')}} <span style="color: #0056b3;">{{$company->user->name}}</span> {{__('lang.socialMed')}}</h5>
 
