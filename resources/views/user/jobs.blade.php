@@ -84,7 +84,7 @@
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchJobs')}}" method="GET">
                 <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search by Company Name" aria-label="Search" name="search">
 
-                <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;" onchange="updatePlaceholder()">
+                <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 160px;" onchange="updatePlaceholder()">
                     <option value="name">{{__('lang.companyName')}}</option>
                     <option value="title">{{__('lang.jobTitle')}}</option>
                     <option value="job_type">{{__('lang.jobType')}}</option>

@@ -204,6 +204,7 @@ return [
         'contact' => 'Contact us for more information!',
         'discoverExciting' => 'Discover Exciting',
         'jobVacancies' =>'Job Vacancies',
+        'jobVacanciesInvite' => 'Explore exciting job vacancies at our company and take the first step toward a brighter career future!',
         'browse' => 'Browse over 200+ Top Jobs Vacancy from Top Industry Leaders',
         'companyName' => 'Company Name',
         'jobTitle' => 'Job Title',
@@ -221,6 +222,7 @@ return [
         'discover' => 'Discover Your',
         'ideal' => 'Ideal Companies',
         'here' => 'Here',
+        'jobVacanciesList' => 'Job Vacancies',
         'searchExplore' => 'Search, explore, and connect with top companies that match your career aspirations and field of interest.',
         'exploreComp' => 'Explore Companies',
         'searchYour' => 'Search your',
@@ -279,7 +281,8 @@ return [
         'editEducation' => 'Edit Education',
         'compName' => 'Company Name',
         'pos' => 'Position',
-        'head' => 'Headline',
+        'name' => 'Name',
+        'headline' => 'Headline',
         'profilePic' => 'Profile Picture',
         'saveChange' => 'Save Changes',
         'cv' => 'CV',
@@ -296,7 +299,7 @@ return [
         'easySearch' => 'Easy Job Search',
         'personalizedJob' => 'Get personalized job offers directly on your homepage, making it easier to find the right opportunities.',
         'priority' => 'Priority Application',
-        'priotityDesc' => 'Your application will be prioritized by employers, increasing your chances of getting noticed.',
+        'priorityDesc' => 'Your application will be prioritized by employers, increasing your chances of getting noticed.',
         'enhancedProfile' => 'Enhanced Profile Visibility',
         'enhancedProfileDesc' => 'Your profile will be viewed more frequently by companies, helping you gain more job opportunities.',
         'takeCareer' => 'Take Your Career to the',
@@ -393,7 +396,7 @@ return [
     // Start of Admin Page
         // Admin Home Page
         'Welcome Back' => 'Welcome Back',
-        'Month Income' => 'This Month Income',
+        'This Month Income' => 'This Month Income',
         'Total Income' => 'Total Income',
         'Total Applier' => 'Total Applier',
         'Total Company' => 'Total Company',
@@ -407,7 +410,12 @@ return [
         'Revenue' => 'Revenue',
         'Start' => 'Start Date',
         'End' => 'End Date',
-        'No Premium' => 'No Premium User Found.',
+        'No Premium User Found' => 'No Premium User Found.',
+        'IDR' => 'IDR',
+        'Email Address' => 'Email Address',
+        'Current Password' => 'Current Password',
+        'Password' => 'Password',
+        'Send Password Reset Link' => 'Send Password Reset Link',
     // End of Admin Page
 
     //Landing Page
@@ -471,7 +479,6 @@ return [
         'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals.' =>'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals.',
         'Seize Your Opportunity to Get Hired!' => 'Seize Your Opportunity to Get Hired!',
         'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals' => 'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals',
-        
         'Discover Exciting Job Vacancies!' => 'Discover Exciting Job Vacancies!',
         'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.' =>'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.',
         'Hear From Our Users' => 'Hear From Our Users',
@@ -531,7 +538,6 @@ return [
             'Forgot Your Password?' => 'Forgot Your Password?',
 
             //email
-            'Change Password' => 'Change Password',
             'Email Address' => 'Email Address',
             'Send Password Reset Link' => 'Send Password Reset Link',
 
@@ -547,14 +553,15 @@ return [
     //End of auth
 
     //Start of Landing Page
-    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Bangun kariermu lewat koneksi. Gabung bersama kami dan temukan potensi terbaikmu!',
+        'Empowering Your Careers Through Connection' => 'Gabung bersama kami dan temukan potensi terbaikmu!',
+        'Join us to explore your strength' => 'Join us to explore your strength',
         'Join Top Leading' => 'Join Top Leading',
         'Companies' => 'Companies',
         'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference.',
         'Explore Exciting' => 'Explore Exciting',
         'Job Vacancies' => 'Job Vacancies',
-        'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Discover exciting job opportunities tailored just for you – start exploring now!',
-        'start exploring now!' => 'start exploring now!',
+        'Discover exciting job opportunities tailored just for you' => 'Discover exciting job opportunities tailored just for you',
+        'start exploring now' => 'start exploring now',
         'Previous' => 'Previous',
         'Next' => 'Next',
         'A Quick Look at' => 'A Quick Look at',
@@ -640,12 +647,19 @@ return [
     //End of Setting Page
 
     //Start of Sign Up Page
-        'Please Choose' => 'Please Choose',
-        'Role' => 'Role',
+        'Please Choose your Role' => 'Please Choose your Role',
         'Welcome' => 'Welcome',
         'We\'ll personalize your setup experience accordingly' => 'We\'ll personalize your setup experience accordingly',
         'I\'m here to apply' => 'I\'m here to apply',
         'I\'m hiring talent' => 'I\'m hiring talent',
     //End of Sign Up Page
+
+    // Start of modal
+    'titleModal' => 'Are you sure?',
+    'textModal' => 'You won\'t be able to revert this!',
+    'confirmButtonModal' => 'Yes, Delete it!',
+    'cancelButtonTextModal' => 'Cancel',
+
+    // End modal
 ];
 ?>

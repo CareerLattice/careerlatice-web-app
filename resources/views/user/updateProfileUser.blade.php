@@ -322,7 +322,7 @@
                             <label for="job_type" class="form-label">{{__('lang.jobType')}}</label>
                             <select name="job_type" id="job_type">
                                 <option value="Full-time">{{__('lang.fullTimeCreateJob')}}</option>
-                                <option value="Part-time">{{__('lang.parttimeCreateJob')}}</option>
+                                <option value="Part-time">{{__('lang.partTimeCreateJob')}}</option>
                                 <option value="Freelance">{{__('lang.freelance')}}</option>
                                 <option value="Internship">{{__('lang.internshipCreateJob')}}</option>
                             </select>
@@ -463,13 +463,14 @@
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
+                        title: "{{__('lang.titleModal')}}",
+                        text: "{{__('lang.textModal')}}",
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, delete it!"
+                        confirmButtonText: "{{__('lang.confirmButtonModal')}}",
+                        cancelButtonText: "{{__('lang.cancelButtonTextModal')}}",
                     }).then((result) => {
                         if (result.isConfirmed) {
                             button.closest(".delete-form").submit();

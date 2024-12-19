@@ -178,8 +178,8 @@ return [
     'unleash' => 'Keluarkan potensi anda',
     'moto' => 'CareerLattice—terhubung, jelajahi, dan dapatkan',
     'dreamJob' => 'pekerjaan impian anda',
-    'curActive' => 'Aktif',
-    'jobApplications' => 'Pengaplikasian lowongan kerja',
+    'curActive' => 'Pendaftaran',
+    'jobApplications' => 'Lowongan Kerja Anda',
     'noJob' => 'Anda tidak memiliki lamaran pekerjaan yang aktif.',
     'applied' => 'Didaftarkan pada',
     'showAllJob' => 'Tampilkan semua lamaran kerja',
@@ -203,15 +203,15 @@ return [
     // Jobs
     'explore' => 'Telusuri dengan lebih dari',
     '500+' => '500+',
-    'exciting' => 'Lowongan Pekerjaan yang Menaarik',
+    'exciting' => 'Lowongan Pekerjaan yang Menarik',
     'launch' => 'Mulai Karir dengan',
     'top' => 'Pimpinan Industri Teratas',
     'gain' => 'Dapatkan wawasan dan peluang eksklusif dari para profesional terbaik di bidang Anda, serta temukan peluang yang disesuaikan dengan keahlian dan aspirasi Anda.',
     'updateProfile' => 'Perbaharui Profil',
     'exploreJob' => ' Telusuri Pekerjaan',
     'contact' => 'Hubungi kami untuk informasi lebih lanjut',
-    'discoverExciting' => 'Temukan hal yang menyenangkan',
-    'jobVacancies' => 'Lowongan Pekerjaan',
+    'discoverExciting' => 'Temukan',
+    'jobVacancies' => 'Lowongan Pekerjaan yang Menarik',
     'browse' =>'Telusuri lebih dari 200+ Lowongan Pekerjaan Terbaik dari Pemimpin Industri Terkemuka.',
     'companyName' => 'Nama Perusahaan',
     'jobTitle' => 'Judul Pekerjaan',
@@ -229,6 +229,8 @@ return [
     'reputable' => 'perusahaan terkemuka',
     'discover' => 'Temukan',
     'ideal' => 'Perusahaan yang Ideal',
+    'jobVacanciesList' => 'Lowongan Pekerjaan',
+    'jobVacanciesInvite' => 'Telusuri peluang kerja menarik di perusahaan kami dan ambil langkah pertama menuju masa depan karier yang lebih cerah!',
     'here' => 'Disini',
     'searchExplore' => 'Cari, jelajahi, dan terhubung dengan perusahaan-perusahaan terkemuka yang sesuai dengan aspirasi karier dan bidang minat Anda.',
     'exploreComp' => 'Menelusuri Perusahaan',
@@ -268,74 +270,74 @@ return [
     'benefits' => 'Keuntungan',
     'noBen' => 'Belum ada keuntungan yang didapatkan',
 
-    // Update Profile
-    'edu' => 'Pendidikan',
-    'proExp' => 'Pengalaman Professional',
-    'grade' => 'Nilai',
-    'edit' => 'Ubah',
-    'del' => 'Hapus',
-    'addEdu' => 'Tambah Pendidikan',
-    'addExp' => 'Tambah Pengalaman',
-    'phone' => 'Telepon',
-    'uploadCV' => 'Unggah CV',
-    'institute' => 'Institusi',
-    'deg' => 'Gelar',
-    'startDate' => 'Tanggal mulai',
-    'endDate' => 'Tanggal akhir',
-    'maxGrade' => 'Nilai Maksimum',
-    'fieldOfStudy' => 'Bidang belajar',
-    'save' => 'Simpan',
-    'editEducation' => 'Ubah Pendidikan',
-    'compName' => 'Nama Perusahaan',
-    'pos' => 'Posisi',
-    'head' => 'Utama',
-    'profilePic' => 'Gambar Profil',
-    'saveChange' => 'Simpan Perubahan',
-    'cv' => 'CV',
-    'editExp' => 'Ubah Pengalamana',
-    'currently' => 'Saya saat ini sedang bekerja disini',
-    'cancel' => 'batal',
-    'freelance' => 'Pekerja Lepas',
-    'There is no address yet' => 'Belum ada alamat',
+    //Update Profile
+        'edu' => 'Pendidikan',
+        'proExp' => 'Pengalaman Professional',
+        'grade' => 'Nilai',
+        'edit' => 'Ubah',
+        'del' => 'Hapus',
+        'addEdu' => 'Tambah Pendidikan',
+        'addExp' => 'Tambah Pengalaman',
+        'phone' => 'Telepon',
+        'uploadCV' => 'Unggah CV',
+        'institute' => 'Institusi',
+        'deg' => 'Gelar',
+        'startDate' => 'Tanggal mulai',
+        'endDate' => 'Tanggal akhir',
+        'maxGrade' => 'Nilai Maksimum',
+        'fieldOfStudy' => 'Bidang belajar',
+        'save' => 'Simpan',
+        'editEducation' => 'Ubah Pendidikan',
+        'compName' => 'Nama Perusahaan',
+        'pos' => 'Posisi',
+        'name' => 'Name',
+        'headline' => 'Sorotan Profil',
+        'profilePic' => 'Gambar Profil',
+        'saveChange' => 'Simpan Perubahan',
+        'cv' => 'CV',
+        'editExp' => 'Ubah Pengalamana',
+        'currently' => 'Saya saat ini sedang bekerja disini',
+        'cancel' => 'batal',
+        'freelance' => 'Pekerja Lepas',
 
-    // premiumUser
-    'achieve' => 'Raih Lebih dengan',
-    'exclusive' => 'Daftar sekarang untuk menjadi kreator eksklusif dan dapatkan akses ke',
-    'features' => 'keistimewaan dan fitur unik yang dirancang khusus untuk Anda.',
-    'easySearch' => 'Pencarian Pekerjaan Mudah',
-    'personalizedJob' => 'Dapatkan tawaran pekerjaan yang dipersonalisasi langsung di beranda Anda, mempermudah menemukan peluang yang tepat.',
-    'priority' => 'Prioritas Lamaran',
-    'priotityDesc' => 'Lamaran Anda akan diprioritaskan oleh pemberi kerja, meningkatkan peluang untuk diperhatikan.',
-    'enhancedProfile' => 'Visibilitas Profil yang Ditingkatkan',
-    'enhancedProfileDesc' => 'Profil Anda akan lebih sering dilihat oleh perusahaan, membantu Anda mendapatkan lebih banyak peluang kerja.',
-    'takeCareer' => 'Bawa Karier Anda ke',
-    'nextLevel' => 'Level Berikutnya',
-    'premiumSub' => 'Dengan langganan Career Lattice Premium, Anda akan membuka peluang tak tertandingi untuk menonjol, mendapatkan visibilitas lebih, dan terhubung langsung dengan profesional industri terkemuka yang aktif mencari talenta.',
-    'fastTrack' => 'Percepat kemajuan karier Anda dengan profil yang menarik perhatian dari pemberi kerja terkemuka, menempatkan Anda di jalur kesuksesan.',
-    'subToday' => 'Berlangganan Sekarang',
-    'premiumMember' => 'Anggota Premium Membuka Lebih Banyak',
-    'oppurtunities' => 'Peluang',
-    'other' => 'Tahukah Anda bahwa menjadi anggota Premium tidak hanya memberi Anda akses ke fitur eksklusif, tetapi juga meningkatkan peluang Anda menerima tawaran pekerjaan dan peluang karier? Investasikan untuk masa depan Anda dan saksikan peluang berdatangan!',
-    'testimoni' => '"Platform ini benar-benar mengubah pencarian pekerjaan saya! Saya mendapatkan pekerjaan impian hanya dalam beberapa minggu!"',
-    'peopleTest' => '— Jane Doe',
-    'otherTestimoni' => '"Layanan luar biasa dengan dukungan fantastis! Sangat saya rekomendasikan untuk siapa saja yang mencari peluang."',
-    'peopleTest2' => '— John Smith',
-    'otherTestimoni2' => '"Pengalaman pengguna yang mulus dan daftar pekerjaan yang sangat banyak. Sangat puas!"',
-    'peopleTest3' => '-Emily Johnson',
-    'prev' => 'Sebelumnya',
-    'next' => 'Berikutnya',
+        //premiumUser
+        'achieve' => 'Raih Lebih dengan',
+        'exclusive' => 'Daftar sekarang untuk menjadi kreator eksklusif dan dapatkan akses ke',
+        'features' => 'keistimewaan dan fitur unik yang dirancang khusus untuk Anda.',
+        'easySearch' => 'Pencarian Pekerjaan Mudah',
+        'personalizedJob' => 'Dapatkan tawaran pekerjaan yang dipersonalisasi langsung di beranda Anda, mempermudah menemukan peluang yang tepat.',
+        'priority' => 'Prioritas Lamaran',
+        'priorityDesc' => 'Lamaran Anda akan diprioritaskan oleh pemberi kerja, meningkatkan peluang untuk diperhatikan.',
+        'enhancedProfile' => 'Visibilitas Profil yang Ditingkatkan',
+        'enhancedProfileDesc' => 'Profil Anda akan lebih sering dilihat oleh perusahaan, membantu Anda mendapatkan lebih banyak peluang kerja.',
+        'takeCareer' => 'Bawa Karier Anda ke',
+        'nextLevel' => 'Level Berikutnya',
+        'premiumSub' => 'Dengan langganan Career Lattice Premium, Anda akan membuka peluang tak tertandingi untuk menonjol, mendapatkan visibilitas lebih, dan terhubung langsung dengan profesional industri terkemuka yang aktif mencari talenta.',
+        'fastTrack' => 'Percepat kemajuan karier Anda dengan profil yang menarik perhatian dari pemberi kerja terkemuka, menempatkan Anda di jalur kesuksesan.',
+        'subToday' => 'Berlangganan Sekarang',
+        'premiumMember' => 'Anggota Premium Membuka Lebih Banyak',
+        'oppurtunities' => 'Peluang',
+        'other' => 'Tahukah Anda bahwa menjadi anggota Premium tidak hanya memberi Anda akses ke fitur eksklusif, tetapi juga meningkatkan peluang Anda menerima tawaran pekerjaan dan peluang karier? Investasikan untuk masa depan Anda dan saksikan peluang berdatangan!',
+        'testimoni' => '"Platform ini benar-benar mengubah pencarian pekerjaan saya! Saya mendapatkan pekerjaan impian hanya dalam beberapa minggu!"',
+        'peopleTest' => '— Jane Doe',
+        'otherTestimoni' => '"Layanan luar biasa dengan dukungan fantastis! Sangat saya rekomendasikan untuk siapa saja yang mencari peluang."',
+        'peopleTest2' => '— John Smith',
+        'otherTestimoni2' => '"Pengalaman pengguna yang mulus dan daftar pekerjaan yang sangat banyak. Sangat puas!"',
+        'peopleTest3' => '-Emily Johnson',
+        'prev' => 'Sebelumnya',
+        'next' => 'Berikutnya',
 
 
-    // UserJobVacancies
-    'hello' => 'Halo',
-    'journeyAwait' => 'Perjalanan Anda Menanti',
-    'endlessPossibilities' => 'Temukan kemungkinan tanpa batas dan buka peluang baru untuk masa depan cerah Anda!',
-    'currentActive' => 'Saat Ini Aktif',
-    'jobApp' => 'Aplikasi Pekerjaan',
-    'appliedOn' => 'Dilamar pada',
-    'viewJobVac' => 'Lihat Lowongan Pekerjaan',
-    'unapply' => 'Batalkan Lamaran',
-    'noActiveJob' => 'Anda tidak memiliki aplikasi pekerjaan aktif.',
+        //UserJobVacancies
+        'hello' => 'Halo',
+        'journeyAwait' => 'Perjalanan Anda Menanti',
+        'endlessPossibilities' => 'Temukan kemungkinan tanpa batas dan buka peluang baru untuk masa depan cerah Anda!',
+        'currentActive' => 'Lamaran Kerja',
+        'jobApp' => 'Aktif',
+        'appliedOn' => 'Dilamar pada',
+        'viewJobVac' => 'Lihat Lowongan Pekerjaan',
+        'unapply' => 'Batalkan Lamaran',
+        'noActiveJob' => 'Anda tidak memiliki aplikasi pekerjaan aktif.',
 
 
     // premium bundle
@@ -428,7 +430,7 @@ return [
     // Start of Admin Page
         // Admin Home Page
         'Welcome Back' => 'Selamat Datang Kembali',
-        'Month Income' => 'Pendapatan Bulan Ini',
+        'This Month Income' => 'Pendapatan Bulan Ini',
         'Total Income' => 'Jumlah Pendapatan',
         'Total Applier' => 'Jumlah Pelamar',
         'Total Company' => 'Jumlah Perusahaan',
@@ -444,6 +446,7 @@ return [
         'Start' => 'Tanggal Mulai',
         'End' => 'Tanggal Selesai',
         'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
+        'IDR' => 'Rp',
     // End of Admin Page
         
     //start of auth page
@@ -468,9 +471,10 @@ return [
         'Reset Password' => 'Ubah Kata Sandi',
         'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
 
-    // register
-    'Register' => 'Daftar',
-    'Confirm Password' => 'Konfirmasi Password',
+        //register
+        'Register' => 'Daftar',
+        'Name' => 'Nama',
+        'Confirm Password' => 'Konfirmasi Kata Sandi',
 
     // verify
     'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
@@ -483,34 +487,23 @@ return [
     // confirm
     'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
     'Forgot Your Password?' => 'Lupa Password?',
-
             //email
             'Change Password' => 'Ubah Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-            'Email Address' => 'Alamat Email',
             'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
-
             //reset
-            'Change Password' => 'Ubah Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-            'Email Address' => 'Alamat Email',
-            'Password' => 'Kata Sandi',
-            'Confirm Password' => 'Konfirmasi Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-
-
     //End of auth
 
     //start of landing page
     'Welcome to' => 'Selamat datang di',
-    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
+    'Empowering Your Careers Through Connection' => 'Bangun kariermu lewat koneksi',
+    'Join us to explore your strength' => 'Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
     'Join Top Leading' => 'Bergabung dengan tim leading',
     'Companies' => 'Perusahaan',
     'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
     'Explore Exciting' => 'Telusuri hal menarik',
     'Job Vacancies' => 'Lowongan Pekerjaan',
-    'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
-    'start exploring now!' => 'mulai telusuri dari sekarang!',
+    'Discover exciting job opportunities tailored just for you' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda',
+    'start exploring now' => 'mulai telusuri dari sekarang',
     'Previous' => 'Sebelumnya',
     'Next' => 'Selanjutnya',
     'A Quick Look at' => 'Sekilas',
@@ -582,8 +575,7 @@ return [
     'The platform helped me land a great job with ease. Highly efficient' => 'Platform ini membantu saya mendapatkan pekerjaan yang hebat dengan mudah. Sangat efisien',
     'Amazing experience, from job search to interview' => 'Pengalaman luar biasa, dari pencarian kerja hingga wawancara',
     'Everything was smooth' => 'Semuanya berjalan lancar',
-    'Found my ideal job quickly' => 'Saya menemukan pekerjaan ideal saya dengan cepat',
-
+    'Found my ideal job quickly. Very happy with the service!' => 'Saya menemukan pekerjaan ideal saya dengan cepat. Saya sangat senang dengan Layanannya!',
     //End of Landing Page
 
     //Start of Setting Page
@@ -592,16 +584,25 @@ return [
     'Settings' => 'Pengaturan',
     'Select Language' => 'Pilih Bahasa',
     'Save Changes' => 'Simpan Perubahan',
+    'Email Address' => 'Email Address',
+    'Current Password' => 'Kata Sandi Sekarang',
+    'Password' => 'Kata Sandi',
+    'Send Password Reset Link' => 'Kirim Link Reset Sandi',
     //End of Setting Page
 
     //Start of Sign Up Page
-    'Please Choose' => 'Silahkan Pilih',
-    'Role' => 'Peran',
+    'Please Choose your Role' => 'Silahkan Pilih Peran kamu',
     'Welcome' => 'Selamat Datang',
     'We\'ll personalize your setup experience accordingly' => 'Kami akan mempersonalisasi pengalaman pengaturan Anda sesuai',
     'I\'m here to apply' => 'Saya disini untuk mencari pekerjaan',
-    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja'
+    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja',
     //End of Sign Up Page
-];
 
+     // Start of modal
+    'titleModal' => 'Apakah Anda yakin?',
+    'textModal' => 'Anda tidak akan dapat mengembalikannya!',
+    'confirmButtonModal' => 'Ya, Hapus!',
+    'cancelButtonTextModal' => 'Batal',
+     // End modal
+];
 ?>

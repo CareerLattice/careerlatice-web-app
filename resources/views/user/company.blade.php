@@ -57,14 +57,14 @@
             <div class="card-body">
                 <ul class="nav nav-tabs mb-4" id="companyTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" style="font-size: 1.2rem;">{{__('lang.jobVacancies')}}</button>
+                        <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" style="font-size: 1.2rem;">{{__('lang.jobVacanciesList')}}</button>
                     </li>
                 </ul>
 
                 <div class="tab-content" id="companyTabContent">
                     <h4 class="section-title" style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; color: #0056b3;">{{__('lang.discoverExciting')}}</h4>
                     <p class="mb-4" style="color: #555;">
-                    {{__('company/userCompany.joinUs')}}
+                    {{__('lang.jobVacanciesInvite')}}
                         </p>
                     <div class="row">
                         @forelse ($jobs as $job)

@@ -45,14 +45,14 @@
                 <form method="POST" action="{{route('password.email')}}">
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        <label for="email" class="col-form-label text-md-end">{{ __('lang.Email Address') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="password" class="col-form-label text-md-end">{{ __('Current Password') }}</label>
-                                        <input id="password" type="password" placeholder="Password" class="form-control" name="password" required>
-                                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label text-md-end">{{ __('lang.Current Password') }}</label>
+                        <input id="password" type="password" placeholder="{{ __('lang.Password') }}" class="form-control" name="password" required>
+                    </div>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -66,11 +66,11 @@
                                         </div>
                                     @endif
 
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Send Password Reset Link') }}
-                                    </button>
-                                </form>
-                            </div>
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('lang.Send Password Reset Link') }}
+                    </button>
+                </form>
+              </div>
 
               <!-- Change Language Content -->
               <div class="tab-pane fade" id="changeLanguage" role="tabpanel">
