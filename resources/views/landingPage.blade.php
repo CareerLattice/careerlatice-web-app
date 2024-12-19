@@ -1082,7 +1082,7 @@
                                 <span class="star filled">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <p class="testimonial-text">"{{__('lang.Found my ideal job quickly')}}. {{__('lang.Very happy with the service')}}!"</p>
+                            <p class="testimonial-text">"{{__('lang.Found my ideal job quickly. Very happy with the service!')}}</p>
                             <h5 class="testimonial-author">— Olivia Adams</h5>
                         </div>
                     </div>

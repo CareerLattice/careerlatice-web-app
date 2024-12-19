@@ -487,15 +487,10 @@ return [
     // confirm
     'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
     'Forgot Your Password?' => 'Lupa Password?',
-
             //email
             'Change Password' => 'Ubah Kata Sandi',
             'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
-
             //reset
-            
-
-
     //End of auth
 
     //start of landing page
@@ -580,8 +575,7 @@ return [
     'The platform helped me land a great job with ease. Highly efficient' => 'Platform ini membantu saya mendapatkan pekerjaan yang hebat dengan mudah. Sangat efisien',
     'Amazing experience, from job search to interview' => 'Pengalaman luar biasa, dari pencarian kerja hingga wawancara',
     'Everything was smooth' => 'Semuanya berjalan lancar',
-    'Found my ideal job quickly' => 'Saya menemukan pekerjaan ideal saya dengan cepat',
-
+    'Found my ideal job quickly. Very happy with the service!' => 'Saya menemukan pekerjaan ideal saya dengan cepat. Saya sangat senang dengan Layanannya!',
     //End of Landing Page
 
     //Start of Setting Page
