@@ -56,6 +56,8 @@ return [
     'personInChargeCreateJob' => 'Person in Charge',
     'contactPersonCreateJob' => 'Contact Person',
     'addJobCreateJob' => 'Add Job',
+    'Job Benefit' => 'Job Benefit',
+    'Job Photo' => 'Job Photo',
 
     // editJob page
     'cancelEditEditJob' => 'Cancel Edit',

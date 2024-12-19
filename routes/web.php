@@ -35,8 +35,6 @@ Route::middleware('auth')->group(function(){
         $request->session()->put('locale', $request->language);
         return redirect()->back();
     })->name('setLocale');
-
-
 });
 
 // Laravel UI

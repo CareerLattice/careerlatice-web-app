@@ -56,6 +56,8 @@ return [
     'personInChargeCreateJob' => 'Penanggung Jawab',
     'contactPersonCreateJob' => 'Kontak Person',
     'addJobCreateJob' => 'Tambah Pekerjaan',
+    'Job Benefit' => 'Manfaat Pekerjaan',
+    'Job Photo' => 'Foto Lowongan Kerja',
 
     // editJob page
     'cancelEditEditJob' => 'Batal Edit',

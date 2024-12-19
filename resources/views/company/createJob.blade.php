@@ -10,7 +10,7 @@
             <i class="bi bi-arrow-left-circle"></i> {{__('lang.backCreateJob')}}
         </a>
 
-        <form action="{{route('company.createJob')}}" method="POST">
+        <form action="{{route('company.createJob')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">{{__('lang.jobTitleCreateJob')}}</label>
@@ -33,6 +33,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="benefit" class="form-label">{{__('lang.Job Benefit')}}</label>
+                <textarea class="form-control" id="benefit" name="benefit" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
                 <label for="job_type" class="form-label">{{__('lang.jobTypeCreateJob')}}</label>
                 <select class="form-select" id="job_type" name="job_type" required>
                     <option value="Full-time">{{__('lang.fullTimeCreateJob')}}</option>
@@ -51,6 +56,13 @@
                 <label for="contact_person" class="form-label">{{__('lang.contactPersonCreateJob')}}</label>
                 <input type="tel" textarea class="form-control" id="contact_person" name="contact_person" rows="1" required></textarea>
             </div>
+
+            <div class="mb-3 d-flex flex-column">
+                <label for="job_image" class="form-label">{{__('lang.Job Photo')}}</label>
+                <input type="file" id="job_image" name="job_image">
+            </div>
+
+
 
             @if ($errors->any())
                 <div class="alert alert-danger">

@@ -25,11 +25,13 @@ class JobController extends Controller
             'address' => 'required|string|max:255',
             'description' => 'required|string',
             'requirement' => 'required|string',
+            'benefit' => 'string|nullable',
             'person_in_charge' => 'required|string',
             'contact_person' => 'required|string',
+            'job_image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        Job::create([
+        $job = Job::create([
             'title' => $req->title,
             'job_type' => $req->job_type,
             'address' => $req->address,
@@ -37,10 +39,27 @@ class JobController extends Controller
             'requirement' => $req->requirement,
             'person_in_charge' => $req->person_in_charge,
             'contact_person' => $req->contact_person,
-
+            'benefit' => $req->benefit,
             'company_id' => Auth::user()->company->id,
+            'job_picture' => 'default_job_picture.jpg',
             'is_active' => true,
         ]);
+
+        if($req->hasFile('job_image')){
+            $file = $req->file('job_image');
+            $destinationPath = public_path('upload/company/job_picture');
+            $fileName = $job->id . '_job_picture.' . $req->file('job_image')->getClientOriginalExtension();
+
+            if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && File::exists(public_path('upload/company/job_picture/' . $job->job_picture))) {
+                File::delete(public_path('upload/company/job_picture/' . $job->job_picture));
+            }
+
+            $file->move($destinationPath, $fileName);
+
+            $job->update([
+                'job_picture' => $fileName,
+            ]);
+        }
 
         return redirect()->route('company.listJob');
     }
@@ -70,9 +89,9 @@ class JobController extends Controller
         }
 
         if($req->hasFile('job_image')){
-            $file = $req->file('profile_picture');
+            $file = $req->file('job_image');
             $destinationPath = public_path('upload/company/job_picture');
-            $fileName = $job->id . '_profile_picture.' . $req->file('job_image')->getClientOriginalExtension();
+            $fileName = $job->id . '_job_picture.' . $req->file('job_image')->getClientOriginalExtension();
 
             if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && File::exists(public_path('upload/company/job_picture/' . $job->job_picture))) {
                 File::delete(public_path('upload/company/job_picture/' . $job->job_picture));
