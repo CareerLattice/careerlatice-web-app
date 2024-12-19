@@ -77,7 +77,11 @@
             <div class="card-body">
                 <div class="d-md-flex align-items-center mb-4">
                     <div class="col-12 col-md-3 mb-2 d-flex justify-content-center">
-                        <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                        @if ($applier->user->profile_picture != null && File::exists(public_path('upload/profile_picture/' . $applier->user->profile_picture)))
+                            <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                        @else
+                            <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                        @endif
                     </div>
 
                     <div class="col-12 col-md-7 ms-3">
@@ -90,8 +94,9 @@
                                 </div>
                             @endif
                             <a href="{{route ('user.updateProfile')}}" class="btn btn-outline-success">{{__ ('lang.editProfile')}}</a>
-                            @if ($applier->cv_url != null)
-                                <a href="{{route('user.updateProfile')}}"><button class="btn btn-outline-primary">{{__ ('lang.View CV')}}</button></a>
+
+                            @if ($applier->cv_url != null && File::exists(public_path('upload/applier/CV/' . $applier->cv_url)))
+                                <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 10%; max-width: 150px;min-width: 90px;">{{__('lang.View CV')}}</a>
                             @endif
                         @endif
                     </div>

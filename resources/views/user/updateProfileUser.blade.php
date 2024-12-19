@@ -144,7 +144,11 @@
                         <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                             <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                                 <div class="d-flex justify-content-center mb-3">
-                                    <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
+                                    @if ($applier->user->profile_picture == null || !File::exists('upload/profile_picture/' . $applier->user->profile_picture))
+                                        <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
+                                    @else
+                                        <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
+                                    @endif
                                 </div>
 
                                 <div class="text-center">
@@ -165,10 +169,10 @@
                                 <p style="text-align: justify;">{{$applier->description}}</p>
                                 <strong class="fs-5">{{__('lang.birthDate')}} </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
                                 <strong>{{__('lang.uploadCV')}}</strong>
-                                @if ($applier->cv_url == null)
-                                    <p class="text-muted">{{__('lang.You have not upload CV yet')}}</p>
+                                @if ($applier->cv_url != null && File::exists(public_path('upload/applier/CV/' . $applier->cv_url)))
+                                    <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 15%; max-width: 100px;min-width: 90px;">{{__('lang.View CV')}}</a>
                                 @else
-                                    <a href="{{asset('upload/applier/CV/' . $applier->cv_url)}}" class="btn btn-outline-primary" target="_blank" style="width: 20%; max-width: 150px;min-width: 90px;">{{__('lang.View CV')}}</a>
+                                    <p class="text-">{{__('lang.You have not upload CV yet')}}</p>
                                 @endif
 
                                 <div class="d-flex justify-content-center">
@@ -463,8 +467,8 @@
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "{{__('lang.titleModal')}}",
-                        text: "{{__('lang.textModal')}}",
+                        title: "{{__('lang.Are you sure?')}}",
+                        text: "{{__('lang.You will not be able to revert this!')}}",
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",

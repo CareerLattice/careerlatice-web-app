@@ -141,7 +141,7 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
 </style>
 
 
@@ -194,7 +194,11 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
                                     <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-                                        <img src="{{asset('upload/profile_picture/' . Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                        @if (Auth::user()->profile_picture != null && File::exists('upload/profile_picture/' . Auth::user()->profile_picture))
+                                            <img src="{{asset('upload/profile_picture/' . Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                        @else
+                                            <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                        @endif
                                     </button>
                                 </h2>
                                 <div id="collapseUser" class="accordion-collapse collapse" aria-labelledby="headingUser" data-bs-parent="#userAccordion">

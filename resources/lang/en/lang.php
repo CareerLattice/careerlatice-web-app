@@ -587,8 +587,8 @@ return [
     //End of Sign Up Page
 
     // Start of modal
-    'titleModal' => 'Are you sure?',
-    'textModal' => 'You won\'t be able to revert this!',
+    'Are you sure?' => 'Are you sure?',
+    'You will not be able to revert this!' => 'You will not be able to revert this!',
     'confirmButtonModal' => 'Yes, Delete it!',
     'cancelButtonTextModal' => 'Cancel',
     // End modal

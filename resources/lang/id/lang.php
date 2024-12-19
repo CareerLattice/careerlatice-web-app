@@ -545,8 +545,8 @@ return [
     //End of Sign Up Page
 
      // Start of modal
-    'titleModal' => 'Apakah Anda yakin?',
-    'textModal' => 'Anda tidak akan dapat mengembalikannya!',
+    'Are you sure?' => 'Apakah Anda yakin?',
+    'You will not be able to revert this!' => 'Anda tidak akan dapat mengembalikannya!',
     'confirmButtonModal' => 'Ya, Hapus!',
     'cancelButtonTextModal' => 'Batal',
      // End modal

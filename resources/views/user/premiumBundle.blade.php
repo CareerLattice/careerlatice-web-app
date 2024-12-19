@@ -94,17 +94,12 @@
         </div>
     </div>
 
-
     <div class="container mt-5 mb-3">
         <h1 class="fw-bold text-center mb-2">{{__('lang.choose')}} <span style="color: gold;">{{__('lang.plan')}}</span> ✨</h1>
         <p class="text-center text-muted mb-5 mt-1">{{__('lang.unlockPremium')}}</p>
 
-        <div class="container mt-5 mb-3">
-            <h1 class="fw-bold text-center mb-2">{{__('lang.choose')}} <span style="color: gold;">{{__('lang.plan')}}</span> ✨</h1>
-            <p class="text-center text-muted mb-5 mt-1">{{__('lang.unlockPremium')}}</p>
-
         <div class="row justify-content-center align-items-stretch">
-        <!-- Essential Plan -->
+            <!-- Essential Plan -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card p-4 shadow position-relative plan-card">
                     <span class="badge bg-primary position-absolute top-0 start-50 translate-middle mt-4">3 {{__('lang.planMonthly')}}</span>
@@ -171,5 +166,4 @@
 
     <hr class="mt-5">
     @include('components.footer')
-
 @endsection
