@@ -115,6 +115,7 @@ return [
     'allCompanyJob' => 'Semua',
     'acceptedCompanyJob' => 'Diterima',
     'rejectedCompanyJob' => 'Ditolak',
+    'cancelledCompanyJob' => 'Dibatalkan',
     'onProcessCompanyJob' => 'Dalam Proses',
     'pendingCompanyJob' => 'Tertunda',
     'noneCompanyJob' => 'Tidak ada',
