@@ -61,7 +61,7 @@
 
         table {
             min-width: 600px; /* Tambahkan lebar minimum agar tabel memiliki scroll horizontal */
-        }   
+        }
         .export{
             padding: 5px 10px;
             font-size: 10px;
@@ -166,9 +166,9 @@
 
                             <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton1">
                                 <li><button class="dropdown-item" name="filter" value="" type="submit">{{__('lang.allCompanyJob')}}</button></li>
-                                <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('lang.acceptedCompanyJob')}}</button></li>
-                                <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('lang.rejectedCompanyJob')}}</button></li>
-                                <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('lang.pendingCompanyJob')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="accepted" type="submit">{{__('lang.Accepted')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="rejected" type="submit">{{__('lang.Rejected')}}</button></li>
+                                <li><button class="dropdown-item" name="filter" value="pending" type="submit">{{__('lang.Pending')}}</button></li>
                             </ul>
                         </div>
                     </form>
@@ -235,13 +235,13 @@
                                 </td>
                                 <td id="{{'status_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                     @if ($application->status == 'accepted')
-                                        <p class="text-success fw-bold">{{__('lang.acceptedCompanyJob')}}</p>
+                                        <p class="text-success fw-bold">{{__('lang.Accepted')}}</p>
                                     @elseif ($application->status == 'rejected')
-                                        <p class="text-danger fw-bold">{{__('lang.rejectedCompanyJob')}}</p>
+                                        <p class="text-danger fw-bold">{{__('lang.Rejected')}}</p>
                                     @elseif($application->status == 'pending')
-                                        <p class="text-primary fw-bold">{{__('lang.pendingCompanyJob')}}</p>
+                                        <p class="text-primary fw-bold">{{__('lang.Pending')}}</p>
                                     @else
-                                        <p class="text-primary fw-bold">{{__('lang.cancelledCompanyJob')}}</p>
+                                        <p class="text-warning fw-bold">{{__('lang.Canceled')}}</p>
                                     @endif
                                 </td>
 
@@ -319,9 +319,9 @@
                 }
 
                 const result = await response.json();
-                let statusValue = `<p class="text-danger fw-bold">{{__('lang.rejectedCompanyJob')}}</p>`;
+                let statusValue = `<p class="text-danger fw-bold">{{__('lang.Rejected')}}</p>`;
                 if (result.status == 'Accepted') {
-                    statusValue = `<p class="text-success fw-bold">{{__('lang.acceptedCompanyJob')}}</p>`;
+                    statusValue = `<p class="text-success fw-bold">{{__('lang.Accepted')}}</p>`;
                 }
 
                 alert('Job Application Status Updated to ' + result.status);
