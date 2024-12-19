@@ -15,10 +15,6 @@ use Carbon\Carbon;
 
 class ApplierController extends Controller
 {
-    public function open_cv($filename){
-        return response()->file(asset('user_cv/' . $filename));
-    }
-
     public function signUpPage(){
         return view('user.signUpUser');
     }

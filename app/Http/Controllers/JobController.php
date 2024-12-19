@@ -309,10 +309,4 @@ class JobController extends Controller
         $jobs = $jobs->paginate(5)->withQueryString();
         return view('user.companyJobVacancies', compact('jobs', 'company'));
     }
-
-    // Testing add Requirement
-    public function addRequirement(Request $req){
-        Job::where('id', 1)->update(['requirement' => $req->requirement, 'benefit' => $req->benefit]);
-        return redirect()->route('user.job', ['job' => 1]);
-    }
 }

@@ -52,14 +52,14 @@
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-primary text-start p-3  text-white" style="height: 150px;">
                         <h6>{{__('lang.This Month Income')}}</h6>
-                        <h2 class="fs-3 fw-bold">IDR. {{number_format($monthRevenue)}}</h2>
+                        <h2 class="fs-3 fw-bold">{{__('lang.IDR')}}. {{number_format($monthRevenue)}}</h2>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="card card-stats bg-gradient-success text-start p-3 text-white " style="height: 150px;">
                         <h6>{{__('lang.Total Income')}}</h6>
-                        <h2 class="fs-3 fw-bold">IDR. {{number_format($totalRevenue)}}</h2>
+                        <h2 class="fs-3 fw-bold">{{__('lang.IDR')}}. {{number_format($totalRevenue)}}</h2>
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
                     <div class="col-12">
                         <div class="card card-stats bg-gradient-danger text-start p-3 text-white text-center" style="height: 150px;">
                             <h6>{{__('lang.Total Income')}}</h6>
-                            <h2 class="fs-3 fw-bold" id="revenue_range">{{number_format($totalRevenue)}}</h2>
+                            <h2 class="fs-3 fw-bold" id="revenue_range">{{__('lang.IDR')}}. {{number_format($totalRevenue)}}</h2>
                         </div>
                     </div>
                 </div>

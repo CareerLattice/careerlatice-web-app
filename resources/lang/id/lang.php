@@ -16,9 +16,6 @@ return [
     //Start of Footer
     'Empowers individuals to advance their careers and build professional networks through expert connections and skill development' => 'Membantu orang mengembangkan karier dan membangun jaringan profesional lewat koneksi dengan ahli dan pengembangan keterampilan',
     'Services' => 'Servis',
-    'Company' => 'Perusahaan',
-    'Home' => 'Home',
-    'Find a Job' => 'Cari Pekerjaan',
     'Contact Us' => 'Hubungi Kami',
     'Contact' => 'Kontak',
     'Since' => 'Sejak',
@@ -28,23 +25,22 @@ return [
     //companyJobs page
     'noJobsAvailableCompanyJobs' => 'Tidak ada pekerjaan yang tersedia.',
 
-        //companyProfile page
-        'backCompanyProfile'=>'Kembali',
-        'titleCompanyProfile' => 'Edit Profil Perusahaan',
-        'captionCompanyProfile' => 'Perbarui informasi perusahaan Anda agar profil Anda selalu terbaru.',
-        'contentTitleCompanyProfile' => 'Unggah Profil Perusahaan',
-        'companyNameCompanyProfile' => 'Nama Perusahaan',
-        'fieldCompanyProfile' => 'Bidang',
-        'companyAddressCompanyProfile' => 'Alamat',
-        'phoneNumberCompanyProfile' => 'Nomor Telepon',
-        'companyDescriptionCompanyProfile' => 'Deskripsi Perusahaan',
-        'saveChangesCompanyProfile' => 'Simpan Perubahan',
-        'companyNamePHCompanyProfile' => 'Masukkan nama perusahaan',
-        'companyFieldPHCompanyProfile' => 'Masukkan bidang perusahaan',
-        'companyAddressPHCompanyProfile' => 'Masukkan alamat perusahaan',
-        'companyPhonePHCompanyProfile' => 'Masukkan nomor telepon perusahaan',
-        'companyDescriptionPHCompanyProfile' => 'Tulis deskripsi singkat tentang perusahaan',
-
+    //companyProfile page
+    'backCompanyProfile'=>'Kembali',
+    'titleCompanyProfile' => 'Edit Profil Perusahaan',
+    'captionCompanyProfile' => 'Perbarui informasi perusahaan Anda agar profil Anda selalu terbaru.',
+    'contentTitleCompanyProfile' => 'Unggah Profil Perusahaan',
+    'companyNameCompanyProfile' => 'Nama Perusahaan',
+    'fieldCompanyProfile' => 'Bidang',
+    'companyAddressCompanyProfile' => 'Alamat',
+    'phoneNumberCompanyProfile' => 'Nomor Telepon',
+    'companyDescriptionCompanyProfile' => 'Deskripsi Perusahaan',
+    'saveChangesCompanyProfile' => 'Simpan Perubahan',
+    'companyNamePHCompanyProfile' => 'Masukkan nama perusahaan',
+    'companyFieldPHCompanyProfile' => 'Masukkan bidang perusahaan',
+    'companyAddressPHCompanyProfile' => 'Masukkan alamat perusahaan',
+    'companyPhonePHCompanyProfile' => 'Masukkan nomor telepon perusahaan',
+    'companyDescriptionPHCompanyProfile' => 'Tulis deskripsi singkat tentang perusahaan',
 
     //createJob page
     'titleCreateJob' => 'Tambahkan Daftar Pekerjaan Baru',
@@ -60,7 +56,6 @@ return [
     'personInChargeCreateJob' => 'Penanggung Jawab',
     'contactPersonCreateJob' => 'Kontak Person',
     'addJobCreateJob' => 'Tambah Pekerjaan',
-
 
     // editJob page
     'cancelEditEditJob' => 'Batal Edit',
@@ -82,7 +77,6 @@ return [
     'contactPersonEditJob' => 'Kontak Person',
     'updateEditJob' => 'Perbarui',
 
-
     // home page
     'welcomeCompanyHome' => 'Selamat datang kembali,',
     'captionCompanyHome' => 'Berikut adalah ringkasan kinerja rekrutmen Anda. Mari kita lihat bagaimana kinerja daftar Anda.',
@@ -103,7 +97,6 @@ return [
     'totalApplicantCompanyHome' => 'Jumlah Pendaftar:',
     'noJobListingCompanyHome' => 'Tidak ada daftar pekerjaan terbaru',
     'seeDetailCompanyHome' => 'Lihat Detail',
-
 
     // job page
     'backCompanyJob' => 'Kembali ke Pekerjaan',
@@ -127,14 +120,12 @@ return [
     'noneCompanyJob' => 'Tidak ada',
     'exportListCompanyJob' => 'Cetak Daftar Pemohon',
     'noCompanyJob' => 'No',
-    'Name' => 'Nama',
     'appliedAtCompanyJob' => 'Diajukan Pada',
     'applicationCVCompanyJob' => 'CV lamaran',
     'statusCompanyJob' => 'Status',
     'actionCompanyJob' => 'Tindakan',
     'openCVCompanyJob' => 'Buka CV',
     'noApplicationFoundCompanyJob' => 'Tidak ada lamaran yang ditemukan.',
-
 
     // listJob page
     'titleListJob' => 'Daftar Lowongan Pekerjaan',
@@ -157,29 +148,25 @@ return [
     'detailsListJob' => 'Detail',
     'noJobListingListJob' => 'Tidak ditemukan Daftar lowongan kerja',
 
-
     //signUpCompany page
     'titleSignUpCompany' => 'BERGABUNG DENGAN KAMI SEKARANG',
     'captionSignUpCompany' => 'Bergabunglah dengan kami hari ini dengan mendaftarkan informasi Anda di bawah ini dan buka peluang menarik!',
     'companyNameSignUpCompany' => 'Nama Perusahaan',
     'emaiSignUpCompany' => 'Email',
-    'Password' => 'Password',
     'addressSignUpCompany' => 'Alamat',
     'phoneNumberSignUpCompany' => 'Nomor Telepon',
     'companyFieldSignUpCompany' => 'Bidang Perusahaan',
     'agreeSignUpCompany' => 'Saya setuju dengan syarat dan ketentuan',
     'signUpSignUpCompany' => 'Daftar',
-
     /* End of Company Page */
 
     // Start of user page
-
     // Home
     'unleash' => 'Keluarkan potensi anda',
     'moto' => 'CareerLattice—terhubung, jelajahi, dan dapatkan',
     'dreamJob' => 'pekerjaan impian anda',
-    'curActive' => 'Aktif',
-    'jobApplications' => 'Pengaplikasian lowongan kerja',
+    'curActive' => 'Pendaftaran',
+    'jobApplications' => 'Lowongan Kerja Anda',
     'noJob' => 'Anda tidak memiliki lamaran pekerjaan yang aktif.',
     'applied' => 'Didaftarkan pada',
     'showAllJob' => 'Tampilkan semua lamaran kerja',
@@ -203,15 +190,14 @@ return [
     // Jobs
     'explore' => 'Telusuri dengan lebih dari',
     '500+' => '500+',
-    'exciting' => 'Lowongan Pekerjaan yang Menaarik',
+    'exciting' => 'Lowongan Pekerjaan yang Menarik',
     'launch' => 'Mulai Karir dengan',
     'top' => 'Pimpinan Industri Teratas',
     'gain' => 'Dapatkan wawasan dan peluang eksklusif dari para profesional terbaik di bidang Anda, serta temukan peluang yang disesuaikan dengan keahlian dan aspirasi Anda.',
     'updateProfile' => 'Perbaharui Profil',
     'exploreJob' => ' Telusuri Pekerjaan',
     'contact' => 'Hubungi kami untuk informasi lebih lanjut',
-    'discoverExciting' => 'Temukan hal yang menyenangkan',
-    'jobVacancies' => 'Lowongan Pekerjaan',
+    'discoverExciting' => 'Temukan',
     'browse' =>'Telusuri lebih dari 200+ Lowongan Pekerjaan Terbaik dari Pemimpin Industri Terkemuka.',
     'companyName' => 'Nama Perusahaan',
     'jobTitle' => 'Judul Pekerjaan',
@@ -223,21 +209,20 @@ return [
     'lastUpdate' => 'Terakhir diperbaharui : ',
     'meet' => 'Temui tim pencari',
 
-
     // Companies
     'exploreConnect' => 'Jelajahi dan terhubung dengan',
     'reputable' => 'perusahaan terkemuka',
     'discover' => 'Temukan',
     'ideal' => 'Perusahaan yang Ideal',
+    'jobVacanciesInvite' => 'Telusuri peluang kerja menarik di perusahaan kami dan ambil langkah pertama menuju masa depan karier yang lebih cerah!',
     'here' => 'Disini',
     'searchExplore' => 'Cari, jelajahi, dan terhubung dengan perusahaan-perusahaan terkemuka yang sesuai dengan aspirasi karier dan bidang minat Anda.',
     'exploreComp' => 'Menelusuri Perusahaan',
     'searchYour' => 'Cari',
     'dreamComp' => 'Pekerjaan Impian',
     'field' => 'Bidang',
-    'visitComp' => 'Kunjungi Perusahaan',
+    'Visit Company' => 'Kunjungi Perusahaan',
     'noComp' => 'Perusahaan tidak ditemukan',
-
 
     // Company
     'welcome' =>'Selamat datang di',
@@ -260,7 +245,6 @@ return [
     'jobName' => 'Nama Pekerjaan',
     'open' => 'Terbuka',
 
-
     // JobDetail
     'jobDesc' =>'Deskripsi Pekerjaan',
     'req' => 'Persyaratan',
@@ -268,7 +252,7 @@ return [
     'benefits' => 'Keuntungan',
     'noBen' => 'Belum ada keuntungan yang didapatkan',
 
-    // Update Profile
+    //Update Profile
     'edu' => 'Pendidikan',
     'proExp' => 'Pengalaman Professional',
     'grade' => 'Nilai',
@@ -288,7 +272,7 @@ return [
     'editEducation' => 'Ubah Pendidikan',
     'compName' => 'Nama Perusahaan',
     'pos' => 'Posisi',
-    'head' => 'Utama',
+    'headline' => 'Sorotan Profil',
     'profilePic' => 'Gambar Profil',
     'saveChange' => 'Simpan Perubahan',
     'cv' => 'CV',
@@ -296,16 +280,16 @@ return [
     'currently' => 'Saya saat ini sedang bekerja disini',
     'cancel' => 'batal',
     'freelance' => 'Pekerja Lepas',
-    'There is no address yet' => 'Belum ada alamat',
+    'You have not upload CV yet' => 'Anda belum mengunggah CV',
 
-    // premiumUser
+    //premiumUser
     'achieve' => 'Raih Lebih dengan',
     'exclusive' => 'Daftar sekarang untuk menjadi kreator eksklusif dan dapatkan akses ke',
     'features' => 'keistimewaan dan fitur unik yang dirancang khusus untuk Anda.',
     'easySearch' => 'Pencarian Pekerjaan Mudah',
     'personalizedJob' => 'Dapatkan tawaran pekerjaan yang dipersonalisasi langsung di beranda Anda, mempermudah menemukan peluang yang tepat.',
     'priority' => 'Prioritas Lamaran',
-    'priotityDesc' => 'Lamaran Anda akan diprioritaskan oleh pemberi kerja, meningkatkan peluang untuk diperhatikan.',
+    'priorityDesc' => 'Lamaran Anda akan diprioritaskan oleh pemberi kerja, meningkatkan peluang untuk diperhatikan.',
     'enhancedProfile' => 'Visibilitas Profil yang Ditingkatkan',
     'enhancedProfileDesc' => 'Profil Anda akan lebih sering dilihat oleh perusahaan, membantu Anda mendapatkan lebih banyak peluang kerja.',
     'takeCareer' => 'Bawa Karier Anda ke',
@@ -322,24 +306,20 @@ return [
     'peopleTest2' => '— John Smith',
     'otherTestimoni2' => '"Pengalaman pengguna yang mulus dan daftar pekerjaan yang sangat banyak. Sangat puas!"',
     'peopleTest3' => '-Emily Johnson',
-    'prev' => 'Sebelumnya',
     'next' => 'Berikutnya',
 
-
-    // UserJobVacancies
+    //UserJobVacancies
     'hello' => 'Halo',
     'journeyAwait' => 'Perjalanan Anda Menanti',
     'endlessPossibilities' => 'Temukan kemungkinan tanpa batas dan buka peluang baru untuk masa depan cerah Anda!',
-    'currentActive' => 'Saat Ini Aktif',
-    'jobApp' => 'Aplikasi Pekerjaan',
+    'currentActive' => 'Lamaran Kerja',
+    'jobApp' => 'Aktif',
     'appliedOn' => 'Dilamar pada',
     'viewJobVac' => 'Lihat Lowongan Pekerjaan',
     'unapply' => 'Batalkan Lamaran',
     'noActiveJob' => 'Anda tidak memiliki aplikasi pekerjaan aktif.',
 
-
     // premium bundle
-    'exploreExciting' => 'Jelajahi yang Menarik',
     'bundle' => 'Paket Premium',
     'and' => 'dan',
     'benefit' => 'Manfaat',
@@ -394,120 +374,13 @@ return [
     'proceedPay' => 'Lanjutkan ke Pembayaran',
     'months' => 'Bulan',
 
-
-        //Landing Page
-        'Welcome to' => 'Selamat datang di',
-        'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
-        'Join Top Leading' => 'Bergabung dengan tim leading',
-        'Companies' => 'Perusahaan',
-        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
-        'Explore Exciting' => 'Telusuri hal menarik',
-        'Job Vacancies' => 'Lowongan Pekerjaan',
-        'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
-        'start exploring now!' => 'mulai telusuri dari sekarang!',
-        'Previous' => 'Sebelumnya',
-        'Next' => 'Selanjutnya',
-        'A Quick Look at' => 'Sekilas',
-        'Our Journey' => 'Perjalanan kami',
-        'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice adalah platform inovatif yang didedikasikan untuk memberdayakan individu dengan membantu mereka memajukan karier dan membangun jaringan profesional yang kuat.',
-        'Launched our platform with' => 'Meluncurkan dengan platform kami',
-        'over 100 active users' => 'lebih dari 100 user aktif',
-        'joining in the first month.' => 'bergabung di bulan pertama',
-        'Gained momentum, reaching' => 'Mendapatkan momentum dan mencapai',
-        'active users' => 'user aktif',
-        'and improving user engagement' => 'dan meningkatkan keterlibatan pengguna',
-        'Secured partnerships with' => 'kemitraan yang aman dengan',
-        'companies' => 'perusahaan',
-        'actively hiring talent from our platform' => 'secara aktif merekrut bakat dari platform kami',
-        'Expanded to' => 'Meluas ke',
-        'over 500 active users' => 'lebih dari 500 aktif user',
-        'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
-
-        //End of Landing Page
-
-    // Start of Admin Page
-        // Admin Home Page
-        'Welcome Back' => 'Selamat Datang Kembali',
-        'Month Income' => 'Pendapatan Bulan Ini',
-        'Total Income' => 'Jumlah Pendapatan',
-        'Total Applier' => 'Jumlah Pelamar',
-        'Total Company' => 'Jumlah Perusahaan',
-        'Website Income' => 'Pendapatan Website',
-        'List of All Premium Users' => 'Daftar Seluruh User Premium',
-        'From' => 'Dari',
-        'To' => 'Sampai',
-        'Search' => 'Cari',
-        'Export All Users' => 'Ekspor Data',
-        'No' => 'No',
-        'Name' => 'Nama',
-        'Revenue' => 'Pendapatan',
-        'Start' => 'Tanggal Mulai',
-        'End' => 'Tanggal Selesai',
-        'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
-    // End of Admin Page
-        
-    //start of auth page
-        //login page
-        'Welcome back! ' => 'Selamat datang kembali! ',
-        'Log in ' => 'Masuk ',
-        ' to find ' => ' dan temukan ',
-        'skilled talent' => 'talenta terampil',
-        ' and connect with ' => ' dan terhubung dengan ',
-        'potential' => 'berbagai potensial',
-        ' candidates through our platform. ' => ' kandidat dalam platform kami ',
-        'Login Now!' => 'Masuk Sekarang!',
-        'Email Address' => 'Alamat Email',
-        'Enter your email' => 'Masukkan email anda',
-        'We\'ll never share your email with anyone else.' => 'Kami tidak akan pernah membagikan email Anda dengan orang lain.',
-        'Password' => 'Kata Sandi',
-        'Enter your password' => 'Masukkan kata sandi',
-        'Login' => 'Masuk',
-        'Don\'t have an account?' => 'Belum memiliki akun?',
-        'Register Here' => 'Daftar Disini',
-        'Forget Password?' => 'Lupa Kata Sandi? ',
-        'Reset Password' => 'Ubah Kata Sandi',
-        'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
-
-    // register
-    'Register' => 'Daftar',
-    'Confirm Password' => 'Konfirmasi Password',
-
-    // verify
-    'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
-    'A fresh verification link has been sent to your email address.' => 'Tautan verifikasi baru telah dikirim ke alamat email Anda.',
-    'Before proceeding, please check your email for a verification link.' => 'Sebelum melanjutkan, silakan periksa email Anda untuk tautan verifikasi.',
-    'If you did not receive the email' => 'Jika Anda tidak menerima email',
-    'click here to request another' => 'klik di sini untuk meminta yang lain',
-
-    // auth/passwords folder
-    // confirm
-    'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
-    'Forgot Your Password?' => 'Lupa Password?',
-
-            //email
-            'Change Password' => 'Ubah Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-            'Email Address' => 'Alamat Email',
-            'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
-
-            //reset
-            'Change Password' => 'Ubah Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-            'Email Address' => 'Alamat Email',
-            'Password' => 'Kata Sandi',
-            'Confirm Password' => 'Konfirmasi Kata Sandi',
-            'Reset Password' => 'Reset Kata Sandi',
-
-
-    //End of auth
-
-    //start of landing page
+    //Landing Page
     'Welcome to' => 'Selamat datang di',
     'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
     'Join Top Leading' => 'Bergabung dengan tim leading',
     'Companies' => 'Perusahaan',
     'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
-    'Explore Exciting' => 'Telusuri hal menarik',
+    'Explore Exciting' => 'Jelajahi hal menarik',
     'Job Vacancies' => 'Lowongan Pekerjaan',
     'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
     'start exploring now!' => 'mulai telusuri dari sekarang!',
@@ -526,8 +399,80 @@ return [
     'companies' => 'perusahaan',
     'actively hiring talent from our platform' => 'secara aktif merekrut bakat dari platform kami',
     'Expanded to' => 'Meluas ke',
-    'over 500 active users' => 'lebih dari 500 pengguna aktif',
+    'over 500 active users' => 'lebih dari 500 aktif user',
     'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
+    //End of Landing Page
+
+    // Start of Admin Page
+    // Admin Home Page
+    'Welcome Back' => 'Selamat Datang Kembali',
+    'This Month Income' => 'Pendapatan Bulan Ini',
+    'Total Income' => 'Jumlah Pendapatan',
+    'Total Applier' => 'Jumlah Pelamar',
+    'Total Company' => 'Jumlah Perusahaan',
+    'Website Income' => 'Pendapatan Website',
+    'List of All Premium Users' => 'Daftar Seluruh User Premium',
+    'From' => 'Dari',
+    'To' => 'Sampai',
+    'Search' => 'Cari',
+    'Export All Users' => 'Ekspor Data',
+    'No' => 'No',
+    'Revenue' => 'Pendapatan',
+    'Start' => 'Tanggal Mulai',
+    'End' => 'Tanggal Selesai',
+    'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
+    'IDR' => 'Rp',
+    // End of Admin Page
+
+    //start of auth page
+    //login page
+    'Welcome back! ' => 'Selamat datang kembali! ',
+    'Log in ' => 'Masuk ',
+    ' to find ' => ' dan temukan ',
+    'skilled talent' => 'talenta terampil',
+    ' and connect with ' => ' dan terhubung dengan ',
+    'potential' => 'berbagai potensial',
+    ' candidates through our platform. ' => ' kandidat dalam platform kami ',
+    'Login Now!' => 'Masuk Sekarang!',
+    'Enter your email' => 'Masukkan email anda',
+    'We\'ll never share your email with anyone else.' => 'Kami tidak akan pernah membagikan email Anda dengan orang lain.',
+    'Email Address' => 'Alamat Email',
+    'Password' => 'Kata Sandi',
+    'Enter your password' => 'Masukkan kata sandi',
+    'Login' => 'Masuk',
+    'Don\'t have an account?' => 'Belum memiliki akun?',
+    'Register Here' => 'Daftar Disini',
+    'Forget Password?' => 'Lupa Kata Sandi? ',
+    'Reset Password' => 'Ubah Kata Sandi',
+    'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
+
+    //register
+    'Register' => 'Daftar',
+    'Name' => 'Nama',
+    'Confirm Password' => 'Konfirmasi Kata Sandi',
+
+    // verify
+    'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
+    'A fresh verification link has been sent to your email address.' => 'Tautan verifikasi baru telah dikirim ke alamat email Anda.',
+    'Before proceeding, please check your email for a verification link.' => 'Sebelum melanjutkan, silakan periksa email Anda untuk tautan verifikasi.',
+    'If you did not receive the email' => 'Jika Anda tidak menerima email',
+    'click here to request another' => 'klik di sini untuk meminta yang lain',
+
+    // auth/passwords folder
+    // confirm
+    'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
+    'Forgot Your Password?' => 'Lupa Password?',
+    //email
+    'Change Password' => 'Ubah Kata Sandi',
+    'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
+    //reset
+    //End of auth
+
+    //start of landing page
+    'Empowering Your Careers Through Connection' => 'Bangun kariermu lewat koneksi',
+    'Join us to explore your strength' => 'Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
+    'Discover exciting job opportunities tailored just for you' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda',
+    'start exploring now' => 'mulai telusuri dari sekarang',
     'Achieved a milestone of' => 'Mencapai tonggak pencapaian berupa',
     'with enhanced services and support' => 'dengan layanan dan dukungan yang ditingkatkan',
     'and expanded our reach to new regions' => 'dan memperluas jangkauan kami ke wilayah baru',
@@ -541,13 +486,11 @@ return [
     'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals' => 'Dengan fokus khusus pada penghapusan kemiskinan, pengurangan kelaparan, promosi pekerjaan layak, mendukung pertumbuhan ekonomi, dan menjalin kemitraan yang berdampak untuk mencapai tujuan ini',
     'Unleash Your Potential with' => 'Wujudkan Potensi Anda dengan',
     'Leading Companies' => 'Perusahaan Terkemuka',
-    'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat siap membuat perbedaan',
     'Technology and Information' => 'Teknologi dan Informasi',
     'Finance and Insurance' => 'Keuangan dan Asuransi',
     'Consulting and Accounting' => 'Konsultasi dan Akuntansi',
     'Healthcare and Hospitality' => 'Kesehatan dan Perhotelan',
     'Show All Popular Company' => 'Tampilkan Semua Perusahaan Populer',
-    'Visit Company' => 'Kunjungi Perusahaan',
     'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods' => 'Tokopedia adalah salah satu pasar online terbesar di Indonesia, menyediakan platform untuk membeli dan menjual barang',
     'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users' => 'Shopee adalah platform e-commerce dengan berbagai fitur, termasuk ShopeePay dan penawaran gratis ongkos kirim untuk pengguna',
     'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services' => 'Grab adalah layanan transportasi terkemuka di Asia Tenggara, juga menyediakan layanan pengantaran makanan dan pembayaran',
@@ -562,7 +505,6 @@ return [
     'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals' => 'Omni Hospital adalah penyedia layanan kesehatan yang menawarkan berbagai layanan medis dengan tenaga kesehatan terbaik',
     'Seize Your Opportunity to Get Hired!' => 'Ambil Peluang Anda untuk Diterima Kerja!',
     'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals' => 'Bergabunglah dengan talenta terbaik dengan melamar ke perusahaan-perusahaan terkemuka hari ini! Apakah Anda ingin meningkatkan karier atau memulai perjalanan baru, banyak peluang menanti. Jangan lewatkan kesempatan — terhubunglah dengan pemberi kerja yang terpercaya, tunjukkan keterampilan Anda, dan dapatkan pekerjaan yang sesuai dengan minat serta tujuan Anda',
-    'Explore Exciting' => 'Jelajahi Kesempatan Menarik',
     'Discover exciting job opportunities tailored just for you – start exploring now' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang',
     'Applicants' => 'Pelamar',
     'More Information' => 'Informasi Lebih Lanjut',
@@ -582,26 +524,29 @@ return [
     'The platform helped me land a great job with ease. Highly efficient' => 'Platform ini membantu saya mendapatkan pekerjaan yang hebat dengan mudah. Sangat efisien',
     'Amazing experience, from job search to interview' => 'Pengalaman luar biasa, dari pencarian kerja hingga wawancara',
     'Everything was smooth' => 'Semuanya berjalan lancar',
-    'Found my ideal job quickly' => 'Saya menemukan pekerjaan ideal saya dengan cepat',
-
+    'Found my ideal job quickly. Very happy with the service!' => 'Saya menemukan pekerjaan ideal saya dengan cepat. Saya sangat senang dengan Layanannya!',
     //End of Landing Page
 
     //Start of Setting Page
-    'Change Password' => 'Ubah Sandi',
     'Change Language' => 'Ganti Bahasa',
-    'Settings' => 'Pengaturan',
     'Select Language' => 'Pilih Bahasa',
     'Save Changes' => 'Simpan Perubahan',
+    'Current Password' => 'Kata Sandi Sekarang',
     //End of Setting Page
 
     //Start of Sign Up Page
-    'Please Choose' => 'Silahkan Pilih',
-    'Role' => 'Peran',
+    'Please Choose your Role' => 'Silahkan Pilih Peran kamu',
     'Welcome' => 'Selamat Datang',
     'We\'ll personalize your setup experience accordingly' => 'Kami akan mempersonalisasi pengalaman pengaturan Anda sesuai',
     'I\'m here to apply' => 'Saya disini untuk mencari pekerjaan',
-    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja'
+    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja',
     //End of Sign Up Page
-];
 
+     // Start of modal
+    'titleModal' => 'Apakah Anda yakin?',
+    'textModal' => 'Anda tidak akan dapat mengembalikannya!',
+    'confirmButtonModal' => 'Ya, Hapus!',
+    'cancelButtonTextModal' => 'Batal',
+     // End modal
+];
 ?>

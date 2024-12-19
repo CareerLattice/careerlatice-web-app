@@ -172,7 +172,7 @@
             <div class="text-left">
                 <div class="mb-4">
                     <h3 class="mb-3 text-center fs-2 fs-lg-4 fs-md-5 fs-sm-6">
-                        {{__('lang.Welcome')}}! <span class="span-text fw-bold ls-tight"> {{__('lang.Please Choose')}}</span> {{__('lang.ur')}} <span class="span-text fw-bold ls-tight">{{__('lang.Role')}}!</span> {{__('lang.We\'ll personalize your setup experience accordingly')}}
+                        {{__('lang.Welcome')}}! <span class="span-text fw-bold ls-tight"> {{__('lang.Please Choose your Role')}}</span> {{__('lang.We\'ll personalize your setup experience accordingly')}}
                     </h3>
                 </div>
                 <div class="align-items-start w-100 buttons">

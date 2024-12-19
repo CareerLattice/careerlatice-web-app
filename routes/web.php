@@ -15,15 +15,28 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\AdminController;
 
-/* View yang tidak akan dipakai */
-// testing_CV
-
 // Route to get the landing page
 Route::view('/', 'landingPage')->name('landingPage');
 
 Route::middleware('guest')->group(function(){
     // Route to get the sign up page
     Route::view('/sign-up', 'signUpPage')->name('signUpPage');
+});
+
+Route::middleware('auth')->group(function(){
+    // Route to get the settings page
+    Route::view('/settings', 'settings')->name('settings');
+
+    // Route to change language
+    Route::get('/set-locale', function(Request $request){
+        $request->validate([
+            'language' => 'required|string|in:en,id',
+        ]);
+        $request->session()->put('locale', $request->language);
+        return redirect()->back();
+    })->name('setLocale');
+
+
 });
 
 // Laravel UI
@@ -87,6 +100,9 @@ Route::prefix('company')->group(function(){
 
         // Route for company update job application status
         Route::post('/update/application/{application}', action: [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
+
+        // Route to export data csv
+        Route::get('/export-data/{job}', [JobApplicationController::class, 'exportCSV'])->name('company.downloadJobApplicants');
     });
 
     // Route to get the company detail page
@@ -100,7 +116,7 @@ Route::prefix('company')->group(function(){
 Route::prefix('user')->group(function(){
     Route::middleware('guest')->group(function(){
         // Route for user sign up
-        Route::get('/sign-up', action: [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
+        Route::get('/sign-up', [ApplierController::class, 'signUpPage'])->name('user.signUpUser');
         Route::post('/sign-up', [ApplierController::class, 'signUp'])->name('user.submitSignUpUser');
     });
 
@@ -117,7 +133,6 @@ Route::prefix('user')->group(function(){
         Route::get('/search/companies', [CompanyController::class, 'searchCompany'])->name('user.searchCompany');
 
         // Route for user view and apply jobs
-        // Route::get('/jobs', [JobController::class, index'])->name('user.jobs');
         Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.searchJobs');
 
         Route::post('/apply-job/{job}', [JobApplicationController::class, 'create'])->name('user.applyJob');
@@ -135,6 +150,12 @@ Route::prefix('user')->group(function(){
         Route::delete('/delete-education/{education}', [EducationController::class, 'destroy'])->name('user.deleteEducation');
         Route::delete('/delete-experience/{experience}', [ExperienceController::class, 'destroy'])->name('user.deleteExperience');
         Route::post('/update-experience/{experience}', [ExperienceController::class, 'update'])->name('user.updateExperience');
+
+        Route::delete('/delete-job-application/{jobApplication}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
+
+        // User Profile
+        Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
+        Route::post('/add-experience', [ExperienceController::class, 'create'])->name('user.addExperience');
     });
 });
 
@@ -156,54 +177,3 @@ Route::prefix('admin')->group(function(){
     // Export data csv
     Route::get('/premium/data', [AdminController::class, 'exportPremiumData'])->name('adminPremiumData');
 })->middleware('admin_auth');
-
-
-// ================================== TESTING ==================================
-// Testing Open CV
-Route::get('/testing_CV', function(){
-    return view('testing_CV');
-})->name('testing_CV');
-
-Route::get('/testing_CV2/{filename}', [ApplierController::class, 'open_cv'])->name('getCV');
-
-// Testing Export CSV
-Route::get('/testing_export/{job}', [JobApplicationController::class, 'exportCSV'])->name('company.downloadJobApplicants');
-
-// Testing Add Requirement
-Route::post('/requirement', [JobController::class, 'addRequirement'])->name('addRequirement');
-
-// Not Done
-Route::get('/settings',function(){
-    return view('settings');
-})->name('settings');
-
-// User Profile
-Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
-Route::post('/add-experience', [ExperienceController::class, 'create'])->name('user.addExperience');
-route::get('/user/editEducation', function(){
-    return view('user.editEducation');
-})->name ('editEducation');
-
-route::get('/user/editExperience', function(){
-    return view('user.editExperience');
-})->name ('editExperience');
-
-Route::delete('/delete-job-application/{jobApplication}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
-Route::get('/set-locale', function(Request $request){
-    $request->validate([
-        'language' => 'required|string|in:en,id',
-    ]);
-    $request->session()->put('locale', $request->language);
-    return redirect()->back();
-})->name('setLocale');
-
-// Testing Membuat Data untuk Client Side Rendering
-use App\Models\Company;
-Route::get('/test/data', function(){
-    $data = Company::orderBy('id')->take(10)->get();
-    return response()->json([
-        'status' => '200',
-        'message' => 'Success',
-        'data' => $data,
-    ]);
-});

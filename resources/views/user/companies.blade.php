@@ -15,7 +15,7 @@
 
                 <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
                     <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
-                        {{__('lang.exploreConnect')}} <strong> {{__('lang.500+')}}</strong>  {{__('langreputable')}}
+                        {{__('lang.exploreConnect')}} <strong> {{__('lang.500+')}}</strong>  {{__('lang.reputable')}}
                     </p>
                     <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
                         {{__('lang.discover')}} <span style="color: #7869cd;"> {{__('lang.ideal')}}</span>  {{__('lang.here')}}
@@ -113,7 +113,7 @@
                         </div>
                         <a href="{{ route('user.company', ['company_id' => $company->id]) }}"
                             style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1rem; transition: all 0.3s ease-in-out; text-decoration: none;">
-                            {{__('lang.visitComp')}}</a>
+                            {{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             @empty

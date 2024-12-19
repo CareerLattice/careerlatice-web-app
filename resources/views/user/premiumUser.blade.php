@@ -180,11 +180,11 @@
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">{{__('lang.prev')}}</span>
+                        <span class="visually-hidden">{{__('lang.Previous')}}</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">{{__('lang.next')}}</span>
+                        <span class="visually-hidden">{{__('lang.Next')}}</span>
                     </button>
                 </div>
             </div>
