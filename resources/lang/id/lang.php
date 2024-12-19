@@ -42,7 +42,6 @@ return [
     'companyPhonePHCompanyProfile' => 'Masukkan nomor telepon perusahaan',
     'companyDescriptionPHCompanyProfile' => 'Tulis deskripsi singkat tentang perusahaan',
 
-
     //createJob page
     'titleCreateJob' => 'Tambahkan Daftar Pekerjaan Baru',
     'backCreateJob' => 'Kembali',
@@ -57,7 +56,6 @@ return [
     'personInChargeCreateJob' => 'Penanggung Jawab',
     'contactPersonCreateJob' => 'Kontak Person',
     'addJobCreateJob' => 'Tambah Pekerjaan',
-
 
     // editJob page
     'cancelEditEditJob' => 'Batal Edit',
@@ -79,7 +77,6 @@ return [
     'contactPersonEditJob' => 'Kontak Person',
     'updateEditJob' => 'Perbarui',
 
-
     // home page
     'welcomeCompanyHome' => 'Selamat datang kembali,',
     'captionCompanyHome' => 'Berikut adalah ringkasan kinerja rekrutmen Anda. Mari kita lihat bagaimana kinerja daftar Anda.',
@@ -100,7 +97,6 @@ return [
     'totalApplicantCompanyHome' => 'Jumlah Pendaftar:',
     'noJobListingCompanyHome' => 'Tidak ada daftar pekerjaan terbaru',
     'seeDetailCompanyHome' => 'Lihat Detail',
-
 
     // job page
     'backCompanyJob' => 'Kembali ke Pekerjaan',
@@ -131,7 +127,6 @@ return [
     'openCVCompanyJob' => 'Buka CV',
     'noApplicationFoundCompanyJob' => 'Tidak ada lamaran yang ditemukan.',
 
-
     // listJob page
     'titleListJob' => 'Daftar Lowongan Pekerjaan',
     'searchPHListJob' => 'Cari...',
@@ -153,7 +148,6 @@ return [
     'detailsListJob' => 'Detail',
     'noJobListingListJob' => 'Tidak ditemukan Daftar lowongan kerja',
 
-
     //signUpCompany page
     'titleSignUpCompany' => 'BERGABUNG DENGAN KAMI SEKARANG',
     'captionSignUpCompany' => 'Bergabunglah dengan kami hari ini dengan mendaftarkan informasi Anda di bawah ini dan buka peluang menarik!',
@@ -164,11 +158,9 @@ return [
     'companyFieldSignUpCompany' => 'Bidang Perusahaan',
     'agreeSignUpCompany' => 'Saya setuju dengan syarat dan ketentuan',
     'signUpSignUpCompany' => 'Daftar',
-
     /* End of Company Page */
 
     // Start of user page
-
     // Home
     'unleash' => 'Keluarkan potensi anda',
     'moto' => 'CareerLattice—terhubung, jelajahi, dan dapatkan',
@@ -217,7 +209,6 @@ return [
     'lastUpdate' => 'Terakhir diperbaharui : ',
     'meet' => 'Temui tim pencari',
 
-
     // Companies
     'exploreConnect' => 'Jelajahi dan terhubung dengan',
     'reputable' => 'perusahaan terkemuka',
@@ -230,9 +221,8 @@ return [
     'searchYour' => 'Cari',
     'dreamComp' => 'Pekerjaan Impian',
     'field' => 'Bidang',
-    'visitComp' => 'Kunjungi Perusahaan',
+    'Visit Company' => 'Kunjungi Perusahaan',
     'noComp' => 'Perusahaan tidak ditemukan',
-
 
     // Company
     'welcome' =>'Selamat datang di',
@@ -254,7 +244,6 @@ return [
     'opening' => 'Kami Membuka Lowongan Pekerjaan',
     'jobName' => 'Nama Pekerjaan',
     'open' => 'Terbuka',
-
 
     // JobDetail
     'jobDesc' =>'Deskripsi Pekerjaan',
@@ -330,7 +319,6 @@ return [
     'unapply' => 'Batalkan Lamaran',
     'noActiveJob' => 'Anda tidak memiliki aplikasi pekerjaan aktif.',
 
-
     // premium bundle
     'bundle' => 'Paket Premium',
     'and' => 'dan',
@@ -386,84 +374,82 @@ return [
     'proceedPay' => 'Lanjutkan ke Pembayaran',
     'months' => 'Bulan',
 
-
-        //Landing Page
-        'Welcome to' => 'Selamat datang di',
-        'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
-        'Join Top Leading' => 'Bergabung dengan tim leading',
-        'Companies' => 'Perusahaan',
-        'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
-        'Explore Exciting' => 'Jelajahi hal menarik',
-        'Job Vacancies' => 'Lowongan Pekerjaan',
-        'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
-        'start exploring now!' => 'mulai telusuri dari sekarang!',
-        'Previous' => 'Sebelumnya',
-        'Next' => 'Selanjutnya',
-        'A Quick Look at' => 'Sekilas',
-        'Our Journey' => 'Perjalanan kami',
-        'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice adalah platform inovatif yang didedikasikan untuk memberdayakan individu dengan membantu mereka memajukan karier dan membangun jaringan profesional yang kuat.',
-        'Launched our platform with' => 'Meluncurkan dengan platform kami',
-        'over 100 active users' => 'lebih dari 100 user aktif',
-        'joining in the first month.' => 'bergabung di bulan pertama',
-        'Gained momentum, reaching' => 'Mendapatkan momentum dan mencapai',
-        'active users' => 'user aktif',
-        'and improving user engagement' => 'dan meningkatkan keterlibatan pengguna',
-        'Secured partnerships with' => 'kemitraan yang aman dengan',
-        'companies' => 'perusahaan',
-        'actively hiring talent from our platform' => 'secara aktif merekrut bakat dari platform kami',
-        'Expanded to' => 'Meluas ke',
-        'over 500 active users' => 'lebih dari 500 aktif user',
-        'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
-
-        //End of Landing Page
+    //Landing Page
+    'Welcome to' => 'Selamat datang di',
+    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
+    'Join Top Leading' => 'Bergabung dengan tim leading',
+    'Companies' => 'Perusahaan',
+    'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
+    'Explore Exciting' => 'Jelajahi hal menarik',
+    'Job Vacancies' => 'Lowongan Pekerjaan',
+    'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
+    'start exploring now!' => 'mulai telusuri dari sekarang!',
+    'Previous' => 'Sebelumnya',
+    'Next' => 'Selanjutnya',
+    'A Quick Look at' => 'Sekilas',
+    'Our Journey' => 'Perjalanan kami',
+    'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice adalah platform inovatif yang didedikasikan untuk memberdayakan individu dengan membantu mereka memajukan karier dan membangun jaringan profesional yang kuat.',
+    'Launched our platform with' => 'Meluncurkan dengan platform kami',
+    'over 100 active users' => 'lebih dari 100 user aktif',
+    'joining in the first month.' => 'bergabung di bulan pertama',
+    'Gained momentum, reaching' => 'Mendapatkan momentum dan mencapai',
+    'active users' => 'user aktif',
+    'and improving user engagement' => 'dan meningkatkan keterlibatan pengguna',
+    'Secured partnerships with' => 'kemitraan yang aman dengan',
+    'companies' => 'perusahaan',
+    'actively hiring talent from our platform' => 'secara aktif merekrut bakat dari platform kami',
+    'Expanded to' => 'Meluas ke',
+    'over 500 active users' => 'lebih dari 500 aktif user',
+    'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
+    //End of Landing Page
 
     // Start of Admin Page
-        // Admin Home Page
-        'Welcome Back' => 'Selamat Datang Kembali',
-        'This Month Income' => 'Pendapatan Bulan Ini',
-        'Total Income' => 'Jumlah Pendapatan',
-        'Total Applier' => 'Jumlah Pelamar',
-        'Total Company' => 'Jumlah Perusahaan',
-        'Website Income' => 'Pendapatan Website',
-        'List of All Premium Users' => 'Daftar Seluruh User Premium',
-        'From' => 'Dari',
-        'To' => 'Sampai',
-        'Search' => 'Cari',
-        'Export All Users' => 'Ekspor Data',
-        'No' => 'No',
-        'Revenue' => 'Pendapatan',
-        'Start' => 'Tanggal Mulai',
-        'End' => 'Tanggal Selesai',
-        'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
-        'IDR' => 'Rp',
+    // Admin Home Page
+    'Welcome Back' => 'Selamat Datang Kembali',
+    'This Month Income' => 'Pendapatan Bulan Ini',
+    'Total Income' => 'Jumlah Pendapatan',
+    'Total Applier' => 'Jumlah Pelamar',
+    'Total Company' => 'Jumlah Perusahaan',
+    'Website Income' => 'Pendapatan Website',
+    'List of All Premium Users' => 'Daftar Seluruh User Premium',
+    'From' => 'Dari',
+    'To' => 'Sampai',
+    'Search' => 'Cari',
+    'Export All Users' => 'Ekspor Data',
+    'No' => 'No',
+    'Revenue' => 'Pendapatan',
+    'Start' => 'Tanggal Mulai',
+    'End' => 'Tanggal Selesai',
+    'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
+    'IDR' => 'Rp',
     // End of Admin Page
 
     //start of auth page
-        //login page
-        'Welcome back! ' => 'Selamat datang kembali! ',
-        'Log in ' => 'Masuk ',
-        ' to find ' => ' dan temukan ',
-        'skilled talent' => 'talenta terampil',
-        ' and connect with ' => ' dan terhubung dengan ',
-        'potential' => 'berbagai potensial',
-        ' candidates through our platform. ' => ' kandidat dalam platform kami ',
-        'Login Now!' => 'Masuk Sekarang!',
-        'Enter your email' => 'Masukkan email anda',
-        'We\'ll never share your email with anyone else.' => 'Kami tidak akan pernah membagikan email Anda dengan orang lain.',
-        'Email Address' => 'Alamat Email',
-        'Password' => 'Kata Sandi',
-        'Enter your password' => 'Masukkan kata sandi',
-        'Login' => 'Masuk',
-        'Don\'t have an account?' => 'Belum memiliki akun?',
-        'Register Here' => 'Daftar Disini',
-        'Forget Password?' => 'Lupa Kata Sandi? ',
-        'Reset Password' => 'Ubah Kata Sandi',
-        'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
+    //login page
+    'Welcome back! ' => 'Selamat datang kembali! ',
+    'Log in ' => 'Masuk ',
+    ' to find ' => ' dan temukan ',
+    'skilled talent' => 'talenta terampil',
+    ' and connect with ' => ' dan terhubung dengan ',
+    'potential' => 'berbagai potensial',
+    ' candidates through our platform. ' => ' kandidat dalam platform kami ',
+    'Login Now!' => 'Masuk Sekarang!',
+    'Enter your email' => 'Masukkan email anda',
+    'We\'ll never share your email with anyone else.' => 'Kami tidak akan pernah membagikan email Anda dengan orang lain.',
+    'Email Address' => 'Alamat Email',
+    'Password' => 'Kata Sandi',
+    'Enter your password' => 'Masukkan kata sandi',
+    'Login' => 'Masuk',
+    'Don\'t have an account?' => 'Belum memiliki akun?',
+    'Register Here' => 'Daftar Disini',
+    'Forget Password?' => 'Lupa Kata Sandi? ',
+    'Reset Password' => 'Ubah Kata Sandi',
+    'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
 
-        //register
-        'Register' => 'Daftar',
-        'Name' => 'Nama',
-        'Confirm Password' => 'Konfirmasi Kata Sandi',
+    //register
+    'Register' => 'Daftar',
+    'Name' => 'Nama',
+    'Confirm Password' => 'Konfirmasi Kata Sandi',
 
     // verify
     'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
@@ -476,10 +462,10 @@ return [
     // confirm
     'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
     'Forgot Your Password?' => 'Lupa Password?',
-            //email
-            'Change Password' => 'Ubah Kata Sandi',
-            'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
-            //reset
+    //email
+    'Change Password' => 'Ubah Kata Sandi',
+    'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
+    //reset
     //End of auth
 
     //start of landing page
@@ -487,14 +473,6 @@ return [
     'Join us to explore your strength' => 'Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
     'Discover exciting job opportunities tailored just for you' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda',
     'start exploring now' => 'mulai telusuri dari sekarang',
-    'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice adalah platform inovatif yang didedikasikan untuk memberdayakan individu dengan membantu mereka memajukan karier dan membangun jaringan profesional yang kuat.',
-    'and improving user engagement' => 'dan meningkatkan keterlibatan pengguna',
-    'Secured partnerships with' => 'kemitraan yang aman dengan',
-    'companies' => 'perusahaan',
-    'actively hiring talent from our platform' => 'secara aktif merekrut bakat dari platform kami',
-    'Expanded to' => 'Meluas ke',
-    'over 500 active users' => 'lebih dari 500 pengguna aktif',
-    'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
     'Achieved a milestone of' => 'Mencapai tonggak pencapaian berupa',
     'with enhanced services and support' => 'dengan layanan dan dukungan yang ditingkatkan',
     'and expanded our reach to new regions' => 'dan memperluas jangkauan kami ke wilayah baru',
@@ -513,7 +491,6 @@ return [
     'Consulting and Accounting' => 'Konsultasi dan Akuntansi',
     'Healthcare and Hospitality' => 'Kesehatan dan Perhotelan',
     'Show All Popular Company' => 'Tampilkan Semua Perusahaan Populer',
-    'Visit Company' => 'Kunjungi Perusahaan',
     'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods' => 'Tokopedia adalah salah satu pasar online terbesar di Indonesia, menyediakan platform untuk membeli dan menjual barang',
     'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users' => 'Shopee adalah platform e-commerce dengan berbagai fitur, termasuk ShopeePay dan penawaran gratis ongkos kirim untuk pengguna',
     'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services' => 'Grab adalah layanan transportasi terkemuka di Asia Tenggara, juga menyediakan layanan pengantaran makanan dan pembayaran',

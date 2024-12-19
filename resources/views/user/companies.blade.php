@@ -113,7 +113,7 @@
                         </div>
                         <a href="{{ route('user.company', ['company_id' => $company->id]) }}"
                             style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1rem; transition: all 0.3s ease-in-out; text-decoration: none;">
-                            {{__('lang.visitComp')}}</a>
+                            {{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
             @empty
