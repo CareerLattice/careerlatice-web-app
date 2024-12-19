@@ -95,25 +95,33 @@
         <div class="row">
             @forelse ($companies as $company)
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="company-card"
-                        style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; height: 100%;">
-                        <img src="{{asset('upload/profile_picture/' . $company->company_image)}}" alt="Company Logo"
-                        style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
-                        <div class="company-details text-center">
-                            <h5 class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #333;">
-                                {{$company->user_name}}</h5>
-                            <p style="color: grey; font-size: 0.9rem;">{{ $company->address }}</p>
+                    <div class="d-flex flex-column bg-light" style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                        <div class="text-center">
+                            @if ($company->company_image != null && File::exists(public_path('upload/profile_picture/' . $company->company_image)))
+                                <img src="{{asset('upload/profile_picture/' . $company->company_image)}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
+                            @else
+                                <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
+                            @endif
                         </div>
-                        <div class="company-info-section" style="margin-top: 15px; text-align: justify;">
+
+                        <div class="company-details text-center">
+                            <h5 class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #333;">{{$company->user_name}}</h5>
+                            <p style="color: grey; font-size: 0.9rem;">{{$company->address}}</p>
+                        </div>
+
+                        <div class="mt-2" style="text-align: justify">
                             <p class="fw-bold mb-0"> {{__('lang.description')}}</p>
                             <p class="text-muted mt-0" style="height: 50px; overflow: hidden; text-overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">
-                                {{ $company->description }}...</p>
+                                {{$company->description}}...</p>
+
                             <p class="fw-bold mb-0"> {{__('lang.field')}}</p>
                             <p class="text-muted mt-0">{{ $company->field }}</p>
                         </div>
-                        <a href="{{ route('user.company', ['company_id' => $company->id]) }}"
-                            style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1rem; transition: all 0.3s ease-in-out; text-decoration: none;">
-                            {{__('lang.Visit Company')}}</a>
+
+                        <a href="{{route('user.company', ['company_id' => $company->id])}}" class="bg-primary text-center mt-3 fw-bold text-light text-decoration-none border-0"
+                            style="padding: 10px 20px; border-radius: 5px; font-size: 1rem; transition: all 0.3s ease-in-out;">
+                            {{__('lang.Visit Company')}}
+                        </a>
                     </div>
                 </div>
             @empty

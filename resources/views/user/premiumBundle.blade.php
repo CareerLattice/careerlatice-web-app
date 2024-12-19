@@ -104,7 +104,7 @@
                 <div class="card p-4 shadow position-relative plan-card">
                     <span class="badge bg-primary position-absolute top-0 start-50 translate-middle mt-4">3 {{__('lang.planMonthly')}}</span>
                     <h3 class="fw-bold text-center mt-4">Essential</h3>
-                    <p class="price fw-bold text-center mb-1" style="font-size: 2rem;">Rp 1.499.000<span style="font-size: 1rem;" class="text-muted">/3 months</span></p>
+                    <p class="price fw-bold text-center mb-1" style="font-size: 2rem;">{{__('lang.IDR')}} 1.499.000<span style="font-size: 1rem;" class="text-muted">/3 {{__('lang.month')}}</span></p>
                     <p class="text-center text-muted">{{__('lang.saveMonth5')}}</p>
                     <p class="mb-2">
                         ✅ {{__('lang.startingOut')}}<br>
@@ -125,7 +125,7 @@
                 <div class="card p-4 shadow position-relative plan-card">
                     <span class="badge bg-success position-absolute top-0 start-50 translate-middle mt-4">6 {{__('lang.planMonthly')}}</span>
                     <h3 class="fw-bold text-center mt-4">Plus</h3>
-                    <p class="price fw-bold text-center mb-1" style="font-size: 2rem;">Rp 2.399.000<span style="font-size: 1rem;" class="text-muted">/6 months</span></p>
+                    <p class="price fw-bold text-center mb-1" style="font-size: 2rem;">{{__('lang.IDR')}} 2.399.000<span style="font-size: 1rem;" class="text-muted">/6 {{__('lang.month')}}</span></p>
                     <p class="text-center text-muted">{{__('lang.saveMonth10')}}</p>
                     <p class="mb-2">
                         ✅ {{__('lang.extend')}}<br>
@@ -144,9 +144,9 @@
             <!-- Premium Plan -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card p-4 shadow position-relative plan-card">
-                    <span class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle mt-4">{{__('lang.bestValue')}}</span>
+                    <span class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle mt-4">12 {{__('lang.planMonthly')}}</span>
                     <h3 class="fw-bold text-center mt-4">Premium</h3>
-                    <p class="price fw-bold text-center mb-1" style="font-size: 2rem;">Rp 3.799.000<span style="font-size: 1rem;" class="text-muted">/12 {{__('lang.planMonthly')}}</span></p>
+                    <p class="price fw-bold text-center mb-1" style="font-size: 2rem;">{{__('lang.IDR')}} 3.799.000<span style="font-size: 1rem;" class="text-muted">/12 {{__('lang.month')}}</span></p>
                     <p class="text-center text-muted">{{__('lang.save20')}}</p>
                     <p class="mb-2">
                         ✅ {{__('lang.fullAcc')}}<br>
