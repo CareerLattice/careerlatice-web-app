@@ -2,13 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Job;
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
-class JobAuthCheck
+class EducationMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,8 +17,7 @@ class JobAuthCheck
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-
-        if($user->role != 'company' || $user->company->id != $request->route('job')->company_id){
+        if($user->role != 'applier' || $user->applier->id != $request->route('education')->applier_id){
             abort(401);
         }
 
