@@ -112,7 +112,7 @@
                                                 data-exp-description="{{$experience->description}}"
                                                 data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
                                                 data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}"
-                                                data-route = "{{route('user.updateExperience', ['experience' => $experience->id])}}">
+                                                data-route = "{{route('user.updateExperience', $experience->id)}}">
                                                 {{__('lang.edit')}}
                                             </button>
 

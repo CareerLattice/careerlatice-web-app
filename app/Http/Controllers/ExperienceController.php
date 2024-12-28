@@ -55,7 +55,7 @@ class ExperienceController extends Controller
         return redirect()->route('user.editProfile');
     }
 
-    public function destroy(Request $request, Experience $experience){
+    public function destroy(Experience $experience){
         $experience->delete();
         session()->flash('message', 'Success Delete Experience');
         return redirect()->route('user.editProfile');

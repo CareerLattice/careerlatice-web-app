@@ -132,7 +132,6 @@ Route::prefix('user')->group(function(){
 
         // Route for user view and apply jobs
         Route::get('/search/jobs', [JobController::class, 'searchJobs'])->name('user.searchJobs');
-
         Route::post('/apply-job/{job}', [JobApplicationController::class, 'create'])->name('user.applyJob');
 
         Route::get('/premium', [PremiumController::class, 'viewPremium'])->name('user.premiumUser');
@@ -140,16 +139,22 @@ Route::prefix('user')->group(function(){
 
         // Route for user view applied jobs
         Route::get('/job-applications', [JobApplicationController::class, 'viewJobApplications'])->name('user.jobVacancies');
-        // Route::delete('/applied-job/{job}', [UserController::class, 'cancelAppliedJob'])->name('user.cancelAppliedJob');
 
         // Route for user to be premium user
         Route::get('/premium-history', [UserController::class, 'viewPremiumHistory'])->name('user.premiumHistory');
 
-        Route::delete('/delete-education/{education}', [EducationController::class, 'destroy'])->name('user.deleteEducation');
-        Route::delete('/delete-experience/{experience}', [ExperienceController::class, 'destroy'])->name('user.deleteExperience');
-        Route::post('/update-experience/{experience}', [ExperienceController::class, 'update'])->name('user.updateExperience');
+        Route::middleware('education')->group(function(){
+            Route::delete('/delete-education/{education}', [EducationController::class, 'destroy'])->name('user.deleteEducation');
+        });
 
-        Route::delete('/delete-job-application/{jobApplication}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
+        Route::middleware('experience')->group(function(){
+            Route::delete('/delete-experience/{experience}', [ExperienceController::class, 'destroy'])->name('user.deleteExperience');
+            Route::post('/update-experience/{experience}', [ExperienceController::class, 'update'])->name('user.updateExperience');
+        });
+
+        Route::middleware('job_application')->group(function(){
+            Route::delete('/delete-job-application/{job_application}', [JobApplicationController::class, 'destroy'])->name('job_application.destroy');
+        });
 
         // User Profile
         Route::post('/add-education', [EducationController::class, 'create'])->name('user.addEducation');
