@@ -245,7 +245,7 @@
                                     @endif
                                 </td>
 
-                                @if ($application->status == 'accepted' || $application->status == 'rejected')
+                                @if ($application->status == 'accepted' || $application->status == 'rejected' || $application->status == 'cancelled')
                                     <td class="d-flex gap-2" id="{{'action_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                         <div class="bg-secondary text-light p-2 rounded-3" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{__('lang.noneCompanyJob')}}</div>
                                     </td>
