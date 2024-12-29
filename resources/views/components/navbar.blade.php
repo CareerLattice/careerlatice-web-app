@@ -171,6 +171,25 @@
                             <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">{{__('lang.Created Job')}}</a>
                         </li>
                     @endif
+
+                    <li class="nav-item d-lg-none">
+                        @if (Auth::user()->role == 'applier')
+                            <a class="nav-link" aria-current="page" href="{{route('user.editProfile')}}">{{__('lang.Edit Profile')}}</a>
+                        @elseif (Auth::user()->role == 'company')
+                            <a class="nav-link" aria-current="page" href="{{route('company.profile')}}">{{__('lang.Edit Profile')}}</a>
+                        @endif
+                    </li>
+
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" aria-current="page" href="{{route('settings')}}" id="Company">{{__('lang.Settings')}}</a>
+                    </li>
+
+                    <li class="nav-item d-lg-none">
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="nav-link text-danger">{{__('lang.Log Out')}}</button>
+                        </form>
+                    </li>
                 @endauth
 
                 @guest
@@ -190,7 +209,7 @@
                         <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3 mt-0">{{__('lang.Premium')}}</a>
                         @endif
 
-                        <div class="accordion" id="userAccordion">
+                        <div class="accordion d-none d-lg-block" id="userAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
                                     <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
