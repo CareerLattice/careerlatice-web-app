@@ -119,7 +119,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 d-flex align-items-start">
+                        <div class="col-md-4 d-flex align-items-start mt-2">
                             <i class="bi bi-telephone-fill text-success me-3" style="font-size: 2rem;"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">{{__('lang.phoneNumber')}}</h6>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 d-flex align-items-start">
+                        <div class="col-md-4 d-flex align-items-start mt-2">
                             <i class="bi bi-geo-alt-fill text-danger me-3" style="font-size: 2rem;"></i>
                             <div>
                                 <h6 class="fw-bold mb-1">{{__('lang.address')}}</h6>

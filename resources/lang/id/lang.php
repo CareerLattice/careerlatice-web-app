@@ -526,6 +526,10 @@ return [
     'Amazing experience, from job search to interview' => 'Pengalaman luar biasa, dari pencarian kerja hingga wawancara',
     'Everything was smooth' => 'Semuanya berjalan lancar',
     'Found my ideal job quickly. Very happy with the service!' => 'Saya menemukan pekerjaan ideal saya dengan cepat. Saya sangat senang dengan Layanannya!',
+    'it' => 'Teknologi dan Informasi',
+    'cna' => 'Konsultasi dan Akuntansi',
+    'fni' => 'Keuangan dan Asuransi',
+    'hnh' => 'Kesehatan dan Perhotelan',
     //End of Landing Page
 
     //Start of Setting Page

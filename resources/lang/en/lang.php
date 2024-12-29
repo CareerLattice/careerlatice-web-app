@@ -569,6 +569,10 @@ return [
     'Amazing experience, from job search to interview' => 'Amazing experience, from job search to interview',
     'Everything was smooth' => 'Everything was smooth',
     'Found my ideal job quickly' => 'Found my ideal job quickly',
+    'it' => 'Technology and Information',
+    'cna' => 'Consulting and Accounting',
+    'fni' => 'Finance and Insurance',
+    'hnh' => 'Healthcare and Hospitality',
     //End of Landing Page
 
     //Start of Setting Page

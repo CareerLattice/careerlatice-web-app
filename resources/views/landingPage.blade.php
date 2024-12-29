@@ -708,7 +708,7 @@
 
               <div class="popular-company container hidden">
                 {{-- Technology and Information category --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
                     <img src="{{ asset('/assets/tokopedia.jpeg') }}" class="card-img-top" alt="Tokopedia">
                     <div class="card-body">
                         <h5 class="card-title">Tokopedia</h5>
@@ -717,7 +717,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
                     <img src="{{ asset('/assets/shopee.jpeg') }}" class="card-img-top" alt="Shopee">
                     <div class="card-body">
                         <h5 class="card-title">Shopee</h5>
@@ -726,7 +726,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
                     <img src="{{ asset('/assets/grab.jpeg') }}" class="card-img-top" alt="Grab">
                     <div class="card-body">
                         <h5 class="card-title">Grab</h5>
@@ -735,7 +735,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
                     <img src="{{ asset('/assets/traveloka.jpeg') }}" class="card-img-top" alt="Traveloka">
                     <div class="card-body">
                         <h5 class="card-title">Traveloka</h5>
@@ -744,7 +744,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
                     <img src="{{ asset('/assets/blibli.jpeg') }}" class="card-img-top" alt="Blibli">
                     <div class="card-body">
                         <h5 class="card-title">Blibli</h5>
@@ -753,7 +753,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Technology and Information">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
                     <img src="{{ asset('/assets/gojek.jpeg') }}" class="card-img-top" alt="Gojek">
                     <div class="card-body">
                         <h5 class="card-title">Gojek</h5>
@@ -764,7 +764,7 @@
                 {{-- End of Technology and Information category --}}
             
                 {{-- Start of Consulting and Accounting category --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
                     <img src="{{ asset('/assets/deloitte.jpeg') }}" class="card-img-top" alt="Deloitte">
                     <div class="card-body">
                         <h5 class="card-title">Deloitte</h5>
@@ -773,7 +773,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
                     <img src="{{ asset('/assets/kpmg.jpeg') }}" class="card-img-top" alt="KPMG">
                     <div class="card-body">
                         <h5 class="card-title">KPMG</h5>
@@ -782,7 +782,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
                     <img src="{{ asset('/assets/ey.jpeg') }}" class="card-img-top" alt="EY">
                     <div class="card-body">
                         <h5 class="card-title">EY</h5>
@@ -791,7 +791,7 @@
                     </div>
                 </div>
             
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Consulting and Accounting">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
                     <img src="{{ asset('/assets/pwc.jpeg') }}" class="card-img-top" alt="PwC">
                     <div class="card-body">
                         <h5 class="card-title">PwC</h5>
@@ -802,7 +802,7 @@
                 {{-- End of Consulting and Accounting category --}}
             
                 {{-- Start of Finance and Insurance category --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Finance and Insurance">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.fni')}}">
                     <img src="{{ asset('/assets/bbca.jpeg') }}" class="card-img-top" alt="Bank Central Asia">
                     <div class="card-body">
                         <h5 class="card-title">Bank Central Asia</h5>
@@ -813,7 +813,7 @@
                 {{-- End of Finance and Insurance category --}}
             
                 {{-- Start of Healthcare and Hospitality --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="Healthcare and Hospitality">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.hnh')}}">
                     <img src="{{ asset('/assets/omnihospital.jpeg') }}" class="card-img-top" alt="Omni Hospital">
                     <div class="card-body">
                         <h5 class="card-title">Omni Hospital</h5>
@@ -1134,7 +1134,8 @@
 
                         if (
                             category === cardCategory ||
-                            category === "Show All Popular Company"
+                            category === "Show All Popular Company" ||
+                            category === "Tampilkan Semua Perusahaan Populer"
                         ) {
                             card.style.display = "block";
                         } else {

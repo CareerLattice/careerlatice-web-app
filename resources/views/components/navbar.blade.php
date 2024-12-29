@@ -16,7 +16,6 @@
     }
 
     .navbar-nav {
-        gap: 40px;
         font-size: 1.2rem;
     }
 
@@ -141,6 +140,18 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    @media (min-width: 230px) { 
+        .custom-navbar {
+            gap: 10px; 
+        }
+    }
+
+    @media (min-width: 991px) {
+        .custom-navbar {
+            gap: 40px; 
+        }
+    }
+
 
 </style>
 
@@ -153,7 +164,7 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto custom-navbar">
                 @auth
                     <li class="nav-item">
                         <a class="nav-link @if(request()->routeIs('home')) active @endif" aria-current="page" href="{{route('home')}}" id="Home">{{__('lang.Home')}}</a>
@@ -166,6 +177,11 @@
                         <li class="nav-item">
                             <a class="nav-link @if(request()->routeIs('companies')) active @endif" aria-current="page" href="{{route('companies')}}" id="Company">{{__('lang.Company')}}</a>
                         </li>
+                        <li>
+                            <a class="nav-link @if(request()->routeIs('user.premiumUser')) active @endif" aria-current="page" href="{{route('user.premiumUser')}}" id="Company">{{__('lang.Premium')}}</a>
+                            {{-- <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3 mt-0">{{__('lang.Premium')}}</a> --}}
+                        </li>
+                    <hr>
                     @elseif (Auth::user()->role == 'company')
                         <li class="nav-item">
                             <a class="nav-link @if(request()->routeIs('company.listJob')) active @endif" aria-current="page" href="{{route('company.listJob')}}" id="Job">{{__('lang.Created Job')}}</a>
@@ -205,9 +221,6 @@
             @auth
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown d-flex justify-content-between align-items-center">
-                        @if (Auth::user()->role == 'applier')
-                        <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3 mt-0">{{__('lang.Premium')}}</a>
-                        @endif
 
                         <div class="accordion d-none d-lg-block" id="userAccordion">
                             <div class="accordion-item">
