@@ -234,8 +234,22 @@
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->name}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->applied_at}}</td>
                                 <td>
-                                    <a href="{{asset('upload/applier/cv/' . $application->cv)}}" target="_blank" class="btn btn-primary">{{__('lang.openCVCompanyJob')}}</a>
+                                    @if($application->cv)
+                                        @php
+                                            $cv = $contents->firstWhere('path', $application->cv);
+                                            $cv_url = $cv ? "https://drive.google.com/file/d/{$cv['extraMetadata']['id']}/preview" : asset('assets/default_cv.pdf');
+                                        @endphp
+
+                                        @if ($cv || $application->cv == 'default_cv.pdf')
+                                            <a href="{{$cv_url}}" target="_blank" class="btn btn-primary">{{__('lang.View CV') }}</a>
+                                        @else
+                                            <p class="text-muted">{{__('lang.CV not found')}}</p>
+                                        @endif
+                                    @else
+                                        <p class="text-muted">{{ __('lang.You have not uploaded CV yet') }}</p>
+                                    @endif
                                 </td>
+
                                 <td id="{{'status_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                     @if ($application->status == 'accepted')
                                         <p class="text-success fw-bold">{{__('lang.Accepted')}}</p>

@@ -125,8 +125,8 @@ return [
     'applicationCVCompanyJob' => 'CV lamaran',
     'statusCompanyJob' => 'Status',
     'actionCompanyJob' => 'Tindakan',
-    'openCVCompanyJob' => 'Buka CV',
     'noApplicationFoundCompanyJob' => 'Tidak ada lamaran yang ditemukan.',
+    'CV not found' => 'CV tidak ditemukan',
 
     // listJob page
     'titleListJob' => 'Daftar Lowongan Pekerjaan',

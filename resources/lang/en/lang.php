@@ -125,8 +125,8 @@ return [
     'applicationCVCompanyJob' => 'Application CV',
     'statusCompanyJob' => 'Status',
     'actionCompanyJob' => 'Action',
-    'openCVCompanyJob' => 'Open CV',
     'noApplicationFoundCompanyJob' => 'No application found.',
+    'CV not found' => 'CV not found',
 
     // listJob page
     'titleListJob' => 'Job Listings',

@@ -98,11 +98,14 @@
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">{{__('lang.addNewJobListJob')}}</a>
         </div>
         <div class="row">
+            @php
+                $contents = collect(Storage::disk('google')->listContents('/', true));
+            @endphp
+
             @forelse ($jobs as $job)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card shadow h-100">
                         @php
-                            $contents = collect(Storage::disk('google')->listContents('/', true));
                             $file = $contents->firstWhere('path', $job->job_picture);
                             $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
                         @endphp

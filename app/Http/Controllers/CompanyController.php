@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
 {
@@ -108,15 +109,14 @@ class CompanyController extends Controller
         $company = Auth::user();
         if($request->hasFile('logo')){
             $file = $request->file('logo');
-            $destinationPath = public_path('upload/profile_picture');
-            $fileName = $company->id . '_profile_picture.' . $request->file('logo')->getClientOriginalExtension();
 
-            if ($company->profile_picture && $company->profile_picture != 'default_profile_picture.jpg' && File::exists(public_path('upload/profile_picture/' . $company->profile_picture))) {
-                File::delete(public_path('upload/profile_picture/' . $company->profile_picture));
+            $fileName = 'profile_picture/' . $company->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
+
+            if ($company->profile_picture && $company->profile_picture != 'default_profile_picture.jpg' && Storage::disk('google')->exists($company->profile_picture)) {
+                Storage::disk('google')->delete($company->profile_picture);
             }
 
-            $file->move($destinationPath, $fileName);
-
+            Storage::disk('google')->put($fileName, File::get($file), "public");
             $company->profile_picture = $fileName;
         }
 

@@ -101,12 +101,15 @@
 
         <div class="container d-flex flex-column align-items-center">
             <div class="row" style="width: 100%; max-width: 1000px;">
+                @php
+                    $contents = collect(Storage::disk('google')->listContents('/', true));
+                @endphp
+
                 @forelse ($jobs as $job)
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0 d-flex justify-content-center">
                             <div class="col-12 col-sm-10 col-md-4 mt-3">
                                 @php
-                                    $contents = collect(Storage::disk('google')->listContents('/', true));
                                     $file = $contents->firstWhere('path', $job->job_picture);
                                     $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
                                 @endphp

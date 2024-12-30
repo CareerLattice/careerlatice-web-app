@@ -96,6 +96,7 @@
                             $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
                         @endphp
                         <img src="{{$job_url}}" alt="Company Logo" class="company-logo" id="preview-image">
+
                         <input type="file" id="uploadImage" name="job_image" style="display: none;" onchange="previewImage(event)">
                         <label for="uploadImage" class="change-image-btn">
                             <i class="bi bi-pencil-fill fs-5"></i>
