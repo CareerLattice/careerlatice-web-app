@@ -177,8 +177,6 @@
                             </ul>
                         </div>
                     </form>
-
-                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="export btn btn-primary">{{__('lang.exportListCompanyJob')}}</a>
                 </div>
             </div>
 

@@ -120,7 +120,6 @@ return [
     'Pending' => 'Pending',
     'Canceled' => 'Canceled',
     'noneCompanyJob' => 'None',
-    'exportListCompanyJob' => 'Export List Applicant',
     'noCompanyJob' => 'No',
     'appliedAtCompanyJob' => 'Applied At',
     'applicationCVCompanyJob' => 'Application CV',

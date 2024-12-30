@@ -1,7 +1,7 @@
 <?php
 return [
     //start of Navbar
-    'Home' => 'Home',
+    'Home' => 'Beranda',
     'Find a Job' => 'Cari Pekerjaan',
     'Company' => 'Perusahaan',
     'Created Job' => 'Lowongan yang dibuat',
@@ -120,7 +120,6 @@ return [
     'Pending' => 'Tertunda',
     'Canceled' => 'Dibatalkan',
     'noneCompanyJob' => 'Tidak ada',
-    'exportListCompanyJob' => 'Cetak Daftar Pemohon',
     'noCompanyJob' => 'No',
     'appliedAtCompanyJob' => 'Diajukan Pada',
     'applicationCVCompanyJob' => 'CV lamaran',

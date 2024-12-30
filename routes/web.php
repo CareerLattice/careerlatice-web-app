@@ -98,9 +98,6 @@ Route::prefix('company')->group(function(){
 
         // Route for company update job application status
         Route::post('/update/application/{application}', action: [JobApplicationController::class, 'updateJobApplicationStatus'])->name('company.updateJobApplicationStatus');
-
-        // Route to export data csv
-        Route::get('/export-data/{job}', [JobApplicationController::class, 'exportCSV'])->name('company.downloadJobApplicants');
     });
 
     // Route to get the company detail page
@@ -177,6 +174,4 @@ Route::prefix('admin')->group(function(){
     // Route for admin view range revenue
     Route::get('/range-revenue', [AdminController::class, 'rangeRevenue'])->name('admin.rangeRevenue');
 
-    // Export data csv
-    Route::get('/premium/data', [AdminController::class, 'exportPremiumData'])->name('adminPremiumData');
 })->middleware('admin_auth');
