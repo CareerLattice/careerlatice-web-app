@@ -50,3 +50,9 @@ php artisan serve
 
 # Live Preview (Production Link)
 Visit Career-Lattice at https://career-lattice.vercel.app/
+
+Visit Career-Lattice ERD at https://drawsql.app/teams/sen-2/diagrams/career-lattice-revisi
+
+Get to know Career-Lattice at https://www.canva.com/design/DAGYVHCjbnM/5D-gxy2WxLfUBzJW1Sy0HQ/edit
+
+
