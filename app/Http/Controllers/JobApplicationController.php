@@ -21,7 +21,7 @@ class JobApplicationController extends Controller
             ->get();
 
         $fileName = 'jobApplications.csv';
-        $filePath = public_path($fileName);
+        $filePath = `/tmp/` . $fileName;
 
         $fp = fopen($fileName,'w+');
         fputcsv($fp, fields: array('Name', 'Email', 'Phone Number', 'Address', 'Birth Date', 'Applied at'));
