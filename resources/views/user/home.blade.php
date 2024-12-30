@@ -166,9 +166,6 @@
 
                 @forelse ($applier->experiences as $experience)
                     <div class="d-md-flex align-items-center mb-2">
-                        <div class="col-12 col-md-2 mb-2 d-flex justify-content-center">
-                            <img src="{{Storage::url($experience->company_picture)}}" alt="Profile Image" class="profile-image" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
-                        </div>
                         <div class="col-12 col-md-7 ms-3">
                             <h4 class="card-title mb-2">{{$experience->title}}</h4>
                             <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
