@@ -151,10 +151,7 @@
             gap: 40px; 
         }
     }
-
-
 </style>
-
 
 <nav class="navbar navbar-expand-lg bg-white shadow-lg">
     <div class="container mt-3 mb-3">
@@ -179,7 +176,6 @@
                         </li>
                         <li>
                             <a class="nav-link @if(request()->routeIs('user.premiumUser')) active @endif" aria-current="page" href="{{route('user.premiumUser')}}" id="Company">{{__('lang.Premium')}}</a>
-                            {{-- <a href="{{route('user.premiumUser')}}" class="btn btn-outline-success me-3 mt-0">{{__('lang.Premium')}}</a> --}}
                         </li>
                     <hr>
                     @elseif (Auth::user()->role == 'company')
@@ -226,9 +222,20 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
                                     <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-                                        @if (Auth::user()->profile_picture != null && File::exists('upload/profile_picture/' . Auth::user()->profile_picture))
-                                            <img src="{{asset('upload/profile_picture/' . Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
-                                        @else
+                                        @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                                            @php
+                                                $contents = collect(Storage::disk('google')->listContents('/', true));
+                                                $file = $contents->firstWhere('path', Auth::user()->profile_picture);
+                                                
+                                                if ($file) {
+                                                    $photo_url = "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}";
+                                                } else {
+                                                    $photo_url = asset('upload/profile_picture/default_profile_picture.jpg');
+                                                }
+                                            @endphp
+                                            <img src="{{$photo_url}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                       @else
+                                            @dd('Test')
                                             <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                         @endif
                                     </button>
