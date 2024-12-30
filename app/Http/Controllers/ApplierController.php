@@ -132,7 +132,7 @@ class ApplierController extends Controller
                 Storage::disk('google')->delete($user->profile_picture);
             }
 
-            Storage::disk('google')->put($fileName, File::get($file));
+            Storage::disk('google')->put($fileName, File::get($file), "public");
             $user->profile_picture = $fileName;
         }
 
