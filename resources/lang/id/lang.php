@@ -263,7 +263,6 @@ return [
     'addEdu' => 'Tambah Pendidikan',
     'addExp' => 'Tambah Pengalaman',
     'phone' => 'Telepon',
-    'uploadCV' => 'Unggah CV',
     'institute' => 'Institusi',
     'deg' => 'Gelar',
     'startDate' => 'Tanggal mulai',

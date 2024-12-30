@@ -264,7 +264,6 @@ return [
     'addEdu' => 'Add Education',
     'addExp' => 'Add Professional Experience',
     'phone' => 'Phone',
-    'uploadCV' => 'Upload CV',
     'institute' => 'Institution',
     'deg' => 'Degree',
     'startDate' => 'Start Date',
