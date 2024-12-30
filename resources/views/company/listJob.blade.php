@@ -24,7 +24,7 @@
     @include('components.navbar')
     <div class="container my-5">
         <div class="d-flex justify-content-between">
-            <h2 class="mb-4">{{__('lang.titleListJob')}}</h2>
+            <h2 class="mb-4 my-auto">{{__('lang.titleListJob')}}</h2>
 
             <div>
                 <form class="" role="search" action="{{route('company.searchJobs')}}" method="GET">
