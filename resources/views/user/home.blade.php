@@ -80,7 +80,7 @@
                         @if ($applier->user->profile_picture != null && File::exists(public_path('upload/profile_picture/' . $applier->user->profile_picture)))
                             <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
                         @else
-                            <img src="{{asset('default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                            <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
                         @endif
                     </div>
 

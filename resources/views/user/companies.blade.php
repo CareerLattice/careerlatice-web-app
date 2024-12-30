@@ -100,7 +100,7 @@
                             @if ($company->company_image != null && File::exists(public_path('upload/profile_picture/' . $company->company_image)))
                                 <img src="{{asset('upload/profile_picture/' . $company->company_image)}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
                             @else
-                                <img src="{{asset('default_profile_picture.jpg')}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
+                                <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
                             @endif
                         </div>
 

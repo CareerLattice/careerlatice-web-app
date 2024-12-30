@@ -230,12 +230,12 @@
                                                 if ($file) {
                                                     $photo_url = "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}";
                                                 } else {
-                                                    $photo_url = asset('default_profile_picture.jpg');
+                                                    $photo_url = asset('assets/default_profile_picture.jpg');
                                                 }
                                             @endphp
                                             <img src="{{$photo_url}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                        @else
-                                            <img src="{{asset('default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                            <img src="{{asset('assets/default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                         @endif
                                     </button>
                                 </h2>

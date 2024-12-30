@@ -32,7 +32,7 @@
                             @if ($company->user->profile_picture != null && File::exists('upload/profile_picture/' . $company->user->profile_picture))
                                 <img src="{{asset('upload/profile_picture/' . $company->user->profile_picture)}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">
                             @else
-                                <img src="{{asset('default_profile_picture.jpg')}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">
+                                <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">
                             @endif
                         </div>
 
