@@ -12,20 +12,20 @@
             "dest": "/public/assets/$1"
         },
         {
-            "src": "/profile_url/(.*)",
-            "dest": "/public/profile_url/$1"
-        },
-        {
             "src": "upload/(.*)",
             "dest": "/public/upload/$1"
         },
         {
-            "src": "/css/(.*)",
-            "dest": "/public/css/$1"
+            "src": "upload/profile_picture/(.*)",
+            "dest": "/public/upload/profile_picture/$1"
         },
         {
-            "src": "/js/(.*)",
-            "dest": "/public/js/$1"
+            "src": "upload/company/job_picture/(.*)",
+            "dest": "/public/upload/company/job_picture/$1"
+        },
+        {
+            "src": "upload/applier/CV/(.*)",
+            "dest": "/public/upload/applier/CV/$1"
         },
         {
             "src": "/(.*)",
