@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
 
 class ApplierController extends Controller
 {
@@ -126,13 +125,14 @@ class ApplierController extends Controller
 
         if($request->hasFile('profile_picture')){
             $file = $request->file('profile_picture');
-            $fileName = 'profile_picture/' . $user->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
+            $destinationPath = public_path('upload/profile_picture');
+            $fileName = $user->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
 
-            if ($user->profile_picture && $user->profile_picture != 'default_profile_picture.jpg' && Storage::disk('google')->exists($user->profile_picture)) {
-                Storage::disk('google')->delete($user->profile_picture);
+            if ($user->profile_picture && $user->profile_picture != 'default_profile_picture.jpg' && File::exists(public_path('upload/profile_picture/' . $user->profile_picture))) {
+                File::delete(public_path('upload/profile_picture/' . $user->profile_picture));
             }
 
-            Storage::disk('google')->put($fileName, File::get($file));
+            $file->move($destinationPath, $fileName);
             $user->profile_picture = $fileName;
         }
 

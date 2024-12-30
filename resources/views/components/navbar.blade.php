@@ -222,19 +222,9 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
                                     <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-                                        @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
-                                            @php
-                                                $contents = collect(Storage::disk('google')->listContents('/', true));
-                                                $file = $contents->firstWhere('path', Auth::user()->profile_picture);
-                                                
-                                                if ($file) {
-                                                    $photo_url = "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}";
-                                                } else {
-                                                    $photo_url = asset('upload/profile_picture/default_profile_picture.jpg');
-                                                }
-                                            @endphp
-                                            <img src="{{$photo_url}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
-                                       @else
+                                        @if (Auth::user()->profile_picture != null && File::exists('upload/profile_picture/' . Auth::user()->profile_picture))
+                                            <img src="{{asset('upload/profile_picture/' . Auth::user()->profile_picture)}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
+                                        @else
                                             <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                         @endif
                                     </button>
