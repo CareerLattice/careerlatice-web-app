@@ -128,11 +128,11 @@ class ApplierController extends Controller
             $file = $request->file('profile_picture');
             $fileName = 'profile_picture/' . $user->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
 
-            // if ($user->profile_picture && $user->profile_picture != 'default_profile_picture.jpg' && Storage::disk('google')->exists($user->profile_picture)) {
-            //     Storage::disk('google')->delete($user->profile_picture);
-            // }
+            if ($user->profile_picture && $user->profile_picture != 'default_profile_picture.jpg' && Storage::disk('google')->exists($user->profile_picture)) {
+                Storage::disk('google')->delete($user->profile_picture);
+            }
 
-            // Storage::disk('google')->put($fileName, File::get($file));
+            Storage::disk('google')->put($fileName, File::get($file));
             $user->profile_picture = $fileName;
         }
 

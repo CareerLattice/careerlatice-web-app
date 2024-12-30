@@ -144,7 +144,7 @@
                         <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                             <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                                 <div class="d-flex justify-content-center mb-3">
-                                    {{-- @php
+                                    @php
                                         $contents = collect(Storage::disk('google')->listContents('/', true));
                                         $file = $contents->firstWhere('path', Auth::user()->profile_picture);
                                         
@@ -159,7 +159,7 @@
                                         <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
                                     @else
                                         <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
-                                    @endif --}}
+                                    @endif
                                 </div>
 
                                 <div class="text-center">
