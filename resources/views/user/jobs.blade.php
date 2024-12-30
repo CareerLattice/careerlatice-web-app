@@ -105,7 +105,12 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0 d-flex justify-content-center">
                             <div class="col-12 col-sm-10 col-md-4 mt-3">
-                                <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
+                                @php
+                                    $contents = collect(Storage::disk('google')->listContents('/', true));
+                                    $file = $contents->firstWhere('path', $job->job_picture);
+                                    $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                                @endphp
+                                <img src="{{$job_url}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
                             </div>
                             <div class="col-12 col-md-8">
                                 <div class="card-body p-3">

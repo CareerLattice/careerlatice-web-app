@@ -90,7 +90,12 @@
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <label for="title"><h2 class="fs-4 m-0 mt-3 mb-2">{{__('lang.jobImageEditJob')}}</h2></label>
                     <div class="image-container">
-                        <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo" id="preview-image">
+                        @php
+                            $contents = collect(Storage::disk('google')->listContents('/', true));
+                            $file = $contents->firstWhere('path', $job->job_picture);
+                            $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                        @endphp
+                        <img src="{{$job_url}}" alt="Company Logo" class="company-logo" id="preview-image">
                         <input type="file" id="uploadImage" name="job_image" style="display: none;" onchange="previewImage(event)">
                         <label for="uploadImage" class="change-image-btn">
                             <i class="bi bi-pencil-fill fs-5"></i>

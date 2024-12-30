@@ -85,7 +85,12 @@
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row">
                         <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
-                            <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                            @php
+                                $contents = collect(Storage::disk('google')->listContents('/', true));
+                                $file = $contents->firstWhere('path', $job->job_picture);
+                                $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                            @endphp
+                            <img src="{{$job_url}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">

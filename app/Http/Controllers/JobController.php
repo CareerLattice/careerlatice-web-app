@@ -9,6 +9,7 @@ use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
@@ -47,14 +48,8 @@ class JobController extends Controller
 
         if($req->hasFile('job_image')){
             $file = $req->file('job_image');
-            $destinationPath = public_path('upload/company/job_picture');
-            $fileName = $job->id . '_job_picture.' . $req->file('job_image')->getClientOriginalExtension();
-
-            if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && File::exists(public_path('upload/company/job_picture/' . $job->job_picture))) {
-                File::delete(public_path('upload/company/job_picture/' . $job->job_picture));
-            }
-
-            $file->move($destinationPath, $fileName);
+            $fileName = 'job_picture/' . $job->id . '_job.' . $req->file('job_image')->getClientOriginalExtension();
+            Storage::disk('google')->put($fileName, File::get($file), 'public');
 
             $job->update([
                 'job_picture' => $fileName,
@@ -90,14 +85,14 @@ class JobController extends Controller
 
         if($req->hasFile('job_image')){
             $file = $req->file('job_image');
-            $destinationPath = public_path('upload/company/job_picture');
-            $fileName = $job->id . '_job_picture.' . $req->file('job_image')->getClientOriginalExtension();
 
-            if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && File::exists(public_path('upload/company/job_picture/' . $job->job_picture))) {
-                File::delete(public_path('upload/company/job_picture/' . $job->job_picture));
+            $fileName = 'job_picture/' . $job->id . '_job_picture.' . $req->file('job_image')->getClientOriginalExtension();
+
+            if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && Storage::disk('google')->exists($job->job_picture)) {
+                Storage::disk('google')->delete($job->job_picture);
             }
 
-            $file->move($destinationPath, $fileName);
+            Storage::disk('google')->put($fileName, File::get($file), 'public');
 
             $job->job_picture = $fileName;
         }

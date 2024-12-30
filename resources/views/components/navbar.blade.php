@@ -140,15 +140,15 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    @media (min-width: 230px) { 
+    @media (min-width: 230px) {
         .custom-navbar {
-            gap: 10px; 
+            gap: 10px;
         }
     }
 
     @media (min-width: 991px) {
         .custom-navbar {
-            gap: 40px; 
+            gap: 40px;
         }
     }
 </style>
@@ -226,12 +226,7 @@
                                             @php
                                                 $contents = collect(Storage::disk('google')->listContents('/', true));
                                                 $file = $contents->firstWhere('path', Auth::user()->profile_picture);
-                                                
-                                                if ($file) {
-                                                    $photo_url = "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}";
-                                                } else {
-                                                    $photo_url = asset('assets/default_profile_picture.jpg');
-                                                }
+                                                $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
                                             @endphp
                                             <img src="{{$photo_url}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                        @else

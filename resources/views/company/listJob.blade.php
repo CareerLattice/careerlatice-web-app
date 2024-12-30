@@ -101,7 +101,13 @@
             @forelse ($jobs as $job)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card shadow h-100">
-                        <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Job Image" class="card-img-top">
+                        @php
+                            $contents = collect(Storage::disk('google')->listContents('/', true));
+                            $file = $contents->firstWhere('path', $job->job_picture);
+                            $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                        @endphp
+                        <img src="{{$job_url}}" alt="Job Image" class="card-img-top">
+
                         <div class="card-body d-flex flex-column align-items">
                             <h5 class="card-title">{{$job->title}}</h5>
                             <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
