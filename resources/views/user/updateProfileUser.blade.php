@@ -153,9 +153,9 @@
                                         } else {
                                             $photo_url = asset('upload/profile_picture/default_profile_picture.jpg');
                                         }
-                                    @endphp --}}
+                                    @endphp
                                     
-                                    {{-- @if ($applier->user->profile_picture == null || !Storage::disk('google')->exists(Auth::user()->profile_picture))
+                                    @if ($applier->user->profile_picture == null || !Storage::disk('google')->exists(Auth::user()->profile_picture))
                                         <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
                                     @else
                                         <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">

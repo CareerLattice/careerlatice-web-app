@@ -234,9 +234,9 @@
                                                 }
                                             @endphp
                                             <img src="{{$photo_url}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
-                                       @else --}}
+                                       @else
                                             <img src="{{asset('upload/profile_picture/default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
-                                        @endif
+                                        @endif --}}
                                     </button>
                                 </h2>
                                 <div id="collapseUser" class="accordion-collapse collapse" aria-labelledby="headingUser" data-bs-parent="#userAccordion">
