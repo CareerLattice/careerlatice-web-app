@@ -141,12 +141,12 @@
                 @endforelse
 
                 <div class="mt-4 d-flex align-items-center justify-content-end gap-3">
-                    <form action="{{route('company.deleteJob', ['job' => $job->id])}}" method="POST">
+                    <form id="deleteForm" action="{{ route('company.deleteJob', ['job' => $job->id]) }}" method="POST" onsubmit="event.preventDefault(); confirmDelete();">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-outline-danger color-danger">{{__('lang.deleteJobCompanyJob')}}</button>
+                        <button type="button" class="btn btn-outline-danger color-danger" onclick="confirmDelete()">{{__('lang.deleteJobCompanyJob')}}</button>
                     </form>
-                    <a href="{{route('company.editJob', ['job' => $job->id])}}" class="btn btn-outline-primary">{{__('lang.editDetailCompanyJob')}}</a>
+                <a href="{{route('company.editJob', ['job' => $job->id])}}" class="btn btn-outline-primary">{{__('lang.editDetailCompanyJob')}}</a>
                 </div>
             </div>
         </div>
@@ -292,6 +292,7 @@
 @endsection
 
 @section('custom_script')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         async function changeStatus(formId, applicationId) {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -304,55 +305,106 @@
                 data[key] = value;
             });
 
-            try {
-                const response = await fetch('/company/update/application/'+ applicationId, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken,
-                    },
-                    body: JSON.stringify(data),
-                });
+            // Tampilkan konfirmasi sebelum memperbarui status
+            Swal.fire({
+                title: 'Are you sure?',  // Judul konfirmasi
+                text: 'Do you want to update the job application status?',  // Teks konfirmasi
+                icon: 'question',  // Ikon pertanyaan
+                showCancelButton: true,  // Menampilkan tombol Cancel
+                confirmButtonText: 'Yes, update it!',  // Tombol konfirmasi
+                cancelButtonText: 'No, cancel'  // Tombol batal
+            }).then(async (swalResult) => {
+                if (swalResult.isConfirmed) {
+                    // Jika pengguna mengklik "Yes, update it!"
+                    try {
+                        const response = await fetch('/company/update/application/' + applicationId, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken,
+                            },
+                            body: JSON.stringify(data),
+                        });
 
-                if (!response.ok) {
-                    throw new Error(`Error`);
+                        if (!response.ok) {
+                            throw new Error('Failed to update');
+                        }
+
+                        const result = await response.json();
+                        let statusValue = `<p class="text-danger fw-bold">{{__('lang.Rejected')}}</p>`;
+                        if (result.status == 'Accepted') {
+                            statusValue = `<p class="text-success fw-bold">{{__('lang.Accepted')}}</p>`;
+                        }
+
+                        // Menampilkan SweetAlert konfirmasi status yang diperbarui
+                        Swal.fire({
+                            title: 'Job Application Status Updated',
+                            html: `The application status has been updated to: ${result.status}`,
+                            icon: result.status == 'Accepted' ? 'success' : 'error',
+                            confirmButtonText: 'Ok'
+                        });
+
+                        // Pembaruan status di UI
+                        document.getElementById('status_' + applicationId).innerHTML = statusValue;
+                        document.getElementById('action_' + applicationId).innerHTML = `<div class="bg-secondary text-light p-2 rounded-3">{{__('lang.noneCompanyJob')}}</div>`;
+
+                    } catch (error) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'There was an error updating the status.',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        });
+                    }
+                } else {
+                    // Jika pengguna mengklik "No, cancel"
+                    Swal.fire({
+                        title: 'Cancelled',
+                        text: 'No changes were made.',
+                        icon: 'info',
+                        confirmButtonText: 'Ok'
+                    });
                 }
-
-                const result = await response.json();
-                let statusValue = `<p class="text-danger fw-bold">{{__('lang.Rejected')}}</p>`;
-                if (result.status == 'Accepted') {
-                    statusValue = `<p class="text-success fw-bold">{{__('lang.Accepted')}}</p>`;
-                }
-
-                alert('Job Application Status Updated to ' + result.status);
-                document.getElementById('status_' + applicationId).innerHTML = statusValue;
-                document.getElementById('action_' + applicationId).innerHTML = `<div class="bg-secondary text-light p-2 rounded-3">{{__('lang.noneCompanyJob')}}</div>`;
-            } catch (error) {
-                console.error(error);
-            }
+            });
         }
 
+        // Fungsi untuk menangani klik tombol konfirmasi untuk filter
+        function handleButtonClick(button) {
+            const filterValue = button.value; // Menangkap value dari tombol yang diklik
 
-        function toggleDropdown() {
-            var dropdownMenu = document.getElementById('dropdownMenu');
-            var isOpen = dropdownMenu.classList.contains('show');
-
-            if (isOpen) {
-                dropdownMenu.classList.remove('show');
-            } else {
-                dropdownMenu.classList.add('show');
-            }
-
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `You are applying the filter: ${filterValue}`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, apply it!',
+                cancelButtonText: 'No, cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengonfirmasi, kirim form
+                    button.closest('form').submit(); // Mengirim form yang berisi tombol
+                }
+            });
         }
 
-        window.addEventListener('click', function(event) {
-            var dropdownMenu = document.getElementById('dropdownMenu');
-            var button = document.getElementById('dropdownMenuButton1');
-
-            if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove('show');
+        function confirmDelete() {
+        Swal.fire({
+            title: 'Are you sure?',  // Judul konfirmasi
+            text: 'Do you really want to delete this job? This action cannot be undone.',  // Pesan konfirmasi
+            icon: 'warning',  // Ikon peringatan
+            showCancelButton: true,  // Tombol Cancel
+            confirmButtonText: 'Yes, delete it!',  // Teks tombol konfirmasi
+            cancelButtonText: 'No, cancel'  // Teks tombol batal
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika pengguna mengklik 'Yes, delete it!'
+                document.getElementById('deleteForm').submit();  // Kirimkan formulir untuk menghapus pekerjaan
+            }
+            else{
+                console.log("No Action")
             }
         });
+    }
+
     </script>
 @endsection
-

@@ -2,6 +2,72 @@
 
 @section('title', $company->user->name)
 
+<style>
+/* Default styling for custom-card */
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Default styling for custom-card-body */
+.custom-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+/* Default styling for custom-card-title */
+.custom-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Default styling for custom-card-text */
+.custom-card-text {
+    color: #555;
+    margin-bottom: 1rem;
+    max-height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Default styling for custom-btn */
+.custom-btn {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive styling for screen width <= 722px */
+@media (max-width: 767px) {
+    .responsive-card {
+        height: 200px; /* Set fixed height */
+        min-height: 200px; /* Ensure minimum height consistency */
+    }
+
+    .custom-card-text {
+        max-height: none; /* Remove max-height for more flexible text wrapping */
+        white-space: normal; /* Allow text to wrap on small screens */
+    }
+
+    .custom-btn {
+        width: 100%; /* Make the button full width on small screens */
+        text-align: center;
+    }
+}
+</style>
+
+
 @section('content')
     @include('components.navbar')
 
@@ -72,14 +138,14 @@
                         </p>
                     <div class="row">
                         @forelse ($jobs as $job)
-                            <div class="col-sm-4 mb-3 mb-sm-0">
-                                <div class="card" style="border: 1px solid #ddd; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-weight: 500;">{{$job->title}}</h5>
-                                        <p class="card-text text-truncate" style="color: #555; margin-bottom: 1rem; max-height: 48px; overflow: hidden;">
-                                            {{$job->description}}
-                                        </p>
-                                        <a href="{{route('user.jobDetail', ['job' => $job])}}" class="btn btn-primary" style="background-color: #0056b3; border-color: #0056b3; font-size: 0.9rem; font-weight: 500; transition: background-color 0.3s ease;">{{__('lang.apply')}}</a>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="custom-card card responsive-card" style="border: 1px solid #ddd; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="custom-card-body card-body cards">
+                                    <h5 class="custom-card-title card-title" style="font-weight: 500; font-size: 0.8 rem;">{{$job->title}}</h5>
+                                    <p class="custom-card-text card-text text-truncate" style="color: #555; margin-bottom: 1rem; max-height: 48px; overflow: hidden;">
+                                        {{$job->description}}
+                                    </p>
+                                    <a href="{{route('user.jobDetail', ['job' => $job])}}" class="custom-btn btn btn-primary" style="background-color: #0056b3; border-color: #0056b3; font-size: 0.9rem; font-weight: 500; transition: background-color 0.3s ease;">{{__('lang.apply')}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +155,7 @@
                             </div>
                         @endforelse
                         <div class="d-flex flex-md-row justify-content-center gap-2 mt-4 mb-3" style="width: 100%;">
-                            <a href="{{route('user.companyJobVacancies', ['company' => $company])}}" class="btn btn-dark" style="background-color: #333; font-size: 1.2rem; padding: 8px 18px;">{{__('lang.viewAll')}}</a>
+                            <a href="{{route('user.companyJobVacancies', ['company' => $company])}}" class="btn btn-dark" style="background-color: #333; font-size: 1rem; padding: 8px 18px;">{{__('lang.viewAll')}}</a>
                         </div>
                     </div>
                 </div>
@@ -107,8 +173,8 @@
                 </ul>
 
                 <div class="tab-content" id="companyTabContent">
-                    <h5 class="section-title" style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; color: #0056b3;">{{__('lang.get')}} {{$company->user->name}}</h5>
-                    <p class="mb-4" style="color: #555;">{{__('lang.feedback')}}</p>
+                    <h5 class="section-title" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: #0056b3;">{{__('lang.get')}} {{$company->user->name}}</h5>
+                    <p class="mb-4" style="color: #555; font-size: 1rem;">{{__('lang.feedback')}}</p>
 
                     <div class="row mb-4">
                         <div class="col-md-4 d-flex align-items-start">
