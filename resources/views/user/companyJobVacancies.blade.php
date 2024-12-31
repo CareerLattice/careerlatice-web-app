@@ -95,10 +95,17 @@
 
         <div class="card bg-white">
             <div class="card-body">
+                @php
+                    $contents = collect(Storage::disk('google')->listContents('/', true));
+                @endphp
                 @forelse ($jobs as $job)
                     <div class="row mb-4">
                         <div class="col-10 col-md-5 col-lg-3">
-                            <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" class="img-thumbnail" style="width: 100%;">
+                            @php
+                                $file = $contents->firstWhere('path', $job->job_picture);
+                                $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                            @endphp
+                            <img src="{{$job_url}}" class="img-thumbnail" style="width: 100%;">
                         </div>
 
                         <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">

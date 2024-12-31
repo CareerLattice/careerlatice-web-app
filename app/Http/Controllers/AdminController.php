@@ -68,46 +68,4 @@ class AdminController extends Controller
 
         return response()->json(['rangeRevenue' => $rangeRevenue]);
     }
-
-    public function exportPremiumData(Request $request){
-        $startDate = $request->query('dateFrom');
-        $endDate = $request->query('dateTo');
-        $endDate = Carbon::parse($endDate)->setTime(23, 59, 59);
-
-        try {
-            $result = DB::table('user_histories')
-                ->join('appliers', 'user_histories.applier_id', '=', 'appliers.id')
-                ->join('users', 'appliers.user_id', '=', 'users.id')
-                ->select('users.name', 'users.email', 'users.phone_number', 'appliers.address', 'appliers.birth_date', 'user_histories.duration', 'user_histories.start_date', 'user_histories.end_date', 'user_histories.price')
-                ->where('status', 'success')
-                ->where('user_histories.start_date', '>=', $startDate)
-                ->where('user_histories.start_date', '<=', $endDate)
-                ->orderByDesc('user_histories.start_date')
-                ->get();
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
-
-        $fileName = 'income_report.csv';
-        $filePath = `/tmp/` . $fileName;
-
-        $fp = fopen($fileName,'w+');
-        fputcsv($fp, fields: array('Name', 'Email', 'Phone Number', 'Address', 'Birth Date', 'Duration', 'Start Premium Date', 'End Premium Date', 'Price'));
-        foreach($result as $row){
-            fputcsv($fp, array(
-                $row->name,
-                $row->email,
-                $row->phone_number,
-                $row->address,
-                $row->birth_date,
-                (string) $row->duration . ' Month',
-                $row->start_date,
-                $row->end_date,
-                $row->price,
-            ));
-        }
-
-        fclose($fp);
-        return response()->download($filePath)->deleteFileAfterSend(true);
-    }
 }

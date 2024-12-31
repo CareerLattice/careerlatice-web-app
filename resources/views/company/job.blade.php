@@ -85,7 +85,12 @@
                 <div class="col-md-8 d-flex align-items-center">
                     <div class="row justify-content-center align-items-center text-center text-md-start">
                         <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
-                            <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
+                            @php
+                                $contents = collect(Storage::disk('google')->listContents('/', true));
+                                $file = $contents->firstWhere('path', $job->job_picture);
+                                $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                            @endphp
+                            <img src="{{$job_url}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 
                         <div class="col-md-9">
@@ -172,8 +177,6 @@
                             </ul>
                         </div>
                     </form>
-
-                    <a href="{{route('company.downloadJobApplicants', ['job' => $job])}}" class="export btn btn-primary">{{__('lang.exportListCompanyJob')}}</a>
                 </div>
             </div>
 
@@ -231,8 +234,22 @@
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->name}}</td>
                                 <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">{{$application->applied_at}}</td>
                                 <td>
-                                    <a href="{{asset('upload/applier/cv/' . $application->cv)}}" target="_blank" class="btn btn-primary">{{__('lang.openCVCompanyJob')}}</a>
+                                    @if($application->cv)
+                                        @php
+                                            $cv = $contents->firstWhere('path', $application->cv);
+                                            $cv_url = $cv ? "https://drive.google.com/file/d/{$cv['extraMetadata']['id']}/preview" : asset('assets/default_cv.pdf');
+                                        @endphp
+
+                                        @if ($cv || $application->cv == 'default_cv.pdf')
+                                            <a href="{{$cv_url}}" target="_blank" class="btn btn-primary">{{__('lang.View CV') }}</a>
+                                        @else
+                                            <p class="text-muted">{{__('lang.CV not found')}}</p>
+                                        @endif
+                                    @else
+                                        <p class="text-muted">{{ __('lang.You have not uploaded CV yet') }}</p>
+                                    @endif
                                 </td>
+
                                 <td id="{{'status_' . $application->job_application_id}}" onclick="window.location='{{route('company.viewApplicants', ['applier' => $application->applier_id])}}'">
                                     @if ($application->status == 'accepted')
                                         <p class="text-success fw-bold">{{__('lang.Accepted')}}</p>

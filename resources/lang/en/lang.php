@@ -120,14 +120,13 @@ return [
     'Pending' => 'Pending',
     'Canceled' => 'Canceled',
     'noneCompanyJob' => 'None',
-    'exportListCompanyJob' => 'Export List Applicant',
     'noCompanyJob' => 'No',
     'appliedAtCompanyJob' => 'Applied At',
     'applicationCVCompanyJob' => 'Application CV',
     'statusCompanyJob' => 'Status',
     'actionCompanyJob' => 'Action',
-    'openCVCompanyJob' => 'Open CV',
     'noApplicationFoundCompanyJob' => 'No application found.',
+    'CV not found' => 'CV not found',
 
     // listJob page
     'titleListJob' => 'Job Listings',
@@ -264,7 +263,6 @@ return [
     'addEdu' => 'Add Education',
     'addExp' => 'Add Professional Experience',
     'phone' => 'Phone',
-    'uploadCV' => 'Upload CV',
     'institute' => 'Institution',
     'deg' => 'Degree',
     'startDate' => 'Start Date',

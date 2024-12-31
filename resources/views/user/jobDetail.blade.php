@@ -23,7 +23,7 @@
                 font-size: 1rem;
             }
         }
-        
+
         .job-type{
             display: inline-block;
             padding: 5px 10px;
@@ -52,7 +52,12 @@
             <div class="job-header" style="display: flex; align-items: center; gap: 1rem;">
                 <div class="row">
                     <div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-                        <img src="{{Storage::url($job->job_picture)}}" alt="Company Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                        @php
+                            $contents = collect(Storage::disk('google')->listContents('/', true));
+                            $file = $contents->firstWhere('path', $job->job_picture);
+                            $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                        @endphp
+                        <img src="{{$job_url}}" alt="Company Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
                     </div>
 
                     <div class="jobsTitle col-12 col-md-10">

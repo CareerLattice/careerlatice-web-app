@@ -113,9 +113,8 @@
                             <input type="date" style="gap: 1.5rem" class="endDate form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
                         </div>
 
-                        <div class="button col-12 col-md-6 d-flex" style="gap: 0.5rem">
-                            <button class="btn btn-secondary w-50 ms-3" type="submit">{{__('lang.Search')}}</button>
-                            <button class="btn btn-primary w-50" onclick="exportIncome()">{{__('lang.Export All Users')}}</button>
+                        <div class="ms-0 ms-md-2 mt-2 mt-md-0" style="max-width: 150px;">
+                            <button class="btn btn-secondary" type="submit">{{__('lang.Search')}}</button>
                         </div>
                     </form>
                 </div>
@@ -197,37 +196,6 @@
             } catch (error) {
                 console.error(error);
             }
-        }
-
-        async function exportIncome(){
-            const dateFrom = document.getElementById('inputDateFromPremium').value;
-            const dateTo = document.getElementById('inputDateToPremium').value;
-
-            if(dateFrom === '' || dateTo === '') {
-                alert('Please fill the date range.');
-                return;
-            };
-
-            const fromDate = new Date(dateFrom);
-            const toDate = new Date(dateTo);
-
-            // Check if dateFrom is greater than dateTo
-            if (fromDate > toDate) {
-                alert('The "From" date cannot be later than the "To" date.');
-                document.getElementById('inputDateTo').value = null;
-                return;
-            }
-
-            let url = `/admin/premium/data?dateFrom=${dateFrom}&dateTo=${dateTo}`;
-            try {
-                const response = await fetch(url);
-                if(!response.ok){
-                    throw new Error('Something went wrong');
-                }
-            } catch (error) {
-                console.error(error);
-            }
-            window.location.href = url;
         }
     </script>
 @endsection

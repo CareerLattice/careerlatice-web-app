@@ -1,7 +1,7 @@
 <?php
 return [
     //start of Navbar
-    'Home' => 'Home',
+    'Home' => 'Beranda',
     'Find a Job' => 'Cari Pekerjaan',
     'Company' => 'Perusahaan',
     'Created Job' => 'Lowongan yang dibuat',
@@ -120,14 +120,13 @@ return [
     'Pending' => 'Tertunda',
     'Canceled' => 'Dibatalkan',
     'noneCompanyJob' => 'Tidak ada',
-    'exportListCompanyJob' => 'Cetak Daftar Pemohon',
     'noCompanyJob' => 'No',
     'appliedAtCompanyJob' => 'Diajukan Pada',
     'applicationCVCompanyJob' => 'CV lamaran',
     'statusCompanyJob' => 'Status',
     'actionCompanyJob' => 'Tindakan',
-    'openCVCompanyJob' => 'Buka CV',
     'noApplicationFoundCompanyJob' => 'Tidak ada lamaran yang ditemukan.',
+    'CV not found' => 'CV tidak ditemukan',
 
     // listJob page
     'titleListJob' => 'Daftar Lowongan Pekerjaan',
@@ -263,7 +262,6 @@ return [
     'addEdu' => 'Tambah Pendidikan',
     'addExp' => 'Tambah Pengalaman',
     'phone' => 'Telepon',
-    'uploadCV' => 'Unggah CV',
     'institute' => 'Institusi',
     'deg' => 'Gelar',
     'startDate' => 'Tanggal mulai',
