@@ -69,7 +69,9 @@
                     {{$errors->first()}}
                 </div>
             @endif
-            <button type="submit" class="btn btn-success">{{__('lang.addJobCreateJob')}}</button>
+            <div class="text-center text-md-start pt-2">
+                <button type="submit" class="btn btn-success">{{__('lang.addJobCreateJob')}}</button>
+            </div>
         </form>
     </div>
     @include('components.footer')

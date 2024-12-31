@@ -83,7 +83,7 @@
         <div class="job-card">
             <div class="job-header row align-items-md-center d-flex justify-content-between">
                 <div class="col-md-8 d-flex align-items-center">
-                    <div class="row">
+                    <div class="row justify-content-center align-items-center text-center text-md-start">
                         <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
                             <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
@@ -100,11 +100,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 d-flex">
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
                     @if ($job->is_active == true)
-                        <div class="bg-success text-light p-2 rounded-3 ms-auto">{{__('lang.openCompanyJob')}}</div>
+                        <div class="bg-success text-light  p-2 rounded-3 ms-md-auto">{{__('lang.openCompanyJob')}}</div>
                     @else
-                        <div class="bg-danger text-light p-2 rounded-3 ms-auto">{{__('lang.closedCompanyJob')}}</div>
+                        <div class="bg-danger text-light content-align-center p-2 rounded-3 ms-md-auto">{{__('lang.closedCompanyJob')}}</div>
                     @endif
                 </div>
             </div>
