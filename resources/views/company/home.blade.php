@@ -156,7 +156,7 @@
 
                                 <div class="col-12 col-md-8">
                                     <div class="btn btn-sm btn-outline-danger rounded-pill mb-2" style="width: 100px; pointer-events:none;" alt="status job">
-                                        @if ($job->is_active)
+                                        @if ($job->is_active == true)
                                             {{ __('lang.openCompanyHome') }}
                                         @else
                                             {{ __('lang.closedCompanyHome') }}
