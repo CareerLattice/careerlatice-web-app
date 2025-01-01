@@ -103,23 +103,25 @@
 
             <div class="mb-4">
                 <h5>{{__('lang.List of All Premium Users')}}</h5>
-                <div class="row g-3 align-items-end">
-                    <form action="{{route('admin.home')}}" method="GET" class="d-flex flex-wrap">
-                        <div class="col-12 col-md-3">
-                            <input type="date" class="form-control" id="inputDateFromPremium" name="start_premium" value="{{request('start_premium')}}">
-                        </div>
-
-                        <div class="col-12 col-md-3">
-                            <input type="date" style="gap: 1.5rem" class="endDate form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
-                        </div>
-
-                        <div class="button col-12 col-md-6 d-flex" style="gap: 0.5rem">
-                            <button class="btn btn-secondary w-50 ms-3" type="submit">{{__('lang.Search')}}</button>
-                            <button class="btn btn-primary w-50" onclick="exportIncome()">{{__('lang.Export All Users')}}</button>
+                <div class="row g-3">
+                    <form action="{{route('admin.home')}}" method="GET" class="d-flex flex-wrap justify-content-between gap-3">
+                        <div class="col-12 col-md-5 d-flex flex-column flex-md-row justify-content-between gap-3">
+                            <div class="col-12 col-md-6">
+                                <input type="date" class="form-control" id="inputDateFromPremium" name="start_premium" value="{{request('start_premium')}}">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="date" class="form-control" id="inputDateToPremium" name="end_premium" value="{{request('end_premium')}}">
+                            </div>
+                        </div>  
+                        <div class="col-12 col-md-5 d-flex justify-content-between">
+                            <button class="btn btn-secondary w-50 me-1" type="submit">{{__('lang.Search')}}</button>
+                            <button class="btn btn-primary w-50" type="button" onclick="exportIncome()">{{__('lang.Export All Users')}}</button>
                         </div>
                     </form>
                 </div>
             </div>
+            
+            
 
             <div >
                 <div class="table-responsive">
