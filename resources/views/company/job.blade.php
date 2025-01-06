@@ -324,12 +324,12 @@
 
             // Tampilkan konfirmasi sebelum memperbarui status
             Swal.fire({
-                title: 'Are you sure?',  // Judul konfirmasi
-                text: 'Do you want to update the job application status?',  // Teks konfirmasi
-                icon: 'question',  // Ikon pertanyaan
-                showCancelButton: true,  // Menampilkan tombol Cancel
-                confirmButtonText: 'Yes, update it!',  // Tombol konfirmasi
-                cancelButtonText: 'No, cancel'  // Tombol batal
+                title: 'Are you sure?',
+                text: 'Do you want to update the job application status?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, update it!',
+                cancelButtonText: 'No, cancel'
             }).then(async (swalResult) => {
                 if (swalResult.isConfirmed) {
                     // Jika pengguna mengklik "Yes, update it!"
@@ -399,23 +399,23 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Jika pengguna mengonfirmasi, kirim form
-                    button.closest('form').submit(); // Mengirim form yang berisi tombol
+                    button.closest('form').submit();
                 }
             });
         }
 
         function confirmDelete() {
         Swal.fire({
-            title: 'Are you sure?',  // Judul konfirmasi
-            text: 'Do you really want to delete this job? This action cannot be undone.',  // Pesan konfirmasi
-            icon: 'warning',  // Ikon peringatan
-            showCancelButton: true,  // Tombol Cancel
-            confirmButtonText: 'Yes, delete it!',  // Teks tombol konfirmasi
-            cancelButtonText: 'No, cancel'  // Teks tombol batal
+            title: 'Are you sure?',
+            text: 'Do you really want to delete this job? This action cannot be undone.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel'
         }).then((result) => {
             if (result.isConfirmed) {
                 // Jika pengguna mengklik 'Yes, delete it!'
-                document.getElementById('deleteForm').submit();  // Kirimkan formulir untuk menghapus pekerjaan
+                document.getElementById('deleteForm').submit();
             }
             else{
                 console.log("No Action")
