@@ -110,7 +110,7 @@ class CompanyController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
 
-            $fileName = 'profile_picture/' . $company->id . '_profile_picture.' . $request->file('profile_picture')->getClientOriginalExtension();
+            $fileName = 'profile_picture/' . $company->id . '_profile_picture.' . $request->file('logo')->getClientOriginalExtension();
 
             if ($company->profile_picture && $company->profile_picture != 'default_profile_picture.jpg' && Storage::disk('google')->exists($company->profile_picture)) {
                 Storage::disk('google')->delete($company->profile_picture);

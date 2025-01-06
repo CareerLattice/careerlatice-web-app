@@ -60,13 +60,12 @@
                                 <div class="image-container">
                                     <!-- Display Current Profile Picture -->
                                     @php
-                                        $profile_picture = Auth::user()->profile_picture;
-                                        if ($profile_picture == null || !File::exists('upload/profile_picture/' . $profile_picture)) {
-                                            $profile_picture = 'default_profile_picture.jpg';
-                                        }
+                                        $contents = collect(Storage::disk('google')->listContents('/', true));
+                                        $file = $contents->firstWhere('path', Auth::user()->profile_picture);
+                                        $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
                                     @endphp
 
-                                    <img src="{{asset('upload/profile_picture/' . $profile_picture)}}"
+                                    <img src="{{$photo_url}}"
                                          alt="Profile Picture"
                                          id="preview-image"
                                          class="rounded-circle me-2 object-fit-fill"
