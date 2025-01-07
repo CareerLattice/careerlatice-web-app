@@ -142,9 +142,9 @@ class ApplierController extends Controller
             $destinationPath = public_path('upload/applier/CV');
             $fileName = $applier->id . '_cv.' . $request->file('cv')->getClientOriginalExtension();
 
-            if ($user->profile_picture && $user->profile_picture != 'default_cv.pdf' && File::exists(public_path('upload/applier/CV' . $applier->cv_url))) {
-                File::delete(public_path('upload/profile_picture/' . $user->profile_picture));
-            }
+            // if ($user->profile_picture && $user->profile_picture != 'default_cv.pdf' && File::exists(public_path('upload/applier/CV' . $applier->cv_url))) {
+            //     File::delete(public_path('upload/profile_picture/' . $user->profile_picture));
+            // }
 
             $file->move($destinationPath, $fileName);
 

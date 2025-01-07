@@ -222,7 +222,8 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingUser">
                                     <button class="accordion-button collapsed p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-                                        @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                                      
+                                    @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
                                             @php
                                                 $contents = collect(Storage::disk('google')->listContents('/', true));
                                                 $file = $contents->firstWhere('path', Auth::user()->profile_picture);

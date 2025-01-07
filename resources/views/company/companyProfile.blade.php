@@ -59,12 +59,12 @@
                             <div class="d-flex align-items-center">
                                 <div class="image-container">
                                     <!-- Display Current Profile Picture -->
-                                    @php
+                                    <!-- @php
                                         $profile_picture = Auth::user()->profile_picture;
                                         if ($profile_picture == null || !File::exists('upload/profile_picture/' . $profile_picture)) {
                                             $profile_picture = 'default_profile_picture.jpg';
                                         }
-                                    @endphp
+                                    @endphp -->
 
                                     <img src="{{asset('upload/profile_picture/' . $profile_picture)}}"
                                          alt="Profile Picture"

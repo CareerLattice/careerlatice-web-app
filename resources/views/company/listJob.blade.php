@@ -16,6 +16,42 @@
             left: auto;
         }
     }
+    @media(min-width: 344px) and (max-width: 425px){
+        .card-content p{
+            font-size: 0.5rem;
+        }
+        .card-title{
+            font-size: 1rem;
+        }
+
+        .test{
+            display: flex;
+        }
+        
+        .row.test{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .row.test > div{
+            flex: 0 0 48%;
+            max-width: 48%;
+        }
+
+        .card{
+            margin: 0 auto;
+        }
+
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+    }
 </style>
 @endsection
 
@@ -92,17 +128,15 @@
             </div>
         </div>
 
-
-
         <div class="mt-4 mb-3">
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">{{__('lang.addNewJobListJob')}}</a>
         </div>
-        <div class="row">
+        <div class="row test">
             @forelse ($jobs as $job)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card shadow h-100">
                         <img src="{{asset('upload/company/job_picture/' . $job->job_picture)}}" alt="Job Image" class="card-img-top">
-                        <div class="card-body d-flex flex-column align-items">
+                        <div class="card-body d-flex flex-column align-items card-content">
                             <h5 class="card-title">{{$job->title}}</h5>
                             <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
                                 @if ($job->is_active == true)
