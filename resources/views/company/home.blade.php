@@ -102,7 +102,7 @@
                 overflow: break-word;
             }
             .responsive-btn-text{
-               font-size: 0.4rem;
+               font-size: 0.3rem;
             }
 
             h5{
@@ -170,10 +170,6 @@
                 margin: 0;
                 padding: 0;
             }
-             
-            .status{
-                width: 100px;
-            }
 
             .custom-button{
                 font-size: 8px !important; 
@@ -224,7 +220,7 @@
             </div>
             <div class="d-flex flex-wrap">
                 <div class="col-12 col-md-6 col-xxs-6 text-center d-flex flex-column">
-                    <div class="custom-card card m-3 p-4 flex-fill">
+                    <div class="card m-3 p-4 flex-fill">
                         <img class="card-img-top mx-auto mb-3" src="{{asset('assets/newJob.png')}}" style="max-width: 200px">
                         <h2 class="card-title fw-bold caption" style="color: #682b90">{{__('lang.jobListingCompanyHome')}}</h2>
                         <p class="card-text text-muted">{{__('lang.jobListingDescCompanyHome')}}</p>
@@ -232,7 +228,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xxs-6 text-center d-flex flex-column">
-                    <div class="custom-card card m-3 p-4 flex-fill">
+                    <div class="card m-3 p-4 flex-fill">
                         <img class="card-img-top mx-auto mb-3" src="{{asset('assets/companyProfileJob.jpg')}}" style="max-width: 200px">
                         <h2 class="card-title fw-bold caption" style="color: #682b90">{{__('lang.companyProfileCompanyHome')}}</h2>
                         <p class="card-text text-muted">{{__('lang.companyProfileDescCompanyHome')}}</p>

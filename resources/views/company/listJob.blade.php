@@ -49,8 +49,11 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+        }   
+
+        .card-img-top{
+            max-height: 100px
         }
-        
     }
 </style>
 @endsection
