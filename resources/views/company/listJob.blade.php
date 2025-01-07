@@ -134,7 +134,7 @@
         <div class="mt-4 mb-3">
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">{{__('lang.addNewJobListJob')}}</a>
         </div>
-        <div class="row">
+        <div class="row test">
             @php
                 $contents = collect(Storage::disk('google')->listContents('/', true));
             @endphp
@@ -146,9 +146,9 @@
                             $file = $contents->firstWhere('path', $job->job_picture);
                             $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
                         @endphp
-                        <img src="{{$job_url}}" alt="Job Image" class="card-img-top">
+                        <img src="{{$job_url}}" alt="Job Image" class="card-img-top object-fit-cover">
 
-                        <div class="card-body d-flex flex-column align-items">
+                        <div class="card-content card-body d-flex flex-column align-items">
                             <h5 class="card-title">{{$job->title}}</h5>
                             <p class="card-subtitle text-muted mb-3">{{$job->job_type}} /
                                 @if ($job->is_active == true)
