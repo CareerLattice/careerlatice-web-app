@@ -16,6 +16,45 @@
             left: auto;
         }
     }
+    @media(min-width: 344px) and (max-width: 425px){
+        .card-content p{
+            font-size: 0.5rem;
+        }
+        .card-title{
+            font-size: 1rem;
+        }
+
+        .test{
+            display: flex;
+        }
+        
+        .row.test{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .row.test > div{
+            flex: 0 0 48%;
+            max-width: 48%;
+        }
+
+        .card{
+            margin: 0 auto;
+        }
+
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }   
+
+        .card-img-top{
+            max-height: 100px
+        }
+    }
 </style>
 @endsection
 
@@ -91,8 +130,6 @@
                 </form>
             </div>
         </div>
-
-
 
         <div class="mt-4 mb-3">
             <a href="{{route('company.createJobPage')}}" class="btn btn-success mb-3">{{__('lang.addNewJobListJob')}}</a>
