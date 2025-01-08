@@ -77,8 +77,14 @@
             <div class="card-body">
                 <div class="d-md-flex align-items-center mb-4">
                     <div class="col-12 col-md-3 mb-2 d-flex justify-content-center">
-                        @if ($applier->user->profile_picture != null && File::exists(public_path('upload/profile_picture/' . $applier->user->profile_picture)))
-                            <img src="{{asset('upload/profile_picture/' . $applier->user->profile_picture)}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                        @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                            @php
+                                $contents = collect(Storage::disk('google')->listContents('/', true));
+                                $file = $contents->firstWhere('path', Auth::user()->profile_picture);
+                                $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                            @endphp
+
+                            <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 2px solid #000000;">
                         @else
                             <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
                         @endif
