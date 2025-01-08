@@ -170,7 +170,7 @@
                     </div>
                 @endif
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-custom">{{__('lang.signUpSignUpCompany')}}</button>
+                    <button type="submit" class="btn btn-custom">{{__('lang.Sign Up')}}</button>
                 </div>
             </form>
         </div>

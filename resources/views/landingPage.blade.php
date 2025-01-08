@@ -461,18 +461,18 @@
         .popular-company-card {
             display: flex;
             flex-direction: column;
-            height: 100%; 
+            height: 100%;
         }
 
         .card-body {
-            flex-grow: 1; 
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .btn {
-            margin-top: auto; 
+            margin-top: auto;
         }
 
 
@@ -505,20 +505,20 @@
         @media (max-width: 344px) {
             .landing-company-bottom-container {
                 padding: 12px;
-                text-align: center; 
+                text-align: center;
             }
 
             .landing-company-bottom-container h3 {
                 font-size: 13px;
-                line-height: 1; 
+                line-height: 1;
                 margin-bottom: 10px;
                 text-align: center;
             }
 
             .landing-company-bottom-container p {
-                font-size: 12px; 
+                font-size: 12px;
             }
-            
+
             .landing-job-bottom-container{
                 padding: 10px;
             }
@@ -708,7 +708,7 @@
 
               <div class="popular-company container hidden">
                 {{-- Technology and Information category --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Technology and Information')}}">
                     <img src="{{ asset('/assets/tokopedia.jpeg') }}" class="card-img-top" alt="Tokopedia">
                     <div class="card-body">
                         <h5 class="card-title">Tokopedia</h5>
@@ -716,8 +716,8 @@
                         <a href="https://www.tokopedia.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Technology and Information')}}">
                     <img src="{{ asset('/assets/shopee.jpeg') }}" class="card-img-top" alt="Shopee">
                     <div class="card-body">
                         <h5 class="card-title">Shopee</h5>
@@ -725,8 +725,8 @@
                         <a href="https://www.shopee.co.id" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Technology and Information')}}">
                     <img src="{{ asset('/assets/grab.jpeg') }}" class="card-img-top" alt="Grab">
                     <div class="card-body">
                         <h5 class="card-title">Grab</h5>
@@ -734,8 +734,8 @@
                         <a href="https://www.grab.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Technology and Information')}}">
                     <img src="{{ asset('/assets/traveloka.jpeg') }}" class="card-img-top" alt="Traveloka">
                     <div class="card-body">
                         <h5 class="card-title">Traveloka</h5>
@@ -743,8 +743,8 @@
                         <a href="https://www.traveloka.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Technology and Information')}}">
                     <img src="{{ asset('/assets/blibli.jpeg') }}" class="card-img-top" alt="Blibli">
                     <div class="card-body">
                         <h5 class="card-title">Blibli</h5>
@@ -752,8 +752,8 @@
                         <a href="https://www.blibli.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.it')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Technology and Information')}}">
                     <img src="{{ asset('/assets/gojek.jpeg') }}" class="card-img-top" alt="Gojek">
                     <div class="card-body">
                         <h5 class="card-title">Gojek</h5>
@@ -762,9 +762,9 @@
                     </div>
                 </div>
                 {{-- End of Technology and Information category --}}
-            
+
                 {{-- Start of Consulting and Accounting category --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Consulting and Accounting')}}">
                     <img src="{{ asset('/assets/deloitte.jpeg') }}" class="card-img-top" alt="Deloitte">
                     <div class="card-body">
                         <h5 class="card-title">Deloitte</h5>
@@ -772,8 +772,8 @@
                         <a href="https://www.deloitte.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Consulting and Accounting')}}">
                     <img src="{{ asset('/assets/kpmg.jpeg') }}" class="card-img-top" alt="KPMG">
                     <div class="card-body">
                         <h5 class="card-title">KPMG</h5>
@@ -781,8 +781,8 @@
                         <a href="https://home.kpmg" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Consulting and Accounting')}}">
                     <img src="{{ asset('/assets/ey.jpeg') }}" class="card-img-top" alt="EY">
                     <div class="card-body">
                         <h5 class="card-title">EY</h5>
@@ -790,8 +790,8 @@
                         <a href="https://www.ey.com" target="_blank" class="btn btn-outline-primary">{{__('lang.Visit Company')}}</a>
                     </div>
                 </div>
-            
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.cna')}}">
+
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Consulting and Accounting')}}">
                     <img src="{{ asset('/assets/pwc.jpeg') }}" class="card-img-top" alt="PwC">
                     <div class="card-body">
                         <h5 class="card-title">PwC</h5>
@@ -800,9 +800,9 @@
                     </div>
                 </div>
                 {{-- End of Consulting and Accounting category --}}
-            
+
                 {{-- Start of Finance and Insurance category --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.fni')}}">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Finance and Insurance')}}">
                     <img src="{{ asset('/assets/bbca.jpeg') }}" class="card-img-top" alt="Bank Central Asia">
                     <div class="card-body">
                         <h5 class="card-title">Bank Central Asia</h5>
@@ -811,9 +811,9 @@
                     </div>
                 </div>
                 {{-- End of Finance and Insurance category --}}
-            
+
                 {{-- Start of Healthcare and Hospitality --}}
-                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.hnh')}}">
+                <div class="popular-company-card card hidden" style="width: 18rem;" data-category="{{__('lang.Healthcare and Hospitality')}}">
                     <img src="{{ asset('/assets/omnihospital.jpeg') }}" class="card-img-top" alt="Omni Hospital">
                     <div class="card-body">
                         <h5 class="card-title">Omni Hospital</h5>
@@ -823,7 +823,7 @@
                 </div>
                 {{-- End of Healthcare and Hospitality category --}}
             </div>
-            
+
 
             <div class="promotion-company-container container hidden">
                 <div class="row">
@@ -858,7 +858,7 @@
                         <a href="https://karir.bca.co.id/" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/grab.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -869,7 +869,7 @@
                         <a href="https://grab.careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/deloitte.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -880,7 +880,7 @@
                         <a href="https://www2.deloitte.com/global/en/careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/shopee.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -891,7 +891,7 @@
                         <a href="https://careers.shopee.com" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/pwc.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -902,7 +902,7 @@
                         <a href="https://www.pwc.com/id/en/careers.html" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/tokopedia.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -913,7 +913,7 @@
                         <a href="https://www.tokopedia.com/careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/gojek.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -924,7 +924,7 @@
                         <a href="https://www.gotocompany.com/careers" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 <div class="job-vacancy-card card hidden" style="width: 18rem;" data-category="Job Vacancy">
                     <img src="{{asset('/assets/ey.jpeg')}}" class="card-img-top" alt="...">
                     <div class="popular-job-card-container card-body">
@@ -935,10 +935,10 @@
                         <a href="https://career.bukalapak.com" class="btn btn-outline-primary" target="_blank">{{__('lang.More Information')}}</a>
                     </div>
                 </div>
-            
+
                 {{-- End of Popular Job Vacancy --}}
             </div>
-            
+
             <div class="promotion-job-container container hidden">
                 <div class="row">
                     <div class="landing-job-bottom-container col-md-12 mt-2 hidden">

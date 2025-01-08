@@ -62,8 +62,6 @@
                 <input type="file" id="job_image" name="job_image">
             </div>
 
-
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     {{$errors->first()}}

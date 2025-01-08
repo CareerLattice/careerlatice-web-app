@@ -101,7 +101,6 @@
                     <p class="text-muted text-center">{{__('lang.noActiveJob')}}</p>
                 </div>
             @endforelse
-
         </div>
 
         <div class="d-flex justify-content-center mt-4">

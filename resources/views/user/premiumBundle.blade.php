@@ -111,7 +111,8 @@
                         ✅ {{__('lang.accessFeatures')}}<br>
                         ✅ {{__('lang.long-term')}}<br>
                     </p>
-                    <p>{{__('lang.getStarted')}}</p>
+                    <p style="text-align: justify;">{{__('lang.getStarted')}}</p>
+
                     <form action="{{route('user.upgradeToPremium')}}" method="post" class="mt-auto">
                         @csrf
                         <input type="hidden" name="duration" value="3">
@@ -132,7 +133,8 @@
                         ✅ {{__('lang.prioSupport')}}<br>
                         ✅ {{__('lang.exclusiveFeature')}}<br>
                     </p>
-                    <p>{{__('lang.plusPlan')}}</p>
+                    <p style="text-align: justify;">{{__('lang.plusPlan')}}</p>
+
                     <form action="{{route('user.upgradeToPremium')}}" method="post" class="mt-auto">
                         @csrf
                         <input type="hidden" name="duration" value="6">
@@ -153,7 +155,8 @@
                         ✅ {{__('lang.VIP')}}<br>
                         ✅ {{__('lang.maxSaving')}}<br>
                     </p>
-                    <p>{{__('lang.ultExp')}}</p>
+                    <p style="text-align: justify;">{{__('lang.ultExp')}}</p>
+
                     <form action="{{route('user.upgradeToPremium')}}" method="post" class="mt-auto">
                         @csrf
                         <input type="hidden" name="duration" value="12">

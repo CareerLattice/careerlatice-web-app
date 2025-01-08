@@ -95,8 +95,16 @@
                 <div class="d-flex align-items-center mb-4">
                     <div class="row">
                         <div class="col-12 col-md-3 ms-4 mb-2 d-flex justify-content-center">
-                            @if ($company->user->profile_picture != null && File::exists('upload/profile_picture/' . $company->user->profile_picture))
-                                <img src="{{asset('upload/profile_picture/' . $company->user->profile_picture)}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">
+                            @php
+                                $contents = collect(Storage::disk('google')->listContents('/', true));
+                            @endphp
+
+                            @if ($company->logo != null && Storage::disk('google')->exists($company->logo))
+                                @php
+                                    $file = $contents->firstWhere('path', $company->logo);
+                                    $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                                @endphp
+                                <img src="{{$photo_url}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">
                             @else
                                 <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">
                             @endif
@@ -116,7 +124,7 @@
                 </ul>
 
                 <div class="tab-content" id="companyTabContent">
-                    <h4 class="section-title" style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; color: #0056b3; text-align: justify;">{{__('lang.desc')}}</h4>
+                    <h4 class="section-title" style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; color: #0056b3; text-align: justify;">{{__('lang.description')}}</h4>
                     <p>{{$company->description}}</p>
                 </div>
 
@@ -168,7 +176,7 @@
             <div class="card-body">
                 <ul class="nav nav-tabs mb-4" id="companyTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" style="font-size: 1.2rem;">{{__('lang.contactUs')}}</button>
+                        <button class="nav-link active fw-bold" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" style="font-size: 1.2rem;">{{__('lang.Contact Us')}}</button>
                     </li>
                 </ul>
 
