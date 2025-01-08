@@ -78,6 +78,7 @@ class JobController extends Controller
             'job_image' => 'image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
+
         // Update status job application to rejected
         if($req->is_active == 0 && $job->is_active == 1){
             JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
