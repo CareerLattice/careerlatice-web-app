@@ -76,7 +76,7 @@
                 {{__('lang.searchYour')}}<span style="color: #7869cd;"> {{__('lang.dreamComp')}}</span>  {{__('lang.here')}}
             </h2>
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search"
-                action="{{ route('user.searchCompany') }}" method="GET">
+                action="{{route('user.searchCompany')}}" method="GET">
                 <input style="max-width: 500px" class="form-control mb-2 mb-md-0 me-md-2" name="search">
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2"
                     style="border-color: var(--bs-primary); width: 150px;" onchange="updatePlaceholder()">
@@ -93,12 +93,21 @@
         </div>
 
         <div class="row">
+            @php
+                $contents = collect(Storage::disk('google')->listContents('/', true));
+            @endphp
+
             @forelse ($companies as $company)
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                     <div class="d-flex flex-column bg-light" style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
                         <div class="text-center">
-                            @if ($company->company_image != null && File::exists(public_path('upload/profile_picture/' . $company->company_image)))
-                                <img src="{{asset('upload/profile_picture/' . $company->company_image)}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
+                            @if($company->company_image != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                                @php
+                                    $file = $contents->firstWhere('path', $company->company_image);
+                                    $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                                @endphp
+
+                                <img src="{{$photo_url}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
                             @else
                                 <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
                             @endif
@@ -153,10 +162,10 @@
             filterGroup.addEventListener('change', function () {
                 switch (filterGroup.value) {
                     case 'name':
-                        searchInput.placeholder = 'Search by Company Name';
+                        searchInput.placeholder = '{{__('lang.Search by Company Name')}}';
                         break;
                     case 'field':
-                        searchInput.placeholder = 'Search by Field';
+                        searchInput.placeholder = '{{__('lang.Search by Field')}}';
                         break;
                     default:
                         searchInput.placeholder = 'Search';
@@ -164,7 +173,7 @@
                 }
             });
 
-            searchInput.placeholder = filterGroup.value === 'name' ? 'Search by Company Name' : 'Search by Field';
+            searchInput.placeholder = filterGroup.value === 'name' ? '{{__('lang.Search by Company Name')}}' : '{{__('lang.Search by Field')}}';
         });
     </script>
 @endsection

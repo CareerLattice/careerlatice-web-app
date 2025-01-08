@@ -551,5 +551,8 @@ return [
     'confirmButtonModal' => 'Ya, Hapus!',
     'cancelButtonTextModal' => 'Batal',
      // End modal
+
+    'Search by Company Name' => 'Cari Berdasarkan Nama Perusahaan',
+    'Search by Field' => 'Cari Berdasarkan Bidang',
 ];
 ?>

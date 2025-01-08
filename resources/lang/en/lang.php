@@ -593,5 +593,8 @@ return [
     'confirmButtonModal' => 'Yes, Delete it!',
     'cancelButtonTextModal' => 'Cancel',
     // End modal
+
+    'Search by Company Name' => 'Search by Company Name',
+    'Search by Field' => 'Search by Field',
 ];
 ?>
