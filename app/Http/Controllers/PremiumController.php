@@ -42,13 +42,13 @@ class PremiumController extends Controller
                 'status' => 'pending',
             ]);
 
-            // Set your Merchant Server Key
+            // Set Merchant Server Key
             \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
 
-            // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+            // Set to Development/Sandbox Environment
             \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION', false);
 
-            // Set sanitization on (default)
+            // Set sanitization on
             \Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED', true);
 
             // Set 3DS transaction for credit card to true
