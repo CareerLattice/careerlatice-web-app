@@ -99,9 +99,9 @@
                                 $contents = collect(Storage::disk('google')->listContents('/', true));
                             @endphp
 
-                            @if ($company->logo != null && Storage::disk('google')->exists($company->logo))
+                            @if ($company->user->profile_picture != null && Storage::disk('google')->exists($company->user->profile_picture))
                                 @php
-                                    $file = $contents->firstWhere('path', $company->logo);
+                                    $file = $contents->firstWhere('path', $company->user->profile_picture);
                                     $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
                                 @endphp
                                 <img src="{{$photo_url}}" alt="Company Logo" class="rounded-circle" style="width: 150px; height: 150px;">

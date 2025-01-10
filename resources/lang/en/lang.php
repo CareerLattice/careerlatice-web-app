@@ -521,7 +521,7 @@ return [
     //End of Sign Up Page
 
     // Start of modal
-    'Are you sure?' => 'Are you sure?',
+    'Are you sure' => 'Are you sure',
     'You will not be able to revert this!' => 'You will not be able to revert this!',
     'confirmButtonModal' => 'Yes, Delete it!',
     'cancelButtonTextModal' => 'Cancel',
@@ -546,5 +546,19 @@ return [
     'Very intuitive and efficient' => 'Very intuitive and efficient',
     'Everything was smooth' => 'Everything was smooth',
     //End of Landing Page
+
+    'No' => 'No',
+    'Yes' => 'Yes',
+    'accept' => 'accept',
+    'reject' => 'reject',
+    'Do you want to' => 'Do you want to',
+    'this application' => 'this application',
+    'Cancel' => 'Cancelled',
+    'Job Application Status Updated' => 'Job Application Status Updated',
+    'Do you want to delete this job' => 'Do you want to delete this job',
+    'You are applying the filter' => 'You are applying the filter',
+    'No changes were made' => 'No changes were made',
+    'There was an error updating the status' => 'There was an error updating the status',
+    'The application status has been updated to' => 'The application status has been updated to',
 ];
 ?>

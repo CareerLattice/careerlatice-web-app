@@ -270,6 +270,7 @@
                                     <td class="d-flex gap-2" id="{{'action_' . $application->job_application_id}}">
                                         <form id="formRejected">
                                             <input type="hidden" name="status" value="rejected">
+                                            <input type="hidden" name="stat" value="{{__('lang.reject')}}">
                                             <button type="button" onclick="changeStatus('formRejected', {{$application->job_application_id}})" class="btn btn-danger">
                                                 <i class="bi bi-x-circle"></i>
                                             </button>
@@ -277,7 +278,8 @@
 
                                         <form id="formAccepted">
                                             <input type="hidden" name="status" value="accepted">
-                                            <button type="button" onclick="changeStatus('formAccepted', {{$application->job_application_id}})" class="btn btn-success">
+                                            <input type="hidden" name="stat" value="{{__('lang.accept')}}">
+                                            <button id="" type="button" onclick="changeStatus('formAccepted', {{$application->job_application_id}})" class="btn btn-success">
                                                 <i class="bi bi-check-circle"></i>
                                             </button>
                                         </form>
@@ -309,7 +311,7 @@
 @endsection
 
 @section('custom_script')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         async function changeStatus(formId, applicationId) {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -322,14 +324,16 @@
                 data[key] = value;
             });
 
+            var update = data.stat;
+
             // Tampilkan konfirmasi sebelum memperbarui status
             Swal.fire({
-                title: 'Are you sure?',
-                text: 'Do you want to update the job application status?',
+                title: '{{__('lang.Are you sure')}} ?',
+                text: '{{__('lang.Do you want to')}} ' + update + ' {{__("lang.this application")}} ?',
                 icon: 'question',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, update it!',
-                cancelButtonText: 'No, cancel'
+                confirmButtonText: '{{__('lang.Yes')}}',
+                cancelButtonText: '{{__('lang.No')}}'
             }).then(async (swalResult) => {
                 if (swalResult.isConfirmed) {
                     // Jika pengguna mengklik "Yes, update it!"
@@ -349,14 +353,16 @@
 
                         const result = await response.json();
                         let statusValue = `<p class="text-danger fw-bold">{{__('lang.Rejected')}}</p>`;
+                        let statusApplication = '{{__('lang.Rejected')}}';
                         if (result.status == 'Accepted') {
                             statusValue = `<p class="text-success fw-bold">{{__('lang.Accepted')}}</p>`;
+                            statusApplication = '{{__('lang.Accepted')}}';
                         }
 
                         // Menampilkan SweetAlert konfirmasi status yang diperbarui
                         Swal.fire({
-                            title: 'Job Application Status Updated',
-                            html: `The application status has been updated to: ${result.status}`,
+                            title: '{{__('lang.Job Application Status Updated')}}',
+                            html: `{{__('lang.The application status has been updated to')}}: ${statusApplication}`,
                             icon: result.status == 'Accepted' ? 'success' : 'error',
                             confirmButtonText: 'Ok'
                         });
@@ -368,16 +374,15 @@
                     } catch (error) {
                         Swal.fire({
                             title: 'Error!',
-                            text: 'There was an error updating the status.',
+                            text: '{{__('lang.There was an error updating the status')}}.',
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         });
                     }
                 } else {
-                    // Jika pengguna mengklik "No, cancel"
                     Swal.fire({
-                        title: 'Cancelled',
-                        text: 'No changes were made.',
+                        title: '{{__('lang.Cancel')}}',
+                        text: '{{__('lang.No changes were made')}}.',
                         icon: 'info',
                         confirmButtonText: 'Ok'
                     });
@@ -387,41 +392,35 @@
 
         // Fungsi untuk menangani klik tombol konfirmasi untuk filter
         function handleButtonClick(button) {
-            const filterValue = button.value; // Menangkap value dari tombol yang diklik
+            const filterValue = button.value;
 
             Swal.fire({
-                title: 'Are you sure?',
-                text: `You are applying the filter: ${filterValue}`,
+                title: '{{__('lang.Are you sure')}}' + '?',
+                text: `{{__('lang.You are applying the filter')}}: ${filterValue}`,
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, apply it!',
-                cancelButtonText: 'No, cancel'
+                confirmButtonText: '{{__('lang.Yes')}}',
+                cancelButtonText: '{{__('lang.No')}}'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Jika pengguna mengonfirmasi, kirim form
                     button.closest('form').submit();
                 }
             });
         }
 
         function confirmDelete() {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: 'Do you really want to delete this job? This action cannot be undone.',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, cancel'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Jika pengguna mengklik 'Yes, delete it!'
-                document.getElementById('deleteForm').submit();
-            }
-            else{
-                console.log("No Action")
-            }
-        });
-    }
-
+            Swal.fire({
+                title: '{{__('lang.Are you sure')}} ?',
+                text: "{{__('lang.Do you want to delete this job')}} ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '{{__('lang.Yes')}}',
+                cancelButtonText: '{{__('lang.No')}}'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('deleteForm').submit();
+                }
+            });
+        }
     </script>
 @endsection

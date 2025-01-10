@@ -54,15 +54,16 @@ class PremiumController extends Controller
             // Set 3DS transaction for credit card to true
             \Midtrans\Config::$is3ds = ENV('MIDTRANS_IS_3DS', true);
 
+            $user = Auth::user();
             $params = array(
                 'transaction_details' => array(
                     'order_id' => rand(),
                     'gross_amount' => $transaction->price,
                 ),
                 'customer_details' => array(
-                    'first_name' => Auth::user()->name,
-                    'email' => Auth::user()->email,
-                    'phone' => Auth::user()->phone_number,
+                    'first_name' => $user->name,
+                    'email' => $user->email,
+                    'phone' => $user->phone_number,
                 ),
             );
 

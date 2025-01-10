@@ -521,7 +521,7 @@ return [
     // End of Sign Up Page
 
     // Start of modal
-    'Are you sure?' => 'Apakah Anda yakin?',
+    'Are you sure' => 'Apakah Anda yakin',
     'You will not be able to revert this!' => 'Anda tidak akan dapat mengembalikannya!',
     'confirmButtonModal' => 'Ya, Hapus!',
     'cancelButtonTextModal' => 'Batal',
@@ -546,5 +546,19 @@ return [
     'Very intuitive and efficient' => 'Sangat intuitif dan efisien',
     'Everything was smooth' => 'Semuanya berjalan lancar',
     // End of Landing Page
+
+    'No' => 'Tidak',
+    'Yes' => 'Ya',
+    'accept' => 'menerima',
+    'reject' => 'menolak',
+    'Do you want to' => 'Apakah Anda ingin',
+    'this application' => 'lamaran ini',
+    'Cancel' => 'Batal',
+    'Job Application Status Updated' => 'Status Lamaran Pekerjaan Diperbarui',
+    'Do you want to delete this job' => 'Apakah Anda ingin menghapus pekerjaan ini',
+    'You are applying the filter' => 'Anda sedang menerapkan filter',
+    'No changes were made' => 'Tidak ada perubahan yang dilakukan',
+    'There was an error updating the status' => 'Ada kesalahan saat memperbarui status',
+    'The application status has been updated to' => 'Status lamaran telah diperbarui menjadi',
 ];
 ?>
