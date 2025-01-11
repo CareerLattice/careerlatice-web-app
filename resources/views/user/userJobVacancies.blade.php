@@ -121,7 +121,7 @@
             document.querySelectorAll(".unapply-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "{{__('lang.Are you sure?')}}",
+                        title: "{{__('lang.Are you sure')}} ?",
                         text: "{{__('lang.You will not be able to revert this!')}}",
                         icon: "warning",
                         showCancelButton: true,

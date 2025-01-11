@@ -235,7 +235,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="endDate" class="form-label">{{__('lang.fieldOfStudy')}}</label>
+                            <label for="endDate" class="form-label">{{__('lang.endDate')}}</label>
                             <input type="date" class="form-control" id="endDate" name="end_date">
                         </div>
 
@@ -483,7 +483,7 @@
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "{{__('lang.Are you sure?')}}",
+                        title: "{{__('lang.Are you sure')}} ?",
                         text: "{{__('lang.You will not be able to revert this!')}}",
                         icon: "warning",
                         showCancelButton: true,
