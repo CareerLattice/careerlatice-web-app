@@ -125,7 +125,7 @@
             }
 
             .col-xxs-6 {
-                flex: 0 0 50%; 
+                flex: 0 0 50%;
                 max-width: 50%;
                 gap: 10px;
             }
@@ -144,20 +144,20 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                flex-grow: 1; 
+                flex-grow: 1;
             }
 
             .job-details a {
-                width: 100%;  
-                font-size: 10px ; 
-                padding: 1px; 
+                width: 100%;
+                font-size: 10px ;
+                padding: 1px;
             }
-            
+
             .job-details p{
                 margin-bottom:5px;
                 padding: 0;
             }
-            
+
 
             .job-details h3{
                 font-size: 0.4rem !important;
@@ -172,15 +172,15 @@
             }
 
             .custom-button{
-                font-size: 8px !important; 
-                width: 40px !important; 
+                font-size: 8px !important;
+                width: 40px !important;
             }
 
             .body{
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between; 
-            }   
+                justify-content: space-between;
+            }
 
             .card-body{
                 flex-direction: column;
@@ -244,11 +244,24 @@
         <div class="col-12">
             <h3 class="fw-bold">{{ __('lang.recentJobCompanyHome') }}</h3>
             <div class="row d-flex flex-wrap">
+                @php
+                    $contents = collect(Storage::disk('google')->listContents('/', true));
+                @endphp
+
                 @forelse ($data['recent_job'] as $job)
                     <div class="main-custom-card card shadow my-3">
                         <div class="card-body p-md-4 d-flex flex-column flex-md-row body gap-2">
                             <div class="job-image-wrapper">
-                                <img src="{{asset('assets/joblistImagePlaceHolder.jpeg')}}" alt="jobPlaceHolder" class="job-image">
+                                @if ($job->job_picture != null && Storage::disk('google')->exists($job->job_picture))
+                                    @php
+                                        $file = $contents->firstWhere('path', $job->job_picture);
+                                        $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                                    @endphp
+
+                                    <img src="{{$job_url}}" alt="jobPlaceHolder" class="job-image">
+                                @else
+                                    <img src="{{asset('assets/default_job_picture.jpg')}}" alt="jobPlaceHolder" class="job-image">
+                                @endif
                             </div>
                             <div class="job-details" style="width: 70%;">
                                 <div class="btn btn-sm btn-outline-danger rounded-pill mb-2 custom-button" style="pointer-events:none">

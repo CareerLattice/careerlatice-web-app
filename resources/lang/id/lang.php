@@ -1,6 +1,6 @@
 <?php
 return [
-    //start of Navbar
+    // Start of Navbar
     'Home' => 'Beranda',
     'Find a Job' => 'Cari Pekerjaan',
     'Company' => 'Perusahaan',
@@ -8,9 +8,9 @@ return [
     'Premium' => 'Premium',
     'Edit Profile' => 'Ubah Profile',
     'Settings' => 'Pengaturan',
-    'Log Out' => 'Log Out',
+    'Log Out' => 'Keluar',
     'Join Us' => 'Gabung Bersama Kami',
-    'Sign In' => 'Sign In',
+    'Sign In' => 'Masuk',
     //End of Navbar
 
     //Start of Footer
@@ -158,7 +158,6 @@ return [
     'phoneNumberSignUpCompany' => 'Nomor Telepon',
     'companyFieldSignUpCompany' => 'Bidang Perusahaan',
     'agreeSignUpCompany' => 'Saya setuju dengan syarat dan ketentuan',
-    'signUpSignUpCompany' => 'Daftar',
     /* End of Company Page */
 
     // Start of user page
@@ -199,6 +198,7 @@ return [
     'exploreJob' => ' Telusuri Pekerjaan',
     'contact' => 'Hubungi kami untuk informasi lebih lanjut',
     'discoverExciting' => 'Temukan',
+    'jobVacanciesInvite' => 'Telusuri peluang kerja menarik di perusahaan kami dan ambil langkah pertama menuju masa depan karier yang lebih cerah!',
     'browse' =>'Telusuri lebih dari 200+ Lowongan Pekerjaan Terbaik dari Pemimpin Industri Terkemuka.',
     'companyName' => 'Nama Perusahaan',
     'jobTitle' => 'Judul Pekerjaan',
@@ -215,8 +215,7 @@ return [
     'reputable' => 'perusahaan terkemuka',
     'discover' => 'Temukan',
     'ideal' => 'Perusahaan yang Ideal',
-    'jobVacanciesInvite' => 'Telusuri peluang kerja menarik di perusahaan kami dan ambil langkah pertama menuju masa depan karier yang lebih cerah!',
-    'here' => 'Disini',
+    'here' => 'Di sini',
     'searchExplore' => 'Cari, jelajahi, dan terhubung dengan perusahaan-perusahaan terkemuka yang sesuai dengan aspirasi karier dan bidang minat Anda.',
     'exploreComp' => 'Menelusuri Perusahaan',
     'searchYour' => 'Cari',
@@ -229,11 +228,10 @@ return [
     'welcome' =>'Selamat datang di',
     'trusted' => 'Mitras profesional terpercaya Anda.',
     'back' => 'Kembali ke Perusahaan',
-    'desc' => 'Deskripsi',
+    'companyInfo' => 'Informasi Perusahaan',
     'joinUs' => 'Bergabunglah dengan kami dan menjadi bagian dari tim dinamis di mana ide dan keterampilan Anda akan memberikan dampak yang signifikan.
                 Kami berkomitmen untuk menciptakan lingkungan yang kolaboratif dan inovatif yang mendorong pertumbuhan pribadi dan kesuksesan profesional.',
     'viewAll' => 'Lihat Semua Lowongan Pekerjaan',
-    'contactUs' => 'Hubungi Kami',
     'get' => 'Mencapai lebih dekat',
     'feedback' => 'Kami ingin mendengar dari Anda! Hubungi kami melalui salah satu saluran berikut, dan mari kita bangun koneksi yang lebih kuat.',
     'follow' => 'Ikuti',
@@ -276,10 +274,11 @@ return [
     'profilePic' => 'Gambar Profil',
     'saveChange' => 'Simpan Perubahan',
     'cv' => 'CV',
-    'editExp' => 'Ubah Pengalamana',
+    'editExp' => 'Ubah Pengalaman',
     'currently' => 'Saya saat ini sedang bekerja disini',
     'cancel' => 'batal',
     'freelance' => 'Pekerja Lepas',
+    'There is no address yet' => 'Belum ada alamat',
     'You have not upload CV yet' => 'Anda belum mengunggah CV',
 
     //premiumUser
@@ -306,9 +305,9 @@ return [
     'peopleTest2' => '— John Smith',
     'otherTestimoni2' => '"Pengalaman pengguna yang mulus dan daftar pekerjaan yang sangat banyak. Sangat puas!"',
     'peopleTest3' => '-Emily Johnson',
-    'next' => 'Berikutnya',
+    'Next' => 'Berikutnya',
 
-    //UserJobVacancies
+    // UserJobVacancies
     'hello' => 'Halo',
     'journeyAwait' => 'Perjalanan Anda Menanti',
     'endlessPossibilities' => 'Temukan kemungkinan tanpa batas dan buka peluang baru untuk masa depan cerah Anda!',
@@ -319,7 +318,7 @@ return [
     'unapply' => 'Batalkan Lamaran',
     'noActiveJob' => 'Anda tidak memiliki aplikasi pekerjaan aktif.',
 
-    // premium bundle
+    // Premium Bundle
     'bundle' => 'Paket Premium',
     'and' => 'dan',
     'benefit' => 'Manfaat',
@@ -373,18 +372,14 @@ return [
     'proceedPay' => 'Lanjutkan ke Pembayaran',
     'months' => 'Bulan',
 
-    //Landing Page
+    // Landing Page
     'Welcome to' => 'Selamat datang di',
-    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Memberdayakan Karier Anda Melalui Koneksi. Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
     'Join Top Leading' => 'Bergabung dengan tim leading',
     'Companies' => 'Perusahaan',
     'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Terhubung dengan pemberi kerja ternama yang mencari individu berbakat yang siap membuat perbedaan.',
     'Explore Exciting' => 'Jelajahi hal menarik',
     'Job Vacancies' => 'Lowongan Pekerjaan',
-    'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang!',
-    'start exploring now!' => 'mulai telusuri dari sekarang!',
     'Previous' => 'Sebelumnya',
-    'Next' => 'Selanjutnya',
     'A Quick Look at' => 'Sekilas',
     'Our Journey' => 'Perjalanan kami',
     'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice adalah platform inovatif yang didedikasikan untuk memberdayakan individu dengan membantu mereka memajukan karier dan membangun jaringan profesional yang kuat.',
@@ -400,7 +395,53 @@ return [
     'Expanded to' => 'Meluas ke',
     'over 500 active users' => 'lebih dari 500 aktif user',
     'benefiting from new features and partnerships.' => 'mendapatkan keuntungan dari fitur dan kemitraan baru',
+    'Partnered with' => 'Bekerja sama dengan',
+    'How we provides' => 'Bagaimana kami menyediakan',
+    'Solutions' => 'Solusi',
+    'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development' => 'Dengan menyediakan ruang di mana pengguna dapat terhubung dengan profesional industri, kolega, dan organisasi, kami menciptakan peluang untuk kolaborasi bermakna dan pengembangan karier',
+    'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals' => 'Dengan fokus khusus pada penghapusan kemiskinan, pengurangan kelaparan, promosi pekerjaan layak, mendukung pertumbuhan ekonomi, dan menjalin kemitraan yang berdampak untuk mencapai tujuan ini',
+    'Unleash Your Potential with' => 'Wujudkan Potensi Anda dengan',
+    'Leading Companies' => 'Perusahaan Terkemuka',
+    'Technology and Information' => 'Teknologi dan Informasi',
+    'Finance and Insurance' => 'Keuangan dan Asuransi',
+    'Consulting and Accounting' => 'Konsultasi dan Akuntansi',
+    'Healthcare and Hospitality' => 'Kesehatan dan Perhotelan',
+    'Show All Popular Company' => 'Tampilkan Semua Perusahaan Populer',
+    'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods' => 'Tokopedia adalah salah satu pasar online terbesar di Indonesia, menyediakan platform untuk membeli dan menjual barang',
+    'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users' => 'Shopee adalah platform e-commerce dengan berbagai fitur, termasuk ShopeePay dan penawaran gratis ongkos kirim untuk pengguna',
+    'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services' => 'Grab adalah layanan transportasi terkemuka di Asia Tenggara, juga menyediakan layanan pengantaran makanan dan pembayaran',
+    'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services' => 'Traveloka adalah agen perjalanan online terkemuka di Asia Tenggara, menyediakan layanan pemesanan tiket pesawat dan hotel',
+    'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries' => 'Blibli adalah platform e-commerce Indonesia yang menawarkan berbagai produk, mulai dari elektronik hingga kebutuhan sehari-hari',
+    'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia' => 'Gojek adalah platform multi-layanan sesuai permintaan, menawarkan layanan mulai dari transportasi hingga pengantaran makanan di Asia Tenggara',
+    'Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory' => 'Deloitte adalah perusahaan konsultasi global yang menawarkan layanan audit, pajak, konsultasi, dan nasihat keuangan',
+    'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance' => 'KPMG adalah pemimpin global dalam layanan audit, pajak, dan konsultasi, membantu klien mengelola risiko dan meningkatkan kinerja bisnis',
+    'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services' => 'EY (Ernst & Young) adalah pemimpin global dalam layanan asuransi, pajak, transaksi, dan konsultasi',
+    'PwC is a global professional services network providing audit, tax, and consulting services' => 'PwC adalah jaringan layanan profesional global yang menyediakan layanan audit, pajak, dan konsultasi',
+    'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country' => 'Bank Central Asia (BCA) adalah salah satu bank terkemuka di Indonesia, menyediakan layanan perbankan dan keuangan di seluruh negeri',
+    'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals' => 'Omni Hospital adalah penyedia layanan kesehatan yang menawarkan berbagai layanan medis dengan tenaga kesehatan terbaik',
+    'Seize Your Opportunity to Get Hired!' => 'Ambil Peluang Anda untuk Diterima Kerja!',
+    'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals' => 'Bergabunglah dengan talenta terbaik dengan melamar ke perusahaan-perusahaan terkemuka hari ini! Apakah Anda ingin meningkatkan karier atau memulai perjalanan baru, banyak peluang menanti. Jangan lewatkan kesempatan — terhubunglah dengan pemberi kerja yang terpercaya, tunjukkan keterampilan Anda, dan dapatkan pekerjaan yang sesuai dengan minat serta tujuan Anda',
+    'Discover exciting job opportunities tailored just for you – start exploring now' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang',
+    'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations' => 'Manfaatkan potensi Anda dan ambil langkah berikutnya dalam karier Anda dengan menjelajahi berbagai peluang kerja kami yang beragam. Apakah Anda mencari peran baru atau ingin meningkatkan karier Anda, banyak posisi menanti Anda. Jangan lewatkan kesempatan untuk terhubung dengan pemberi kerja terkemuka, tunjukkan bakat Anda, dan temukan pekerjaan yang sesuai dengan ambisi serta aspirasi Anda',
+    'Hear From Our Users' => 'Dengar dari Pengguna Kami',
+    'About Their Experience' => 'Tentang Pengalaman Mereka',
+    'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence' => 'Kami menghargai pendapat Anda! Temukan apa yang pengguna kami pikirkan tentang perjalanan mereka bersama kami. Umpan balik Anda mendorong komitmen kami terhadap keunggulan',
+    'This platform has transformed my job search experience! I found my dream job within weeks!' => 'Platform ini telah mengubah pengalaman pencarian kerja saya! Saya menemukan pekerjaan impian saya dalam beberapa minggu!',
+    'Incredible service and great support! Highly recommend to anyone looking for opportunities' => 'Layanan luar biasa dan dukungan yang hebat! Sangat direkomendasikan untuk siapa saja yang mencari peluang',
+    'A user-friendly interface and a wide range of job listings' => 'Antarmuka yang ramah pengguna dan berbagai daftar pekerjaan',
+    'The best job portal I\'ve used' => 'Portal pekerjaan terbaik yang pernah saya gunakan',
+    'Great opportunities and a smooth application process' => 'Peluang yang hebat dan proses lamaran yang lancar',
+    'I love the personalized job recommendations! They really understand my needs' => 'Saya suka rekomendasi pekerjaan yang dipersonalisasi! Mereka benar-benar memahami kebutuhan saya',
+    'The platform helped me land a great job with ease. Highly efficient' => 'Platform ini membantu saya mendapatkan pekerjaan yang hebat dengan mudah. Sangat efisien',
+    'Amazing experience, from job search to interview' => 'Pengalaman luar biasa, dari pencarian kerja hingga wawancara',
+    'Found my ideal job quickly. Very happy with the service!' => 'Saya menemukan pekerjaan ideal saya dengan cepat. Saya sangat senang dengan Layanannya!',
     //End of Landing Page
+
+    // Sign Up
+    'joinUsNow' => 'Bergabung dengan Kami Sekarang',
+    'joinToday' => 'Bergabunglah dengan kami hari ini dengan mendaftarkan informasi Anda di bawah ini dan buka peluang menarik!',
+    'agreeTerms' => 'Saya setuju dengan syarat dan kondisi',
+    'Sign Up' => 'Daftar',
 
     // Start of Admin Page
     // Admin Home Page
@@ -414,13 +455,12 @@ return [
     'From' => 'Dari',
     'To' => 'Sampai',
     'Search' => 'Cari',
-    'Export All Users' => 'Ekspor Data',
-    'No' => 'No',
     'Revenue' => 'Pendapatan',
     'Start' => 'Tanggal Mulai',
     'End' => 'Tanggal Selesai',
     'No Premium User Found' => 'Tidak ada User Premium Ditemukan.',
     'IDR' => 'Rp',
+    'Current Password' => 'Kata Sandi Sekarang',
     // End of Admin Page
 
     //start of auth page
@@ -445,29 +485,49 @@ return [
     'Reset Password' => 'Ubah Kata Sandi',
     'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Privasi dan keamanan data Anda adalah prioritas utama kami. Semua informasi pribadi, termasuk email dan kata sandi Anda, akan dijaga kerahasiaannya.',
 
-    //register
     'Register' => 'Daftar',
     'Name' => 'Nama',
     'Confirm Password' => 'Konfirmasi Kata Sandi',
-
-    // verify
     'Verify Your Email Address' => 'Verifikasi Alamat Email Anda',
     'A fresh verification link has been sent to your email address.' => 'Tautan verifikasi baru telah dikirim ke alamat email Anda.',
     'Before proceeding, please check your email for a verification link.' => 'Sebelum melanjutkan, silakan periksa email Anda untuk tautan verifikasi.',
     'If you did not receive the email' => 'Jika Anda tidak menerima email',
     'click here to request another' => 'klik di sini untuk meminta yang lain',
 
-    // auth/passwords folder
     // confirm
     'Please confirm your password before continuing.' => 'Harap konfirmasikan kata sandi Anda sebelum melanjutkan.',
     'Forgot Your Password?' => 'Lupa Password?',
-    //email
+
+    // email
     'Change Password' => 'Ubah Kata Sandi',
     'Send Password Reset Link' => 'Kirim Tautan Reset Kata Sandi',
-    //reset
-    //End of auth
 
-    //start of landing page
+    'Search by Company Name' => 'Cari Berdasarkan Nama Perusahaan',
+    'Search by Field' => 'Cari Berdasarkan Bidang',
+    'All Rights Reserved' => 'Hak Cipta Dilindungi',
+
+    // Start of Setting Page
+    'Change Language' => 'Ganti Bahasa',
+    'Select Language' => 'Pilih Bahasa',
+    'Save Changes' => 'Simpan Perubahan',
+    //End of Setting Page
+
+    // Start of Sign Up Page
+    'Please Choose your Role' => 'Silahkan Pilih Peran kamu',
+    'Welcome' => 'Selamat Datang',
+    'We\'ll personalize your setup experience accordingly' => 'Kami akan mempersonalisasi pengalaman pengaturan Anda sesuai',
+    'I\'m here to apply' => 'Saya disini untuk mencari pekerjaan',
+    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja',
+    // End of Sign Up Page
+
+    // Start of modal
+    'Are you sure' => 'Apakah Anda yakin',
+    'You will not be able to revert this!' => 'Anda tidak akan dapat mengembalikannya!',
+    'confirmButtonModal' => 'Ya, Hapus!',
+    'cancelButtonTextModal' => 'Batal',
+     // End modal
+
+    // Start of Landing Page
     'Empowering Your Careers Through Connection' => 'Bangun kariermu lewat koneksi',
     'Join us to explore your strength' => 'Bergabunglah dengan kami untuk mengeksplorasi kekuatan Anda',
     'Discover exciting job opportunities tailored just for you' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda',
@@ -475,81 +535,30 @@ return [
     'Achieved a milestone of' => 'Mencapai tonggak pencapaian berupa',
     'with enhanced services and support' => 'dengan layanan dan dukungan yang ditingkatkan',
     'and expanded our reach to new regions' => 'dan memperluas jangkauan kami ke wilayah baru',
-    'Partnered with' => 'Bekerja sama dengan',
     'Oct 2024' => 'Okt 2024',
-    'Solutions' => 'Solusi',
-    'How we provides' => 'Bagaimana kami menyediakan',
-    'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development' => 'Dengan menyediakan ruang di mana pengguna dapat terhubung dengan profesional industri, kolega, dan organisasi, kami menciptakan peluang untuk kolaborasi bermakna dan pengembangan karier',
+
     'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations' => 'Platform kami sangat berkomitmen untuk menangani tantangan global utama seperti yang diuraikan oleh Perserikatan Bangsa-Bangsa',
     '17 Sustainable Development Goals (SDGs)' => '17 Tujuan Pembangunan Berkelanjutan (SDGs)',
-    'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals' => 'Dengan fokus khusus pada penghapusan kemiskinan, pengurangan kelaparan, promosi pekerjaan layak, mendukung pertumbuhan ekonomi, dan menjalin kemitraan yang berdampak untuk mencapai tujuan ini',
-    'Unleash Your Potential with' => 'Wujudkan Potensi Anda dengan',
-    'Leading Companies' => 'Perusahaan Terkemuka',
-    'Technology and Information' => 'Teknologi dan Informasi',
-    'Finance and Insurance' => 'Keuangan dan Asuransi',
-    'Consulting and Accounting' => 'Konsultasi dan Akuntansi',
-    'Healthcare and Hospitality' => 'Kesehatan dan Perhotelan',
-    'Show All Popular Company' => 'Tampilkan Semua Perusahaan Populer',
-    'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods' => 'Tokopedia adalah salah satu pasar online terbesar di Indonesia, menyediakan platform untuk membeli dan menjual barang',
-    'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users' => 'Shopee adalah platform e-commerce dengan berbagai fitur, termasuk ShopeePay dan penawaran gratis ongkos kirim untuk pengguna',
-    'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services' => 'Grab adalah layanan transportasi terkemuka di Asia Tenggara, juga menyediakan layanan pengantaran makanan dan pembayaran',
-    'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services' => 'Traveloka adalah agen perjalanan online terkemuka di Asia Tenggara, menyediakan layanan pemesanan tiket pesawat dan hotel',
-    'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries' => 'Blibli adalah platform e-commerce Indonesia yang menawarkan berbagai produk, mulai dari elektronik hingga kebutuhan sehari-hari',
-    'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia' => 'Gojek adalah platform multi-layanan sesuai permintaan, menawarkan layanan mulai dari transportasi hingga pengantaran makanan di Asia Tenggara',
-    'Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory' => 'Deloitte adalah perusahaan konsultasi global yang menawarkan layanan audit, pajak, konsultasi, dan nasihat keuangan',
-    'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance' => 'KPMG adalah pemimpin global dalam layanan audit, pajak, dan konsultasi, membantu klien mengelola risiko dan meningkatkan kinerja bisnis',
-    'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services' => 'EY (Ernst & Young) adalah pemimpin global dalam layanan asuransi, pajak, transaksi, dan konsultasi',
-    'PwC is a global professional services network providing audit, tax, and consulting services' => 'PwC adalah jaringan layanan profesional global yang menyediakan layanan audit, pajak, dan konsultasi',
-    'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country' => 'Bank Central Asia (BCA) adalah salah satu bank terkemuka di Indonesia, menyediakan layanan perbankan dan keuangan di seluruh negeri',
-    'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals' => 'Omni Hospital adalah penyedia layanan kesehatan yang menawarkan berbagai layanan medis dengan tenaga kesehatan terbaik',
-    'Seize Your Opportunity to Get Hired!' => 'Ambil Peluang Anda untuk Diterima Kerja!',
-    'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals' => 'Bergabunglah dengan talenta terbaik dengan melamar ke perusahaan-perusahaan terkemuka hari ini! Apakah Anda ingin meningkatkan karier atau memulai perjalanan baru, banyak peluang menanti. Jangan lewatkan kesempatan — terhubunglah dengan pemberi kerja yang terpercaya, tunjukkan keterampilan Anda, dan dapatkan pekerjaan yang sesuai dengan minat serta tujuan Anda',
-    'Discover exciting job opportunities tailored just for you – start exploring now' => 'Temukan peluang kerja menarik yang dirancang khusus untuk Anda – mulailah menjelajah sekarang',
     'Applicants' => 'Pelamar',
     'More Information' => 'Informasi Lebih Lanjut',
     'Discover Exciting Job Vacancies' => 'Temukan Lowongan Kerja Menarik',
-    'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations' => 'Manfaatkan potensi Anda dan ambil langkah berikutnya dalam karier Anda dengan menjelajahi berbagai peluang kerja kami yang beragam. Apakah Anda mencari peran baru atau ingin meningkatkan karier Anda, banyak posisi menanti Anda. Jangan lewatkan kesempatan untuk terhubung dengan pemberi kerja terkemuka, tunjukkan bakat Anda, dan temukan pekerjaan yang sesuai dengan ambisi serta aspirasi Anda',
-    'Hear From Our Users' => 'Dengar dari Pengguna Kami',
-    'About Their Experience' => 'Tentang Pengalaman Mereka',
-    'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence' => 'Kami menghargai pendapat Anda! Temukan apa yang pengguna kami pikirkan tentang perjalanan mereka bersama kami. Umpan balik Anda mendorong komitmen kami terhadap keunggulan',
-    'Incredible service and great support! Highly recommend to anyone looking for opportunities' => 'Layanan luar biasa dan dukungan yang hebat! Sangat direkomendasikan untuk siapa saja yang mencari peluang',
-    'A user-friendly interface and a wide range of job listings' => 'Antarmuka yang ramah pengguna dan berbagai daftar pekerjaan',
-    'This platform has transformed my job search experience! I found my dream job within weeks!' => 'Platform ini telah mengubah pengalaman pencarian kerja saya! Saya menemukan pekerjaan impian saya dalam beberapa minggu!',
     'I couldn’t be happier' => 'Saya tidak bisa lebih bahagia lagi',
-    'The best job portal I\'ve used' => 'Portal pekerjaan terbaik yang pernah saya gunakan',
     'Very intuitive and efficient' => 'Sangat intuitif dan efisien',
-    'Great opportunities and a smooth application process' => 'Peluang yang hebat dan proses lamaran yang lancar',
-    'I love the personalized job recommendations! They really understand my needs' => 'Saya suka rekomendasi pekerjaan yang dipersonalisasi! Mereka benar-benar memahami kebutuhan saya',
-    'The platform helped me land a great job with ease. Highly efficient' => 'Platform ini membantu saya mendapatkan pekerjaan yang hebat dengan mudah. Sangat efisien',
-    'Amazing experience, from job search to interview' => 'Pengalaman luar biasa, dari pencarian kerja hingga wawancara',
     'Everything was smooth' => 'Semuanya berjalan lancar',
-    'Found my ideal job quickly. Very happy with the service!' => 'Saya menemukan pekerjaan ideal saya dengan cepat. Saya sangat senang dengan Layanannya!',
-    'it' => 'Teknologi dan Informasi',
-    'cna' => 'Konsultasi dan Akuntansi',
-    'fni' => 'Keuangan dan Asuransi',
-    'hnh' => 'Kesehatan dan Perhotelan',
-    //End of Landing Page
+    // End of Landing Page
 
-    //Start of Setting Page
-    'Change Language' => 'Ganti Bahasa',
-    'Select Language' => 'Pilih Bahasa',
-    'Save Changes' => 'Simpan Perubahan',
-    'Current Password' => 'Kata Sandi Sekarang',
-    //End of Setting Page
-
-    //Start of Sign Up Page
-    'Please Choose your Role' => 'Silahkan Pilih Peran kamu',
-    'Welcome' => 'Selamat Datang',
-    'We\'ll personalize your setup experience accordingly' => 'Kami akan mempersonalisasi pengalaman pengaturan Anda sesuai',
-    'I\'m here to apply' => 'Saya disini untuk mencari pekerjaan',
-    'I\'m hiring talent' => 'Saya ingin mencari pelamar kerja',
-    //End of Sign Up Page
-
-     // Start of modal
-    'Are you sure?' => 'Apakah Anda yakin?',
-    'You will not be able to revert this!' => 'Anda tidak akan dapat mengembalikannya!',
-    'confirmButtonModal' => 'Ya, Hapus!',
-    'cancelButtonTextModal' => 'Batal',
-     // End modal
+    'No' => 'Tidak',
+    'Yes' => 'Ya',
+    'accept' => 'menerima',
+    'reject' => 'menolak',
+    'Do you want to' => 'Apakah Anda ingin',
+    'this application' => 'lamaran ini',
+    'Cancel' => 'Batal',
+    'Job Application Status Updated' => 'Status Lamaran Pekerjaan Diperbarui',
+    'Do you want to delete this job' => 'Apakah Anda ingin menghapus pekerjaan ini',
+    'You are applying the filter' => 'Anda sedang menerapkan filter',
+    'No changes were made' => 'Tidak ada perubahan yang dilakukan',
+    'There was an error updating the status' => 'Ada kesalahan saat memperbarui status',
+    'The application status has been updated to' => 'Status lamaran telah diperbarui menjadi',
 ];
 ?>

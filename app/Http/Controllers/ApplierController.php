@@ -98,8 +98,8 @@ class ApplierController extends Controller
     public function updateProfile(Request $request){
         $user = Auth::user();
         $request->validate([
-            'name' => 'string|min:3',
-            'headline' => 'string|max:100',
+            'name' => 'required|string|min:3',
+            'headline' => 'nullable|string|max:100',
             'phone_number' => 'string|max:20|unique:users,phone_number,' . $user->id,
             'address' => 'string|max:100',
             'birth_date' => ['required', 'date', 'before_or_equal:' . Carbon::today()->toDateString()],

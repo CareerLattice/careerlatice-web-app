@@ -89,7 +89,7 @@
 
         <div class="footer-bottom-container row align-items-center hidden">
             <div class="rights col-md-7 col-lg-8">
-                <p class="text-center"> <strong>©2024 All Rights Reserved</strong>
+                <p class="text-center"> <strong>©2025 {{__('lang.All Rights Reserved')}}</strong>
                 <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Lattice</span>
                 </a>
             </p>

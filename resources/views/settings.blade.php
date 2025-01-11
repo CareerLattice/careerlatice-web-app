@@ -76,7 +76,7 @@
               <div class="tab-pane fade" id="changeLanguage" role="tabpanel">
                 <form id="languageForm" method="GET" action="{{route('setLocale')}}">
                   <div class="mb-3">
-                    <label for="language" class="form-label">Select Language</label>
+                    <label for="language" class="form-label">{{__('lang.Select Language')}}</label>
                     <select name="language" id="language" class="form-select">
                       <option value="en">English</option>
                       <option value="id">Indonesian</option>

@@ -1,10 +1,10 @@
 <?php
 return [
-    //start of Navbar
+    // Start of Navbar
     'Home' => 'Home',
+    'Find a Job' => 'Find a Job',
     'Company' => 'Company',
     'Created Job' => 'Created Job',
-    'Find a Job' => 'Find a Job',
     'Premium' => 'Premium',
     'Edit Profile' => 'Edit Profile',
     'Settings' => 'Settings',
@@ -158,7 +158,6 @@ return [
     'phoneNumberSignUpCompany' => 'Phone Number',
     'companyFieldSignUpCompany' => 'Company Field',
     'agreeSignUpCompany' => 'Agree to terms and conditions',
-    'signUpSignUpCompany' => 'Sign Up',
     /* End of Company Page */
 
     //Start of user page
@@ -222,6 +221,7 @@ return [
     'searchYour' => 'Search your',
     'dreamComp' => 'Dream Companies',
     'field' => 'Field',
+    'Visit Company' => 'Visit Company',
     'noComp' => 'No companies found.',
 
     //Company
@@ -229,12 +229,9 @@ return [
     'trusted' => 'Your trusted professional partner.',
     'back' => 'Back to Companies',
     'companyInfo' => 'Company Information',
-    'desc' => 'Description',
     'joinUs' => 'Join us and be part of a dynamic team where your ideas and skills will make a significant impact.
-                        We are dedicated to fostering a collaborative and innovative environment that drives personal growth
-                        and professional success.',
+                        We are dedicated to fostering a collaborative and innovative environment that drives personal growth and professional success.',
     'viewAll' => 'View all Job Vacancies',
-    'contactUs' => 'Contact Us',
     'get' => 'Get Closer to',
     'feedback' => 'We’d love to hear from you! Reach out to us through any of the following channels, and let’s build a stronger connection.',
     'follow' => 'Follow',
@@ -306,10 +303,11 @@ return [
     'peopleTest' => '— Jane Doe',
     'otherTestimoni' => '"Amazing service with fantastic support! I highly recommend it to anyone seeking opportunities."',
     'peopleTest2' => '— John Smith',
-    'otherTestimoni2' => ' "A seamless user experience and a vast array of job listings. Couldn\'t be happier!"',
+    'otherTestimoni2' => '"A seamless user experience and a vast array of job listings. Couldn\'t be happier!"',
     'peopleTest3' => '-Emily Johnson',
+    'Next' => 'Next',
 
-    //UserJobVacancies
+    // UserJobVacancies
     'hello' => 'Hello',
     'journeyAwait' => 'Your Journey Awaits',
     'endlessPossibilities' => 'Discover endless possibilities and unlock new opportunities for your bright future!',
@@ -320,7 +318,7 @@ return [
     'unapply' => 'Unapply',
     'noActiveJob' => 'You have no active job applications.',
 
-    //PremiumBundle
+    // Premium Bundle
     'bundle' => 'Premium Bundle',
     'and' => 'and',
     'benefit' => 'Benefits',
@@ -349,8 +347,7 @@ return [
     'maxSaving' => 'Maximum savings and exclusive rewards',
     'ultExp' => 'Choose the Premium Plan for the ultimate experience and maximum savings. This is the best value for those who want it all!',
 
-
-    //Checkout
+    // Checkout
     'checkoutPayment' => 'Checkout & Payment',
     'reviewInfo' => 'Please review your information carefully before proceeding!',
     'fullName' => 'Full Name',
@@ -375,46 +372,14 @@ return [
     'proceedPay' => 'Proceed to Payment',
     'months' => 'Months',
 
-    //signUp
-    'joinUsNow' => 'JOIN US NOW',
-    'joinToday' => 'Join us today by registering your information below and unlock exciting opportunities!',
-    'agreeTerms' => 'Agree to terms and conditions',
-    'signUp' => 'Sign Up',
-
-    // Start of Admin Page
-    // Admin Home Page
-    'Welcome Back' => 'Welcome Back',
-    'This Month Income' => 'This Month Income',
-    'Total Income' => 'Total Income',
-    'Total Applier' => 'Total Applier',
-    'Total Company' => 'Total Company',
-    'Website Income' => 'Website Income',
-    'List of All Premium Users' => 'List of All Premium Users',
-    'From' => 'From',
-    'To' => 'To',
-    'Search' => 'Search',
-    'Export All Users' => 'Export All Users',
-    'No' => 'No',
-    'Revenue' => 'Revenue',
-    'Start' => 'Start Date',
-    'End' => 'End Date',
-    'No Premium User Found' => 'No Premium User Found.',
-    'IDR' => 'IDR',
-    'Current Password' => 'Current Password',
-    // End of Admin Page
-
-    //Landing Page
+    // Landing Page
     'Welcome to' => 'Welcome to',
-    'Empowering Your Careers Through Connection. Join us to explore your strength' => 'Empowering Your Careers Through Connection. Join us to explore your strength',
     'Join Top Leading' => 'Join Top Leading',
     'Companies' => 'Companies',
     'Connect with renowned employers looking for talented individuals ready to make a difference' => 'Connect with renowned employers looking for talented individuals ready to make a difference',
     'Explore Exciting' => 'Explore Exciting',
     'Job Vacancies' => 'Job Vacancies',
-    'Discover exciting job opportunities tailored just for you – start exploring now!' => 'Discover exciting job opportunities tailored just for you – start exploring now!',
-    'start exploring now!' => 'start exploring now!',
     'Previous' => 'Previous',
-    'Next' => 'Next',
     'A Quick Look at' => 'A Quick Look at',
     'Our Journey' => 'Our Journey',
     'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.' => 'CareerLattice is an innovative platform dedicated to empowering individuals by helping them advance their careers and build strong professional networks.',
@@ -430,55 +395,73 @@ return [
     'Expanded to' => 'Expanded to',
     'over 500 active users' => 'over 500 active users',
     'benefiting from new features and partnerships.' => 'benefiting from new features and partnerships',
-    'Achieved a milestone of' => 'Achieved a milestone of',
-    '700+ active users' => '700+ active users',
-    ' with enhanced services and support.' => ' with enhanced services and support.',
-    'Apr 2025' => 'Apr 2025',
     'Partnered with' => 'Partnered with',
-    '100+ companies' => '100+ companies',
-    'and expanded our reach to new regions.' => 'and expanded our reach to new regions.',
     'How we provides' => 'How we provides',
     'Solutions' => 'Solutions',
-    'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs).' => 'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs).',
-    'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.' => 'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.',
+    'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development' => 'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development',
+    'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals' => 'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals',
     'Unleash Your Potential with' => 'Unleash Your Potential with',
     'Leading Companies' => 'Leading Companies',
-    'Connect with renowned employers looking for talented individuals ready to make a difference!' => 'Connect with renowned employers looking for talented individuals ready to make a difference!',
     'Technology and Information' => 'Technology and Information',
     'Finance and Insurance' => 'Finance and Insurance',
     'Consulting and Accounting' => 'Consulting and Accounting',
     'Healthcare and Hospitality' => 'Healthcare and Hospitality',
     'Show All Popular Company' => 'Show All Popular Company',
-    'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods.' => 'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods.',
-    'Visit Company' => 'Visit Company',
-    'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users.',
-    'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services.' => 'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services.',
-    'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services.' => 'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services.',
-    'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries.' => 'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries.',
-    'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia.' => 'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia.',
-    'eloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory.' => 'eloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory.',
-    'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance.' => 'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance.',
-    'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services.' => 'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services.',
-    'PwC is a global professional services network providing audit, tax, and consulting services.' => 'PwC is a global professional services network providing audit, tax, and consulting services.',
-    'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country.' => 'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country.',
-    'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals.' =>'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals.',
+    'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods' => 'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods',
+    'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users' => 'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users',
+    'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services' => 'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services',
+    'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services' => 'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services',
+    'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries' => 'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries',
+    'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia' => 'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia',
+    'Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory' => 'Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory',
+    'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance' => 'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance',
+    'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services' => 'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services',
+    'PwC is a global professional services network providing audit, tax, and consulting services' => 'PwC is a global professional services network providing audit, tax, and consulting services',
+    'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country' => 'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country',
+    'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals' => 'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals',
     'Seize Your Opportunity to Get Hired!' => 'Seize Your Opportunity to Get Hired!',
     'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals' => 'Join the ranks of top talents by applying to leading companies today! Whether you\'re looking to advance your career or start a new journey, countless opportunities await. Don\'t let the chance slip by — connect with reputable employers, showcase your skills, and land the job that aligns with your passion and goals',
-    'Discover Exciting Job Vacancies!' => 'Discover Exciting Job Vacancies!',
-    'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.' =>'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations.',
+    'Discover exciting job opportunities tailored just for you – start exploring now' => 'Discover exciting job opportunities tailored just for you – start exploring now',
+    'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations' => 'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations',
     'Hear From Our Users' => 'Hear From Our Users',
     'About Their Experience' => 'About Their Experience',
-    'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!' => 'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence!',
+    'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence' => 'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence',
     'This platform has transformed my job search experience! I found my dream job within weeks!' => 'This platform has transformed my job search experience! I found my dream job within weeks!',
-    'Incredible service and great support! Highly recommend to anyone looking for opportunities.' => 'Incredible service and great support! Highly recommend to anyone looking for opportunities.',
-    'A user-friendly interface and a wide range of job listings. I couldn’t be happier!' => 'A user-friendly interface and a wide range of job listings. I couldn’t be happier!',
-    'The best job portal I\'ve used. Very intuitive and efficient!' => 'The best job portal I\'ve used. Very intuitive and efficient!',
-    'Great opportunities and a smooth application process!' => 'Great opportunities and a smooth application process!',
-    'I love the personalized job recommendations! They really understand my needs.' => 'I love the personalized job recommendations! They really understand my needs.',
-    'The platform helped me land a great job with ease. Highly efficient!' => 'The platform helped me land a great job with ease. Highly efficient!',
-    'Amazing experience, from job search to interviews. Everything was smooth!' => 'Amazing experience, from job search to interviews. Everything was smooth!',
+    'Incredible service and great support! Highly recommend to anyone looking for opportunities' => 'Incredible service and great support! Highly recommend to anyone looking for opportunities',
+    'A user-friendly interface and a wide range of job listings' => 'A user-friendly interface and a wide range of job listings',
+    'The best job portal I\'ve used' => 'The best job portal I\'ve used',
+    'Great opportunities and a smooth application process' => 'Great opportunities and a smooth application process',
+    'I love the personalized job recommendations! They really understand my needs' => 'I love the personalized job recommendations! They really understand my needs',
+    'The platform helped me land a great job with ease. Highly efficient' => 'The platform helped me land a great job with ease. Highly efficient',
+    'Amazing experience, from job search to interview' => 'Amazing experience, from job search to interview',
     'Found my ideal job quickly. Very happy with the service!' => 'Found my ideal job quickly. Very happy with the service!',
     // End of Landing Page
+
+    // Sign Up
+    'joinUsNow' => 'JOIN US NOW',
+    'joinToday' => 'Join us today by registering your information below and unlock exciting opportunities!',
+    'agreeTerms' => 'Agree to terms and conditions',
+    'Sign Up' => 'Sign Up',
+
+    // Start of Admin Page
+    // Admin Home Page
+    'Welcome Back' => 'Welcome Back',
+    'This Month Income' => 'This Month Income',
+    'Total Income' => 'Total Income',
+    'Total Applier' => 'Total Applier',
+    'Total Company' => 'Total Company',
+    'Website Income' => 'Website Income',
+    'List of All Premium Users' => 'List of All Premium Users',
+    'From' => 'From',
+    'To' => 'To',
+    'Search' => 'Search',
+    'Revenue' => 'Revenue',
+    'Start' => 'Start Date',
+    'End' => 'End Date',
+    'No Premium User Found' => 'No Premium User Found.',
+    'IDR' => 'IDR',
+    'Current Password' => 'Current Password',
+    // End of Admin Page
 
     //start of auth page
     //login page
@@ -502,76 +485,26 @@ return [
     'Reset Password' => 'Reset Password',
     'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.' => 'Your privacy and data security are our top priorities. All personal information, including your email and password, will be kept secure and confidential.',
 
-    //register
     'Register' => 'Register',
     'Name' => 'Name',
-
-    //verify
+    'Confirm Password' => 'Confirm Password',
     'Verify Your Email Address' => 'Verify Your Email Address',
     'A fresh verification link has been sent to your email address.' => 'A fresh verification link has been sent to your email address.',
     'Before proceeding, please check your email for a verification link.' => 'Before proceeding, please check your email for a verification link.',
     'If you did not receive the email' => 'If you did not receive the email',
     'click here to request another' => 'click here to request another',
 
-    // auth/passwords folder
     //confirm
     'Please confirm your password before continuing.' => 'Please confirm your password before continuing.',
     'Forgot Your Password?' => 'Forgot Your Password?',
 
     //email
+    'Change Password' => 'Change Password',
     'Send Password Reset Link' => 'Send Password Reset Link',
 
-    //reset
-    'Change Password' => 'Change Password',
-    'Confirm Password' => 'Confirm Password',
-    //End of auth
-
-    //Start of Landing Page
-    'Empowering Your Careers Through Connection' => 'Empowering Your Careers Through Connection',
-    'Join us to explore your strength' => 'Join us to explore your strength',
-    'Discover exciting job opportunities tailored just for you' => 'Discover exciting job opportunities tailored just for you',
-    'start exploring now' => 'start exploring now',
-    'with enhanced services and support' => 'with enhanced services and support',
-    'and expanded our reach to new regions' => 'and expanded our reach to new regions',
-    'Oct 2024' => 'Oct 2024',
-    'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development' => 'By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development',
-    'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations' => 'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations',
-    '17 Sustainable Development Goals (SDGs)' => '17 Sustainable Development Goals (SDGs)',
-    'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals' => 'With a particular focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals',
-    'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods' => 'Tokopedia is one of the largest online marketplaces in Indonesia, providing a platform for buying and selling goods',
-    'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users' => 'Shopee is an e-commerce platform with various features, including ShopeePay and free shipping offers for users',
-    'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services' => 'Grab is a leading ride-hailing service in Southeast Asia, also providing food delivery and payment services',
-    'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services' => 'Traveloka is a leading online travel agent in Southeast Asia, providing flight and hotel booking services',
-    'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries' => 'Blibli is an Indonesian e-commerce platform, offering a wide range of products, from electronics to groceries',
-    'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia' => 'Gojek is an on-demand multi-service platform, offering services from transportation to food delivery in Southeast Asia',
-    'Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory' => 'Deloitte is a global consulting firm offering services in audit, tax, consulting, and financial advisory',
-    'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance' => 'KPMG is a global leader in audit, tax, and advisory services, helping clients manage risks and improve business performance',
-    'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services' => 'EY (Ernst & Young) is a global leader in assurance, tax, transaction, and advisory services',
-    'PwC is a global professional services network providing audit, tax, and consulting services' => 'PwC is a global professional services network providing audit, tax, and consulting services',
-    'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country' => 'Bank Central Asia (BCA) is one of Indonesia\'s leading banks, providing banking and financial services across the country',
-    'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals' => 'Omni Hospital is a healthcare provider offering a wide range of medical services with top-tier healthcare professionals',
-    'Discover exciting job opportunities tailored just for you – start exploring now' => 'Discover exciting job opportunities tailored just for you – start exploring now',
-    'Applicants' => 'Applicants',
-    'More Information' => 'More Information',
-    'Discover Exciting Job Vacancies' => 'Discover Exciting Job Vacancies',
-    'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations' => 'Unlock your potential and take the next step in your career by exploring our diverse range of job opportunities. Whether you\'re aiming for a new role or looking to advance your career, a wealth of positions await you. Don\’t miss out on the chance to connect with top employers, showcase your talents, and find a job that aligns with your ambitions and aspirations',
-    'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence' => 'We cherish your opinions! Discover what our users think about their journey with us. Your feedback drives our commitment to excellence',
-    'Incredible service and great support! Highly recommend to anyone looking for opportunities' => 'Incredible service and great support! Highly recommend to anyone looking for opportunities',
-    'A user-friendly interface and a wide range of job listings' => 'A user-friendly interface and a wide range of job listings',
-    'I couldn’t be happier' => 'I couldn’t be happier',
-    'The best job portal I\'ve used' => 'The best job portal I\'ve used',
-    'Very intuitive and efficient' => 'Very intuitive and efficient',
-    'Great opportunities and a smooth application process' => 'Great opportunities and a smooth application process',
-    'I love the personalized job recommendations! They really understand my needs' => 'I love the personalized job recommendations! They really understand my needs',
-    'The platform helped me land a great job with ease. Highly efficient' => 'The platform helped me land a great job with ease. Highly efficient',
-    'Amazing experience, from job search to interview' => 'Amazing experience, from job search to interview',
-    'Everything was smooth' => 'Everything was smooth',
-    'Found my ideal job quickly' => 'Found my ideal job quickly',
-    'it' => 'Technology and Information',
-    'cna' => 'Consulting and Accounting',
-    'fni' => 'Finance and Insurance',
-    'hnh' => 'Healthcare and Hospitality',
-    //End of Landing Page
+    'Search by Company Name' => 'Search by Company Name',
+    'Search by Field' => 'Search by Field',
+    'All Rights Reserved' => 'All Rights Reserved',
 
     //Start of Setting Page
     'Change Language' => 'Change Language',
@@ -588,10 +521,44 @@ return [
     //End of Sign Up Page
 
     // Start of modal
-    'Are you sure?' => 'Are you sure?',
+    'Are you sure' => 'Are you sure',
     'You will not be able to revert this!' => 'You will not be able to revert this!',
     'confirmButtonModal' => 'Yes, Delete it!',
     'cancelButtonTextModal' => 'Cancel',
     // End modal
+
+    // Start of Landing Page
+    'Empowering Your Careers Through Connection' => 'Empowering Your Careers Through Connection',
+    'Join us to explore your strength' => 'Join us to explore your strength',
+    'Discover exciting job opportunities tailored just for you' => 'Discover exciting job opportunities tailored just for you',
+    'start exploring now' => 'start exploring now',
+    'Achieved a milestone of' => 'Achieved a milestone of',
+    'with enhanced services and support' => 'with enhanced services and support',
+    'and expanded our reach to new regions' => 'and expanded our reach to new regions',
+    'Oct 2024' => 'Oct 2024',
+
+    'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations' => 'Our platform is deeply committed to addressing key global challenges as outlined in the United Nations',
+    '17 Sustainable Development Goals (SDGs)' => '17 Sustainable Development Goals (SDGs)',
+    'Applicants' => 'Applicants',
+    'More Information' => 'More Information',
+    'Discover Exciting Job Vacancies' => 'Discover Exciting Job Vacancies',
+    'I couldn’t be happier' => 'I couldn’t be happier',
+    'Very intuitive and efficient' => 'Very intuitive and efficient',
+    'Everything was smooth' => 'Everything was smooth',
+    //End of Landing Page
+
+    'No' => 'No',
+    'Yes' => 'Yes',
+    'accept' => 'accept',
+    'reject' => 'reject',
+    'Do you want to' => 'Do you want to',
+    'this application' => 'this application',
+    'Cancel' => 'Cancelled',
+    'Job Application Status Updated' => 'Job Application Status Updated',
+    'Do you want to delete this job' => 'Do you want to delete this job',
+    'You are applying the filter' => 'You are applying the filter',
+    'No changes were made' => 'No changes were made',
+    'There was an error updating the status' => 'There was an error updating the status',
+    'The application status has been updated to' => 'The application status has been updated to',
 ];
 ?>

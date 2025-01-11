@@ -101,7 +101,6 @@
                     <p class="text-muted text-center">{{__('lang.noActiveJob')}}</p>
                 </div>
             @endforelse
-
         </div>
 
         <div class="d-flex justify-content-center mt-4">
@@ -122,7 +121,7 @@
             document.querySelectorAll(".unapply-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "{{__('lang.Are you sure?')}}",
+                        title: "{{__('lang.Are you sure')}} ?",
                         text: "{{__('lang.You will not be able to revert this!')}}",
                         icon: "warning",
                         showCancelButton: true,

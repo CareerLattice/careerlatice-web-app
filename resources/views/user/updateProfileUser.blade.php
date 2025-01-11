@@ -88,46 +88,50 @@
 
                         <!-- Professional Experience Tab -->
                         <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+                            @php
+                                $contents = collect(Storage::disk('google')->listContents('/', true));
+                            @endphp
+
                             @forelse ($applier->experiences as $experience)
-                                <div class="d-md-flex align-items-center mb-4">
-                                    <div class="col-12 col-md-2 mb-2 d-flex justify-content-center">
-                                        <img src="{{asset('upload/profile_picture/' . $experience->company_picture)}}" alt="Profile Image" class="profile-image">
-                                    </div>
+                                <div class="d-md-flex align-items-center mb-2">
                                     <div class="col-12 col-md-7 ms-3">
                                         <h4 class="card-title mb-2">{{$experience->title}}</h4>
+
                                         <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                             {{$experience->company_name}} • {{$experience->job_type}}
                                         </p>
+
                                         <p class="section-description mb-0" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                             {{\Carbon\Carbon::parse($experience->start_date)->format('M Y')}} - {{\Carbon\Carbon::parse($experience->end_date)->format('M Y')}}
                                         </p>
+
                                         <p class="section-description mb-2" style="font-size: 1rem; color: #6c757d; line-height: 1.6;">
                                             {{$experience->address}}
                                         </p>
-
-                                        <div class="d-flex gap-2">
-                                            <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience"
-                                                data-company="{{$experience->company_name}}"
-                                                data-job-title = "{{$experience->title}}"
-                                                data-exp-description="{{$experience->description}}"
-                                                data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
-                                                data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}"
-                                                data-route = "{{route('user.updateExperience', $experience->id)}}">
-                                                {{__('lang.edit')}}
-                                            </button>
-
-                                            <form action="{{route('user.deleteExperience', $experience->id)}}" method="POST" class="delete-form">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger delete-btn" type="button">{{__('lang.del')}}</button>
-                                            </form>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-12 d-flex flex-column justify-content-center">
+                                <div class="col-md-12 d-flex flex-column justify-content-center ms-3">
                                     <h4 class="section-title mb-2" style="font-size: 1.5rem; color: #192a51; font-weight: 600;">{{__('lang.description')}}</h4>
                                     <p style="text-align: justify">{{$experience->description}}</p>
+                                </div>
+
+                                <div class="d-flex gap-2 ms-3">
+                                    <button class="btn btn-warning btn-custom" id="#editExperience" data-bs-toggle="modal" data-bs-target="#editExperience"
+                                        data-company="{{$experience->company_name}}"
+                                        data-job-title = "{{$experience->title}}"
+                                        data-exp-description="{{$experience->description}}"
+                                        data-start-date = "{{\Carbon\Carbon::parse($experience->start_date)->format('Y-m-d')}}"
+                                        data-end-date = "{{\Carbon\Carbon::parse($experience->end_date)->format('Y-m-d')}}"
+                                        data-route = "{{route('user.updateExperience', $experience->id)}}">
+                                        {{__('lang.edit')}}
+                                    </button>
+
+                                    <form action="{{route('user.deleteExperience', $experience->id)}}" method="POST" class="delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger delete-btn" type="button">{{__('lang.del')}}</button>
+                                    </form>
                                 </div>
                                 <hr>
                             @empty
@@ -144,7 +148,7 @@
                         <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
                             <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                                 <div class="d-flex justify-content-center mb-3">
-                                    <!-- @php
+                                    @php
                                         $contents = collect(Storage::disk('google')->listContents('/', true));
                                         $file = $contents->firstWhere('path', Auth::user()->profile_picture);
                                         $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
@@ -154,7 +158,7 @@
                                         <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
                                     @else
                                         <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #ffc107;">
-                                    @endif -->
+                                    @endif
                                 </div>
 
                                 <div class="text-center">
@@ -176,12 +180,12 @@
                                 <strong class="fs-5">{{__('lang.birthDate')}} </strong><span class="mb-3">{{\Carbon\Carbon::parse($applier->birth_date)->format('d F Y')}}</span>
                                 <strong>{{__('lang.cv')}}</strong>
 
-                                @php
-                                    $cv = $contents->firstWhere('path', $applier->cv_url);
-                                    $cv_url = $cv ? "https://drive.google.com/file/d/{$cv['extraMetadata']['id']}/preview" : asset('assets/default_cv.pdf');
-                                @endphp
-
                                 @if ($applier->cv_url != null && Storage::disk('google')->exists($applier->cv_url))
+                                    @php
+                                        $cv = $contents->firstWhere('path', $applier->cv_url);
+                                        $cv_url = $cv ? "https://drive.google.com/file/d/{$cv['extraMetadata']['id']}/preview" : asset('assets/default_cv.pdf');
+                                    @endphp
+
                                     <a href="{{$cv_url}}" class="btn btn-outline-primary" target="_blank" style="width: 15%; max-width: 100px;min-width: 90px;">{{__('lang.View CV')}}</a>
                                 @else
                                     <p class="text-">{{__('lang.You have not upload CV yet')}}</p>
@@ -231,7 +235,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="endDate" class="form-label">{{__('lang.fieldOfStudy')}}</label>
+                            <label for="endDate" class="form-label">{{__('lang.endDate')}}</label>
                             <input type="date" class="form-control" id="endDate" name="end_date">
                         </div>
 
@@ -479,7 +483,7 @@
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", () => {
                     Swal.fire({
-                        title: "{{__('lang.Are you sure?')}}",
+                        title: "{{__('lang.Are you sure')}} ?",
                         text: "{{__('lang.You will not be able to revert this!')}}",
                         icon: "warning",
                         showCancelButton: true,
@@ -562,7 +566,6 @@
                 descriptionInput.value = description
                 startDateInput.value = startDate
                 endDateInput.value = endDate
-                console.log(route);
 
                 editExperienceForm.action = route;
             })

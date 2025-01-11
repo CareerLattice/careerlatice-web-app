@@ -69,7 +69,7 @@
                                          alt="Profile Picture"
                                          id="preview-image"
                                          class="rounded-circle me-2 object-fit-fill"
-                                         style="width: 180px; height: 180px;"/>
+                                         style="width: 180px; height: 180px; border: 1px solid"/>
 
                                     <!-- File Input (Hidden) -->
                                     <input type="file" class="form-control" id="logo" name="logo" style="display: none;" onchange="previewImage(event)">
