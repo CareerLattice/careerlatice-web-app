@@ -50,10 +50,10 @@
         <div class="container position-absolute top-50 start-50 translate-middle"
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; padding: 0 15px; width: 100%;">
             <h1 style="font-size: 2rem; font-weight: bold; color: #fff; word-wrap: break-word;">
-                Discover Job Vacancies from <span style="color: #0d6efd;">{{ $company->user->name }}</span>
+                {{__('lang.discoverJob')}} <span style="color: #0d6efd;">{{ $company->user->name }}</span>
             </h1>
             <p style="font-size: 1.2rem; color: #f5f5f5; word-wrap: break-word;">
-                Come and join us to explore ever-evolving things.
+                {{__('lang.comeJoin')}}
             </p>
         </div>
     </div>
@@ -64,7 +64,7 @@
                 <div class="row align-items-center d-flex justify-content-center">
                     <div class="col-12 col-md-6">
                         <h5 style="font-size: 1.2rem; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); color: #ffffff; font-weight: bold; text-align: center; margin-top: 1rem;">
-                            We're Opening these Jobs in {{ $company->user->name }}
+                            {{__('lang.opening')}} {{ $company->user->name }}
                         </h5>
                     </div>
 
@@ -72,8 +72,8 @@
                         <div class="row justify-content-center">
                             <div class="col-12 col-md-6 mb-2 mb-md-0">
                                 <select name="filter" class="form-select form-select-sm" id="filter-group" style="border-color: var(--bs-primary); font-size: 1.1rem; padding: 0.8rem;">
-                                    <option value="title">Job Name</option>
-                                    <option value="job_type">Job Type</option>
+                                    <option value="title">{{__('lang.jobName')}}</option>
+                                    <option value="job_type">{{__('lang.jobType')}}</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-4 mb-2 mb-md-0">
@@ -95,10 +95,17 @@
 
         <div class="card bg-white">
             <div class="card-body">
+                @php
+                    $contents = collect(Storage::disk('google')->listContents('/', true));
+                @endphp
                 @forelse ($jobs as $job)
                     <div class="row mb-4">
                         <div class="col-10 col-md-5 col-lg-3">
-                            <img src="{{Storage::url($job->job_picture)}}" class="img-thumbnail" style="width: 100%;">
+                            @php
+                                $file = $contents->firstWhere('path', $job->job_picture);
+                                $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                            @endphp
+                            <img src="{{$job_url}}" class="img-thumbnail" style="width: 100%;">
                         </div>
 
                         <div class="col-12 col-md-6 mt-3 ms-2 d-flex flex-column justify-content-between">
@@ -106,7 +113,7 @@
                                 <h4 style="font-weight: bold; color: #0d6efd; text-align: left;">{{ $job->title }}</h4>
                                 <p class="mb-2" style="background-color: #198754; color: #fff; text-align: center; max-width: 15%; border-radius: 4px;">
                                     @if ($job->is_active == true)
-                                        Open
+                                    {{__('lang.open')}}
                                     @endif
                                 </p>
                                 <p style="color: #6c757d; margin-bottom: 0.5rem; text-align: left;">
@@ -115,7 +122,7 @@
                             </div>
                             <div>
                                 <p class="text-muted mb-2 text-start" style="font-size: 1rem">{{$job->address}} ({{$job->job_type}})</p>
-                                <p class="text-muted mb-2 text-start" style="font-size: 1rem">Last Updated:
+                                <p class="text-muted mb-2 text-start" style="font-size: 1rem">{{__('lang.lastUpdate')}}
                                     @if (gettype($job->updated_at) == 'string')
                                         {{ $job->updated_at }}
                                     @else
@@ -125,7 +132,7 @@
                             </div>
                             <div class="gap-2 mb-3" style="width: 100%;">
                                 <a href="{{ route('user.jobDetail', ['job' => $job->id]) }}" class="btn btn-dark">
-                                    Apply Now
+                                    {{__('lang.apply')}}
                                 </a>
                             </div>
                         </div>
@@ -133,7 +140,7 @@
                     <hr>
                 @empty
                     <div class="alert alert-danger">
-                        No job vacancies available.
+                        {{__('lang.noJob')}}
                     </div>
                 @endforelse
             </div>

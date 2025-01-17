@@ -18,8 +18,6 @@ class CompanySeeder extends Seeder
         $faker = Factory::create("id_ID");
         $companies = User::where('role', 'company')->get();
         foreach ($companies as $company) {
-            $companyName = $faker->company;
-            $companyEmail = $faker->companyEmail;
             Company::create([
                 'address' => $faker->address,
                 'description' => $faker->paragraph,
@@ -28,9 +26,8 @@ class CompanySeeder extends Seeder
             ]);
 
             User::where('id', $company->id)->update([
-                'name' => $companyName,
-                'email' => $companyEmail,
-                'profile_picture' => 'default/company.jpeg',
+                'name' => $faker->company,
+                'email' => $faker->companyEmail,
             ]);
         }
     }

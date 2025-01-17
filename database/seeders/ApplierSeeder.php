@@ -25,7 +25,7 @@ class ApplierSeeder extends Seeder
                 'start_date_premium' => $faker->dateTimeBetween('-1 year', 'now'),
                 'end_date_premium' => $faker->dateTimeBetween('now', '+1 year'),
                 'user_id' => $user->id,
-                'cv_url' => 'Kalender.pdf',
+                'cv_url' => 'default_cv.pdf',
                 'headline' => $faker->sentence,
             ]);
         }

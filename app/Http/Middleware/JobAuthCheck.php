@@ -17,8 +17,9 @@ class JobAuthCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $company_id = Auth::user()->company->id;
-        if($company_id != $request->route('job')->company_id){
+        $user = Auth::user();
+
+        if($user->role != 'company' || $user->company->id != $request->route('job')->company_id){
             abort(401);
         }
 

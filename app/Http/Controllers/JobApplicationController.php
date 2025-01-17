@@ -11,35 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class JobApplicationController extends Controller
 {
-    public function exportCSV(Job $job){
-        $result = DB::table('job_applications')
-            ->join('appliers', 'job_applications.applier_id', '=', 'appliers.id')
-            ->join('users', 'appliers.user_id', '=', 'users.id')
-            ->select('users.name', 'users.email', 'users.phone_number', 'appliers.address', 'appliers.birth_date', 'job_applications.created_at')
-            ->where('job_applications.job_id', $job->id)
-            ->orderBy('appliers.end_date_premium','desc')
-            ->get();
-
-        $fileName = 'jobApplications.csv';
-        $filePath = public_path($fileName);
-
-        $fp = fopen($fileName,'w+');
-        fputcsv($fp, fields: array('Name', 'Email', 'Phone Number', 'Address', 'Birth Date', 'Applied at'));
-        foreach($result as $row){
-            fputcsv($fp, array(
-                $row->name,
-                $row->email,
-                $row->phone_number,
-                $row->address,
-                $row->birth_date,
-                $row->applied_at
-            ));
-        }
-        fclose($fp);
-
-        return response()->download($filePath)->deleteFileAfterSend(true);
-    }
-
     public function updateJobApplicationStatus(Request $req, JobApplication $application){
         $application->update([
             'status' => $req->status,
@@ -59,10 +30,11 @@ class JobApplicationController extends Controller
                 'job_vacancies.id',
                 'name',
                 'job_vacancies.title',
+                'job_applications.id as application_id',
                 'job_applications.status',
                 DB::raw("DATE_FORMAT(job_vacancies.created_at, '%d %M %Y') as created_at")
             ])
-            ->where("job_applications.applier_id", Auth::user()->applier->id)
+            ->where("job_applications.applier_id", '=', Auth::user()->applier->id)
             ->orderByRaw("
                 CASE
                     WHEN job_applications.status = 'rejected' THEN 1
@@ -104,6 +76,17 @@ class JobApplicationController extends Controller
         ]);
 
         session()->flash('message', 'Job application submitted successfully');
+        return redirect()->route('user.jobVacancies');
+    }
+
+    public function destroy(JobApplication $jobApplication){
+        $jobApplication->update([
+            'status'=> 'cancelled',
+        ]);
+
+        $jobApplication->delete();
+
+        session()->flash('message', 'Job Application has been unapplied');
         return redirect()->route('user.jobVacancies');
     }
 }

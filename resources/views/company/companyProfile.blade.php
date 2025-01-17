@@ -41,11 +41,11 @@
 
     <div class="container my-5">
         <a href="{{route('company.home')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
-            <i class="bi bi-arrow-left-circle"></i> {{ __('company/companyProfile.back') }}
+            <i class="bi bi-arrow-left-circle"></i> {{ __('lang.backCompanyProfile') }}
         </a>
         <div class="text-center mb-5">
-            <h2>{{__('company/companyProfile.title')}}</h2>
-            <p class="text-muted">{{__('company/companyProfile.caption')}}</p>
+            <h2>{{__('lang.titleCompanyProfile')}}</h2>
+            <p class="text-muted">{{__('lang.captionCompanyProfile')}}</p>
         </div>
 
 
@@ -55,15 +55,21 @@
                     @csrf
                     <div class="mb-4">
                         <div class="d-flex flex-column align-items-center">
-                            <label class="form-label"><strong>{{__('company/companyProfile.contentTitle')}}</strong></label>
+                            <label class="form-label"><strong>{{__('lang.contentTitleCompanyProfile')}}</strong></label>
                             <div class="d-flex align-items-center">
                                 <div class="image-container">
                                     <!-- Display Current Profile Picture -->
-                                    <img src="{{ Storage::url(Auth::user()->profile_picture) }}"
+                                    @php
+                                        $contents = collect(Storage::disk('google')->listContents('/', true));
+                                        $file = $contents->firstWhere('path', Auth::user()->profile_picture);
+                                        $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                                    @endphp
+
+                                    <img src="{{$photo_url}}"
                                          alt="Profile Picture"
                                          id="preview-image"
                                          class="rounded-circle me-2 object-fit-fill"
-                                         style="width: 180px; height: 180px;"/>
+                                         style="width: 180px; height: 180px; border: 1px solid"/>
 
                                     <!-- File Input (Hidden) -->
                                     <input type="file" class="form-control" id="logo" name="logo" style="display: none;" onchange="previewImage(event)">
@@ -79,36 +85,36 @@
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="name" class="form-label"><strong>{{__('company/companyProfile.companyName')}}</strong></label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="{{__('company/companyProfile.companyNamePH')}}" value="{{Auth::user()->name}}" required>
+                            <label for="name" class="form-label"><strong>{{__('lang.companyNameCompanyProfile')}}</strong></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="{{__('lang.companyNamePHCompanyProfile')}}" value="{{Auth::user()->name}}" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="field" class="form-label"><strong>{{__('company/companyProfile.field')}}</strong></label>
-                            <input type="text" class="form-control" id="field" name="field" placeholder="{{__('company/companyProfile.companyFieldPH')}}" value="{{$company->field}}" required>
+                            <label for="field" class="form-label"><strong>{{__('lang.fieldCompanyProfile')}}</strong></label>
+                            <input type="text" class="form-control" id="field" name="field" placeholder="{{__('lang.companyFieldPHCompanyProfile')}}" value="{{$company->field}}" required>
                         </div>
                     </div>
 
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="address" class="form-label"><strong>{{__('company/companyProfile.companyAddress')}}</strong></label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="{{__('company/companyProfile.companyAddressPH')}}" value="{{$company->address}}" required></input>
+                            <label for="address" class="form-label"><strong>{{__('lang.companyAddressCompanyProfile')}}</strong></label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="{{__('lang.companyAddressPHCompanyProfile')}}" value="{{$company->address}}" required></input>
                         </div>
                         <div class="col-md-6">
-                            <label for="phone_number" class="form-label"><strong>{{__('company/companyProfile.phoneNumber')}}</strong></label>
-                            <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="{{__('company/companyProfile.companyPhonePH')}}" value="{{Auth::user()->phone_number}}" required>
+                            <label for="phone_number" class="form-label"><strong>{{__('lang.phoneNumberCompanyProfile')}}</strong></label>
+                            <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="{{__('lang.companyPhonePHCompanyProfile')}}" value="{{Auth::user()->phone_number}}" required>
                         </div>
                     </div>
 
 
                     <div class="mb-3">
-                        <label for="description" class="form-label"><strong>{{__('company/companyProfile.companyDescription')}}</strong></label>
-                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="{{__('company/companyProfile.companyDescriptionPH')}}" required>{{$company->description}}</textarea>
+                        <label for="description" class="form-label"><strong>{{__('lang.companyDescriptionCompanyProfile')}}</strong></label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="{{__('lang.companyDescriptionPHCompanyProfile')}}" required>{{$company->description}}</textarea>
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg px-4">{{__('company/companyProfile.saveChanges')}}</button>
+                        <button type="submit" class="btn btn-primary btn-lg px-4">{{__('lang.saveChangesCompanyProfile')}}</button>
                     </div>
                 </form>
             </div>

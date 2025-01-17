@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Applier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
 {
@@ -19,8 +20,8 @@ class CompanyController extends Controller
         return view('company.signUpCompany');
     }
 
-    public function signUp(Request $req){
-        $req->validate([
+    public function signUp(Request $request){
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
@@ -33,18 +34,18 @@ class CompanyController extends Controller
 
         try {
             $company = User::create([
-                'name' => $req->name,
-                'email' => $req->email,
-                'password' => Hash::make($req->password),
-                'phone_number' => $req->phone_number,
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone_number' => $request->phone_number,
                 'role' => 'company',
-                'profile_picture' => 'default/profile_picture.jpg',
+                'profile_picture' => 'default_profile_picture.jpg',
             ]);
 
             // Membuat company baru
             Company::create([
-                'address' => $req->address,
-                'field' => $req->field,
+                'address' => $request->address,
+                'field' => $request->field,
                 'user_id' => $company->id,
             ]);
 
@@ -95,40 +96,41 @@ class CompanyController extends Controller
         return view('company.companyProfile', compact('company'));
     }
 
-    public function updateProfile(Request $req){
-        $req->validate([
+    public function updateProfile(Request $request){
+        $request->validate([
             'name' => 'required|string|max:255',
             'phone_number' => 'required|string|max:20',
             'field' => 'string|max:255',
             'address' => 'string|max:255',
             'description' => 'string',
-            'logo' => 'image|mimes:jpg,png,jpeg|max:2048',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         $company = Auth::user();
-        if($req->logo){
-            if ($company->profile_picture && $company->profile_picture != 'default/profile_picture.jpg' && Storage::disk('public')->exists($company->profile_picture)) {
-                $test = Storage::disk('public')->delete($company->profile_picture);
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+
+            $fileName = 'profile_picture/' . $company->id . '_profile_picture.' . $request->file('logo')->getClientOriginalExtension();
+
+            if ($company->profile_picture && $company->profile_picture != 'default_profile_picture.jpg' && Storage::disk('google')->exists($company->profile_picture)) {
+                Storage::disk('google')->delete($company->profile_picture);
             }
 
-            $path = $req->file('logo')->storeAs('company_upload/profile_picture', $company->id . '_profile_picture.' . $req->file('logo')->getClientOriginalExtension(), 'public');
-            $company->profile_picture = $path;
+            Storage::disk('google')->put($fileName, File::get($file), "public");
+            $company->profile_picture = $fileName;
         }
 
         $company->update([
-            'name' => $req->name ?? $company->name,
-            'phone_number' => $req->phone_number ?? $company->phone_number,
+            'name' => $request->name ?? $company->name,
+            'phone_number' => $request->phone_number ?? $company->phone_number,
             'profile_picture' => $company->profile_picture,
         ]);
 
-        Company::where('user_id', Auth::id())->update([
-            'description' => $req->description ?? $company->description,
-            'field' => $req->field ?? $company->field,
-            'address' => $req->address ?? $company->address,
+        Company::where('user_id', $company->id)->update([
+            'description' => $request->description ?? $company->description,
+            'field' => $request->field ?? $company->field,
+            'address' => $request->address ?? $company->address,
         ]);
-
-        $updatedCompany = User::find($company->id);
-        Auth::login($updatedCompany);
 
         return redirect()->route('company.profile', compact('company'));
     }
@@ -143,12 +145,16 @@ class CompanyController extends Controller
 
     public function viewCompany($company_id){
         $company = Company::with('user')->findOrFail($company_id);
-        $jobs = Job::where('company_id', $company_id)->limit(3)->get();
+        $jobs = Job::where('company_id', $company_id)
+            ->where('is_active', true)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
         return view('user.company', compact('company', 'jobs'));
     }
 
-    public function searchCompany(Request $req){
-        $req->validate([
+    public function searchCompany(Request $request){
+        $request->validate([
             'search' => 'string|nullable',
             'filter' => 'string|in:name,field',
         ]);
@@ -157,8 +163,8 @@ class CompanyController extends Controller
             ->join('users', 'companies.user_id', '=', 'users.id')
             ->select('companies.*', 'users.name as user_name', 'users.profile_picture as company_image');
 
-        if ($req->filled('search')) {
-            $companiesQuery->where($req->filter, 'like', '%' . $req->search . '%');
+        if ($request->filled('search')) {
+            $companiesQuery->where($request->filter, 'like', '%' . $request->search . '%');
         }
 
         $companies = $companiesQuery->paginate(12)->withQueryString();

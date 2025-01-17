@@ -1,66 +1,58 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# About Career Lattice
+CareerLattice is an innovative platform dedicated to **empowering individuals by helping them advance their careers and build strong professional networks**. By providing a space where users can connect with industry professionals, colleagues, and organizations, we foster opportunities for meaningful collaboration and career development. Our platform is deeply committed to addressing key global challenges as outlined in the United Nations’ 17 Sustainable Development Goals (SDGs), with a particular **focus on eliminating poverty, reducing hunger, promoting decent work, fostering economic growth, and forging impactful partnerships to achieve these goals.**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Focus Area of SDG
+**Decent Work and Economic Growth (Goal 8):** Our platform helps individuals find meaningful employment, contributing to economic growth and the creation of decent work opportunities.
 
-## About Laravel
+# Key Features of Career Lattice
+1. Job Search and Application
+2. Advanced Filtering for Job Search
+3. Company Interaction
+4. Subscription for Premium Features
+5. Company Dashboard
+6. Detailed Applicant Profiles
+7. Admin Analytics and Management
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+For detailed features, please visit [CareerLattice-PPT](https://www.canva.com/design/DAGYVHCjbnM/5D-gxy2WxLfUBzJW1Sy0HQ/edit)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Tech Stack
+**Client**: Laravel Blade, HTML, CSS, Bootstrap
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Server**: PHP, MySQL, Javascript
 
-## Learning Laravel
+**Tools**: tableplus, DrawSQL, Aiven, Vercel, Midtrans
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Clone and Try Locally
+Clone Repository
+```
+git clone https://github.com/CareerLattice/careerlatice-web-app.git
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Go to Repository
+```
+cd careerlatice-web-app
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install Vendor 
+```
+composer install
+```
 
-## Laravel Sponsors
+Generate App Key
+```
+php artisan key:generate
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Generate env files then Run the program
+```
+php artisan serve
+```
 
-### Premium Partners
+# Live Preview (Production Link)
+Visit Career-Lattice at https://career-lattice.vercel.app/
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Visit Career-Lattice ERD at https://drawsql.app/teams/sen-2/diagrams/career-lattice-revisi
 
-## Contributing
+Get to know Career-Lattice at https://www.canva.com/design/DAGYVHCjbnM/5D-gxy2WxLfUBzJW1Sy0HQ/edit
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

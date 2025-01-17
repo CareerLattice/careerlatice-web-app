@@ -11,26 +11,26 @@
 
                 <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
                     <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
-                        Explore  with more than <strong>500+</strong> Exciting Job Vacancies
+                        {{__('lang.explore')}} <strong>{{__('lang.500+')}}</strong> {{__('lang.exciting')}}
                     </p>
                     <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
-                        Launch Your Career with <span style="color: #7869cd;">Top Industry Leaders</span>
+                        {{__('lang.launch')}} <span style="color: #7869cd;">{{__('lang.top')}}</span>
                     </h2>
                     <p class="fw-semibold" style="color: gray; font-size: 1rem; line-height: 1.8; text-align: justify">
-                        Gain exclusive insights and opportunities from top professionals in your field and Discover opportunities tailored to your skills and aspirations
+                        {{__('lang.gain')}}
                     </p>
 
                     <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
                         <a href="{{route('user.editProfile')}}" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                            Update Profile
+                            {{__('lang.updateProfile')}}
                         </a>
 
                         <a href="#jobsSection" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                            Explore Jobs
+                            {{__('lang.exploreJob')}}
                         </a>
                     </div>
 
-                    <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
+                    <p class="fw-bold mt-3" style="color: gray;">{{__('lang.contact')}}</p>
 
                     <ul class="list-unstyled list-inline mt-2 d-flex justify-content-center justify-content-md-start gap-2">
                         <li class="list-inline-item">
@@ -73,10 +73,10 @@
     <section id="jobsSection" style="overflow-x: hidden">
         <div class="container mt-5 text-center">
             <h1 class="fw-bold ">
-                Discover Exciting <span style="color: #682b90">Job Vacancies</span>
+                {{__('lang.discoverExciting')}} <span style="color: #682b90">{{__('lang.Job Vacancies')}}</span>
             </h1>
             <p class="fw-bold" style="color: #7869cd">
-                Browse over 200+ Top Jobs Vacancy from Top Industry Leaders
+                {{__('lang.browse')}}
             </p>
         </div>
 
@@ -84,13 +84,13 @@
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search" action="{{route('user.searchJobs')}}" method="GET">
                 <input style="width: 500px" class="form-control mb-2 mb-md-0 me-md-2" type="search" placeholder="Search by Company Name" aria-label="Search" name="search">
 
-                <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 150px;" onchange="updatePlaceholder()">
-                    <option value="name">Company Name</option>
-                    <option value="title">Job Title</option>
-                    <option value="job_type">Job Type</option>
+                <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2" id="filter-group" style="border-color: var(--bs-primary); width: 160px;" onchange="updatePlaceholder()">
+                    <option value="name">{{__('lang.companyName')}}</option>
+                    <option value="title">{{__('lang.jobTitle')}}</option>
+                    <option value="job_type">{{__('lang.jobType')}}</option>
                 </select>
 
-                <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
+                <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">{{__('lang.search')}}</button>
             </form>
             @if ($errors->any())
                 <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">
@@ -101,11 +101,19 @@
 
         <div class="container d-flex flex-column align-items-center">
             <div class="row" style="width: 100%; max-width: 1000px;">
+                @php
+                    $contents = collect(Storage::disk('google')->listContents('/', true));
+                @endphp
+
                 @forelse ($jobs as $job)
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0 d-flex justify-content-center">
                             <div class="col-12 col-sm-10 col-md-4 mt-3">
-                                <img src="{{Storage::url($job->job_picture)}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
+                                @php
+                                    $file = $contents->firstWhere('path', $job->job_picture);
+                                    $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
+                                @endphp
+                                <img src="{{$job_url}}" class="img-fluid rounded-start" alt="Job Photo" style="height: 100%; object-fit: contain;">
                             </div>
                             <div class="col-12 col-md-8">
                                 <div class="card-body p-3">
@@ -118,10 +126,10 @@
 
                                     <div class="mt-2 d-flex flex-column flex-md-row align-items-center gap-2">
                                         <a href="{{route('user.jobDetail', ['job' => $job->id])}}" class="btn btn-primary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                                            Apply Now
+                                            {{__('lang.apply')}}
                                         </a>
                                         <a href="{{route('user.company', ['company_id' => $job->company_id])}}" class="btn btn-secondary btn-lg w-100 w-md-auto d-flex justify-content-center align-items-center" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                                            View Company
+                                            {{__('lang.viewComp')}}
                                         </a>
                                     </div>
                                 </div>
@@ -130,7 +138,7 @@
                     </div>
                 @empty
                     <div class="alert alert-danger">
-                        No job found
+                        {{__('company/userJobs.noJob')}}
                     </div>
                 @endforelse
             </div>

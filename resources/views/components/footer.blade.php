@@ -24,7 +24,7 @@
 
     .ul-container{
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         gap: 10px;
     }
 
@@ -50,28 +50,27 @@
 
             <div class="footer-left-container col md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h5 class="mb-4 font-weight-bold"><span class= "first">Career</span><span class="second">Lattice</span></h5>
-                <p>Empowers individuals to advance their careers and build professional networks through expert connections and skill development.</p>
-
+                <p>{{__('lang.Empowers individuals to advance their careers and build professional networks through expert connections and skill development')}}.</p>
             </div>
 
             <div class="footer-right-container col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class=" mb-4 font-weight-bold">Services</h5>
+                <h5 class=" mb-4 font-weight-bold">{{__('lang.Services')}}</h5>
                 <p>
-                    <a href="{{route('landingPage')}}" class="text-dark" style="text-decoration: none">Home</a>
+                    <a href="{{route('landingPage')}}" class="text-dark" style="text-decoration: none">{{__('lang.Home')}}</a>
                 </p>
                 <p>
-                    <a href="{{route('jobs')}}" class="text-dark" style="text-decoration: none">Find a Job</a>
+                    <a href="{{route('jobs')}}" class="text-dark" style="text-decoration: none">{{__('lang.Find a Job')}}</a>
                 </p>
                 <p>
-                    <a href="{{route('companies')}}" class="text-dark" style="text-decoration: none">Company</a>
+                    <a href="{{route('companies')}}" class="text-dark" style="text-decoration: none">{{__('lang.Company')}}</a>
                 </p>
                 <p>
-                    <a href="#Contact" class="text-dark" style="text-decoration: none">Contact Us</a>
+                    <a href="#Contact" class="text-dark" style="text-decoration: none">{{__('lang.Contact Us')}}</a>
                 </p>
             </div>
 
             <div class="footer-right-container col-md-4 col-xl-3 mx-auto mt-3">
-                <h5 class="mb-4 font-weight-bold">Contact</h5>
+                <h5 class="mb-4 font-weight-bold">{{__('lang.Contact')}}</h5>
                 <p>
                     <i class="bi bi-house-door-fill me-3"></i>Jakarta, Indonesia</p>
                 <p>
@@ -81,7 +80,7 @@
                     <i class="bi bi-telephone-fill me-3"></i>+62 08942012049
                 </p>
                 <p>
-                    <i class="bi bi-calendar-fill me-3"></i>Since 10/03/2024
+                    <i class="bi bi-calendar-fill me-3"></i>{{__('lang.Since')}} 10/03/2024
                 </p>
             </div>
         </div>
@@ -90,7 +89,7 @@
 
         <div class="footer-bottom-container row align-items-center hidden">
             <div class="rights col-md-7 col-lg-8">
-                <p class="text-center"> <strong>©2024 All Rights Reserved</strong>
+                <p class="text-center"> <strong>©2025 {{__('lang.All Rights Reserved')}}</strong>
                 <a href="" style="text-decoration: none"><span class= "first">Career</span><span class="second">Lattice</span>
                 </a>
             </p>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
@@ -25,11 +26,13 @@ class JobController extends Controller
             'address' => 'required|string|max:255',
             'description' => 'required|string',
             'requirement' => 'required|string',
+            'benefit' => 'string|nullable',
             'person_in_charge' => 'required|string',
             'contact_person' => 'required|string',
+            'job_image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        Job::create([
+        $job = Job::create([
             'title' => $req->title,
             'job_type' => $req->job_type,
             'address' => $req->address,
@@ -37,10 +40,21 @@ class JobController extends Controller
             'requirement' => $req->requirement,
             'person_in_charge' => $req->person_in_charge,
             'contact_person' => $req->contact_person,
-
+            'benefit' => $req->benefit,
             'company_id' => Auth::user()->company->id,
+            'job_picture' => 'default_job_picture.jpg',
             'is_active' => true,
         ]);
+
+        if($req->hasFile('job_image')){
+            $file = $req->file('job_image');
+            $fileName = 'job_picture/' . $job->id . '_job.' . $req->file('job_image')->getClientOriginalExtension();
+            Storage::disk('google')->put($fileName, File::get($file), 'public');
+
+            $job->update([
+                'job_picture' => $fileName,
+            ]);
+        }
 
         return redirect()->route('company.listJob');
     }
@@ -64,18 +78,24 @@ class JobController extends Controller
             'job_image' => 'image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
+
         // Update status job application to rejected
         if($req->is_active == 0 && $job->is_active == 1){
             JobApplication::where('job_id', $job->id)->update(['status' => 'rejected']);
         }
 
-        if($req->job_image){
-            if ($job->job_image && $job->job_picture != 'default/job_image.jpg' && Storage::disk('public')->exists($job->job_picture)) {
-                $test = Storage::disk('public')->delete($job->job_picture);
+        if($req->hasFile('job_image')){
+            $file = $req->file('job_image');
+
+            $fileName = 'job_picture/' . $job->id . '_job_picture.' . $req->file('job_image')->getClientOriginalExtension();
+
+            if ($job->job_picture && $job->job_picture != 'default_job_picture.jpg' && Storage::disk('google')->exists($job->job_picture)) {
+                Storage::disk('google')->delete($job->job_picture);
             }
 
-            $path = $req->file('job_image')->storeAs('company_upload/job_picture', $job->id . '_job_image.' . $req->file('job_image')->getClientOriginalExtension(), 'public');
-            $job->job_picture = $path;
+            Storage::disk('google')->put($fileName, File::get($file), 'public');
+
+            $job->job_picture = $fileName;
         }
 
         $job->update([
@@ -95,22 +115,32 @@ class JobController extends Controller
     }
 
     // Company can view the job vacancies they create
-    public function viewJob(Job $job){
+    public function viewJob(Job $job, Request $request){
+        $sort = $request->get('sort');
+        $order = $request->get('order');
+
         $applicants = DB::table('users')
             ->join('appliers', 'users.id', '=', 'appliers.user_id')
             ->join('job_applications', 'appliers.id', '=', 'job_applications.applier_id')
             ->where('job_applications.job_id', $job->id)
             ->select('users.name', 'appliers.cv_url as cv', 'job_applications.status', 'job_applications.id as job_application_id', 'appliers.id as applier_id',
-            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at')   )
-            ->orderBy('appliers.end_date_premium','desc')
-            ->paginate(10);
+            DB::raw('DATE_FORMAT(job_applications.created_at, "%d %M %Y") as applied_at'));
 
-        return view('company.job', compact('job', 'applicants'));
+        if($sort != null){
+            $applicants = $applicants->orderBy($sort, $order);
+        }
+
+        $applicants = $applicants->orderBy('appliers.end_date_premium','desc')
+        ->paginate(10);
+
+        return view('company.job', compact('job', 'applicants', 'sort', 'order'));
     }
 
     public function filterJobs(Request $req, Job $job){
         $req->validate([
-            'filter' => 'string|nullable'
+            'filter' => 'string|nullable',
+            'sort' => 'string|nullable',
+            'order'=> 'string|nullable|in:desc,asc',
         ]);
 
         $applicants = DB::table('users')
@@ -125,9 +155,15 @@ class JobController extends Controller
             $applicants = $applicants->where('status', 'LIKE',$req->filter);
         }
 
+        $sort = $req->get('sort');
+        $order = $req->get('order');
+        if($sort){
+            $applicants = $applicants->orderBy($sort, $order);
+        }
+
         $applicants = $applicants->paginate(10);
 
-        return view('company.job', compact('job', 'applicants'));
+        return view('company.job', compact('job', 'applicants', 'sort','order'));
     }
 
     // Company can view all job vacancies they create
@@ -241,7 +277,7 @@ class JobController extends Controller
                 'job_vacancies.description',
                 'job_vacancies.person_in_charge',
                 'job_vacancies.job_picture',
-                DB::raw(value: "DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
+                DB::raw("DATE_FORMAT(job_vacancies.updated_at, '%d %M %Y') as updated_at"),
                 'users.name as company_name',
                 'companies.id as company_id',
             )
@@ -256,16 +292,7 @@ class JobController extends Controller
     public function userViewJob(Job $job){
         $requirement = explode("\r\n", $job->requirement);
         $benefit = explode("\r\n", $job->benefit);
-        $result = DB::table('job_vacancies as jobs')
-            ->join('companies', 'jobs.company_id', '=', 'companies.id')
-            ->join('job_skills', 'jobs.id', '=', 'job_skills.job_id')
-            ->join('skills','job_skills.skill_id','=','skills.id')
-            ->join('users', 'companies.user_id', '=', 'users.id')
-            ->select('skills.name as skill_name')
-            ->where('jobs.id', $job->id)
-            ->get();
-
-        return view('user.jobDetail', compact('job', 'requirement', 'result', 'benefit'));
+        return view('user.jobDetail', compact('job', 'requirement', 'benefit'));
     }
 
     public function jobByCompany(Company $company, Request $req){
@@ -296,11 +323,5 @@ class JobController extends Controller
 
         $jobs = $jobs->paginate(5)->withQueryString();
         return view('user.companyJobVacancies', compact('jobs', 'company'));
-    }
-
-    // Testing add Requirement
-    public function addRequirement(Request $req){
-        Job::where('id', 1)->update(['requirement' => $req->requirement, 'benefit' => $req->benefit]);
-        return redirect()->route('user.job', ['job' => 1]);
     }
 }

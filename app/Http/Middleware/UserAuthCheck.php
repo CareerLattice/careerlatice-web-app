@@ -20,8 +20,7 @@ class UserAuthCheck
             return redirect()->route('login');
         }
 
-        $user = Auth::user();
-        if ($user->role != 'applier') {
+        if (Auth::user()->role != 'applier') {
             abort(401);
         }
         return $next($request);

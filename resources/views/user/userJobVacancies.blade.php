@@ -50,17 +50,16 @@
         <div class="container position-absolute top-50 start-50 translate-middle text-center"
             style="transform: translate(-50%, -50%); color: black;">
             <h1 class="fw-bold" style="font-size: 2rem;">
-                Hello, <span style="color: #0d6efd;">{{ Auth::user()->name }}</span>! Your Journey Awaits
+                {{__('lang.hello')}} <span style="color: #0d6efd;">{{ Auth::user()->name }}</span>! {{__('lang.journeyAwait')}}
             </h1>
             <p style="font-size: 1.2rem; color: black;">
-                Discover endless possibilities and unlock new opportunities for your bright future!
-            </p>
+                {{__('lang.endlessPossibilities')}}
         </div>
     </div>
 
     <div class="container mt-5">
         <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">
-            Current Active <span style="color: #682b90">Job Applications</span>
+            {{__('lang.currentActive')}} <span style="color: #682b90">{{__('lang.jobApp')}}</span>
         </h3>
         <div class="row">
             @forelse ($userJobApplications as $jobVacancy)
@@ -73,22 +72,35 @@
                             </div>
                             <p class="card-text text-muted mb-2 fw-bold">{{ $jobVacancy->title }}</p>
                             <p class="card-text text-muted">
-                                <small>Applied on {{ $jobVacancy->created_at ?? 'Unknown Date' }}</small>
+                                <small>{{__('lang.appliedOn')}} {{ $jobVacancy->created_at ?? 'Unknown Date' }}</small>
                             </p>
-                            <div>
-                                <a href="{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}" class="btn btn-primary" style="background-color: #682b90; border-color: #682b90;">
-                                    View Job Vacancy
-                                </a>
+                            <div class="d-flex gap-2">
+                                <div>
+                                    <button
+                                        onclick="window.location.href='{{ route('user.jobDetail', ['job' => $jobVacancy->id]) }}'"
+                                        id="view-job-btn"
+                                        class="btn btn-primary"
+                                        style="background-color: #682b90; border-color: #682b90;">
+                                        {{__('lang.viewJobVac')}}
+                                    </button>
+                                </div>
+
+                                @if ($jobVacancy->status != 'rejected' && $jobVacancy->status != 'accepted' && $jobVacancy->status != 'cancelled')
+                                    <form action="{{route('job_application.destroy', $jobVacancy->application_id)}}" method="POST" class="unapply-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger unapply-btn">{{__('lang.unapply')}}</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-muted text-center">You have no active job applications.</p>
+                    <p class="text-muted text-center">{{__('lang.noActiveJob')}}</p>
                 </div>
             @endforelse
-
         </div>
 
         <div class="d-flex justify-content-center mt-4">
@@ -99,4 +111,31 @@
     <hr class="mt-5">
 
     @include('components.footer')
+@endsection
+
+@section('custom_script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".unapply-btn").forEach((button) => {
+                button.addEventListener("click", () => {
+                    Swal.fire({
+                        title: "{{__('lang.Are you sure')}} ?",
+                        text: "{{__('lang.You will not be able to revert this!')}}",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "{{__('lang.confirmButtonModal')}}",
+                        cancelButtonText: "{{__('lang.cancelButtonTextModal')}}",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            button.closest(".unapply-form").submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

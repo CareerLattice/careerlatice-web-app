@@ -27,7 +27,7 @@ class JobSeeder extends Seeder
                 'person_in_charge' => $faker->name,
                 'contact_person' => $faker->phoneNumber,
                 'is_active' => $faker->boolean,
-                'job_picture' => 'default/job_picture.jpg',
+                'job_picture' => 'default_job_picture.jpg',
                 'company_id' => $companies->random()->id,
             ]);
         }

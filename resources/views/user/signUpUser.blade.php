@@ -112,48 +112,48 @@
             <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="window.location='/'">
             <hr>
 
-            <h3 class="text-center mt-4 mb-2">JOIN US NOW</h3>
-            <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">Join us today by registering your information below and unlock exciting opportunities!</p>
+            <h3 class="text-center mt-4 mb-2">{{__('lang.joinUsNow')}}</h3>
+            <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">{{__('lang.joinToday')}}</p>
             <form class="form-custom row g-3" action="{{route('user.submitSignUpUser')}}" method="POST" onsubmit="return formValidation();">
                 @csrf
                 <div class="col-12">
                     <label for="name" class="form-label">
-                        Name
+                        {{__('lang.Name')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="col-12">
                     <label for="inputEmail" class="form-label">
-                        Email
+                        {{__('lang.email')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="email" class="form-control" id="inputEmail" name="email" required>
                 </div>
                 <div class="col-12">
                     <label for="inputPassword" class="form-label">
-                        Password
+                        {{__('lang.Password')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="password" class="form-control" id="inputPassword" name="password" required>
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">
-                        Address
+                        {{__('lang.address')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="text" class="form-control" id="inputAddress" name="address" required>
                 </div>
                 <div class="col-12">
                     <label for="inputBirthDate" class="form-label">
-                        Birth Date
+                        {{__('lang.birthDate')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="date" class="form-control" id="inputBirthDate" name="birth_date" required>
                 </div>
                 <div class="col-12">
                     <label for="phoneNumber" class="form-label">
-                        Phone Number
+                        {{__('lang.phone')}}
                         <span class="text-danger">*</span>
                     </label>
                     <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number">
@@ -169,12 +169,12 @@
                     <div class="form-check d-flex justify-content-center">
                         <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                            Agree to terms and conditions
+                            {{__('lang.agreeTerms')}}
                         </label>
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-custom">Sign Up</button>
+                    <button type="submit" class="btn btn-custom">{{__('lang.Sign Up')}}</button>
                 </div>
             </form>
         </div>

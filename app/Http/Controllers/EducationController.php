@@ -34,4 +34,30 @@ class EducationController extends Controller
         session()->put("message", "Education added successfully");
         return redirect()->back();
     }
+
+    public function update(Request $request, Education $education){
+        $request->validate([
+            'institution' => 'required|string',
+        ]);
+
+        $education->update([
+            'institution_name' => $request->institution,
+            'grade' => $request->grade,
+            'max_grade' => $request->max_grade,
+            'degree' => $request->degree,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'field_of_study' => $request->field_study,
+            'description' => $request->description,
+        ]);
+
+        session()->flash('message', 'Success Edit Education');
+        return redirect()->route('user.editProfile');
+    }
+
+    public function destroy(Request $request, Education $education){
+        $education->delete();
+        session()->flash('message', 'Success Delete Education');
+        return redirect()->back();
+    }
 }

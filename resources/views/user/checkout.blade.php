@@ -8,37 +8,37 @@
     <div class="container-fluid">
         <div class="row" style="min-height: calc(100vh - 135px);">
             <div class="col-lg-7 col-12" style="background-color: #ffffff; padding-left: 20px">
-                <h3 class="fw-bold mt-5 ms-5 text-center">Checkout & Payment</h3>
+                <h3 class="fw-bold mt-5 ms-5 text-center">{{__('lang.checkoutPayment')}}</h3>
 
                 <div class="d-flex flex-column flex-sm-row justify-content-between mt-4 ms-5">
-                    <h5 class="fw-bold mb-2 mb-sm-0">Personal Information</h5>
-                    <p class="text-muted me-3 mt-2 mt-sm-0">Please review your information carefully before proceeding!</p>
+                    <h5 class="fw-bold mb-2 mb-sm-0">{{__('lang.personalInfo')}}</h5>
+                    <p class="text-muted me-3 mt-2 mt-sm-0">{{__('lang.reviewInfo')}}</p>
                 </div>
 
                 <div class="row mt-2 ms-5">
                     <div class="col-12 col-md-4">
-                        <p class="fw-bold">Full Name</p>
+                        <p class="fw-bold">{{__('lang.fullName')}}</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->name}}</p>
                     </div>
 
                     <div class="col-12 col-md-4">
-                        <p class="fw-bold">Email Address</p>
+                        <p class="fw-bold">{{__('lang.Email Address')}}</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->email}}</p>
                     </div>
 
                     <div class="col-12 col-md-4">
-                        <p class="fw-bold">Phone Number</p>
+                        <p class="fw-bold">{{__('lang.phoneNumber')}}</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->user->phone_number}}</p>
                     </div>
 
                     <div class="col-12 col-md-4">
-                        <p class="fw-bold">Shipping Address</p>
+                        <p class="fw-bold">{{__('lang.shippingAddress')}}</p>
                     </div>
                     <div class="col-12 col-md-8">
                         <p>{{$applier->address}}</p>
@@ -48,45 +48,45 @@
                 <hr>
 
                 <div class="d-flex flex-row justify-content-between mt-4 ms-5">
-                    <h5 class="fw-bold">Terms & Conditions</h5>
-                    <p class="text-muted me-3 ms-3">Please read the full Terms and Conditions carefully before proceeding with payment.</p>
+                    <h5 class="fw-bold">{{__('lang.termsCondition')}}</h5>
+                    <p class="text-muted me-3 ms-3">{{__('lang.fullterms')}}</p>
                 </div>
 
                 <div class="ms-5 me-3">
                     <p style="text-align: justify" class="mb-2">
-                        By proceeding with the payment, you acknowledge and agree to the following terms and conditions:
+                        {{__('lang.proceedPayment')}}
                         <ul style="text-align: justify">
-                            <li><strong>No Refund Policy:</strong> All transactions are final. Once payment is processed, no refunds, cancellations, or exchanges will be accepted. Please ensure your decision before making a payment.</li>
-                            <li><strong>Payment Confirmation:</strong> You confirm that all payment information provided is accurate, and you authorize the payment to be processed accordingly.</li>
-                            <li><strong>Service Availability:</strong> We reserve the right to modify or discontinue any services or products at any time without prior notice. We will inform users as soon as possible if there is an impact on their purchase.</li>
+                            <li><strong>{{__('lang.noRefund')}}</strong>{{__('lang.finalTransaction')}}</li>
+                            <li><strong>{{__('lang.paymentConfirm')}}</strong>{{__('lang.youConfirm')}}</li>
+                            <li><strong>{{__('lang.serviceAvailability')}}</strong>{{__('lang.discontinueService')}}</li>
                         </ul>
-                        <p><strong>Important Notice:</strong> By proceeding with the payment, you confirm that you have read, understood, and agreed to the terms and conditions, including the no-refund policy.</p>
+                        <p><strong>{{__('lang.impNotice')}}</strong> {{__('lang.proceed')}}</p>
                     </p>
                 </div>
             </div>
 
             <div class="col-lg-5 shadow-sm col-12" style="background-color: #f8f9fa">
                 <div class="d-flex flex-column justify-content-center align-items-center py-5">
-                    <h3 class="fw-bold mb-2 text-center">Payment Summary</h3>
-                    <p class="text-muted mb-4 text-center mt-0">You are about to purchase the following:</p>
+                    <h3 class="fw-bold mb-2 text-center">{{__('lang.paymentSummary')}}</h3>
+                    <p class="text-muted mb-4 text-center mt-0">{{__('lang.purchaseFollowing')}}</p>
 
                     <div class="row w-100">
                         <div class="col-12 col-md-4">
-                            <p class="fw-bold">Product</p>
+                            <p class="fw-bold">{{__('lang.product')}}</p>
                         </div>
                         <div class="col-12 col-md-8">
-                            <p>{{$transaction->duration}} Months {{$transaction->name}}</p>
+                            <p>{{$transaction->duration}} {{__('lang.months')}} {{$transaction->name}}</p>
                         </div>
 
                         <div class="col-12 col-md-4">
-                            <p class="fw-bold">Premium Start Date</p>
+                            <p class="fw-bold">{{__('lang.premiumStartDate')}}</p>
                         </div>
                         <div class="col-12 col-md-8">
                             <p class="mb-2">{{$transaction->start_date}}</p>
                         </div>
 
                         <div class="col-12 col-md-4">
-                            <p class="fw-bold">Premium End Date</p>
+                            <p class="fw-bold">{{__('lang.premiumEndDate')}}</p>
                         </div>
                         <div class="col-12 col-md-8">
                             <p class="mb-2">{{$transaction->end_date}}</p>
@@ -95,14 +95,14 @@
                         <hr>
 
                         <div class="col-12 col-md-4">
-                            <p class="fw-bold">Payment Total</p>
+                            <p class="fw-bold">{{__('lang.totalPay')}}</p>
                         </div>
                         <div class="col-12 col-md-8">
                             <h3 class="mb-2">Rp {{number_format($transaction->price, 0, ',', '.')}}</h3>
                         </div>
                     </div>
 
-                    <button id="pay-button" class="btn btn-primary w-75 py-2 mt-4">Proceed to Payment</button>
+                    <button id="pay-button" class="btn btn-primary w-75 py-2 mt-4">{{__('lang.proceedPay')}}</button>
                 </div>
             </div>
 
@@ -117,7 +117,6 @@
         function pay(){
             snap.pay('{{$transaction->snap_token}}', {
                 onSuccess: async function(result){
-                    console.log('success');
                     try {
                         const response = await fetch('{{route("user.premiumSuccess")}}', {
                             method: 'POST',
@@ -130,9 +129,8 @@
                                 snap_token: '{{$transaction->snap_token}}',
                             }),
                         });
-                        console.log('success_2');
+                        window.location.href = '{{route("user.home")}}';
                     } catch (error) {
-                        console.log('Error Zz');
                         console.error('Error:', error);
                     }
                 },

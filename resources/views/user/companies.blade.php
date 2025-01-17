@@ -15,27 +15,26 @@
 
                 <div class="col-12 col-md-12 col-lg-5 mt-5 text-center text-md-start">
                     <p class="fw-bold" style="color: gray; font-size: 1.1rem;">
-                        Explore and connect with <strong>500+</strong> reputable companies
+                        {{__('lang.exploreConnect')}} <strong> {{__('lang.500+')}}</strong>  {{__('lang.reputable')}}
                     </p>
                     <h2 class="fw-bold" style="color: #682b90; font-size: calc(1.5rem + 1vw);">
-                        Discover Your <span style="color: #7869cd;">Ideal Companies</span> Here
+                        {{__('lang.discover')}} <span style="color: #7869cd;"> {{__('lang.ideal')}}</span>  {{__('lang.here')}}
                     </h2>
                     <p class="fw-semibold" style="color: gray; font-size: 1rem; line-height: 1.8; text-align: justify;">
-                        Search, explore, and connect with top companies that match your career aspirations and field of
-                        interest.
+                        {{__('lang.searchExplore')}}
                     </p>
 
                     <div class="mt-4 d-flex flex-column flex-md-row align-items-center gap-2">
                         <a href="{{route('user.editProfile')}}" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                            Update Profile
+                            {{__('lang.updateProfile')}}
                         </a>
 
                         <a href="#companies" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 1.1rem;">
-                            Explore Companies
+                            {{__('lang.exploreComp')}}
                         </a>
                     </div>
 
-                    <p class="fw-bold mt-3" style="color: gray;">Contact us for more information!</p>
+                    <p class="fw-bold mt-3" style="color: gray;"> {{__('lang.contact')}}</p>
 
                     <ul class="list-unstyled list-inline mt-2 d-flex justify-content-center justify-content-md-start gap-2">
                         <li class="list-inline-item">
@@ -74,17 +73,17 @@
         <div class="container">
             <h2 class="fw-bold text-center mt-5 mb-3"
                 style="color: #682b90; font-size: calc(1.5rem + 1vw);">
-                Search your <span style="color: #7869cd;">Dream Companies</span> here
+                {{__('lang.searchYour')}}<span style="color: #7869cd;"> {{__('lang.dreamComp')}}</span>  {{__('lang.here')}}
             </h2>
             <form class="d-flex flex-column flex-md-row mb-5 justify-content-center" role="search"
-                action="{{ route('user.searchCompany') }}" method="GET">
+                action="{{route('user.searchCompany')}}" method="GET">
                 <input style="max-width: 500px" class="form-control mb-2 mb-md-0 me-md-2" name="search">
                 <select name="filter" class="form-select form-select-sm mb-2 mb-md-0 me-md-2"
                     style="border-color: var(--bs-primary); width: 150px;" onchange="updatePlaceholder()">
-                    <option value="name">Company Name</option>
-                    <option value="field">Field</option>
+                    <option value="name"> {{__('lang.companyName')}}</option>
+                    <option value="field"> {{__('lang.field')}}</option>
                 </select>
-                <button class="btn btn-outline-success mb-2 mb-md-0" type="submit">Search</button>
+                <button class="btn btn-outline-success mb-2 mb-md-0" type="submit"> {{__('lang.search')}}</button>
 
                 @if ($errors->any())
                     <div class="alert alert-danger mt-3 text-center mx-auto" style="width: 40%;">
@@ -94,33 +93,50 @@
         </div>
 
         <div class="row">
+            @php
+                $contents = collect(Storage::disk('google')->listContents('/', true));
+            @endphp
+
             @forelse ($companies as $company)
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="company-card"
-                        style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; height: 100%;">
-                        <img src="{{Storage::url($company->company_image)}}" alt="Company Logo"
-                            style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
-                        <div class="company-details text-center">
-                            <h5 class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #333;">
-                                {{$company->user_name}}</h5>
-                            <p style="color: grey; font-size: 0.9rem;">{{ $company->address }}</p>
+                    <div class="d-flex flex-column bg-light" style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                        <div class="text-center">
+                            @if($company->company_image != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                                @php
+                                    $file = $contents->firstWhere('path', $company->company_image);
+                                    $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                                @endphp
+
+                                <img src="{{$photo_url}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
+                            @else
+                                <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Company Logo" style="width: 100px; height: 100px; margin-bottom: 15px; border-radius: 50%;">
+                            @endif
                         </div>
-                        <div class="company-info-section" style="margin-top: 15px; text-align: justify;">
-                            <p class="fw-bold mb-0">Description</p>
+
+                        <div class="company-details text-center">
+                            <h5 class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #333;">{{$company->user_name}}</h5>
+                            <p style="color: grey; font-size: 0.9rem;">{{$company->address}}</p>
+                        </div>
+
+                        <div class="mt-2" style="text-align: justify">
+                            <p class="fw-bold mb-0"> {{__('lang.description')}}</p>
                             <p class="text-muted mt-0" style="height: 50px; overflow: hidden; text-overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">
-                                {{ $company->description }}...</p>
-                            <p class="fw-bold mb-0">Field</p>
+                                {{$company->description}}...</p>
+
+                            <p class="fw-bold mb-0"> {{__('lang.field')}}</p>
                             <p class="text-muted mt-0">{{ $company->field }}</p>
                         </div>
-                        <a href="{{ route('user.company', ['company_id' => $company->id]) }}"
-                            style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1rem; transition: all 0.3s ease-in-out; text-decoration: none;">
-                            Visit Company</a>
+
+                        <a href="{{route('user.company', ['company_id' => $company->id])}}" class="bg-primary text-center mt-3 fw-bold text-light text-decoration-none border-0"
+                            style="padding: 10px 20px; border-radius: 5px; font-size: 1rem; transition: all 0.3s ease-in-out;">
+                            {{__('lang.Visit Company')}}
+                        </a>
                     </div>
                 </div>
             @empty
                 <div class="col-10">
                     <div class="alert alert-info text-center" role="alert">
-                        No companies found.
+                        {{__('lang.noComp')}}
                     </div>
                 </div>
             @endforelse
@@ -146,10 +162,10 @@
             filterGroup.addEventListener('change', function () {
                 switch (filterGroup.value) {
                     case 'name':
-                        searchInput.placeholder = 'Search by Company Name';
+                        searchInput.placeholder = '{{__('lang.Search by Company Name')}}';
                         break;
                     case 'field':
-                        searchInput.placeholder = 'Search by Field';
+                        searchInput.placeholder = '{{__('lang.Search by Field')}}';
                         break;
                     default:
                         searchInput.placeholder = 'Search';
@@ -157,7 +173,7 @@
                 }
             });
 
-            searchInput.placeholder = filterGroup.value === 'name' ? 'Search by Company Name' : 'Search by Field';
+            searchInput.placeholder = filterGroup.value === 'name' ? '{{__('lang.Search by Company Name')}}' : '{{__('lang.Search by Field')}}';
         });
     </script>
 @endsection

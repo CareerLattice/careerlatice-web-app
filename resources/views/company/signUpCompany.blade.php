@@ -128,39 +128,39 @@
             <img src="{{ asset('assets/CareerLatice.jpg') }}" class="logo-img img hoverable" alt="CareerLatice" onclick="window.location='/'">
             <hr>
 
-            <h3 class="text-center mt-4 mb-2">{{__('company/signUpCompany.title')}}</h3>
-            <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">{{__('company/signUpCompany.caption')}}</p>
+            <h3 class="text-center mt-4 mb-2">{{__('lang.titleSignUpCompany')}}</h3>
+            <p class="text-center text-muted mb-0" style="font-size: 0.9rem;">{{__('lang.captionSignUpCompany')}}</p>
             <form class="form-custom row g-3" action="{{route('company.submitSignUpCompany')}}" method="POST">
                 @csrf
                 <div class="col-12">
-                    <label for="name" class="form-label">{{__('company/signUpCompany.companyName')}} <span class="text-danger">*</span></label>
+                    <label for="name" class="form-label">{{__('lang.companyNameSignUpCompany')}} <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="col-12">
-                    <label for="inputEmail" class="form-label">{{__('company/signUpCompany.email')}} <span class="text-danger">*</span></label>
+                    <label for="inputEmail" class="form-label">{{__('lang.emailSignUpCompany')}} <span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="inputEmail" name="email" required>
                 </div>
                 <div class="col-12">
-                    <label for="inputPassword" class="form-label">{{__('company/signUpCompany.password')}} <span class="text-danger">*</span></label>
+                    <label for="inputPassword" class="form-label">{{__('lang.Password')}} <span class="text-danger">*</span></label>
                     <input type="password" class="form-control" id="inputPassword" name="password" required>
                 </div>
                 <div class="col-12">
-                    <label for="inputAddress" class="form-label">{{__('company/signUpCompany.address')}} <span class="text-danger">*</span></label>
+                    <label for="inputAddress" class="form-label">{{__('lang.addressSignUpCompany')}} <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="inputAddress" name="address" required>
                 </div>
                 <div class="col-12">
-                    <label for="phoneNumber" class="form-label">{{__('company/signUpCompany.phoneNumber')}} <span class="text-danger">*</span></label>
+                    <label for="phoneNumber" class="form-label">{{__('lang.phoneNumberSignUpCompany')}} <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="phoneNumber" placeholder="+62 XXX XXXX" name="phone_number" required>
                 </div>
                 <div class="col-12">
-                    <label for="companyField" class="form-label">{{__('company/signUpCompany.companyField')}} <span class="text-danger">*</span></label>
+                    <label for="companyField" class="form-label">{{__('lang.companyFieldSignUpCompany')}} <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="companyField" placeholder="Field" name="field" required>
                 </div>
                 <div class="col-12 text-center">
                     <div class="form-check d-flex justify-content-center">
                         <input class="form-check-input me-2" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                            {{__('company/signUpCompany.agree')}}
+                            {{__('lang.agreeSignUpCompany')}}
                         </label>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                     </div>
                 @endif
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-custom">{{__('company/signUpCompany.signUp')}}</button>
+                    <button type="submit" class="btn btn-custom">{{__('lang.Sign Up')}}</button>
                 </div>
             </form>
         </div>
