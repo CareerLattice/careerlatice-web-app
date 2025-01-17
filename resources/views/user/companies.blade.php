@@ -101,7 +101,7 @@
                 <div class="col-10 col-sm-6 col-md-6 col-lg-4 mt-3">
                     <div class="d-flex flex-column bg-light" style="border: 1px solid #ddd; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
                         <div class="text-center">
-                            @if($company->company_image != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                            @if($company->company_image != null && Storage::disk('google')->exists($company->company_image))
                                 @php
                                     $file = $contents->firstWhere('path', $company->company_image);
                                     $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
