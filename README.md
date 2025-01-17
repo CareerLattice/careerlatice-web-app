@@ -55,4 +55,21 @@ Visit Career-Lattice ERD at https://drawsql.app/teams/sen-2/diagrams/career-latt
 
 Get to know Career-Lattice at https://www.canva.com/design/DAGYVHCjbnM/5D-gxy2WxLfUBzJW1Sy0HQ/edit
 
+# Check Inside Career-Lattice
+
+Visit as Applier
+```
+email: maimunah60@safitri.biz.id
+password: 12345678
+```
+Visit as Company 
+```
+email: kamila72@mandasari.mil.id
+password: 12345678
+```
+Visit as Admin
+```
+pertiwi.dewi@yahoo.com
+password: 12345678
+```
 
