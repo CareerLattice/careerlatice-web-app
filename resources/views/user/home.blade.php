@@ -22,6 +22,10 @@
 @endsection
 
 @section('content')
+    @php
+       $contents = collect(Storage::disk('google')->listContents('/', true));
+    @endphp
+
     @include('components.navbar')
 
     @if (Auth::user()->role == 'applier')
@@ -79,7 +83,6 @@
                     <div class="col-12 col-md-3 mb-2 d-flex justify-content-center">
                         @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
                             @php
-                                $contents = collect(Storage::disk('google')->listContents('/', true));
                                 $file = $contents->firstWhere('path', Auth::user()->profile_picture);
                                 $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
                             @endphp

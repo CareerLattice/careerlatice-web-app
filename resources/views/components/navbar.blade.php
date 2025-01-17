@@ -228,6 +228,7 @@
                                                 $file = $contents->firstWhere('path', Auth::user()->profile_picture);
                                                 $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
                                             @endphp
+
                                             <img src="{{$photo_url}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">
                                         @else
                                             <img src="{{asset('assets/default_profile_picture.jpg')}}" class="rounded-circle object-fit-fill" alt="Photo Profile" width="50px;" height="50px;">

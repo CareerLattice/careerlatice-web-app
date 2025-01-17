@@ -75,6 +75,11 @@
 
 @section('content')
     @include('components.navbar')
+
+    @php
+        $contents = collect(Storage::disk('google')->listContents('/', true));
+    @endphp
+
     <div class="container mt-5">
         <a href="{{route('company.listJob')}}" class="text-primary text-decoration-none mb-4 d-inline-block">
             <i class="bi bi-arrow-left-circle"></i> {{__('lang.backCompanyJob')}}
@@ -86,10 +91,10 @@
                     <div class="row justify-content-center align-items-center text-center text-md-start">
                         <div class="col-10 col-md-3 d-flex justify-content-center align-items-center">
                             @php
-                                $contents = collect(Storage::disk('google')->listContents('/', true));
                                 $file = $contents->firstWhere('path', $job->job_picture);
                                 $job_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_job_picture.jpg');
                             @endphp
+
                             <img src="{{$job_url}}" alt="Company Logo" class="company-logo mb-3 mt-2" >
                         </div>
 

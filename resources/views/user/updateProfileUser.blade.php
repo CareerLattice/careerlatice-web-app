@@ -12,6 +12,10 @@
 @endsection
 
 @section('content')
+    @php
+        $contents = collect(Storage::disk('google')->listContents('/', true));
+    @endphp
+
     @include('components.navbar')
     <div class="container py-5">
         <div class="row">
@@ -88,10 +92,6 @@
 
                         <!-- Professional Experience Tab -->
                         <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
-                            @php
-                                $contents = collect(Storage::disk('google')->listContents('/', true));
-                            @endphp
-
                             @forelse ($applier->experiences as $experience)
                                 <div class="d-md-flex align-items-center mb-2">
                                     <div class="col-12 col-md-7 ms-3">
@@ -149,7 +149,6 @@
                             <div class="card shadow-sm p-4" style="border-radius: 10px; background-color: #f8f9fa;">
                                 <div class="d-flex justify-content-center mb-3">
                                     @php
-                                        $contents = collect(Storage::disk('google')->listContents('/', true));
                                         $file = $contents->firstWhere('path', Auth::user()->profile_picture);
                                         $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
                                     @endphp

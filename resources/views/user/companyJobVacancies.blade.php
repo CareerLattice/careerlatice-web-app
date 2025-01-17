@@ -98,6 +98,7 @@
                 @php
                     $contents = collect(Storage::disk('google')->listContents('/', true));
                 @endphp
+
                 @forelse ($jobs as $job)
                     <div class="row mb-4">
                         <div class="col-10 col-md-5 col-lg-3">
