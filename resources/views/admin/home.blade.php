@@ -136,11 +136,11 @@
                         <tbody class="table-group-divider">
                             @forelse ($listPremium as $premiumApplier)
                                 <tr style="cursor: pointer">
-                                    <th scope="row" onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$listPremium->firstItem() + $loop->index}}</th>
-                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->name}}</td>
-                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{number_format($premiumApplier->price)}}</td>
-                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->start_date}}</td>
-                                    <td onclick="window.location='{{route('company.viewApplicants', ['applier' => $premiumApplier->applier_id])}}'">{{$premiumApplier->end_date}}</td>
+                                    <th scope="row">{{$listPremium->firstItem() + $loop->index}}</th>
+                                    <td>{{$premiumApplier->name}}</td>
+                                    <td>{{number_format($premiumApplier->price)}}</td>
+                                    <td>{{$premiumApplier->start_date}}</td>
+                                    <td>{{$premiumApplier->end_date}}</td>
                                 </tr>
                             @empty
                                 <tr>
