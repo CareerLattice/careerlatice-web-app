@@ -560,5 +560,7 @@ return [
     'No changes were made' => 'No changes were made',
     'There was an error updating the status' => 'There was an error updating the status',
     'The application status has been updated to' => 'The application status has been updated to',
+    'Your profile' => 'Your profile',
+    'Applier Profile' => 'Applier Profile',
 ];
 ?>

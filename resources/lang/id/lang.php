@@ -560,5 +560,7 @@ return [
     'No changes were made' => 'Tidak ada perubahan yang dilakukan',
     'There was an error updating the status' => 'Ada kesalahan saat memperbarui status',
     'The application status has been updated to' => 'Status lamaran telah diperbarui menjadi',
+    'Your profile' => 'Profil Anda',
+    'Applier Profile' => 'Profil Pelamar',
 ];
 ?>

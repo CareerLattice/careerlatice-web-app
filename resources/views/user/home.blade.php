@@ -76,20 +76,41 @@
     @endif
 
     <div class="container mt-4">
-        <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">{{__('lang.your')}} <span style="color: #682b90">{{__('lang.profile')}}</span></h3>
+        <h3 class="container-title mb-4" style="font-size: 1.8rem; color: #192A51; font-weight: 700;">
+            @if (Auth::user()->role == 'applier')
+                {{__('lang.Your profile')}}
+            @else
+                {{__('lang.Applier Profile')}}
+            @endif
+        </h3>
+
         <div class="card">
             <div class="card-body">
                 <div class="d-md-flex align-items-center mb-4">
                     <div class="col-12 col-md-3 mb-2 d-flex justify-content-center">
-                        @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
-                            @php
-                                $file = $contents->firstWhere('path', Auth::user()->profile_picture);
-                                $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
-                            @endphp
+                        @if (Auth::user()->role == 'applier')
+                            @if (Auth::user()->profile_picture != null && Storage::disk('google')->exists(Auth::user()->profile_picture))
+                                @php
+                                    $file = $contents->firstWhere('path', Auth::user()->profile_picture);
+                                    $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                                @endphp
 
-                            <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 2px solid #000000;">
-                        @else
-                            <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                                <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 2px solid #000000;">
+                            @else
+                                <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                            @endif
+
+                        @elseif(Auth::user()->role == 'company')
+                            @if ($applier->user->profile_picture != null && Storage::disk('google')->exists($applier->user->profile_picture))
+                                @php
+                                    $file = $contents->firstWhere('path', $applier->user->profile_picture);
+                                    $photo_url = $file ? "https://drive.google.com/thumbnail?id={$file['extraMetadata']['id']}" : asset('assets/default_profile_picture.jpg');
+                                @endphp
+
+                                <img src="{{$photo_url}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 2px solid #000000;">
+                            @else
+                                <img src="{{asset('assets/default_profile_picture.jpg')}}" alt="Profile Image" class="profile-image" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%;">
+                            @endif
                         @endif
                     </div>
 
