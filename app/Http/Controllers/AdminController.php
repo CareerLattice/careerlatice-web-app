@@ -28,8 +28,7 @@ class AdminController extends Controller
             ->select('users.name', 'user_histories.price', 'appliers.id as applier_id',
             DB::raw("DATE_FORMAT(user_histories.start_date, '%d %M %Y') as start_date"),
             DB::raw("DATE_FORMAT(user_histories.end_date, '%d %M %Y') as end_date"))
-            ->where('user_histories.status', 'success')
-            ->orderBy('user_histories.start_date', 'desc');
+            ->where('user_histories.status', 'success');
 
         $startPremium = $request->get('start_premium');
         $endPremium = $request->get('end_premium');
