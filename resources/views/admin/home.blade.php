@@ -126,17 +126,56 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col" class="text-center">No</th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Name')}}</a></th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Revenue')}}</a></th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Start')}}</a></th>
-                                <th scope="col" class="text-center"><a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.End')}}</a></th>
+                                <th scope="col" class="text-center">
+                                    <a href="{{route('admin.home', ['sort' => 'users.name', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Name')}}</a>
+                                    @if(request('sort') == 'users.name')
+                                        @if(request('order') == 'asc')
+                                            <i class="bi bi-arrow-down-short"></i>
+                                        @else
+                                            <i class="bi bi-arrow-up-short"></i>
+                                        @endif
+                                    @endif
+                                </th>
+
+                                <th scope="col" class="text-center">
+                                    <a href="{{route('admin.home', ['sort' => 'user_histories.price', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Revenue')}}</a>
+                                    @if(request('sort') == 'user_histories.price')
+                                        @if(request('order') == 'asc')
+                                            <i class="bi bi-arrow-up-short"></i>
+                                        @else
+                                            <i class="bi bi-arrow-down-short"></i>
+                                        @endif
+                                    @endif
+                                </th>
+
+                                <th scope="col" class="text-center">
+                                    <a href="{{route('admin.home', ['sort' => 'user_histories.start_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.Start')}}</a>
+                                    @if(request('sort') == 'user_histories.start_date')
+                                        @if(request('order') == 'asc')
+                                            <i class="bi bi-arrow-up-short"></i>
+                                        @else
+                                            <i class="bi bi-arrow-down-short"></i>
+                                        @endif
+                                    @endif
+                                </th>
+
+                                <th scope="col" class="text-center">
+                                    <a href="{{route('admin.home', ['sort' => 'user_histories.end_date', 'order' => $order == 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.End')}}</a>
+                                    @if(request('sort') == 'user_histories.end_date')
+                                        @if(request('order') == 'asc')
+                                            <i class="bi bi-arrow-up-short"></i>
+                                        @else
+                                            <i class="bi bi-arrow-down-short"></i>
+                                        @endif
+                                    @endif
+                                </th>
                             </tr>
                         </thead>
 
                         <tbody class="table-group-divider">
                             @forelse ($listPremium as $premiumApplier)
                                 <tr style="cursor: pointer">
-                                    <th scope="row">{{$listPremium->firstItem() + $loop->index}}</th>
+                                    <th scope="row" class="text-center">{{$listPremium->firstItem() + $loop->index}}</th>
                                     <td>{{$premiumApplier->name}}</td>
                                     <td>{{number_format($premiumApplier->price)}}</td>
                                     <td>{{$premiumApplier->start_date}}</td>
