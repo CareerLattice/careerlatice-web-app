@@ -207,9 +207,9 @@
                             <a href="{{route('company.job', ['job' => $job->id, 'sort' => 'job_applications.created_at', 'order' => $order === 'asc' ? 'desc' : 'asc'])}}" class="text-decoration-none text-light">{{__('lang.appliedAtCompanyJob')}}
                                 @if(request('sort') == 'job_applications.created_at')
                                     @if(request('order') == 'asc')
-                                        <i class="bi bi-arrow-down-short"></i>
-                                    @else
                                         <i class="bi bi-arrow-up-short"></i>
+                                    @else
+                                        <i class="bi bi-arrow-down-short"></i>
                                     @endif
                                 @endif
                             </a>
@@ -430,11 +430,11 @@
 
         function toggleDropdown() {
             var dropdownMenu = document.getElementById('dropdownMenu');
-            
+
             if (dropdownMenu.style.display === "block") {
                 dropdownMenu.style.display = "none";
             } else {
-                dropdownMenu.style.display = "block"; 
+                dropdownMenu.style.display = "block";
             }
         }
 

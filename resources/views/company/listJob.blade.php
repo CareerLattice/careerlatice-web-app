@@ -177,6 +177,8 @@
                     {{__('lang.noJobListingListJob')}}
                 </div>
             @endforelse
+
+            <div class="d-flex justify-content-center">{{$jobs->links()}}</div>
         </div>
     </div>
 
@@ -184,7 +186,6 @@
 @endsection
 
 @section('custom_script')
-
     <script>
         function toggleDropdown() {
             var dropdownMenu = document.getElementById('dropdownMenu');

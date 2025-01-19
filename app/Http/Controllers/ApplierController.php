@@ -170,7 +170,10 @@ class ApplierController extends Controller
 
     public function viewPremiumHistory(){
         $applier = Auth::user()->applier;
-        $history = UserHistory::where('applier_id', $applier->id)->orderBy('end_date', 'desc')->paginate(10);
+        $history = UserHistory::where('applier_id', $applier->id)
+            ->orderBy('end_date', 'desc')
+            ->paginate(10)
+            ->withQueryString();
         return view('user.premiumHistory', compact('history'));
     }
 }

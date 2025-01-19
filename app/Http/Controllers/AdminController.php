@@ -50,7 +50,7 @@ class AdminController extends Controller
             $listPremium = $order === 'desc' ? $listPremium->orderByDesc($sort) : $listPremium->orderBy($sort);
         }
 
-        $listPremium = $listPremium->paginate(5);
+        $listPremium = $listPremium->paginate(5)->withQueryString();
         return view('admin.home', compact('totalApplier', 'totalCompany', 'totalRevenue', 'monthRevenue', 'listPremium', 'order', 'sort'));
     }
 

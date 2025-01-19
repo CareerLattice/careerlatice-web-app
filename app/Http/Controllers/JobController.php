@@ -131,7 +131,8 @@ class JobController extends Controller
         }
 
         $applicants = $applicants->orderBy('appliers.end_date_premium','desc')
-        ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         return view('company.job', compact('job', 'applicants', 'sort', 'order'));
     }
@@ -161,7 +162,7 @@ class JobController extends Controller
             $applicants = $applicants->orderBy($sort, $order);
         }
 
-        $applicants = $applicants->paginate(10);
+        $applicants = $applicants->paginate(10)->withQueryString();
 
         return view('company.job', compact('job', 'applicants', 'sort','order'));
     }
@@ -169,7 +170,7 @@ class JobController extends Controller
     // Company can view all job vacancies they create
     public function getJobs(){
         $company = Auth::user()->company;
-        $jobs = $company->jobs()->paginate(20)->withQueryString();
+        $jobs = $company->jobs()->paginate(10)->withQueryString();
         return view('company.listJob', compact('jobs'));
     }
 
@@ -197,7 +198,7 @@ class JobController extends Controller
             $query = $query->whereIn('is_active', $req->is_active);
         }
 
-        $jobs = $query->paginate(20)->withQueryString();
+        $jobs = $query->paginate(10)->withQueryString();
 
         return view('company.listJob', compact('jobs'));
     }
@@ -266,7 +267,7 @@ class JobController extends Controller
         return view('user.companyJobVacancies', compact('jobs', 'company'));
     }
 
-    // Return all job vacancies with pagination 20 per page
+    // Return all job vacancies with pagination 10 per page
     public function index(){
         $jobs = DB::table('job_vacancies')
             ->select(
@@ -284,7 +285,8 @@ class JobController extends Controller
             ->join('companies', 'job_vacancies.company_id', '=', 'companies.id')
             ->join('users', 'companies.user_id', '=', 'users.id')
             ->where('job_vacancies.is_active', true)
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         return view('user.jobs', compact('jobs'));
     }

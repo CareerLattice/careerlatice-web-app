@@ -42,7 +42,8 @@ class JobApplicationController extends Controller
                 END,
                 job_applications.created_at DESC
             ")
-            ->paginate(6);
+            ->paginate(6)
+            ->withQueryString();
 
         return view('user.userJobVacancies', compact('userJobApplications'));
     }

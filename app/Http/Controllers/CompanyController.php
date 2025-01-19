@@ -139,7 +139,8 @@ class CompanyController extends Controller
         $companies = DB::table('companies')
             ->join('users', 'companies.user_id', '=', 'users.id')
             ->select('companies.*', 'users.name as user_name', 'users.profile_picture as company_image')
-            ->paginate(20);
+            ->paginate(10)
+            ->withQueryString();
         return view('user.companies', compact('companies'));
     }
 
@@ -167,7 +168,7 @@ class CompanyController extends Controller
             $companiesQuery->where($request->filter, 'like', '%' . $request->search . '%');
         }
 
-        $companies = $companiesQuery->paginate(12)->withQueryString();
+        $companies = $companiesQuery->paginate(10)->withQueryString();
         return view('user.companies', compact('companies'));
     }
 

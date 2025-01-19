@@ -144,7 +144,7 @@
 
         <div class="row mb-5 mt-3 d-flex justify-content-center">
             <div class="col-12 d-flex justify-content-center">
-                {{ $companies->links() }}
+                {{$companies->links()}}
             </div>
         </div>
     </div>
